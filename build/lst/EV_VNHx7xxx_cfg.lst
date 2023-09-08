@@ -1,0 +1,3779 @@
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 1
+
+
+   1              		.file	"EV_VNHx7xxx_cfg.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.globl valueVNH
+   6              		.section	.bss.valueVNH,"aw",@nobits
+   7              		.align 2
+   8              		.type	valueVNH, @object
+   9              		.size	valueVNH, 4
+  10              	valueVNH:
+  11 0000 00000000 		.zero	4
+  12              		.globl value
+  13              		.section	.bss.value,"aw",@nobits
+  14              		.align 1
+  15              		.type	value, @object
+  16              		.size	value, 2
+  17              	value:
+  18 0000 0000     		.zero	2
+  19              		.globl EV_VNH_MULTISENSE_BOOL
+  20              		.section	.rodata.EV_VNH_MULTISENSE_BOOL,"a",@progbits
+  21              		.align 2
+  22              		.type	EV_VNH_MULTISENSE_BOOL, @object
+  23              		.size	EV_VNH_MULTISENSE_BOOL, 8
+  24              	EV_VNH_MULTISENSE_BOOL:
+  25 0000 00000000 		.zero	8
+  25      00000000 
+  26              		.globl EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT
+  27              		.section	.rodata.EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT,"a",@progbits
+  28              		.align 2
+  29              		.type	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT, @object
+  30              		.size	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT, 4
+  31              	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT:
+  32 0000 00000004 		.long	4
+  33              		.globl EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT
+  34              		.section	.rodata.EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT,"a",@progbits
+  35              		.align 2
+  36              		.type	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT, @object
+  37              		.size	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT, 4
+  38              	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT:
+  39 0000 00000002 		.long	2
+  40              		.globl EV_VNH_ARRAY_SEL_TOT_GPIO_PORT
+  41              		.section	.data.EV_VNH_ARRAY_SEL_TOT_GPIO_PORT,"aw",@progbits
+  42              		.align 2
+  43              		.type	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT, @object
+  44              		.size	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT, 8
+  45              	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT:
+  46 0000 00000000 		.long	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT
+  47 0004 00000000 		.long	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT
+  48              		.globl EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER
+  49              		.section	.rodata.EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER,"a",@progbits
+  50              		.align 2
+  51              		.type	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER, @object
+  52              		.size	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER, 4
+  53              	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER:
+  54 0000 0000000A 		.long	10
+  55              		.globl EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER
+  56              		.section	.rodata.EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER,"a",@progbits
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 2
+
+
+  57              		.align 2
+  58              		.type	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER, @object
+  59              		.size	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER, 4
+  60              	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER:
+  61 0000 00000001 		.long	1
+  62              		.globl EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER
+  63              		.section	.data.EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER,"aw",@progbits
+  64              		.align 2
+  65              		.type	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER, @object
+  66              		.size	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER, 8
+  67              	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER:
+  68 0000 00000000 		.long	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER
+  69 0004 00000000 		.long	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER
+  70              		.globl EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT
+  71              		.section	.rodata.EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT,"a",@progbits
+  72              		.align 2
+  73              		.type	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT, @object
+  74              		.size	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT, 8
+  75              	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT:
+  76 0000 00000003 		.long	3
+  77 0004 00000004 		.long	4
+  78              		.globl EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT
+  79              		.section	.rodata.EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT,"a",@progbits
+  80              		.align 2
+  81              		.type	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT, @object
+  82              		.size	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT, 8
+  83              	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT:
+  84 0000 00000000 		.zero	8
+  84      00000000 
+  85              		.globl EV_VNH_ARRAY_IN_TOT_GPIO_PORT
+  86              		.section	.data.EV_VNH_ARRAY_IN_TOT_GPIO_PORT,"aw",@progbits
+  87              		.align 2
+  88              		.type	EV_VNH_ARRAY_IN_TOT_GPIO_PORT, @object
+  89              		.size	EV_VNH_ARRAY_IN_TOT_GPIO_PORT, 8
+  90              	EV_VNH_ARRAY_IN_TOT_GPIO_PORT:
+  91 0000 00000000 		.long	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT
+  92 0004 00000000 		.long	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT
+  93              		.globl EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER
+  94              		.section	.rodata.EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER,"a",@progbits
+  95              		.align 2
+  96              		.type	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER, @object
+  97              		.size	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER, 8
+  98              	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER:
+  99 0000 0000000F 		.long	15
+ 100 0004 0000000B 		.long	11
+ 101              		.globl EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER
+ 102              		.section	.rodata.EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER,"a",@progbits
+ 103              		.align 2
+ 104              		.type	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER, @object
+ 105              		.size	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER, 8
+ 106              	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER:
+ 107 0000 0000000A 		.long	10
+ 108 0004 0000000B 		.long	11
+ 109              		.globl EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER
+ 110              		.section	.data.EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER,"aw",@progbits
+ 111              		.align 2
+ 112              		.type	EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER, @object
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 3
+
+
+ 113              		.size	EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER, 8
+ 114              	EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER:
+ 115 0000 00000000 		.long	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER
+ 116 0004 00000000 		.long	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER
+ 117              		.globl EV_VNH_IN_NUMBER_VALUE
+ 118              		.section	.rodata.EV_VNH_IN_NUMBER_VALUE,"a",@progbits
+ 119              		.align 2
+ 120              		.type	EV_VNH_IN_NUMBER_VALUE, @object
+ 121              		.size	EV_VNH_IN_NUMBER_VALUE, 8
+ 122              	EV_VNH_IN_NUMBER_VALUE:
+ 123 0000 00000002 		.long	2
+ 124 0004 00000002 		.long	2
+ 125              		.globl EV_VNH_SEL_NUMBER_VALUE
+ 126              		.section	.rodata.EV_VNH_SEL_NUMBER_VALUE,"a",@progbits
+ 127              		.align 2
+ 128              		.type	EV_VNH_SEL_NUMBER_VALUE, @object
+ 129              		.size	EV_VNH_SEL_NUMBER_VALUE, 8
+ 130              	EV_VNH_SEL_NUMBER_VALUE:
+ 131 0000 00000001 		.long	1
+ 132 0004 00000001 		.long	1
+ 133              		.globl EV_VNH_ARRAY_PWM
+ 134              		.section	.data.EV_VNH_ARRAY_PWM,"aw",@progbits
+ 135              		.align 2
+ 136              		.type	EV_VNH_ARRAY_PWM, @object
+ 137              		.size	EV_VNH_ARRAY_PWM, 8
+ 138              	EV_VNH_ARRAY_PWM:
+ 139 0000 00000000 		.long	PWMD9
+ 140 0004 00000000 		.long	PWMD11
+ 141              		.globl PWMCHANNELS
+ 142              		.section	.rodata.PWMCHANNELS,"a",@progbits
+ 143              		.align 2
+ 144              		.type	PWMCHANNELS, @object
+ 145              		.size	PWMCHANNELS, 8
+ 146              	PWMCHANNELS:
+ 147 0000 00000005 		.long	5
+ 148 0004 00000003 		.long	3
+ 149              		.globl EV_VNH_ARRAY_PWM_CONFIGURATION
+ 150              		.section	.data.EV_VNH_ARRAY_PWM_CONFIGURATION,"aw",@progbits
+ 151              		.align 2
+ 152              		.type	EV_VNH_ARRAY_PWM_CONFIGURATION, @object
+ 153              		.size	EV_VNH_ARRAY_PWM_CONFIGURATION, 8
+ 154              	EV_VNH_ARRAY_PWM_CONFIGURATION:
+ 155 0000 00000000 		.long	pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14
+ 156 0004 00000000 		.long	pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28
+ 157              		.globl EV_VNH_ARRAY_PWM_GPIO_PORT
+ 158              		.section	.rodata.EV_VNH_ARRAY_PWM_GPIO_PORT,"a",@progbits
+ 159              		.align 2
+ 160              		.type	EV_VNH_ARRAY_PWM_GPIO_PORT, @object
+ 161              		.size	EV_VNH_ARRAY_PWM_GPIO_PORT, 8
+ 162              	EV_VNH_ARRAY_PWM_GPIO_PORT:
+ 163 0000 00000003 		.long	3
+ 164 0004 00000002 		.long	2
+ 165              		.globl EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER
+ 166              		.section	.rodata.EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER,"a",@progbits
+ 167              		.align 2
+ 168              		.type	EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER, @object
+ 169              		.size	EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER, 8
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 4
+
+
+ 170              	EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER:
+ 171 0000 0000000C 		.long	12
+ 172 0004 0000000D 		.long	13
+ 173              		.section	".text","axv"
+ 174              	.Letext0:
+ 175              		.file 1 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 176              		.file 2 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 177              		.file 3 "./components/spc582bxx_platform_component_rla/lib/include/typedefs.h"
+ 178              		.file 4 "./components/spc582bxx_low_level_drivers_component_rla/lib/include/spc5_emios.h"
+ 179              		.file 5 "./components/spc582bxx_low_level_drivers_component_rla/lib/include/pwm_lld.h"
+ 180              		.file 6 "./components/spc582bxx_low_level_drivers_component_rla/cfg/pwm_lld_cfg.h"
+ 181              		.file 7 "./components/aek_ev_vnhx7xxx_component_rla/cfg/EV_VNHx7xxx_cfg.c"
+ 182              		.section	.debug_info,"",@progbits
+ 183              	.Ldebug_info0:
+ 184 0000 000010D3 		.4byte	0x10d3
+ 185 0004 0002     		.2byte	0x2
+ 186 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 187 000a 04       		.byte	0x4
+ 188 000b 01       		.uleb128 0x1
+ 189 000c 00000000 		.4byte	.LASF146
+ 190 0010 01       		.byte	0x1
+ 191 0011 00000000 		.4byte	.LASF147
+ 192 0015 00000000 		.4byte	.LASF148
+ 193 0019 00000000 		.4byte	.Ldebug_line0
+ 194 001d 02       		.uleb128 0x2
+ 195 001e 01       		.byte	0x1
+ 196 001f 06       		.byte	0x6
+ 197 0020 00000000 		.4byte	.LASF0
+ 198 0024 03       		.uleb128 0x3
+ 199 0025 00000000 		.4byte	.LASF3
+ 200 0029 01       		.byte	0x1
+ 201 002a 1D       		.byte	0x1d
+ 202 002b 0000002F 		.4byte	0x2f
+ 203 002f 02       		.uleb128 0x2
+ 204 0030 01       		.byte	0x1
+ 205 0031 08       		.byte	0x8
+ 206 0032 00000000 		.4byte	.LASF1
+ 207 0036 02       		.uleb128 0x2
+ 208 0037 02       		.byte	0x2
+ 209 0038 05       		.byte	0x5
+ 210 0039 00000000 		.4byte	.LASF2
+ 211 003d 03       		.uleb128 0x3
+ 212 003e 00000000 		.4byte	.LASF4
+ 213 0042 01       		.byte	0x1
+ 214 0043 2B       		.byte	0x2b
+ 215 0044 00000048 		.4byte	0x48
+ 216 0048 02       		.uleb128 0x2
+ 217 0049 02       		.byte	0x2
+ 218 004a 07       		.byte	0x7
+ 219 004b 00000000 		.4byte	.LASF5
+ 220 004f 02       		.uleb128 0x2
+ 221 0050 04       		.byte	0x4
+ 222 0051 05       		.byte	0x5
+ 223 0052 00000000 		.4byte	.LASF6
+ 224 0056 03       		.uleb128 0x3
+ 225 0057 00000000 		.4byte	.LASF7
+ 226 005b 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 5
+
+
+ 227 005c 41       		.byte	0x41
+ 228 005d 00000061 		.4byte	0x61
+ 229 0061 02       		.uleb128 0x2
+ 230 0062 04       		.byte	0x4
+ 231 0063 07       		.byte	0x7
+ 232 0064 00000000 		.4byte	.LASF8
+ 233 0068 02       		.uleb128 0x2
+ 234 0069 08       		.byte	0x8
+ 235 006a 05       		.byte	0x5
+ 236 006b 00000000 		.4byte	.LASF9
+ 237 006f 02       		.uleb128 0x2
+ 238 0070 08       		.byte	0x8
+ 239 0071 07       		.byte	0x7
+ 240 0072 00000000 		.4byte	.LASF10
+ 241 0076 04       		.uleb128 0x4
+ 242 0077 04       		.byte	0x4
+ 243 0078 05       		.byte	0x5
+ 244 0079 696E7400 		.string	"int"
+ 245 007d 02       		.uleb128 0x2
+ 246 007e 04       		.byte	0x4
+ 247 007f 07       		.byte	0x7
+ 248 0080 00000000 		.4byte	.LASF11
+ 249 0084 03       		.uleb128 0x3
+ 250 0085 00000000 		.4byte	.LASF12
+ 251 0089 02       		.byte	0x2
+ 252 008a 15       		.byte	0x15
+ 253 008b 00000024 		.4byte	0x24
+ 254 008f 03       		.uleb128 0x3
+ 255 0090 00000000 		.4byte	.LASF13
+ 256 0094 02       		.byte	0x2
+ 257 0095 21       		.byte	0x21
+ 258 0096 0000003D 		.4byte	0x3d
+ 259 009a 03       		.uleb128 0x3
+ 260 009b 00000000 		.4byte	.LASF14
+ 261 009f 02       		.byte	0x2
+ 262 00a0 2D       		.byte	0x2d
+ 263 00a1 00000056 		.4byte	0x56
+ 264 00a5 03       		.uleb128 0x3
+ 265 00a6 00000000 		.4byte	.LASF15
+ 266 00aa 03       		.byte	0x3
+ 267 00ab 1C       		.byte	0x1c
+ 268 00ac 000000B0 		.4byte	0xb0
+ 269 00b0 05       		.uleb128 0x5
+ 270 00b1 00000084 		.4byte	0x84
+ 271 00b5 03       		.uleb128 0x3
+ 272 00b6 00000000 		.4byte	.LASF16
+ 273 00ba 03       		.byte	0x3
+ 274 00bb 20       		.byte	0x20
+ 275 00bc 000000C0 		.4byte	0xc0
+ 276 00c0 05       		.uleb128 0x5
+ 277 00c1 0000009A 		.4byte	0x9a
+ 278 00c5 02       		.uleb128 0x2
+ 279 00c6 04       		.byte	0x4
+ 280 00c7 07       		.byte	0x7
+ 281 00c8 00000000 		.4byte	.LASF17
+ 282 00cc 06       		.uleb128 0x6
+ 283 00cd 000000A5 		.4byte	0xa5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 6
+
+
+ 284 00d1 000000DC 		.4byte	0xdc
+ 285 00d5 07       		.uleb128 0x7
+ 286 00d6 000000C5 		.4byte	0xc5
+ 287 00da 0F       		.byte	0xf
+ 288 00db 00       		.byte	0
+ 289 00dc 06       		.uleb128 0x6
+ 290 00dd 000000A5 		.4byte	0xa5
+ 291 00e1 000000EC 		.4byte	0xec
+ 292 00e5 07       		.uleb128 0x7
+ 293 00e6 000000C5 		.4byte	0xc5
+ 294 00ea 07       		.byte	0x7
+ 295 00eb 00       		.byte	0
+ 296 00ec 08       		.uleb128 0x8
+ 297 00ed 04       		.byte	0x4
+ 298 00ee 04       		.byte	0x4
+ 299 00ef 030C     		.2byte	0x30c
+ 300 00f1 00000198 		.4byte	0x198
+ 301 00f5 09       		.uleb128 0x9
+ 302 00f6 00000000 		.4byte	.LASF18
+ 303 00fa 04       		.byte	0x4
+ 304 00fb 030D     		.2byte	0x30d
+ 305 00fd 000000B5 		.4byte	0xb5
+ 306 0101 04       		.byte	0x4
+ 307 0102 01       		.byte	0x1
+ 308 0103 00       		.byte	0
+ 309 0104 02       		.byte	0x2
+ 310 0105 23       		.byte	0x23
+ 311 0106 00       		.uleb128 0
+ 312 0107 09       		.uleb128 0x9
+ 313 0108 00000000 		.4byte	.LASF19
+ 314 010c 04       		.byte	0x4
+ 315 010d 030E     		.2byte	0x30e
+ 316 010f 000000B5 		.4byte	0xb5
+ 317 0113 04       		.byte	0x4
+ 318 0114 01       		.byte	0x1
+ 319 0115 01       		.byte	0x1
+ 320 0116 02       		.byte	0x2
+ 321 0117 23       		.byte	0x23
+ 322 0118 00       		.uleb128 0
+ 323 0119 0A       		.uleb128 0xa
+ 324 011a 46525A00 		.string	"FRZ"
+ 325 011e 04       		.byte	0x4
+ 326 011f 030F     		.2byte	0x30f
+ 327 0121 000000B5 		.4byte	0xb5
+ 328 0125 04       		.byte	0x4
+ 329 0126 01       		.byte	0x1
+ 330 0127 02       		.byte	0x2
+ 331 0128 02       		.byte	0x2
+ 332 0129 23       		.byte	0x23
+ 333 012a 00       		.uleb128 0
+ 334 012b 09       		.uleb128 0x9
+ 335 012c 00000000 		.4byte	.LASF20
+ 336 0130 04       		.byte	0x4
+ 337 0131 0310     		.2byte	0x310
+ 338 0133 000000B5 		.4byte	0xb5
+ 339 0137 04       		.byte	0x4
+ 340 0138 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 7
+
+
+ 341 0139 03       		.byte	0x3
+ 342 013a 02       		.byte	0x2
+ 343 013b 23       		.byte	0x23
+ 344 013c 00       		.uleb128 0
+ 345 013d 09       		.uleb128 0x9
+ 346 013e 00000000 		.4byte	.LASF21
+ 347 0142 04       		.byte	0x4
+ 348 0143 0311     		.2byte	0x311
+ 349 0145 000000B5 		.4byte	0xb5
+ 350 0149 04       		.byte	0x4
+ 351 014a 01       		.byte	0x1
+ 352 014b 04       		.byte	0x4
+ 353 014c 02       		.byte	0x2
+ 354 014d 23       		.byte	0x23
+ 355 014e 00       		.uleb128 0
+ 356 014f 09       		.uleb128 0x9
+ 357 0150 00000000 		.4byte	.LASF22
+ 358 0154 04       		.byte	0x4
+ 359 0155 0312     		.2byte	0x312
+ 360 0157 000000B5 		.4byte	0xb5
+ 361 015b 04       		.byte	0x4
+ 362 015c 01       		.byte	0x1
+ 363 015d 05       		.byte	0x5
+ 364 015e 02       		.byte	0x2
+ 365 015f 23       		.byte	0x23
+ 366 0160 00       		.uleb128 0
+ 367 0161 09       		.uleb128 0x9
+ 368 0162 00000000 		.4byte	.LASF23
+ 369 0166 04       		.byte	0x4
+ 370 0167 0313     		.2byte	0x313
+ 371 0169 000000B5 		.4byte	0xb5
+ 372 016d 04       		.byte	0x4
+ 373 016e 0A       		.byte	0xa
+ 374 016f 06       		.byte	0x6
+ 375 0170 02       		.byte	0x2
+ 376 0171 23       		.byte	0x23
+ 377 0172 00       		.uleb128 0
+ 378 0173 09       		.uleb128 0x9
+ 379 0174 00000000 		.4byte	.LASF24
+ 380 0178 04       		.byte	0x4
+ 381 0179 0314     		.2byte	0x314
+ 382 017b 000000B5 		.4byte	0xb5
+ 383 017f 04       		.byte	0x4
+ 384 0180 08       		.byte	0x8
+ 385 0181 10       		.byte	0x10
+ 386 0182 02       		.byte	0x2
+ 387 0183 23       		.byte	0x23
+ 388 0184 00       		.uleb128 0
+ 389 0185 09       		.uleb128 0x9
+ 390 0186 00000000 		.4byte	.LASF25
+ 391 018a 04       		.byte	0x4
+ 392 018b 0315     		.2byte	0x315
+ 393 018d 000000B5 		.4byte	0xb5
+ 394 0191 04       		.byte	0x4
+ 395 0192 08       		.byte	0x8
+ 396 0193 18       		.byte	0x18
+ 397 0194 02       		.byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 8
+
+
+ 398 0195 23       		.byte	0x23
+ 399 0196 00       		.uleb128 0
+ 400 0197 00       		.byte	0
+ 401 0198 0B       		.uleb128 0xb
+ 402 0199 04       		.byte	0x4
+ 403 019a 04       		.byte	0x4
+ 404 019b 030A     		.2byte	0x30a
+ 405 019d 000001B6 		.4byte	0x1b6
+ 406 01a1 0C       		.uleb128 0xc
+ 407 01a2 5200     		.string	"R"
+ 408 01a4 04       		.byte	0x4
+ 409 01a5 030B     		.2byte	0x30b
+ 410 01a7 000000B5 		.4byte	0xb5
+ 411 01ab 0C       		.uleb128 0xc
+ 412 01ac 4200     		.string	"B"
+ 413 01ae 04       		.byte	0x4
+ 414 01af 0316     		.2byte	0x316
+ 415 01b1 000000EC 		.4byte	0xec
+ 416 01b5 00       		.byte	0
+ 417 01b6 08       		.uleb128 0x8
+ 418 01b7 04       		.byte	0x4
+ 419 01b8 04       		.byte	0x4
+ 420 01b9 031B     		.2byte	0x31b
+ 421 01bb 000003F6 		.4byte	0x3f6
+ 422 01bf 0A       		.uleb128 0xa
+ 423 01c0 46333100 		.string	"F31"
+ 424 01c4 04       		.byte	0x4
+ 425 01c5 031C     		.2byte	0x31c
+ 426 01c7 000000B5 		.4byte	0xb5
+ 427 01cb 04       		.byte	0x4
+ 428 01cc 01       		.byte	0x1
+ 429 01cd 00       		.byte	0
+ 430 01ce 02       		.byte	0x2
+ 431 01cf 23       		.byte	0x23
+ 432 01d0 00       		.uleb128 0
+ 433 01d1 0A       		.uleb128 0xa
+ 434 01d2 46333000 		.string	"F30"
+ 435 01d6 04       		.byte	0x4
+ 436 01d7 031D     		.2byte	0x31d
+ 437 01d9 000000B5 		.4byte	0xb5
+ 438 01dd 04       		.byte	0x4
+ 439 01de 01       		.byte	0x1
+ 440 01df 01       		.byte	0x1
+ 441 01e0 02       		.byte	0x2
+ 442 01e1 23       		.byte	0x23
+ 443 01e2 00       		.uleb128 0
+ 444 01e3 0A       		.uleb128 0xa
+ 445 01e4 46323900 		.string	"F29"
+ 446 01e8 04       		.byte	0x4
+ 447 01e9 031E     		.2byte	0x31e
+ 448 01eb 000000B5 		.4byte	0xb5
+ 449 01ef 04       		.byte	0x4
+ 450 01f0 01       		.byte	0x1
+ 451 01f1 02       		.byte	0x2
+ 452 01f2 02       		.byte	0x2
+ 453 01f3 23       		.byte	0x23
+ 454 01f4 00       		.uleb128 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 9
+
+
+ 455 01f5 0A       		.uleb128 0xa
+ 456 01f6 46323800 		.string	"F28"
+ 457 01fa 04       		.byte	0x4
+ 458 01fb 031F     		.2byte	0x31f
+ 459 01fd 000000B5 		.4byte	0xb5
+ 460 0201 04       		.byte	0x4
+ 461 0202 01       		.byte	0x1
+ 462 0203 03       		.byte	0x3
+ 463 0204 02       		.byte	0x2
+ 464 0205 23       		.byte	0x23
+ 465 0206 00       		.uleb128 0
+ 466 0207 0A       		.uleb128 0xa
+ 467 0208 46323700 		.string	"F27"
+ 468 020c 04       		.byte	0x4
+ 469 020d 0320     		.2byte	0x320
+ 470 020f 000000B5 		.4byte	0xb5
+ 471 0213 04       		.byte	0x4
+ 472 0214 01       		.byte	0x1
+ 473 0215 04       		.byte	0x4
+ 474 0216 02       		.byte	0x2
+ 475 0217 23       		.byte	0x23
+ 476 0218 00       		.uleb128 0
+ 477 0219 0A       		.uleb128 0xa
+ 478 021a 46323600 		.string	"F26"
+ 479 021e 04       		.byte	0x4
+ 480 021f 0321     		.2byte	0x321
+ 481 0221 000000B5 		.4byte	0xb5
+ 482 0225 04       		.byte	0x4
+ 483 0226 01       		.byte	0x1
+ 484 0227 05       		.byte	0x5
+ 485 0228 02       		.byte	0x2
+ 486 0229 23       		.byte	0x23
+ 487 022a 00       		.uleb128 0
+ 488 022b 0A       		.uleb128 0xa
+ 489 022c 46323500 		.string	"F25"
+ 490 0230 04       		.byte	0x4
+ 491 0231 0322     		.2byte	0x322
+ 492 0233 000000B5 		.4byte	0xb5
+ 493 0237 04       		.byte	0x4
+ 494 0238 01       		.byte	0x1
+ 495 0239 06       		.byte	0x6
+ 496 023a 02       		.byte	0x2
+ 497 023b 23       		.byte	0x23
+ 498 023c 00       		.uleb128 0
+ 499 023d 0A       		.uleb128 0xa
+ 500 023e 46323400 		.string	"F24"
+ 501 0242 04       		.byte	0x4
+ 502 0243 0323     		.2byte	0x323
+ 503 0245 000000B5 		.4byte	0xb5
+ 504 0249 04       		.byte	0x4
+ 505 024a 01       		.byte	0x1
+ 506 024b 07       		.byte	0x7
+ 507 024c 02       		.byte	0x2
+ 508 024d 23       		.byte	0x23
+ 509 024e 00       		.uleb128 0
+ 510 024f 0A       		.uleb128 0xa
+ 511 0250 46323300 		.string	"F23"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 10
+
+
+ 512 0254 04       		.byte	0x4
+ 513 0255 0324     		.2byte	0x324
+ 514 0257 000000B5 		.4byte	0xb5
+ 515 025b 04       		.byte	0x4
+ 516 025c 01       		.byte	0x1
+ 517 025d 08       		.byte	0x8
+ 518 025e 02       		.byte	0x2
+ 519 025f 23       		.byte	0x23
+ 520 0260 00       		.uleb128 0
+ 521 0261 0A       		.uleb128 0xa
+ 522 0262 46323200 		.string	"F22"
+ 523 0266 04       		.byte	0x4
+ 524 0267 0325     		.2byte	0x325
+ 525 0269 000000B5 		.4byte	0xb5
+ 526 026d 04       		.byte	0x4
+ 527 026e 01       		.byte	0x1
+ 528 026f 09       		.byte	0x9
+ 529 0270 02       		.byte	0x2
+ 530 0271 23       		.byte	0x23
+ 531 0272 00       		.uleb128 0
+ 532 0273 0A       		.uleb128 0xa
+ 533 0274 46323100 		.string	"F21"
+ 534 0278 04       		.byte	0x4
+ 535 0279 0326     		.2byte	0x326
+ 536 027b 000000B5 		.4byte	0xb5
+ 537 027f 04       		.byte	0x4
+ 538 0280 01       		.byte	0x1
+ 539 0281 0A       		.byte	0xa
+ 540 0282 02       		.byte	0x2
+ 541 0283 23       		.byte	0x23
+ 542 0284 00       		.uleb128 0
+ 543 0285 0A       		.uleb128 0xa
+ 544 0286 46323000 		.string	"F20"
+ 545 028a 04       		.byte	0x4
+ 546 028b 0327     		.2byte	0x327
+ 547 028d 000000B5 		.4byte	0xb5
+ 548 0291 04       		.byte	0x4
+ 549 0292 01       		.byte	0x1
+ 550 0293 0B       		.byte	0xb
+ 551 0294 02       		.byte	0x2
+ 552 0295 23       		.byte	0x23
+ 553 0296 00       		.uleb128 0
+ 554 0297 0A       		.uleb128 0xa
+ 555 0298 46313900 		.string	"F19"
+ 556 029c 04       		.byte	0x4
+ 557 029d 0328     		.2byte	0x328
+ 558 029f 000000B5 		.4byte	0xb5
+ 559 02a3 04       		.byte	0x4
+ 560 02a4 01       		.byte	0x1
+ 561 02a5 0C       		.byte	0xc
+ 562 02a6 02       		.byte	0x2
+ 563 02a7 23       		.byte	0x23
+ 564 02a8 00       		.uleb128 0
+ 565 02a9 0A       		.uleb128 0xa
+ 566 02aa 46313800 		.string	"F18"
+ 567 02ae 04       		.byte	0x4
+ 568 02af 0329     		.2byte	0x329
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 11
+
+
+ 569 02b1 000000B5 		.4byte	0xb5
+ 570 02b5 04       		.byte	0x4
+ 571 02b6 01       		.byte	0x1
+ 572 02b7 0D       		.byte	0xd
+ 573 02b8 02       		.byte	0x2
+ 574 02b9 23       		.byte	0x23
+ 575 02ba 00       		.uleb128 0
+ 576 02bb 0A       		.uleb128 0xa
+ 577 02bc 46313700 		.string	"F17"
+ 578 02c0 04       		.byte	0x4
+ 579 02c1 032A     		.2byte	0x32a
+ 580 02c3 000000B5 		.4byte	0xb5
+ 581 02c7 04       		.byte	0x4
+ 582 02c8 01       		.byte	0x1
+ 583 02c9 0E       		.byte	0xe
+ 584 02ca 02       		.byte	0x2
+ 585 02cb 23       		.byte	0x23
+ 586 02cc 00       		.uleb128 0
+ 587 02cd 0A       		.uleb128 0xa
+ 588 02ce 46313600 		.string	"F16"
+ 589 02d2 04       		.byte	0x4
+ 590 02d3 032B     		.2byte	0x32b
+ 591 02d5 000000B5 		.4byte	0xb5
+ 592 02d9 04       		.byte	0x4
+ 593 02da 01       		.byte	0x1
+ 594 02db 0F       		.byte	0xf
+ 595 02dc 02       		.byte	0x2
+ 596 02dd 23       		.byte	0x23
+ 597 02de 00       		.uleb128 0
+ 598 02df 0A       		.uleb128 0xa
+ 599 02e0 46313500 		.string	"F15"
+ 600 02e4 04       		.byte	0x4
+ 601 02e5 032C     		.2byte	0x32c
+ 602 02e7 000000B5 		.4byte	0xb5
+ 603 02eb 04       		.byte	0x4
+ 604 02ec 01       		.byte	0x1
+ 605 02ed 10       		.byte	0x10
+ 606 02ee 02       		.byte	0x2
+ 607 02ef 23       		.byte	0x23
+ 608 02f0 00       		.uleb128 0
+ 609 02f1 0A       		.uleb128 0xa
+ 610 02f2 46313400 		.string	"F14"
+ 611 02f6 04       		.byte	0x4
+ 612 02f7 032D     		.2byte	0x32d
+ 613 02f9 000000B5 		.4byte	0xb5
+ 614 02fd 04       		.byte	0x4
+ 615 02fe 01       		.byte	0x1
+ 616 02ff 11       		.byte	0x11
+ 617 0300 02       		.byte	0x2
+ 618 0301 23       		.byte	0x23
+ 619 0302 00       		.uleb128 0
+ 620 0303 0A       		.uleb128 0xa
+ 621 0304 46313300 		.string	"F13"
+ 622 0308 04       		.byte	0x4
+ 623 0309 032E     		.2byte	0x32e
+ 624 030b 000000B5 		.4byte	0xb5
+ 625 030f 04       		.byte	0x4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 12
+
+
+ 626 0310 01       		.byte	0x1
+ 627 0311 12       		.byte	0x12
+ 628 0312 02       		.byte	0x2
+ 629 0313 23       		.byte	0x23
+ 630 0314 00       		.uleb128 0
+ 631 0315 0A       		.uleb128 0xa
+ 632 0316 46313200 		.string	"F12"
+ 633 031a 04       		.byte	0x4
+ 634 031b 032F     		.2byte	0x32f
+ 635 031d 000000B5 		.4byte	0xb5
+ 636 0321 04       		.byte	0x4
+ 637 0322 01       		.byte	0x1
+ 638 0323 13       		.byte	0x13
+ 639 0324 02       		.byte	0x2
+ 640 0325 23       		.byte	0x23
+ 641 0326 00       		.uleb128 0
+ 642 0327 0A       		.uleb128 0xa
+ 643 0328 46313100 		.string	"F11"
+ 644 032c 04       		.byte	0x4
+ 645 032d 0330     		.2byte	0x330
+ 646 032f 000000B5 		.4byte	0xb5
+ 647 0333 04       		.byte	0x4
+ 648 0334 01       		.byte	0x1
+ 649 0335 14       		.byte	0x14
+ 650 0336 02       		.byte	0x2
+ 651 0337 23       		.byte	0x23
+ 652 0338 00       		.uleb128 0
+ 653 0339 0A       		.uleb128 0xa
+ 654 033a 46313000 		.string	"F10"
+ 655 033e 04       		.byte	0x4
+ 656 033f 0331     		.2byte	0x331
+ 657 0341 000000B5 		.4byte	0xb5
+ 658 0345 04       		.byte	0x4
+ 659 0346 01       		.byte	0x1
+ 660 0347 15       		.byte	0x15
+ 661 0348 02       		.byte	0x2
+ 662 0349 23       		.byte	0x23
+ 663 034a 00       		.uleb128 0
+ 664 034b 0A       		.uleb128 0xa
+ 665 034c 463900   		.string	"F9"
+ 666 034f 04       		.byte	0x4
+ 667 0350 0332     		.2byte	0x332
+ 668 0352 000000B5 		.4byte	0xb5
+ 669 0356 04       		.byte	0x4
+ 670 0357 01       		.byte	0x1
+ 671 0358 16       		.byte	0x16
+ 672 0359 02       		.byte	0x2
+ 673 035a 23       		.byte	0x23
+ 674 035b 00       		.uleb128 0
+ 675 035c 0A       		.uleb128 0xa
+ 676 035d 463800   		.string	"F8"
+ 677 0360 04       		.byte	0x4
+ 678 0361 0333     		.2byte	0x333
+ 679 0363 000000B5 		.4byte	0xb5
+ 680 0367 04       		.byte	0x4
+ 681 0368 01       		.byte	0x1
+ 682 0369 17       		.byte	0x17
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 13
+
+
+ 683 036a 02       		.byte	0x2
+ 684 036b 23       		.byte	0x23
+ 685 036c 00       		.uleb128 0
+ 686 036d 0A       		.uleb128 0xa
+ 687 036e 463700   		.string	"F7"
+ 688 0371 04       		.byte	0x4
+ 689 0372 0334     		.2byte	0x334
+ 690 0374 000000B5 		.4byte	0xb5
+ 691 0378 04       		.byte	0x4
+ 692 0379 01       		.byte	0x1
+ 693 037a 18       		.byte	0x18
+ 694 037b 02       		.byte	0x2
+ 695 037c 23       		.byte	0x23
+ 696 037d 00       		.uleb128 0
+ 697 037e 0A       		.uleb128 0xa
+ 698 037f 463600   		.string	"F6"
+ 699 0382 04       		.byte	0x4
+ 700 0383 0335     		.2byte	0x335
+ 701 0385 000000B5 		.4byte	0xb5
+ 702 0389 04       		.byte	0x4
+ 703 038a 01       		.byte	0x1
+ 704 038b 19       		.byte	0x19
+ 705 038c 02       		.byte	0x2
+ 706 038d 23       		.byte	0x23
+ 707 038e 00       		.uleb128 0
+ 708 038f 0A       		.uleb128 0xa
+ 709 0390 463500   		.string	"F5"
+ 710 0393 04       		.byte	0x4
+ 711 0394 0336     		.2byte	0x336
+ 712 0396 000000B5 		.4byte	0xb5
+ 713 039a 04       		.byte	0x4
+ 714 039b 01       		.byte	0x1
+ 715 039c 1A       		.byte	0x1a
+ 716 039d 02       		.byte	0x2
+ 717 039e 23       		.byte	0x23
+ 718 039f 00       		.uleb128 0
+ 719 03a0 0A       		.uleb128 0xa
+ 720 03a1 463400   		.string	"F4"
+ 721 03a4 04       		.byte	0x4
+ 722 03a5 0337     		.2byte	0x337
+ 723 03a7 000000B5 		.4byte	0xb5
+ 724 03ab 04       		.byte	0x4
+ 725 03ac 01       		.byte	0x1
+ 726 03ad 1B       		.byte	0x1b
+ 727 03ae 02       		.byte	0x2
+ 728 03af 23       		.byte	0x23
+ 729 03b0 00       		.uleb128 0
+ 730 03b1 0A       		.uleb128 0xa
+ 731 03b2 463300   		.string	"F3"
+ 732 03b5 04       		.byte	0x4
+ 733 03b6 0338     		.2byte	0x338
+ 734 03b8 000000B5 		.4byte	0xb5
+ 735 03bc 04       		.byte	0x4
+ 736 03bd 01       		.byte	0x1
+ 737 03be 1C       		.byte	0x1c
+ 738 03bf 02       		.byte	0x2
+ 739 03c0 23       		.byte	0x23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 14
+
+
+ 740 03c1 00       		.uleb128 0
+ 741 03c2 0A       		.uleb128 0xa
+ 742 03c3 463200   		.string	"F2"
+ 743 03c6 04       		.byte	0x4
+ 744 03c7 0339     		.2byte	0x339
+ 745 03c9 000000B5 		.4byte	0xb5
+ 746 03cd 04       		.byte	0x4
+ 747 03ce 01       		.byte	0x1
+ 748 03cf 1D       		.byte	0x1d
+ 749 03d0 02       		.byte	0x2
+ 750 03d1 23       		.byte	0x23
+ 751 03d2 00       		.uleb128 0
+ 752 03d3 0A       		.uleb128 0xa
+ 753 03d4 463100   		.string	"F1"
+ 754 03d7 04       		.byte	0x4
+ 755 03d8 033A     		.2byte	0x33a
+ 756 03da 000000B5 		.4byte	0xb5
+ 757 03de 04       		.byte	0x4
+ 758 03df 01       		.byte	0x1
+ 759 03e0 1E       		.byte	0x1e
+ 760 03e1 02       		.byte	0x2
+ 761 03e2 23       		.byte	0x23
+ 762 03e3 00       		.uleb128 0
+ 763 03e4 0A       		.uleb128 0xa
+ 764 03e5 463000   		.string	"F0"
+ 765 03e8 04       		.byte	0x4
+ 766 03e9 033B     		.2byte	0x33b
+ 767 03eb 000000B5 		.4byte	0xb5
+ 768 03ef 04       		.byte	0x4
+ 769 03f0 01       		.byte	0x1
+ 770 03f1 1F       		.byte	0x1f
+ 771 03f2 02       		.byte	0x2
+ 772 03f3 23       		.byte	0x23
+ 773 03f4 00       		.uleb128 0
+ 774 03f5 00       		.byte	0
+ 775 03f6 0B       		.uleb128 0xb
+ 776 03f7 04       		.byte	0x4
+ 777 03f8 04       		.byte	0x4
+ 778 03f9 0319     		.2byte	0x319
+ 779 03fb 00000414 		.4byte	0x414
+ 780 03ff 0C       		.uleb128 0xc
+ 781 0400 5200     		.string	"R"
+ 782 0402 04       		.byte	0x4
+ 783 0403 031A     		.2byte	0x31a
+ 784 0405 000000B5 		.4byte	0xb5
+ 785 0409 0C       		.uleb128 0xc
+ 786 040a 4200     		.string	"B"
+ 787 040c 04       		.byte	0x4
+ 788 040d 033C     		.2byte	0x33c
+ 789 040f 000001B6 		.4byte	0x1b6
+ 790 0413 00       		.byte	0
+ 791 0414 08       		.uleb128 0x8
+ 792 0415 04       		.byte	0x4
+ 793 0416 04       		.byte	0x4
+ 794 0417 0341     		.2byte	0x341
+ 795 0419 0000065E 		.4byte	0x65e
+ 796 041d 09       		.uleb128 0x9
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 15
+
+
+ 797 041e 00000000 		.4byte	.LASF26
+ 798 0422 04       		.byte	0x4
+ 799 0423 0342     		.2byte	0x342
+ 800 0425 000000B5 		.4byte	0xb5
+ 801 0429 04       		.byte	0x4
+ 802 042a 01       		.byte	0x1
+ 803 042b 00       		.byte	0
+ 804 042c 02       		.byte	0x2
+ 805 042d 23       		.byte	0x23
+ 806 042e 00       		.uleb128 0
+ 807 042f 09       		.uleb128 0x9
+ 808 0430 00000000 		.4byte	.LASF27
+ 809 0434 04       		.byte	0x4
+ 810 0435 0343     		.2byte	0x343
+ 811 0437 000000B5 		.4byte	0xb5
+ 812 043b 04       		.byte	0x4
+ 813 043c 01       		.byte	0x1
+ 814 043d 01       		.byte	0x1
+ 815 043e 02       		.byte	0x2
+ 816 043f 23       		.byte	0x23
+ 817 0440 00       		.uleb128 0
+ 818 0441 09       		.uleb128 0x9
+ 819 0442 00000000 		.4byte	.LASF28
+ 820 0446 04       		.byte	0x4
+ 821 0447 0344     		.2byte	0x344
+ 822 0449 000000B5 		.4byte	0xb5
+ 823 044d 04       		.byte	0x4
+ 824 044e 01       		.byte	0x1
+ 825 044f 02       		.byte	0x2
+ 826 0450 02       		.byte	0x2
+ 827 0451 23       		.byte	0x23
+ 828 0452 00       		.uleb128 0
+ 829 0453 09       		.uleb128 0x9
+ 830 0454 00000000 		.4byte	.LASF29
+ 831 0458 04       		.byte	0x4
+ 832 0459 0345     		.2byte	0x345
+ 833 045b 000000B5 		.4byte	0xb5
+ 834 045f 04       		.byte	0x4
+ 835 0460 01       		.byte	0x1
+ 836 0461 03       		.byte	0x3
+ 837 0462 02       		.byte	0x2
+ 838 0463 23       		.byte	0x23
+ 839 0464 00       		.uleb128 0
+ 840 0465 09       		.uleb128 0x9
+ 841 0466 00000000 		.4byte	.LASF30
+ 842 046a 04       		.byte	0x4
+ 843 046b 0346     		.2byte	0x346
+ 844 046d 000000B5 		.4byte	0xb5
+ 845 0471 04       		.byte	0x4
+ 846 0472 01       		.byte	0x1
+ 847 0473 04       		.byte	0x4
+ 848 0474 02       		.byte	0x2
+ 849 0475 23       		.byte	0x23
+ 850 0476 00       		.uleb128 0
+ 851 0477 09       		.uleb128 0x9
+ 852 0478 00000000 		.4byte	.LASF31
+ 853 047c 04       		.byte	0x4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 16
+
+
+ 854 047d 0347     		.2byte	0x347
+ 855 047f 000000B5 		.4byte	0xb5
+ 856 0483 04       		.byte	0x4
+ 857 0484 01       		.byte	0x1
+ 858 0485 05       		.byte	0x5
+ 859 0486 02       		.byte	0x2
+ 860 0487 23       		.byte	0x23
+ 861 0488 00       		.uleb128 0
+ 862 0489 09       		.uleb128 0x9
+ 863 048a 00000000 		.4byte	.LASF32
+ 864 048e 04       		.byte	0x4
+ 865 048f 0348     		.2byte	0x348
+ 866 0491 000000B5 		.4byte	0xb5
+ 867 0495 04       		.byte	0x4
+ 868 0496 01       		.byte	0x1
+ 869 0497 06       		.byte	0x6
+ 870 0498 02       		.byte	0x2
+ 871 0499 23       		.byte	0x23
+ 872 049a 00       		.uleb128 0
+ 873 049b 09       		.uleb128 0x9
+ 874 049c 00000000 		.4byte	.LASF33
+ 875 04a0 04       		.byte	0x4
+ 876 04a1 0349     		.2byte	0x349
+ 877 04a3 000000B5 		.4byte	0xb5
+ 878 04a7 04       		.byte	0x4
+ 879 04a8 01       		.byte	0x1
+ 880 04a9 07       		.byte	0x7
+ 881 04aa 02       		.byte	0x2
+ 882 04ab 23       		.byte	0x23
+ 883 04ac 00       		.uleb128 0
+ 884 04ad 09       		.uleb128 0x9
+ 885 04ae 00000000 		.4byte	.LASF34
+ 886 04b2 04       		.byte	0x4
+ 887 04b3 034A     		.2byte	0x34a
+ 888 04b5 000000B5 		.4byte	0xb5
+ 889 04b9 04       		.byte	0x4
+ 890 04ba 01       		.byte	0x1
+ 891 04bb 08       		.byte	0x8
+ 892 04bc 02       		.byte	0x2
+ 893 04bd 23       		.byte	0x23
+ 894 04be 00       		.uleb128 0
+ 895 04bf 09       		.uleb128 0x9
+ 896 04c0 00000000 		.4byte	.LASF35
+ 897 04c4 04       		.byte	0x4
+ 898 04c5 034B     		.2byte	0x34b
+ 899 04c7 000000B5 		.4byte	0xb5
+ 900 04cb 04       		.byte	0x4
+ 901 04cc 01       		.byte	0x1
+ 902 04cd 09       		.byte	0x9
+ 903 04ce 02       		.byte	0x2
+ 904 04cf 23       		.byte	0x23
+ 905 04d0 00       		.uleb128 0
+ 906 04d1 09       		.uleb128 0x9
+ 907 04d2 00000000 		.4byte	.LASF36
+ 908 04d6 04       		.byte	0x4
+ 909 04d7 034C     		.2byte	0x34c
+ 910 04d9 000000B5 		.4byte	0xb5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 17
+
+
+ 911 04dd 04       		.byte	0x4
+ 912 04de 01       		.byte	0x1
+ 913 04df 0A       		.byte	0xa
+ 914 04e0 02       		.byte	0x2
+ 915 04e1 23       		.byte	0x23
+ 916 04e2 00       		.uleb128 0
+ 917 04e3 09       		.uleb128 0x9
+ 918 04e4 00000000 		.4byte	.LASF37
+ 919 04e8 04       		.byte	0x4
+ 920 04e9 034D     		.2byte	0x34d
+ 921 04eb 000000B5 		.4byte	0xb5
+ 922 04ef 04       		.byte	0x4
+ 923 04f0 01       		.byte	0x1
+ 924 04f1 0B       		.byte	0xb
+ 925 04f2 02       		.byte	0x2
+ 926 04f3 23       		.byte	0x23
+ 927 04f4 00       		.uleb128 0
+ 928 04f5 09       		.uleb128 0x9
+ 929 04f6 00000000 		.4byte	.LASF38
+ 930 04fa 04       		.byte	0x4
+ 931 04fb 034E     		.2byte	0x34e
+ 932 04fd 000000B5 		.4byte	0xb5
+ 933 0501 04       		.byte	0x4
+ 934 0502 01       		.byte	0x1
+ 935 0503 0C       		.byte	0xc
+ 936 0504 02       		.byte	0x2
+ 937 0505 23       		.byte	0x23
+ 938 0506 00       		.uleb128 0
+ 939 0507 09       		.uleb128 0x9
+ 940 0508 00000000 		.4byte	.LASF39
+ 941 050c 04       		.byte	0x4
+ 942 050d 034F     		.2byte	0x34f
+ 943 050f 000000B5 		.4byte	0xb5
+ 944 0513 04       		.byte	0x4
+ 945 0514 01       		.byte	0x1
+ 946 0515 0D       		.byte	0xd
+ 947 0516 02       		.byte	0x2
+ 948 0517 23       		.byte	0x23
+ 949 0518 00       		.uleb128 0
+ 950 0519 09       		.uleb128 0x9
+ 951 051a 00000000 		.4byte	.LASF40
+ 952 051e 04       		.byte	0x4
+ 953 051f 0350     		.2byte	0x350
+ 954 0521 000000B5 		.4byte	0xb5
+ 955 0525 04       		.byte	0x4
+ 956 0526 01       		.byte	0x1
+ 957 0527 0E       		.byte	0xe
+ 958 0528 02       		.byte	0x2
+ 959 0529 23       		.byte	0x23
+ 960 052a 00       		.uleb128 0
+ 961 052b 09       		.uleb128 0x9
+ 962 052c 00000000 		.4byte	.LASF41
+ 963 0530 04       		.byte	0x4
+ 964 0531 0351     		.2byte	0x351
+ 965 0533 000000B5 		.4byte	0xb5
+ 966 0537 04       		.byte	0x4
+ 967 0538 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 18
+
+
+ 968 0539 0F       		.byte	0xf
+ 969 053a 02       		.byte	0x2
+ 970 053b 23       		.byte	0x23
+ 971 053c 00       		.uleb128 0
+ 972 053d 09       		.uleb128 0x9
+ 973 053e 00000000 		.4byte	.LASF42
+ 974 0542 04       		.byte	0x4
+ 975 0543 0352     		.2byte	0x352
+ 976 0545 000000B5 		.4byte	0xb5
+ 977 0549 04       		.byte	0x4
+ 978 054a 01       		.byte	0x1
+ 979 054b 10       		.byte	0x10
+ 980 054c 02       		.byte	0x2
+ 981 054d 23       		.byte	0x23
+ 982 054e 00       		.uleb128 0
+ 983 054f 09       		.uleb128 0x9
+ 984 0550 00000000 		.4byte	.LASF43
+ 985 0554 04       		.byte	0x4
+ 986 0555 0353     		.2byte	0x353
+ 987 0557 000000B5 		.4byte	0xb5
+ 988 055b 04       		.byte	0x4
+ 989 055c 01       		.byte	0x1
+ 990 055d 11       		.byte	0x11
+ 991 055e 02       		.byte	0x2
+ 992 055f 23       		.byte	0x23
+ 993 0560 00       		.uleb128 0
+ 994 0561 09       		.uleb128 0x9
+ 995 0562 00000000 		.4byte	.LASF44
+ 996 0566 04       		.byte	0x4
+ 997 0567 0354     		.2byte	0x354
+ 998 0569 000000B5 		.4byte	0xb5
+ 999 056d 04       		.byte	0x4
+ 1000 056e 01       		.byte	0x1
+ 1001 056f 12       		.byte	0x12
+ 1002 0570 02       		.byte	0x2
+ 1003 0571 23       		.byte	0x23
+ 1004 0572 00       		.uleb128 0
+ 1005 0573 09       		.uleb128 0x9
+ 1006 0574 00000000 		.4byte	.LASF45
+ 1007 0578 04       		.byte	0x4
+ 1008 0579 0355     		.2byte	0x355
+ 1009 057b 000000B5 		.4byte	0xb5
+ 1010 057f 04       		.byte	0x4
+ 1011 0580 01       		.byte	0x1
+ 1012 0581 13       		.byte	0x13
+ 1013 0582 02       		.byte	0x2
+ 1014 0583 23       		.byte	0x23
+ 1015 0584 00       		.uleb128 0
+ 1016 0585 09       		.uleb128 0x9
+ 1017 0586 00000000 		.4byte	.LASF46
+ 1018 058a 04       		.byte	0x4
+ 1019 058b 0356     		.2byte	0x356
+ 1020 058d 000000B5 		.4byte	0xb5
+ 1021 0591 04       		.byte	0x4
+ 1022 0592 01       		.byte	0x1
+ 1023 0593 14       		.byte	0x14
+ 1024 0594 02       		.byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 19
+
+
+ 1025 0595 23       		.byte	0x23
+ 1026 0596 00       		.uleb128 0
+ 1027 0597 09       		.uleb128 0x9
+ 1028 0598 00000000 		.4byte	.LASF47
+ 1029 059c 04       		.byte	0x4
+ 1030 059d 0357     		.2byte	0x357
+ 1031 059f 000000B5 		.4byte	0xb5
+ 1032 05a3 04       		.byte	0x4
+ 1033 05a4 01       		.byte	0x1
+ 1034 05a5 15       		.byte	0x15
+ 1035 05a6 02       		.byte	0x2
+ 1036 05a7 23       		.byte	0x23
+ 1037 05a8 00       		.uleb128 0
+ 1038 05a9 0A       		.uleb128 0xa
+ 1039 05aa 4F553900 		.string	"OU9"
+ 1040 05ae 04       		.byte	0x4
+ 1041 05af 0358     		.2byte	0x358
+ 1042 05b1 000000B5 		.4byte	0xb5
+ 1043 05b5 04       		.byte	0x4
+ 1044 05b6 01       		.byte	0x1
+ 1045 05b7 16       		.byte	0x16
+ 1046 05b8 02       		.byte	0x2
+ 1047 05b9 23       		.byte	0x23
+ 1048 05ba 00       		.uleb128 0
+ 1049 05bb 0A       		.uleb128 0xa
+ 1050 05bc 4F553800 		.string	"OU8"
+ 1051 05c0 04       		.byte	0x4
+ 1052 05c1 0359     		.2byte	0x359
+ 1053 05c3 000000B5 		.4byte	0xb5
+ 1054 05c7 04       		.byte	0x4
+ 1055 05c8 01       		.byte	0x1
+ 1056 05c9 17       		.byte	0x17
+ 1057 05ca 02       		.byte	0x2
+ 1058 05cb 23       		.byte	0x23
+ 1059 05cc 00       		.uleb128 0
+ 1060 05cd 0A       		.uleb128 0xa
+ 1061 05ce 4F553700 		.string	"OU7"
+ 1062 05d2 04       		.byte	0x4
+ 1063 05d3 035A     		.2byte	0x35a
+ 1064 05d5 000000B5 		.4byte	0xb5
+ 1065 05d9 04       		.byte	0x4
+ 1066 05da 01       		.byte	0x1
+ 1067 05db 18       		.byte	0x18
+ 1068 05dc 02       		.byte	0x2
+ 1069 05dd 23       		.byte	0x23
+ 1070 05de 00       		.uleb128 0
+ 1071 05df 0A       		.uleb128 0xa
+ 1072 05e0 4F553600 		.string	"OU6"
+ 1073 05e4 04       		.byte	0x4
+ 1074 05e5 035B     		.2byte	0x35b
+ 1075 05e7 000000B5 		.4byte	0xb5
+ 1076 05eb 04       		.byte	0x4
+ 1077 05ec 01       		.byte	0x1
+ 1078 05ed 19       		.byte	0x19
+ 1079 05ee 02       		.byte	0x2
+ 1080 05ef 23       		.byte	0x23
+ 1081 05f0 00       		.uleb128 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 20
+
+
+ 1082 05f1 0A       		.uleb128 0xa
+ 1083 05f2 4F553500 		.string	"OU5"
+ 1084 05f6 04       		.byte	0x4
+ 1085 05f7 035C     		.2byte	0x35c
+ 1086 05f9 000000B5 		.4byte	0xb5
+ 1087 05fd 04       		.byte	0x4
+ 1088 05fe 01       		.byte	0x1
+ 1089 05ff 1A       		.byte	0x1a
+ 1090 0600 02       		.byte	0x2
+ 1091 0601 23       		.byte	0x23
+ 1092 0602 00       		.uleb128 0
+ 1093 0603 0A       		.uleb128 0xa
+ 1094 0604 4F553400 		.string	"OU4"
+ 1095 0608 04       		.byte	0x4
+ 1096 0609 035D     		.2byte	0x35d
+ 1097 060b 000000B5 		.4byte	0xb5
+ 1098 060f 04       		.byte	0x4
+ 1099 0610 01       		.byte	0x1
+ 1100 0611 1B       		.byte	0x1b
+ 1101 0612 02       		.byte	0x2
+ 1102 0613 23       		.byte	0x23
+ 1103 0614 00       		.uleb128 0
+ 1104 0615 0A       		.uleb128 0xa
+ 1105 0616 4F553300 		.string	"OU3"
+ 1106 061a 04       		.byte	0x4
+ 1107 061b 035E     		.2byte	0x35e
+ 1108 061d 000000B5 		.4byte	0xb5
+ 1109 0621 04       		.byte	0x4
+ 1110 0622 01       		.byte	0x1
+ 1111 0623 1C       		.byte	0x1c
+ 1112 0624 02       		.byte	0x2
+ 1113 0625 23       		.byte	0x23
+ 1114 0626 00       		.uleb128 0
+ 1115 0627 0A       		.uleb128 0xa
+ 1116 0628 4F553200 		.string	"OU2"
+ 1117 062c 04       		.byte	0x4
+ 1118 062d 035F     		.2byte	0x35f
+ 1119 062f 000000B5 		.4byte	0xb5
+ 1120 0633 04       		.byte	0x4
+ 1121 0634 01       		.byte	0x1
+ 1122 0635 1D       		.byte	0x1d
+ 1123 0636 02       		.byte	0x2
+ 1124 0637 23       		.byte	0x23
+ 1125 0638 00       		.uleb128 0
+ 1126 0639 0A       		.uleb128 0xa
+ 1127 063a 4F553100 		.string	"OU1"
+ 1128 063e 04       		.byte	0x4
+ 1129 063f 0360     		.2byte	0x360
+ 1130 0641 000000B5 		.4byte	0xb5
+ 1131 0645 04       		.byte	0x4
+ 1132 0646 01       		.byte	0x1
+ 1133 0647 1E       		.byte	0x1e
+ 1134 0648 02       		.byte	0x2
+ 1135 0649 23       		.byte	0x23
+ 1136 064a 00       		.uleb128 0
+ 1137 064b 0A       		.uleb128 0xa
+ 1138 064c 4F553000 		.string	"OU0"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 21
+
+
+ 1139 0650 04       		.byte	0x4
+ 1140 0651 0361     		.2byte	0x361
+ 1141 0653 000000B5 		.4byte	0xb5
+ 1142 0657 04       		.byte	0x4
+ 1143 0658 01       		.byte	0x1
+ 1144 0659 1F       		.byte	0x1f
+ 1145 065a 02       		.byte	0x2
+ 1146 065b 23       		.byte	0x23
+ 1147 065c 00       		.uleb128 0
+ 1148 065d 00       		.byte	0
+ 1149 065e 0B       		.uleb128 0xb
+ 1150 065f 04       		.byte	0x4
+ 1151 0660 04       		.byte	0x4
+ 1152 0661 033F     		.2byte	0x33f
+ 1153 0663 0000067C 		.4byte	0x67c
+ 1154 0667 0C       		.uleb128 0xc
+ 1155 0668 5200     		.string	"R"
+ 1156 066a 04       		.byte	0x4
+ 1157 066b 0340     		.2byte	0x340
+ 1158 066d 000000B5 		.4byte	0xb5
+ 1159 0671 0C       		.uleb128 0xc
+ 1160 0672 4200     		.string	"B"
+ 1161 0674 04       		.byte	0x4
+ 1162 0675 0362     		.2byte	0x362
+ 1163 0677 00000414 		.4byte	0x414
+ 1164 067b 00       		.byte	0
+ 1165 067c 08       		.uleb128 0x8
+ 1166 067d 04       		.byte	0x4
+ 1167 067e 04       		.byte	0x4
+ 1168 067f 0367     		.2byte	0x367
+ 1169 0681 000008C6 		.4byte	0x8c6
+ 1170 0685 09       		.uleb128 0x9
+ 1171 0686 00000000 		.4byte	.LASF48
+ 1172 068a 04       		.byte	0x4
+ 1173 068b 0368     		.2byte	0x368
+ 1174 068d 000000B5 		.4byte	0xb5
+ 1175 0691 04       		.byte	0x4
+ 1176 0692 01       		.byte	0x1
+ 1177 0693 00       		.byte	0
+ 1178 0694 02       		.byte	0x2
+ 1179 0695 23       		.byte	0x23
+ 1180 0696 00       		.uleb128 0
+ 1181 0697 09       		.uleb128 0x9
+ 1182 0698 00000000 		.4byte	.LASF49
+ 1183 069c 04       		.byte	0x4
+ 1184 069d 0369     		.2byte	0x369
+ 1185 069f 000000B5 		.4byte	0xb5
+ 1186 06a3 04       		.byte	0x4
+ 1187 06a4 01       		.byte	0x1
+ 1188 06a5 01       		.byte	0x1
+ 1189 06a6 02       		.byte	0x2
+ 1190 06a7 23       		.byte	0x23
+ 1191 06a8 00       		.uleb128 0
+ 1192 06a9 09       		.uleb128 0x9
+ 1193 06aa 00000000 		.4byte	.LASF50
+ 1194 06ae 04       		.byte	0x4
+ 1195 06af 036A     		.2byte	0x36a
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 22
+
+
+ 1196 06b1 000000B5 		.4byte	0xb5
+ 1197 06b5 04       		.byte	0x4
+ 1198 06b6 01       		.byte	0x1
+ 1199 06b7 02       		.byte	0x2
+ 1200 06b8 02       		.byte	0x2
+ 1201 06b9 23       		.byte	0x23
+ 1202 06ba 00       		.uleb128 0
+ 1203 06bb 09       		.uleb128 0x9
+ 1204 06bc 00000000 		.4byte	.LASF51
+ 1205 06c0 04       		.byte	0x4
+ 1206 06c1 036B     		.2byte	0x36b
+ 1207 06c3 000000B5 		.4byte	0xb5
+ 1208 06c7 04       		.byte	0x4
+ 1209 06c8 01       		.byte	0x1
+ 1210 06c9 03       		.byte	0x3
+ 1211 06ca 02       		.byte	0x2
+ 1212 06cb 23       		.byte	0x23
+ 1213 06cc 00       		.uleb128 0
+ 1214 06cd 09       		.uleb128 0x9
+ 1215 06ce 00000000 		.4byte	.LASF52
+ 1216 06d2 04       		.byte	0x4
+ 1217 06d3 036C     		.2byte	0x36c
+ 1218 06d5 000000B5 		.4byte	0xb5
+ 1219 06d9 04       		.byte	0x4
+ 1220 06da 01       		.byte	0x1
+ 1221 06db 04       		.byte	0x4
+ 1222 06dc 02       		.byte	0x2
+ 1223 06dd 23       		.byte	0x23
+ 1224 06de 00       		.uleb128 0
+ 1225 06df 09       		.uleb128 0x9
+ 1226 06e0 00000000 		.4byte	.LASF53
+ 1227 06e4 04       		.byte	0x4
+ 1228 06e5 036D     		.2byte	0x36d
+ 1229 06e7 000000B5 		.4byte	0xb5
+ 1230 06eb 04       		.byte	0x4
+ 1231 06ec 01       		.byte	0x1
+ 1232 06ed 05       		.byte	0x5
+ 1233 06ee 02       		.byte	0x2
+ 1234 06ef 23       		.byte	0x23
+ 1235 06f0 00       		.uleb128 0
+ 1236 06f1 09       		.uleb128 0x9
+ 1237 06f2 00000000 		.4byte	.LASF54
+ 1238 06f6 04       		.byte	0x4
+ 1239 06f7 036E     		.2byte	0x36e
+ 1240 06f9 000000B5 		.4byte	0xb5
+ 1241 06fd 04       		.byte	0x4
+ 1242 06fe 01       		.byte	0x1
+ 1243 06ff 06       		.byte	0x6
+ 1244 0700 02       		.byte	0x2
+ 1245 0701 23       		.byte	0x23
+ 1246 0702 00       		.uleb128 0
+ 1247 0703 09       		.uleb128 0x9
+ 1248 0704 00000000 		.4byte	.LASF55
+ 1249 0708 04       		.byte	0x4
+ 1250 0709 036F     		.2byte	0x36f
+ 1251 070b 000000B5 		.4byte	0xb5
+ 1252 070f 04       		.byte	0x4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 23
+
+
+ 1253 0710 01       		.byte	0x1
+ 1254 0711 07       		.byte	0x7
+ 1255 0712 02       		.byte	0x2
+ 1256 0713 23       		.byte	0x23
+ 1257 0714 00       		.uleb128 0
+ 1258 0715 09       		.uleb128 0x9
+ 1259 0716 00000000 		.4byte	.LASF56
+ 1260 071a 04       		.byte	0x4
+ 1261 071b 0370     		.2byte	0x370
+ 1262 071d 000000B5 		.4byte	0xb5
+ 1263 0721 04       		.byte	0x4
+ 1264 0722 01       		.byte	0x1
+ 1265 0723 08       		.byte	0x8
+ 1266 0724 02       		.byte	0x2
+ 1267 0725 23       		.byte	0x23
+ 1268 0726 00       		.uleb128 0
+ 1269 0727 09       		.uleb128 0x9
+ 1270 0728 00000000 		.4byte	.LASF57
+ 1271 072c 04       		.byte	0x4
+ 1272 072d 0371     		.2byte	0x371
+ 1273 072f 000000B5 		.4byte	0xb5
+ 1274 0733 04       		.byte	0x4
+ 1275 0734 01       		.byte	0x1
+ 1276 0735 09       		.byte	0x9
+ 1277 0736 02       		.byte	0x2
+ 1278 0737 23       		.byte	0x23
+ 1279 0738 00       		.uleb128 0
+ 1280 0739 09       		.uleb128 0x9
+ 1281 073a 00000000 		.4byte	.LASF58
+ 1282 073e 04       		.byte	0x4
+ 1283 073f 0372     		.2byte	0x372
+ 1284 0741 000000B5 		.4byte	0xb5
+ 1285 0745 04       		.byte	0x4
+ 1286 0746 01       		.byte	0x1
+ 1287 0747 0A       		.byte	0xa
+ 1288 0748 02       		.byte	0x2
+ 1289 0749 23       		.byte	0x23
+ 1290 074a 00       		.uleb128 0
+ 1291 074b 09       		.uleb128 0x9
+ 1292 074c 00000000 		.4byte	.LASF59
+ 1293 0750 04       		.byte	0x4
+ 1294 0751 0373     		.2byte	0x373
+ 1295 0753 000000B5 		.4byte	0xb5
+ 1296 0757 04       		.byte	0x4
+ 1297 0758 01       		.byte	0x1
+ 1298 0759 0B       		.byte	0xb
+ 1299 075a 02       		.byte	0x2
+ 1300 075b 23       		.byte	0x23
+ 1301 075c 00       		.uleb128 0
+ 1302 075d 09       		.uleb128 0x9
+ 1303 075e 00000000 		.4byte	.LASF60
+ 1304 0762 04       		.byte	0x4
+ 1305 0763 0374     		.2byte	0x374
+ 1306 0765 000000B5 		.4byte	0xb5
+ 1307 0769 04       		.byte	0x4
+ 1308 076a 01       		.byte	0x1
+ 1309 076b 0C       		.byte	0xc
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 24
+
+
+ 1310 076c 02       		.byte	0x2
+ 1311 076d 23       		.byte	0x23
+ 1312 076e 00       		.uleb128 0
+ 1313 076f 09       		.uleb128 0x9
+ 1314 0770 00000000 		.4byte	.LASF61
+ 1315 0774 04       		.byte	0x4
+ 1316 0775 0375     		.2byte	0x375
+ 1317 0777 000000B5 		.4byte	0xb5
+ 1318 077b 04       		.byte	0x4
+ 1319 077c 01       		.byte	0x1
+ 1320 077d 0D       		.byte	0xd
+ 1321 077e 02       		.byte	0x2
+ 1322 077f 23       		.byte	0x23
+ 1323 0780 00       		.uleb128 0
+ 1324 0781 09       		.uleb128 0x9
+ 1325 0782 00000000 		.4byte	.LASF62
+ 1326 0786 04       		.byte	0x4
+ 1327 0787 0376     		.2byte	0x376
+ 1328 0789 000000B5 		.4byte	0xb5
+ 1329 078d 04       		.byte	0x4
+ 1330 078e 01       		.byte	0x1
+ 1331 078f 0E       		.byte	0xe
+ 1332 0790 02       		.byte	0x2
+ 1333 0791 23       		.byte	0x23
+ 1334 0792 00       		.uleb128 0
+ 1335 0793 09       		.uleb128 0x9
+ 1336 0794 00000000 		.4byte	.LASF63
+ 1337 0798 04       		.byte	0x4
+ 1338 0799 0377     		.2byte	0x377
+ 1339 079b 000000B5 		.4byte	0xb5
+ 1340 079f 04       		.byte	0x4
+ 1341 07a0 01       		.byte	0x1
+ 1342 07a1 0F       		.byte	0xf
+ 1343 07a2 02       		.byte	0x2
+ 1344 07a3 23       		.byte	0x23
+ 1345 07a4 00       		.uleb128 0
+ 1346 07a5 09       		.uleb128 0x9
+ 1347 07a6 00000000 		.4byte	.LASF64
+ 1348 07aa 04       		.byte	0x4
+ 1349 07ab 0378     		.2byte	0x378
+ 1350 07ad 000000B5 		.4byte	0xb5
+ 1351 07b1 04       		.byte	0x4
+ 1352 07b2 01       		.byte	0x1
+ 1353 07b3 10       		.byte	0x10
+ 1354 07b4 02       		.byte	0x2
+ 1355 07b5 23       		.byte	0x23
+ 1356 07b6 00       		.uleb128 0
+ 1357 07b7 09       		.uleb128 0x9
+ 1358 07b8 00000000 		.4byte	.LASF65
+ 1359 07bc 04       		.byte	0x4
+ 1360 07bd 0379     		.2byte	0x379
+ 1361 07bf 000000B5 		.4byte	0xb5
+ 1362 07c3 04       		.byte	0x4
+ 1363 07c4 01       		.byte	0x1
+ 1364 07c5 11       		.byte	0x11
+ 1365 07c6 02       		.byte	0x2
+ 1366 07c7 23       		.byte	0x23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 25
+
+
+ 1367 07c8 00       		.uleb128 0
+ 1368 07c9 09       		.uleb128 0x9
+ 1369 07ca 00000000 		.4byte	.LASF66
+ 1370 07ce 04       		.byte	0x4
+ 1371 07cf 037A     		.2byte	0x37a
+ 1372 07d1 000000B5 		.4byte	0xb5
+ 1373 07d5 04       		.byte	0x4
+ 1374 07d6 01       		.byte	0x1
+ 1375 07d7 12       		.byte	0x12
+ 1376 07d8 02       		.byte	0x2
+ 1377 07d9 23       		.byte	0x23
+ 1378 07da 00       		.uleb128 0
+ 1379 07db 09       		.uleb128 0x9
+ 1380 07dc 00000000 		.4byte	.LASF67
+ 1381 07e0 04       		.byte	0x4
+ 1382 07e1 037B     		.2byte	0x37b
+ 1383 07e3 000000B5 		.4byte	0xb5
+ 1384 07e7 04       		.byte	0x4
+ 1385 07e8 01       		.byte	0x1
+ 1386 07e9 13       		.byte	0x13
+ 1387 07ea 02       		.byte	0x2
+ 1388 07eb 23       		.byte	0x23
+ 1389 07ec 00       		.uleb128 0
+ 1390 07ed 09       		.uleb128 0x9
+ 1391 07ee 00000000 		.4byte	.LASF68
+ 1392 07f2 04       		.byte	0x4
+ 1393 07f3 037C     		.2byte	0x37c
+ 1394 07f5 000000B5 		.4byte	0xb5
+ 1395 07f9 04       		.byte	0x4
+ 1396 07fa 01       		.byte	0x1
+ 1397 07fb 14       		.byte	0x14
+ 1398 07fc 02       		.byte	0x2
+ 1399 07fd 23       		.byte	0x23
+ 1400 07fe 00       		.uleb128 0
+ 1401 07ff 09       		.uleb128 0x9
+ 1402 0800 00000000 		.4byte	.LASF69
+ 1403 0804 04       		.byte	0x4
+ 1404 0805 037D     		.2byte	0x37d
+ 1405 0807 000000B5 		.4byte	0xb5
+ 1406 080b 04       		.byte	0x4
+ 1407 080c 01       		.byte	0x1
+ 1408 080d 15       		.byte	0x15
+ 1409 080e 02       		.byte	0x2
+ 1410 080f 23       		.byte	0x23
+ 1411 0810 00       		.uleb128 0
+ 1412 0811 09       		.uleb128 0x9
+ 1413 0812 00000000 		.4byte	.LASF70
+ 1414 0816 04       		.byte	0x4
+ 1415 0817 037E     		.2byte	0x37e
+ 1416 0819 000000B5 		.4byte	0xb5
+ 1417 081d 04       		.byte	0x4
+ 1418 081e 01       		.byte	0x1
+ 1419 081f 16       		.byte	0x16
+ 1420 0820 02       		.byte	0x2
+ 1421 0821 23       		.byte	0x23
+ 1422 0822 00       		.uleb128 0
+ 1423 0823 09       		.uleb128 0x9
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 26
+
+
+ 1424 0824 00000000 		.4byte	.LASF71
+ 1425 0828 04       		.byte	0x4
+ 1426 0829 037F     		.2byte	0x37f
+ 1427 082b 000000B5 		.4byte	0xb5
+ 1428 082f 04       		.byte	0x4
+ 1429 0830 01       		.byte	0x1
+ 1430 0831 17       		.byte	0x17
+ 1431 0832 02       		.byte	0x2
+ 1432 0833 23       		.byte	0x23
+ 1433 0834 00       		.uleb128 0
+ 1434 0835 09       		.uleb128 0x9
+ 1435 0836 00000000 		.4byte	.LASF72
+ 1436 083a 04       		.byte	0x4
+ 1437 083b 0380     		.2byte	0x380
+ 1438 083d 000000B5 		.4byte	0xb5
+ 1439 0841 04       		.byte	0x4
+ 1440 0842 01       		.byte	0x1
+ 1441 0843 18       		.byte	0x18
+ 1442 0844 02       		.byte	0x2
+ 1443 0845 23       		.byte	0x23
+ 1444 0846 00       		.uleb128 0
+ 1445 0847 09       		.uleb128 0x9
+ 1446 0848 00000000 		.4byte	.LASF73
+ 1447 084c 04       		.byte	0x4
+ 1448 084d 0381     		.2byte	0x381
+ 1449 084f 000000B5 		.4byte	0xb5
+ 1450 0853 04       		.byte	0x4
+ 1451 0854 01       		.byte	0x1
+ 1452 0855 19       		.byte	0x19
+ 1453 0856 02       		.byte	0x2
+ 1454 0857 23       		.byte	0x23
+ 1455 0858 00       		.uleb128 0
+ 1456 0859 09       		.uleb128 0x9
+ 1457 085a 00000000 		.4byte	.LASF74
+ 1458 085e 04       		.byte	0x4
+ 1459 085f 0382     		.2byte	0x382
+ 1460 0861 000000B5 		.4byte	0xb5
+ 1461 0865 04       		.byte	0x4
+ 1462 0866 01       		.byte	0x1
+ 1463 0867 1A       		.byte	0x1a
+ 1464 0868 02       		.byte	0x2
+ 1465 0869 23       		.byte	0x23
+ 1466 086a 00       		.uleb128 0
+ 1467 086b 09       		.uleb128 0x9
+ 1468 086c 00000000 		.4byte	.LASF75
+ 1469 0870 04       		.byte	0x4
+ 1470 0871 0383     		.2byte	0x383
+ 1471 0873 000000B5 		.4byte	0xb5
+ 1472 0877 04       		.byte	0x4
+ 1473 0878 01       		.byte	0x1
+ 1474 0879 1B       		.byte	0x1b
+ 1475 087a 02       		.byte	0x2
+ 1476 087b 23       		.byte	0x23
+ 1477 087c 00       		.uleb128 0
+ 1478 087d 09       		.uleb128 0x9
+ 1479 087e 00000000 		.4byte	.LASF76
+ 1480 0882 04       		.byte	0x4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 27
+
+
+ 1481 0883 0384     		.2byte	0x384
+ 1482 0885 000000B5 		.4byte	0xb5
+ 1483 0889 04       		.byte	0x4
+ 1484 088a 01       		.byte	0x1
+ 1485 088b 1C       		.byte	0x1c
+ 1486 088c 02       		.byte	0x2
+ 1487 088d 23       		.byte	0x23
+ 1488 088e 00       		.uleb128 0
+ 1489 088f 09       		.uleb128 0x9
+ 1490 0890 00000000 		.4byte	.LASF77
+ 1491 0894 04       		.byte	0x4
+ 1492 0895 0385     		.2byte	0x385
+ 1493 0897 000000B5 		.4byte	0xb5
+ 1494 089b 04       		.byte	0x4
+ 1495 089c 01       		.byte	0x1
+ 1496 089d 1D       		.byte	0x1d
+ 1497 089e 02       		.byte	0x2
+ 1498 089f 23       		.byte	0x23
+ 1499 08a0 00       		.uleb128 0
+ 1500 08a1 09       		.uleb128 0x9
+ 1501 08a2 00000000 		.4byte	.LASF78
+ 1502 08a6 04       		.byte	0x4
+ 1503 08a7 0386     		.2byte	0x386
+ 1504 08a9 000000B5 		.4byte	0xb5
+ 1505 08ad 04       		.byte	0x4
+ 1506 08ae 01       		.byte	0x1
+ 1507 08af 1E       		.byte	0x1e
+ 1508 08b0 02       		.byte	0x2
+ 1509 08b1 23       		.byte	0x23
+ 1510 08b2 00       		.uleb128 0
+ 1511 08b3 09       		.uleb128 0x9
+ 1512 08b4 00000000 		.4byte	.LASF79
+ 1513 08b8 04       		.byte	0x4
+ 1514 08b9 0387     		.2byte	0x387
+ 1515 08bb 000000B5 		.4byte	0xb5
+ 1516 08bf 04       		.byte	0x4
+ 1517 08c0 01       		.byte	0x1
+ 1518 08c1 1F       		.byte	0x1f
+ 1519 08c2 02       		.byte	0x2
+ 1520 08c3 23       		.byte	0x23
+ 1521 08c4 00       		.uleb128 0
+ 1522 08c5 00       		.byte	0
+ 1523 08c6 0B       		.uleb128 0xb
+ 1524 08c7 04       		.byte	0x4
+ 1525 08c8 04       		.byte	0x4
+ 1526 08c9 0365     		.2byte	0x365
+ 1527 08cb 000008E4 		.4byte	0x8e4
+ 1528 08cf 0C       		.uleb128 0xc
+ 1529 08d0 5200     		.string	"R"
+ 1530 08d2 04       		.byte	0x4
+ 1531 08d3 0366     		.2byte	0x366
+ 1532 08d5 000000B5 		.4byte	0xb5
+ 1533 08d9 0C       		.uleb128 0xc
+ 1534 08da 4200     		.string	"B"
+ 1535 08dc 04       		.byte	0x4
+ 1536 08dd 0388     		.2byte	0x388
+ 1537 08df 0000067C 		.4byte	0x67c
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 28
+
+
+ 1538 08e3 00       		.byte	0
+ 1539 08e4 08       		.uleb128 0x8
+ 1540 08e5 04       		.byte	0x4
+ 1541 08e6 04       		.byte	0x4
+ 1542 08e7 0390     		.2byte	0x390
+ 1543 08e9 00000910 		.4byte	0x910
+ 1544 08ed 09       		.uleb128 0x9
+ 1545 08ee 00000000 		.4byte	.LASF25
+ 1546 08f2 04       		.byte	0x4
+ 1547 08f3 0391     		.2byte	0x391
+ 1548 08f5 000000B5 		.4byte	0xb5
+ 1549 08f9 04       		.byte	0x4
+ 1550 08fa 10       		.byte	0x10
+ 1551 08fb 00       		.byte	0
+ 1552 08fc 02       		.byte	0x2
+ 1553 08fd 23       		.byte	0x23
+ 1554 08fe 00       		.uleb128 0
+ 1555 08ff 0A       		.uleb128 0xa
+ 1556 0900 4100     		.string	"A"
+ 1557 0902 04       		.byte	0x4
+ 1558 0903 0392     		.2byte	0x392
+ 1559 0905 000000B5 		.4byte	0xb5
+ 1560 0909 04       		.byte	0x4
+ 1561 090a 10       		.byte	0x10
+ 1562 090b 10       		.byte	0x10
+ 1563 090c 02       		.byte	0x2
+ 1564 090d 23       		.byte	0x23
+ 1565 090e 00       		.uleb128 0
+ 1566 090f 00       		.byte	0
+ 1567 0910 0B       		.uleb128 0xb
+ 1568 0911 04       		.byte	0x4
+ 1569 0912 04       		.byte	0x4
+ 1570 0913 038E     		.2byte	0x38e
+ 1571 0915 0000092E 		.4byte	0x92e
+ 1572 0919 0C       		.uleb128 0xc
+ 1573 091a 5200     		.string	"R"
+ 1574 091c 04       		.byte	0x4
+ 1575 091d 038F     		.2byte	0x38f
+ 1576 091f 000000B5 		.4byte	0xb5
+ 1577 0923 0C       		.uleb128 0xc
+ 1578 0924 4200     		.string	"B"
+ 1579 0926 04       		.byte	0x4
+ 1580 0927 0393     		.2byte	0x393
+ 1581 0929 000008E4 		.4byte	0x8e4
+ 1582 092d 00       		.byte	0
+ 1583 092e 08       		.uleb128 0x8
+ 1584 092f 04       		.byte	0x4
+ 1585 0930 04       		.byte	0x4
+ 1586 0931 0398     		.2byte	0x398
+ 1587 0933 0000095A 		.4byte	0x95a
+ 1588 0937 09       		.uleb128 0x9
+ 1589 0938 00000000 		.4byte	.LASF25
+ 1590 093c 04       		.byte	0x4
+ 1591 093d 0399     		.2byte	0x399
+ 1592 093f 000000B5 		.4byte	0xb5
+ 1593 0943 04       		.byte	0x4
+ 1594 0944 10       		.byte	0x10
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 29
+
+
+ 1595 0945 00       		.byte	0
+ 1596 0946 02       		.byte	0x2
+ 1597 0947 23       		.byte	0x23
+ 1598 0948 00       		.uleb128 0
+ 1599 0949 0A       		.uleb128 0xa
+ 1600 094a 4200     		.string	"B"
+ 1601 094c 04       		.byte	0x4
+ 1602 094d 039A     		.2byte	0x39a
+ 1603 094f 000000B5 		.4byte	0xb5
+ 1604 0953 04       		.byte	0x4
+ 1605 0954 10       		.byte	0x10
+ 1606 0955 10       		.byte	0x10
+ 1607 0956 02       		.byte	0x2
+ 1608 0957 23       		.byte	0x23
+ 1609 0958 00       		.uleb128 0
+ 1610 0959 00       		.byte	0
+ 1611 095a 0B       		.uleb128 0xb
+ 1612 095b 04       		.byte	0x4
+ 1613 095c 04       		.byte	0x4
+ 1614 095d 0396     		.2byte	0x396
+ 1615 095f 00000978 		.4byte	0x978
+ 1616 0963 0C       		.uleb128 0xc
+ 1617 0964 5200     		.string	"R"
+ 1618 0966 04       		.byte	0x4
+ 1619 0967 0397     		.2byte	0x397
+ 1620 0969 000000B5 		.4byte	0xb5
+ 1621 096d 0C       		.uleb128 0xc
+ 1622 096e 4200     		.string	"B"
+ 1623 0970 04       		.byte	0x4
+ 1624 0971 039B     		.2byte	0x39b
+ 1625 0973 0000092E 		.4byte	0x92e
+ 1626 0977 00       		.byte	0
+ 1627 0978 08       		.uleb128 0x8
+ 1628 0979 04       		.byte	0x4
+ 1629 097a 04       		.byte	0x4
+ 1630 097b 03A0     		.2byte	0x3a0
+ 1631 097d 000009A4 		.4byte	0x9a4
+ 1632 0981 09       		.uleb128 0x9
+ 1633 0982 00000000 		.4byte	.LASF25
+ 1634 0986 04       		.byte	0x4
+ 1635 0987 03A1     		.2byte	0x3a1
+ 1636 0989 000000B5 		.4byte	0xb5
+ 1637 098d 04       		.byte	0x4
+ 1638 098e 10       		.byte	0x10
+ 1639 098f 00       		.byte	0
+ 1640 0990 02       		.byte	0x2
+ 1641 0991 23       		.byte	0x23
+ 1642 0992 00       		.uleb128 0
+ 1643 0993 0A       		.uleb128 0xa
+ 1644 0994 4300     		.string	"C"
+ 1645 0996 04       		.byte	0x4
+ 1646 0997 03A2     		.2byte	0x3a2
+ 1647 0999 000000B5 		.4byte	0xb5
+ 1648 099d 04       		.byte	0x4
+ 1649 099e 10       		.byte	0x10
+ 1650 099f 10       		.byte	0x10
+ 1651 09a0 02       		.byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 30
+
+
+ 1652 09a1 23       		.byte	0x23
+ 1653 09a2 00       		.uleb128 0
+ 1654 09a3 00       		.byte	0
+ 1655 09a4 0B       		.uleb128 0xb
+ 1656 09a5 04       		.byte	0x4
+ 1657 09a6 04       		.byte	0x4
+ 1658 09a7 039E     		.2byte	0x39e
+ 1659 09a9 000009C2 		.4byte	0x9c2
+ 1660 09ad 0C       		.uleb128 0xc
+ 1661 09ae 5200     		.string	"R"
+ 1662 09b0 04       		.byte	0x4
+ 1663 09b1 039F     		.2byte	0x39f
+ 1664 09b3 000000B5 		.4byte	0xb5
+ 1665 09b7 0C       		.uleb128 0xc
+ 1666 09b8 4200     		.string	"B"
+ 1667 09ba 04       		.byte	0x4
+ 1668 09bb 03A3     		.2byte	0x3a3
+ 1669 09bd 00000978 		.4byte	0x978
+ 1670 09c1 00       		.byte	0
+ 1671 09c2 08       		.uleb128 0x8
+ 1672 09c3 04       		.byte	0x4
+ 1673 09c4 04       		.byte	0x4
+ 1674 09c5 03A8     		.2byte	0x3a8
+ 1675 09c7 00000B0F 		.4byte	0xb0f
+ 1676 09cb 09       		.uleb128 0x9
+ 1677 09cc 00000000 		.4byte	.LASF80
+ 1678 09d0 04       		.byte	0x4
+ 1679 09d1 03A9     		.2byte	0x3a9
+ 1680 09d3 000000B5 		.4byte	0xb5
+ 1681 09d7 04       		.byte	0x4
+ 1682 09d8 01       		.byte	0x1
+ 1683 09d9 00       		.byte	0
+ 1684 09da 02       		.byte	0x2
+ 1685 09db 23       		.byte	0x23
+ 1686 09dc 00       		.uleb128 0
+ 1687 09dd 09       		.uleb128 0x9
+ 1688 09de 00000000 		.4byte	.LASF81
+ 1689 09e2 04       		.byte	0x4
+ 1690 09e3 03AA     		.2byte	0x3aa
+ 1691 09e5 000000B5 		.4byte	0xb5
+ 1692 09e9 04       		.byte	0x4
+ 1693 09ea 01       		.byte	0x1
+ 1694 09eb 01       		.byte	0x1
+ 1695 09ec 02       		.byte	0x2
+ 1696 09ed 23       		.byte	0x23
+ 1697 09ee 00       		.uleb128 0
+ 1698 09ef 09       		.uleb128 0x9
+ 1699 09f0 00000000 		.4byte	.LASF82
+ 1700 09f4 04       		.byte	0x4
+ 1701 09f5 03AB     		.2byte	0x3ab
+ 1702 09f7 000000B5 		.4byte	0xb5
+ 1703 09fb 04       		.byte	0x4
+ 1704 09fc 02       		.byte	0x2
+ 1705 09fd 02       		.byte	0x2
+ 1706 09fe 02       		.byte	0x2
+ 1707 09ff 23       		.byte	0x23
+ 1708 0a00 00       		.uleb128 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 31
+
+
+ 1709 0a01 09       		.uleb128 0x9
+ 1710 0a02 00000000 		.4byte	.LASF83
+ 1711 0a06 04       		.byte	0x4
+ 1712 0a07 03AC     		.2byte	0x3ac
+ 1713 0a09 000000B5 		.4byte	0xb5
+ 1714 0a0d 04       		.byte	0x4
+ 1715 0a0e 02       		.byte	0x2
+ 1716 0a0f 04       		.byte	0x4
+ 1717 0a10 02       		.byte	0x2
+ 1718 0a11 23       		.byte	0x23
+ 1719 0a12 00       		.uleb128 0
+ 1720 0a13 09       		.uleb128 0x9
+ 1721 0a14 00000000 		.4byte	.LASF84
+ 1722 0a18 04       		.byte	0x4
+ 1723 0a19 03AD     		.2byte	0x3ad
+ 1724 0a1b 000000B5 		.4byte	0xb5
+ 1725 0a1f 04       		.byte	0x4
+ 1726 0a20 01       		.byte	0x1
+ 1727 0a21 06       		.byte	0x6
+ 1728 0a22 02       		.byte	0x2
+ 1729 0a23 23       		.byte	0x23
+ 1730 0a24 00       		.uleb128 0
+ 1731 0a25 0A       		.uleb128 0xa
+ 1732 0a26 444D4100 		.string	"DMA"
+ 1733 0a2a 04       		.byte	0x4
+ 1734 0a2b 03AE     		.2byte	0x3ae
+ 1735 0a2d 000000B5 		.4byte	0xb5
+ 1736 0a31 04       		.byte	0x4
+ 1737 0a32 01       		.byte	0x1
+ 1738 0a33 07       		.byte	0x7
+ 1739 0a34 02       		.byte	0x2
+ 1740 0a35 23       		.byte	0x23
+ 1741 0a36 00       		.uleb128 0
+ 1742 0a37 09       		.uleb128 0x9
+ 1743 0a38 00000000 		.4byte	.LASF21
+ 1744 0a3c 04       		.byte	0x4
+ 1745 0a3d 03AF     		.2byte	0x3af
+ 1746 0a3f 000000B5 		.4byte	0xb5
+ 1747 0a43 04       		.byte	0x4
+ 1748 0a44 01       		.byte	0x1
+ 1749 0a45 08       		.byte	0x8
+ 1750 0a46 02       		.byte	0x2
+ 1751 0a47 23       		.byte	0x23
+ 1752 0a48 00       		.uleb128 0
+ 1753 0a49 0A       		.uleb128 0xa
+ 1754 0a4a 494600   		.string	"IF"
+ 1755 0a4d 04       		.byte	0x4
+ 1756 0a4e 03B0     		.2byte	0x3b0
+ 1757 0a50 000000B5 		.4byte	0xb5
+ 1758 0a54 04       		.byte	0x4
+ 1759 0a55 04       		.byte	0x4
+ 1760 0a56 09       		.byte	0x9
+ 1761 0a57 02       		.byte	0x2
+ 1762 0a58 23       		.byte	0x23
+ 1763 0a59 00       		.uleb128 0
+ 1764 0a5a 0A       		.uleb128 0xa
+ 1765 0a5b 46434B00 		.string	"FCK"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 32
+
+
+ 1766 0a5f 04       		.byte	0x4
+ 1767 0a60 03B1     		.2byte	0x3b1
+ 1768 0a62 000000B5 		.4byte	0xb5
+ 1769 0a66 04       		.byte	0x4
+ 1770 0a67 01       		.byte	0x1
+ 1771 0a68 0D       		.byte	0xd
+ 1772 0a69 02       		.byte	0x2
+ 1773 0a6a 23       		.byte	0x23
+ 1774 0a6b 00       		.uleb128 0
+ 1775 0a6c 0A       		.uleb128 0xa
+ 1776 0a6d 46454E00 		.string	"FEN"
+ 1777 0a71 04       		.byte	0x4
+ 1778 0a72 03B2     		.2byte	0x3b2
+ 1779 0a74 000000B5 		.4byte	0xb5
+ 1780 0a78 04       		.byte	0x4
+ 1781 0a79 01       		.byte	0x1
+ 1782 0a7a 0E       		.byte	0xe
+ 1783 0a7b 02       		.byte	0x2
+ 1784 0a7c 23       		.byte	0x23
+ 1785 0a7d 00       		.uleb128 0
+ 1786 0a7e 09       		.uleb128 0x9
+ 1787 0a7f 00000000 		.4byte	.LASF23
+ 1788 0a83 04       		.byte	0x4
+ 1789 0a84 03B3     		.2byte	0x3b3
+ 1790 0a86 000000B5 		.4byte	0xb5
+ 1791 0a8a 04       		.byte	0x4
+ 1792 0a8b 03       		.byte	0x3
+ 1793 0a8c 0F       		.byte	0xf
+ 1794 0a8d 02       		.byte	0x2
+ 1795 0a8e 23       		.byte	0x23
+ 1796 0a8f 00       		.uleb128 0
+ 1797 0a90 09       		.uleb128 0x9
+ 1798 0a91 00000000 		.4byte	.LASF85
+ 1799 0a95 04       		.byte	0x4
+ 1800 0a96 03B4     		.2byte	0x3b4
+ 1801 0a98 000000B5 		.4byte	0xb5
+ 1802 0a9c 04       		.byte	0x4
+ 1803 0a9d 01       		.byte	0x1
+ 1804 0a9e 12       		.byte	0x12
+ 1805 0a9f 02       		.byte	0x2
+ 1806 0aa0 23       		.byte	0x23
+ 1807 0aa1 00       		.uleb128 0
+ 1808 0aa2 09       		.uleb128 0x9
+ 1809 0aa3 00000000 		.4byte	.LASF86
+ 1810 0aa7 04       		.byte	0x4
+ 1811 0aa8 03B5     		.2byte	0x3b5
+ 1812 0aaa 000000B5 		.4byte	0xb5
+ 1813 0aae 04       		.byte	0x4
+ 1814 0aaf 01       		.byte	0x1
+ 1815 0ab0 13       		.byte	0x13
+ 1816 0ab1 02       		.byte	0x2
+ 1817 0ab2 23       		.byte	0x23
+ 1818 0ab3 00       		.uleb128 0
+ 1819 0ab4 09       		.uleb128 0x9
+ 1820 0ab5 00000000 		.4byte	.LASF25
+ 1821 0ab9 04       		.byte	0x4
+ 1822 0aba 03B6     		.2byte	0x3b6
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 33
+
+
+ 1823 0abc 000000B5 		.4byte	0xb5
+ 1824 0ac0 04       		.byte	0x4
+ 1825 0ac1 01       		.byte	0x1
+ 1826 0ac2 14       		.byte	0x14
+ 1827 0ac3 02       		.byte	0x2
+ 1828 0ac4 23       		.byte	0x23
+ 1829 0ac5 00       		.uleb128 0
+ 1830 0ac6 0A       		.uleb128 0xa
+ 1831 0ac7 42534C00 		.string	"BSL"
+ 1832 0acb 04       		.byte	0x4
+ 1833 0acc 03B7     		.2byte	0x3b7
+ 1834 0ace 000000B5 		.4byte	0xb5
+ 1835 0ad2 04       		.byte	0x4
+ 1836 0ad3 02       		.byte	0x2
+ 1837 0ad4 15       		.byte	0x15
+ 1838 0ad5 02       		.byte	0x2
+ 1839 0ad6 23       		.byte	0x23
+ 1840 0ad7 00       		.uleb128 0
+ 1841 0ad8 09       		.uleb128 0x9
+ 1842 0ad9 00000000 		.4byte	.LASF87
+ 1843 0add 04       		.byte	0x4
+ 1844 0ade 03B8     		.2byte	0x3b8
+ 1845 0ae0 000000B5 		.4byte	0xb5
+ 1846 0ae4 04       		.byte	0x4
+ 1847 0ae5 01       		.byte	0x1
+ 1848 0ae6 17       		.byte	0x17
+ 1849 0ae7 02       		.byte	0x2
+ 1850 0ae8 23       		.byte	0x23
+ 1851 0ae9 00       		.uleb128 0
+ 1852 0aea 09       		.uleb128 0x9
+ 1853 0aeb 00000000 		.4byte	.LASF88
+ 1854 0aef 04       		.byte	0x4
+ 1855 0af0 03B9     		.2byte	0x3b9
+ 1856 0af2 000000B5 		.4byte	0xb5
+ 1857 0af6 04       		.byte	0x4
+ 1858 0af7 01       		.byte	0x1
+ 1859 0af8 18       		.byte	0x18
+ 1860 0af9 02       		.byte	0x2
+ 1861 0afa 23       		.byte	0x23
+ 1862 0afb 00       		.uleb128 0
+ 1863 0afc 09       		.uleb128 0x9
+ 1864 0afd 00000000 		.4byte	.LASF89
+ 1865 0b01 04       		.byte	0x4
+ 1866 0b02 03BA     		.2byte	0x3ba
+ 1867 0b04 000000B5 		.4byte	0xb5
+ 1868 0b08 04       		.byte	0x4
+ 1869 0b09 07       		.byte	0x7
+ 1870 0b0a 19       		.byte	0x19
+ 1871 0b0b 02       		.byte	0x2
+ 1872 0b0c 23       		.byte	0x23
+ 1873 0b0d 00       		.uleb128 0
+ 1874 0b0e 00       		.byte	0
+ 1875 0b0f 0B       		.uleb128 0xb
+ 1876 0b10 04       		.byte	0x4
+ 1877 0b11 04       		.byte	0x4
+ 1878 0b12 03A6     		.2byte	0x3a6
+ 1879 0b14 00000B2D 		.4byte	0xb2d
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 34
+
+
+ 1880 0b18 0C       		.uleb128 0xc
+ 1881 0b19 5200     		.string	"R"
+ 1882 0b1b 04       		.byte	0x4
+ 1883 0b1c 03A7     		.2byte	0x3a7
+ 1884 0b1e 000000B5 		.4byte	0xb5
+ 1885 0b22 0C       		.uleb128 0xc
+ 1886 0b23 4200     		.string	"B"
+ 1887 0b25 04       		.byte	0x4
+ 1888 0b26 03BB     		.2byte	0x3bb
+ 1889 0b28 000009C2 		.4byte	0x9c2
+ 1890 0b2c 00       		.byte	0
+ 1891 0b2d 08       		.uleb128 0x8
+ 1892 0b2e 04       		.byte	0x4
+ 1893 0b2f 04       		.byte	0x4
+ 1894 0b30 03C0     		.2byte	0x3c0
+ 1895 0b32 00000BB5 		.4byte	0xbb5
+ 1896 0b36 0A       		.uleb128 0xa
+ 1897 0b37 4F565200 		.string	"OVR"
+ 1898 0b3b 04       		.byte	0x4
+ 1899 0b3c 03C1     		.2byte	0x3c1
+ 1900 0b3e 000000B5 		.4byte	0xb5
+ 1901 0b42 04       		.byte	0x4
+ 1902 0b43 01       		.byte	0x1
+ 1903 0b44 00       		.byte	0
+ 1904 0b45 02       		.byte	0x2
+ 1905 0b46 23       		.byte	0x23
+ 1906 0b47 00       		.uleb128 0
+ 1907 0b48 09       		.uleb128 0x9
+ 1908 0b49 00000000 		.4byte	.LASF23
+ 1909 0b4d 04       		.byte	0x4
+ 1910 0b4e 03C2     		.2byte	0x3c2
+ 1911 0b50 000000B5 		.4byte	0xb5
+ 1912 0b54 04       		.byte	0x4
+ 1913 0b55 0F       		.byte	0xf
+ 1914 0b56 01       		.byte	0x1
+ 1915 0b57 02       		.byte	0x2
+ 1916 0b58 23       		.byte	0x23
+ 1917 0b59 00       		.uleb128 0
+ 1918 0b5a 09       		.uleb128 0x9
+ 1919 0b5b 00000000 		.4byte	.LASF90
+ 1920 0b5f 04       		.byte	0x4
+ 1921 0b60 03C3     		.2byte	0x3c3
+ 1922 0b62 000000B5 		.4byte	0xb5
+ 1923 0b66 04       		.byte	0x4
+ 1924 0b67 01       		.byte	0x1
+ 1925 0b68 10       		.byte	0x10
+ 1926 0b69 02       		.byte	0x2
+ 1927 0b6a 23       		.byte	0x23
+ 1928 0b6b 00       		.uleb128 0
+ 1929 0b6c 09       		.uleb128 0x9
+ 1930 0b6d 00000000 		.4byte	.LASF25
+ 1931 0b71 04       		.byte	0x4
+ 1932 0b72 03C4     		.2byte	0x3c4
+ 1933 0b74 000000B5 		.4byte	0xb5
+ 1934 0b78 04       		.byte	0x4
+ 1935 0b79 0C       		.byte	0xc
+ 1936 0b7a 11       		.byte	0x11
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 35
+
+
+ 1937 0b7b 02       		.byte	0x2
+ 1938 0b7c 23       		.byte	0x23
+ 1939 0b7d 00       		.uleb128 0
+ 1940 0b7e 09       		.uleb128 0x9
+ 1941 0b7f 00000000 		.4byte	.LASF91
+ 1942 0b83 04       		.byte	0x4
+ 1943 0b84 03C5     		.2byte	0x3c5
+ 1944 0b86 000000B5 		.4byte	0xb5
+ 1945 0b8a 04       		.byte	0x4
+ 1946 0b8b 01       		.byte	0x1
+ 1947 0b8c 1D       		.byte	0x1d
+ 1948 0b8d 02       		.byte	0x2
+ 1949 0b8e 23       		.byte	0x23
+ 1950 0b8f 00       		.uleb128 0
+ 1951 0b90 09       		.uleb128 0x9
+ 1952 0b91 00000000 		.4byte	.LASF92
+ 1953 0b95 04       		.byte	0x4
+ 1954 0b96 03C6     		.2byte	0x3c6
+ 1955 0b98 000000B5 		.4byte	0xb5
+ 1956 0b9c 04       		.byte	0x4
+ 1957 0b9d 01       		.byte	0x1
+ 1958 0b9e 1E       		.byte	0x1e
+ 1959 0b9f 02       		.byte	0x2
+ 1960 0ba0 23       		.byte	0x23
+ 1961 0ba1 00       		.uleb128 0
+ 1962 0ba2 09       		.uleb128 0x9
+ 1963 0ba3 00000000 		.4byte	.LASF93
+ 1964 0ba7 04       		.byte	0x4
+ 1965 0ba8 03C7     		.2byte	0x3c7
+ 1966 0baa 000000B5 		.4byte	0xb5
+ 1967 0bae 04       		.byte	0x4
+ 1968 0baf 01       		.byte	0x1
+ 1969 0bb0 1F       		.byte	0x1f
+ 1970 0bb1 02       		.byte	0x2
+ 1971 0bb2 23       		.byte	0x23
+ 1972 0bb3 00       		.uleb128 0
+ 1973 0bb4 00       		.byte	0
+ 1974 0bb5 0B       		.uleb128 0xb
+ 1975 0bb6 04       		.byte	0x4
+ 1976 0bb7 04       		.byte	0x4
+ 1977 0bb8 03BE     		.2byte	0x3be
+ 1978 0bba 00000BD3 		.4byte	0xbd3
+ 1979 0bbe 0C       		.uleb128 0xc
+ 1980 0bbf 5200     		.string	"R"
+ 1981 0bc1 04       		.byte	0x4
+ 1982 0bc2 03BF     		.2byte	0x3bf
+ 1983 0bc4 000000B5 		.4byte	0xb5
+ 1984 0bc8 0C       		.uleb128 0xc
+ 1985 0bc9 4200     		.string	"B"
+ 1986 0bcb 04       		.byte	0x4
+ 1987 0bcc 03C8     		.2byte	0x3c8
+ 1988 0bce 00000B2D 		.4byte	0xb2d
+ 1989 0bd2 00       		.byte	0
+ 1990 0bd3 08       		.uleb128 0x8
+ 1991 0bd4 04       		.byte	0x4
+ 1992 0bd5 04       		.byte	0x4
+ 1993 0bd6 03CD     		.2byte	0x3cd
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 36
+
+
+ 1994 0bd8 00000C01 		.4byte	0xc01
+ 1995 0bdc 09       		.uleb128 0x9
+ 1996 0bdd 00000000 		.4byte	.LASF25
+ 1997 0be1 04       		.byte	0x4
+ 1998 0be2 03CE     		.2byte	0x3ce
+ 1999 0be4 000000B5 		.4byte	0xb5
+ 2000 0be8 04       		.byte	0x4
+ 2001 0be9 10       		.byte	0x10
+ 2002 0bea 00       		.byte	0
+ 2003 0beb 02       		.byte	0x2
+ 2004 0bec 23       		.byte	0x23
+ 2005 0bed 00       		.uleb128 0
+ 2006 0bee 09       		.uleb128 0x9
+ 2007 0bef 00000000 		.4byte	.LASF94
+ 2008 0bf3 04       		.byte	0x4
+ 2009 0bf4 03CF     		.2byte	0x3cf
+ 2010 0bf6 000000B5 		.4byte	0xb5
+ 2011 0bfa 04       		.byte	0x4
+ 2012 0bfb 10       		.byte	0x10
+ 2013 0bfc 10       		.byte	0x10
+ 2014 0bfd 02       		.byte	0x2
+ 2015 0bfe 23       		.byte	0x23
+ 2016 0bff 00       		.uleb128 0
+ 2017 0c00 00       		.byte	0
+ 2018 0c01 0B       		.uleb128 0xb
+ 2019 0c02 04       		.byte	0x4
+ 2020 0c03 04       		.byte	0x4
+ 2021 0c04 03CB     		.2byte	0x3cb
+ 2022 0c06 00000C1F 		.4byte	0xc1f
+ 2023 0c0a 0C       		.uleb128 0xc
+ 2024 0c0b 5200     		.string	"R"
+ 2025 0c0d 04       		.byte	0x4
+ 2026 0c0e 03CC     		.2byte	0x3cc
+ 2027 0c10 000000B5 		.4byte	0xb5
+ 2028 0c14 0C       		.uleb128 0xc
+ 2029 0c15 4200     		.string	"B"
+ 2030 0c17 04       		.byte	0x4
+ 2031 0c18 03D0     		.2byte	0x3d0
+ 2032 0c1a 00000BD3 		.4byte	0xbd3
+ 2033 0c1e 00       		.byte	0
+ 2034 0c1f 08       		.uleb128 0x8
+ 2035 0c20 20       		.byte	0x20
+ 2036 0c21 04       		.byte	0x4
+ 2037 0c22 038D     		.2byte	0x38d
+ 2038 0c24 00000C8A 		.4byte	0xc8a
+ 2039 0c28 0D       		.uleb128 0xd
+ 2040 0c29 4100     		.string	"A"
+ 2041 0c2b 04       		.byte	0x4
+ 2042 0c2c 0394     		.2byte	0x394
+ 2043 0c2e 00000910 		.4byte	0x910
+ 2044 0c32 02       		.byte	0x2
+ 2045 0c33 23       		.byte	0x23
+ 2046 0c34 00       		.uleb128 0
+ 2047 0c35 0D       		.uleb128 0xd
+ 2048 0c36 4200     		.string	"B"
+ 2049 0c38 04       		.byte	0x4
+ 2050 0c39 039C     		.2byte	0x39c
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 37
+
+
+ 2051 0c3b 0000095A 		.4byte	0x95a
+ 2052 0c3f 02       		.byte	0x2
+ 2053 0c40 23       		.byte	0x23
+ 2054 0c41 04       		.uleb128 0x4
+ 2055 0c42 0D       		.uleb128 0xd
+ 2056 0c43 434E5400 		.string	"CNT"
+ 2057 0c47 04       		.byte	0x4
+ 2058 0c48 03A4     		.2byte	0x3a4
+ 2059 0c4a 000009A4 		.4byte	0x9a4
+ 2060 0c4e 02       		.byte	0x2
+ 2061 0c4f 23       		.byte	0x23
+ 2062 0c50 08       		.uleb128 0x8
+ 2063 0c51 0D       		.uleb128 0xd
+ 2064 0c52 4300     		.string	"C"
+ 2065 0c54 04       		.byte	0x4
+ 2066 0c55 03BC     		.2byte	0x3bc
+ 2067 0c57 00000B0F 		.4byte	0xb0f
+ 2068 0c5b 02       		.byte	0x2
+ 2069 0c5c 23       		.byte	0x23
+ 2070 0c5d 0C       		.uleb128 0xc
+ 2071 0c5e 0D       		.uleb128 0xd
+ 2072 0c5f 5300     		.string	"S"
+ 2073 0c61 04       		.byte	0x4
+ 2074 0c62 03C9     		.2byte	0x3c9
+ 2075 0c64 00000BB5 		.4byte	0xbb5
+ 2076 0c68 02       		.byte	0x2
+ 2077 0c69 23       		.byte	0x23
+ 2078 0c6a 10       		.uleb128 0x10
+ 2079 0c6b 0E       		.uleb128 0xe
+ 2080 0c6c 00000000 		.4byte	.LASF94
+ 2081 0c70 04       		.byte	0x4
+ 2082 0c71 03D1     		.2byte	0x3d1
+ 2083 0c73 00000C01 		.4byte	0xc01
+ 2084 0c77 02       		.byte	0x2
+ 2085 0c78 23       		.byte	0x23
+ 2086 0c79 14       		.uleb128 0x14
+ 2087 0c7a 0E       		.uleb128 0xe
+ 2088 0c7b 00000000 		.4byte	.LASF95
+ 2089 0c7f 04       		.byte	0x4
+ 2090 0c80 03D3     		.2byte	0x3d3
+ 2091 0c82 00000C8A 		.4byte	0xc8a
+ 2092 0c86 02       		.byte	0x2
+ 2093 0c87 23       		.byte	0x23
+ 2094 0c88 18       		.uleb128 0x18
+ 2095 0c89 00       		.byte	0
+ 2096 0c8a 05       		.uleb128 0x5
+ 2097 0c8b 000000DC 		.4byte	0xdc
+ 2098 0c8f 0F       		.uleb128 0xf
+ 2099 0c90 00000000 		.4byte	.LASF101
+ 2100 0c94 0420     		.2byte	0x420
+ 2101 0c96 04       		.byte	0x4
+ 2102 0c97 0309     		.2byte	0x309
+ 2103 0c99 00000CF7 		.4byte	0xcf7
+ 2104 0c9d 0D       		.uleb128 0xd
+ 2105 0c9e 4D435200 		.string	"MCR"
+ 2106 0ca2 04       		.byte	0x4
+ 2107 0ca3 0317     		.2byte	0x317
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 38
+
+
+ 2108 0ca5 00000198 		.4byte	0x198
+ 2109 0ca9 02       		.byte	0x2
+ 2110 0caa 23       		.byte	0x23
+ 2111 0cab 00       		.uleb128 0
+ 2112 0cac 0E       		.uleb128 0xe
+ 2113 0cad 00000000 		.4byte	.LASF96
+ 2114 0cb1 04       		.byte	0x4
+ 2115 0cb2 033D     		.2byte	0x33d
+ 2116 0cb4 000003F6 		.4byte	0x3f6
+ 2117 0cb8 02       		.byte	0x2
+ 2118 0cb9 23       		.byte	0x23
+ 2119 0cba 04       		.uleb128 0x4
+ 2120 0cbb 0E       		.uleb128 0xe
+ 2121 0cbc 00000000 		.4byte	.LASF97
+ 2122 0cc0 04       		.byte	0x4
+ 2123 0cc1 0363     		.2byte	0x363
+ 2124 0cc3 0000065E 		.4byte	0x65e
+ 2125 0cc7 02       		.byte	0x2
+ 2126 0cc8 23       		.byte	0x23
+ 2127 0cc9 08       		.uleb128 0x8
+ 2128 0cca 0E       		.uleb128 0xe
+ 2129 0ccb 00000000 		.4byte	.LASF98
+ 2130 0ccf 04       		.byte	0x4
+ 2131 0cd0 0389     		.2byte	0x389
+ 2132 0cd2 000008C6 		.4byte	0x8c6
+ 2133 0cd6 02       		.byte	0x2
+ 2134 0cd7 23       		.byte	0x23
+ 2135 0cd8 0C       		.uleb128 0xc
+ 2136 0cd9 0E       		.uleb128 0xe
+ 2137 0cda 00000000 		.4byte	.LASF99
+ 2138 0cde 04       		.byte	0x4
+ 2139 0cdf 038B     		.2byte	0x38b
+ 2140 0ce1 00000CF7 		.4byte	0xcf7
+ 2141 0ce5 02       		.byte	0x2
+ 2142 0ce6 23       		.byte	0x23
+ 2143 0ce7 10       		.uleb128 0x10
+ 2144 0ce8 0D       		.uleb128 0xd
+ 2145 0ce9 434800   		.string	"CH"
+ 2146 0cec 04       		.byte	0x4
+ 2147 0ced 03D5     		.2byte	0x3d5
+ 2148 0cef 00000CFC 		.4byte	0xcfc
+ 2149 0cf3 02       		.byte	0x2
+ 2150 0cf4 23       		.byte	0x23
+ 2151 0cf5 20       		.uleb128 0x20
+ 2152 0cf6 00       		.byte	0
+ 2153 0cf7 05       		.uleb128 0x5
+ 2154 0cf8 000000CC 		.4byte	0xcc
+ 2155 0cfc 06       		.uleb128 0x6
+ 2156 0cfd 00000C1F 		.4byte	0xc1f
+ 2157 0d01 00000D0C 		.4byte	0xd0c
+ 2158 0d05 07       		.uleb128 0x7
+ 2159 0d06 000000C5 		.4byte	0xc5
+ 2160 0d0a 1F       		.byte	0x1f
+ 2161 0d0b 00       		.byte	0
+ 2162 0d0c 10       		.uleb128 0x10
+ 2163 0d0d 04       		.byte	0x4
+ 2164 0d0e 00000D12 		.4byte	0xd12
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 39
+
+
+ 2165 0d12 05       		.uleb128 0x5
+ 2166 0d13 00000C8F 		.4byte	0xc8f
+ 2167 0d17 03       		.uleb128 0x3
+ 2168 0d18 00000000 		.4byte	.LASF100
+ 2169 0d1c 05       		.byte	0x5
+ 2170 0d1d E0       		.byte	0xe0
+ 2171 0d1e 00000D22 		.4byte	0xd22
+ 2172 0d22 11       		.uleb128 0x11
+ 2173 0d23 00000000 		.4byte	.LASF100
+ 2174 0d27 14       		.byte	0x14
+ 2175 0d28 05       		.byte	0x5
+ 2176 0d29 0136     		.2byte	0x136
+ 2177 0d2b 00000D7B 		.4byte	0xd7b
+ 2178 0d2f 0E       		.uleb128 0xe
+ 2179 0d30 00000000 		.4byte	.LASF102
+ 2180 0d34 05       		.byte	0x5
+ 2181 0d35 013E     		.2byte	0x13e
+ 2182 0d37 00000DBF 		.4byte	0xdbf
+ 2183 0d3b 02       		.byte	0x2
+ 2184 0d3c 23       		.byte	0x23
+ 2185 0d3d 00       		.uleb128 0
+ 2186 0d3e 0E       		.uleb128 0xe
+ 2187 0d3f 00000000 		.4byte	.LASF103
+ 2188 0d43 05       		.byte	0x5
+ 2189 0d44 0142     		.2byte	0x142
+ 2190 0d46 00000DCA 		.4byte	0xdca
+ 2191 0d4a 02       		.byte	0x2
+ 2192 0d4b 23       		.byte	0x23
+ 2193 0d4c 04       		.uleb128 0x4
+ 2194 0d4d 0E       		.uleb128 0xe
+ 2195 0d4e 00000000 		.4byte	.LASF104
+ 2196 0d52 05       		.byte	0x5
+ 2197 0d53 0146     		.2byte	0x146
+ 2198 0d55 00000DB4 		.4byte	0xdb4
+ 2199 0d59 02       		.byte	0x2
+ 2200 0d5a 23       		.byte	0x23
+ 2201 0d5b 08       		.uleb128 0x8
+ 2202 0d5c 0E       		.uleb128 0xe
+ 2203 0d5d 00000000 		.4byte	.LASF105
+ 2204 0d61 05       		.byte	0x5
+ 2205 0d62 014A     		.2byte	0x14a
+ 2206 0d64 00000E81 		.4byte	0xe81
+ 2207 0d68 02       		.byte	0x2
+ 2208 0d69 23       		.byte	0x23
+ 2209 0d6a 0C       		.uleb128 0xc
+ 2210 0d6b 0E       		.uleb128 0xe
+ 2211 0d6c 00000000 		.4byte	.LASF106
+ 2212 0d70 05       		.byte	0x5
+ 2213 0d71 014E     		.2byte	0x14e
+ 2214 0d73 00000D0C 		.4byte	0xd0c
+ 2215 0d77 02       		.byte	0x2
+ 2216 0d78 23       		.byte	0x23
+ 2217 0d79 10       		.uleb128 0x10
+ 2218 0d7a 00       		.byte	0
+ 2219 0d7b 03       		.uleb128 0x3
+ 2220 0d7c 00000000 		.4byte	.LASF107
+ 2221 0d80 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 40
+
+
+ 2222 0d81 E7       		.byte	0xe7
+ 2223 0d82 00000D86 		.4byte	0xd86
+ 2224 0d86 10       		.uleb128 0x10
+ 2225 0d87 04       		.byte	0x4
+ 2226 0d88 00000D8C 		.4byte	0xd8c
+ 2227 0d8c 12       		.uleb128 0x12
+ 2228 0d8d 01       		.byte	0x1
+ 2229 0d8e 00000D98 		.4byte	0xd98
+ 2230 0d92 13       		.uleb128 0x13
+ 2231 0d93 00000D98 		.4byte	0xd98
+ 2232 0d97 00       		.byte	0
+ 2233 0d98 10       		.uleb128 0x10
+ 2234 0d99 04       		.byte	0x4
+ 2235 0d9a 00000D17 		.4byte	0xd17
+ 2236 0d9e 03       		.uleb128 0x3
+ 2237 0d9f 00000000 		.4byte	.LASF108
+ 2238 0da3 05       		.byte	0x5
+ 2239 0da4 EC       		.byte	0xec
+ 2240 0da5 0000009A 		.4byte	0x9a
+ 2241 0da9 03       		.uleb128 0x3
+ 2242 0daa 00000000 		.4byte	.LASF109
+ 2243 0dae 05       		.byte	0x5
+ 2244 0daf F1       		.byte	0xf1
+ 2245 0db0 00000084 		.4byte	0x84
+ 2246 0db4 03       		.uleb128 0x3
+ 2247 0db5 00000000 		.4byte	.LASF110
+ 2248 0db9 05       		.byte	0x5
+ 2249 0dba F6       		.byte	0xf6
+ 2250 0dbb 0000009A 		.4byte	0x9a
+ 2251 0dbf 03       		.uleb128 0x3
+ 2252 0dc0 00000000 		.4byte	.LASF111
+ 2253 0dc4 05       		.byte	0x5
+ 2254 0dc5 FB       		.byte	0xfb
+ 2255 0dc6 00000084 		.4byte	0x84
+ 2256 0dca 14       		.uleb128 0x14
+ 2257 0dcb 00000000 		.4byte	.LASF112
+ 2258 0dcf 05       		.byte	0x5
+ 2259 0dd0 0100     		.2byte	0x100
+ 2260 0dd2 0000009A 		.4byte	0x9a
+ 2261 0dd6 08       		.uleb128 0x8
+ 2262 0dd7 08       		.byte	0x8
+ 2263 0dd8 05       		.byte	0x5
+ 2264 0dd9 0105     		.2byte	0x105
+ 2265 0ddb 00000DFE 		.4byte	0xdfe
+ 2266 0ddf 0E       		.uleb128 0xe
+ 2267 0de0 00000000 		.4byte	.LASF103
+ 2268 0de4 05       		.byte	0x5
+ 2269 0de5 0109     		.2byte	0x109
+ 2270 0de7 00000D9E 		.4byte	0xd9e
+ 2271 0deb 02       		.byte	0x2
+ 2272 0dec 23       		.byte	0x23
+ 2273 0ded 00       		.uleb128 0
+ 2274 0dee 0E       		.uleb128 0xe
+ 2275 0def 00000000 		.4byte	.LASF113
+ 2276 0df3 05       		.byte	0x5
+ 2277 0df4 010F     		.2byte	0x10f
+ 2278 0df6 00000D7B 		.4byte	0xd7b
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 41
+
+
+ 2279 0dfa 02       		.byte	0x2
+ 2280 0dfb 23       		.byte	0x23
+ 2281 0dfc 04       		.uleb128 0x4
+ 2282 0dfd 00       		.byte	0
+ 2283 0dfe 14       		.uleb128 0x14
+ 2284 0dff 00000000 		.4byte	.LASF114
+ 2285 0e03 05       		.byte	0x5
+ 2286 0e04 0111     		.2byte	0x111
+ 2287 0e06 00000DD6 		.4byte	0xdd6
+ 2288 0e0a 08       		.uleb128 0x8
+ 2289 0e0b 28       		.byte	0x28
+ 2290 0e0c 05       		.byte	0x5
+ 2291 0e0d 0116     		.2byte	0x116
+ 2292 0e0f 00000E5F 		.4byte	0xe5f
+ 2293 0e13 0E       		.uleb128 0xe
+ 2294 0e14 00000000 		.4byte	.LASF115
+ 2295 0e18 05       		.byte	0x5
+ 2296 0e19 011C     		.2byte	0x11c
+ 2297 0e1b 00000084 		.4byte	0x84
+ 2298 0e1f 02       		.byte	0x2
+ 2299 0e20 23       		.byte	0x23
+ 2300 0e21 00       		.uleb128 0
+ 2301 0e22 0D       		.uleb128 0xd
+ 2302 0e23 70736300 		.string	"psc"
+ 2303 0e27 05       		.byte	0x5
+ 2304 0e28 0120     		.2byte	0x120
+ 2305 0e2a 00000DA9 		.4byte	0xda9
+ 2306 0e2e 02       		.byte	0x2
+ 2307 0e2f 23       		.byte	0x23
+ 2308 0e30 01       		.uleb128 0x1
+ 2309 0e31 0E       		.uleb128 0xe
+ 2310 0e32 00000000 		.4byte	.LASF104
+ 2311 0e36 05       		.byte	0x5
+ 2312 0e37 0124     		.2byte	0x124
+ 2313 0e39 00000DB4 		.4byte	0xdb4
+ 2314 0e3d 02       		.byte	0x2
+ 2315 0e3e 23       		.byte	0x23
+ 2316 0e3f 04       		.uleb128 0x4
+ 2317 0e40 0E       		.uleb128 0xe
+ 2318 0e41 00000000 		.4byte	.LASF116
+ 2319 0e45 05       		.byte	0x5
+ 2320 0e46 012A     		.2byte	0x12a
+ 2321 0e48 00000D7B 		.4byte	0xd7b
+ 2322 0e4c 02       		.byte	0x2
+ 2323 0e4d 23       		.byte	0x23
+ 2324 0e4e 08       		.uleb128 0x8
+ 2325 0e4f 0E       		.uleb128 0xe
+ 2326 0e50 00000000 		.4byte	.LASF117
+ 2327 0e54 05       		.byte	0x5
+ 2328 0e55 012E     		.2byte	0x12e
+ 2329 0e57 00000E5F 		.4byte	0xe5f
+ 2330 0e5b 02       		.byte	0x2
+ 2331 0e5c 23       		.byte	0x23
+ 2332 0e5d 0C       		.uleb128 0xc
+ 2333 0e5e 00       		.byte	0
+ 2334 0e5f 06       		.uleb128 0x6
+ 2335 0e60 00000E6F 		.4byte	0xe6f
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 42
+
+
+ 2336 0e64 00000E6F 		.4byte	0xe6f
+ 2337 0e68 07       		.uleb128 0x7
+ 2338 0e69 000000C5 		.4byte	0xc5
+ 2339 0e6d 06       		.byte	0x6
+ 2340 0e6e 00       		.byte	0
+ 2341 0e6f 10       		.uleb128 0x10
+ 2342 0e70 04       		.byte	0x4
+ 2343 0e71 00000DFE 		.4byte	0xdfe
+ 2344 0e75 14       		.uleb128 0x14
+ 2345 0e76 00000000 		.4byte	.LASF118
+ 2346 0e7a 05       		.byte	0x5
+ 2347 0e7b 012F     		.2byte	0x12f
+ 2348 0e7d 00000E0A 		.4byte	0xe0a
+ 2349 0e81 10       		.uleb128 0x10
+ 2350 0e82 04       		.byte	0x4
+ 2351 0e83 00000E75 		.4byte	0xe75
+ 2352 0e87 15       		.uleb128 0x15
+ 2353 0e88 00000000 		.4byte	.LASF119
+ 2354 0e8c 05       		.byte	0x5
+ 2355 0e8d 01CE     		.2byte	0x1ce
+ 2356 0e8f 00000D17 		.4byte	0xd17
+ 2357 0e93 01       		.byte	0x1
+ 2358 0e94 01       		.byte	0x1
+ 2359 0e95 15       		.uleb128 0x15
+ 2360 0e96 00000000 		.4byte	.LASF120
+ 2361 0e9a 05       		.byte	0x5
+ 2362 0e9b 01D6     		.2byte	0x1d6
+ 2363 0e9d 00000D17 		.4byte	0xd17
+ 2364 0ea1 01       		.byte	0x1
+ 2365 0ea2 01       		.byte	0x1
+ 2366 0ea3 16       		.uleb128 0x16
+ 2367 0ea4 00000000 		.4byte	.LASF121
+ 2368 0ea8 06       		.byte	0x6
+ 2369 0ea9 35       		.byte	0x35
+ 2370 0eaa 00000E75 		.4byte	0xe75
+ 2371 0eae 01       		.byte	0x1
+ 2372 0eaf 01       		.byte	0x1
+ 2373 0eb0 16       		.uleb128 0x16
+ 2374 0eb1 00000000 		.4byte	.LASF122
+ 2375 0eb5 06       		.byte	0x6
+ 2376 0eb6 36       		.byte	0x36
+ 2377 0eb7 00000E75 		.4byte	0xe75
+ 2378 0ebb 01       		.byte	0x1
+ 2379 0ebc 01       		.byte	0x1
+ 2380 0ebd 17       		.uleb128 0x17
+ 2381 0ebe 00000000 		.4byte	.LASF123
+ 2382 0ec2 07       		.byte	0x7
+ 2383 0ec3 1A       		.byte	0x1a
+ 2384 0ec4 00000ECF 		.4byte	0xecf
+ 2385 0ec8 01       		.byte	0x1
+ 2386 0ec9 05       		.byte	0x5
+ 2387 0eca 03       		.byte	0x3
+ 2388 0ecb 00000000 		.4byte	valueVNH
+ 2389 0ecf 02       		.uleb128 0x2
+ 2390 0ed0 04       		.byte	0x4
+ 2391 0ed1 04       		.byte	0x4
+ 2392 0ed2 00000000 		.4byte	.LASF124
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 43
+
+
+ 2393 0ed6 06       		.uleb128 0x6
+ 2394 0ed7 00000076 		.4byte	0x76
+ 2395 0edb 00000EE6 		.4byte	0xee6
+ 2396 0edf 07       		.uleb128 0x7
+ 2397 0ee0 000000C5 		.4byte	0xc5
+ 2398 0ee4 00       		.byte	0
+ 2399 0ee5 00       		.byte	0
+ 2400 0ee6 17       		.uleb128 0x17
+ 2401 0ee7 00000000 		.4byte	.LASF125
+ 2402 0eeb 07       		.byte	0x7
+ 2403 0eec 33       		.byte	0x33
+ 2404 0eed 00000EF8 		.4byte	0xef8
+ 2405 0ef1 01       		.byte	0x1
+ 2406 0ef2 05       		.byte	0x5
+ 2407 0ef3 03       		.byte	0x3
+ 2408 0ef4 00000000 		.4byte	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT
+ 2409 0ef8 18       		.uleb128 0x18
+ 2410 0ef9 00000ED6 		.4byte	0xed6
+ 2411 0efd 17       		.uleb128 0x17
+ 2412 0efe 00000000 		.4byte	.LASF126
+ 2413 0f02 07       		.byte	0x7
+ 2414 0f03 37       		.byte	0x37
+ 2415 0f04 00000F0F 		.4byte	0xf0f
+ 2416 0f08 01       		.byte	0x1
+ 2417 0f09 05       		.byte	0x5
+ 2418 0f0a 03       		.byte	0x3
+ 2419 0f0b 00000000 		.4byte	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT
+ 2420 0f0f 18       		.uleb128 0x18
+ 2421 0f10 00000ED6 		.4byte	0xed6
+ 2422 0f14 06       		.uleb128 0x6
+ 2423 0f15 00000076 		.4byte	0x76
+ 2424 0f19 00000F24 		.4byte	0xf24
+ 2425 0f1d 07       		.uleb128 0x7
+ 2426 0f1e 000000C5 		.4byte	0xc5
+ 2427 0f22 01       		.byte	0x1
+ 2428 0f23 00       		.byte	0
+ 2429 0f24 17       		.uleb128 0x17
+ 2430 0f25 00000000 		.4byte	.LASF127
+ 2431 0f29 07       		.byte	0x7
+ 2432 0f2a 3D       		.byte	0x3d
+ 2433 0f2b 00000F14 		.4byte	0xf14
+ 2434 0f2f 01       		.byte	0x1
+ 2435 0f30 05       		.byte	0x5
+ 2436 0f31 03       		.byte	0x3
+ 2437 0f32 00000000 		.4byte	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT
+ 2438 0f36 17       		.uleb128 0x17
+ 2439 0f37 00000000 		.4byte	.LASF128
+ 2440 0f3b 07       		.byte	0x7
+ 2441 0f3c 43       		.byte	0x43
+ 2442 0f3d 00000F48 		.4byte	0xf48
+ 2443 0f41 01       		.byte	0x1
+ 2444 0f42 05       		.byte	0x5
+ 2445 0f43 03       		.byte	0x3
+ 2446 0f44 00000000 		.4byte	EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER
+ 2447 0f48 18       		.uleb128 0x18
+ 2448 0f49 00000ED6 		.4byte	0xed6
+ 2449 0f4d 17       		.uleb128 0x17
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 44
+
+
+ 2450 0f4e 00000000 		.4byte	.LASF129
+ 2451 0f52 07       		.byte	0x7
+ 2452 0f53 49       		.byte	0x49
+ 2453 0f54 00000F5F 		.4byte	0xf5f
+ 2454 0f58 01       		.byte	0x1
+ 2455 0f59 05       		.byte	0x5
+ 2456 0f5a 03       		.byte	0x3
+ 2457 0f5b 00000000 		.4byte	EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER
+ 2458 0f5f 18       		.uleb128 0x18
+ 2459 0f60 00000ED6 		.4byte	0xed6
+ 2460 0f64 17       		.uleb128 0x17
+ 2461 0f65 00000000 		.4byte	.LASF130
+ 2462 0f69 07       		.byte	0x7
+ 2463 0f6a 51       		.byte	0x51
+ 2464 0f6b 00000F14 		.4byte	0xf14
+ 2465 0f6f 01       		.byte	0x1
+ 2466 0f70 05       		.byte	0x5
+ 2467 0f71 03       		.byte	0x3
+ 2468 0f72 00000000 		.4byte	EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER
+ 2469 0f76 17       		.uleb128 0x17
+ 2470 0f77 00000000 		.4byte	.LASF131
+ 2471 0f7b 07       		.byte	0x7
+ 2472 0f7c 58       		.byte	0x58
+ 2473 0f7d 00000F88 		.4byte	0xf88
+ 2474 0f81 01       		.byte	0x1
+ 2475 0f82 05       		.byte	0x5
+ 2476 0f83 03       		.byte	0x3
+ 2477 0f84 00000000 		.4byte	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT
+ 2478 0f88 18       		.uleb128 0x18
+ 2479 0f89 00000F14 		.4byte	0xf14
+ 2480 0f8d 17       		.uleb128 0x17
+ 2481 0f8e 00000000 		.4byte	.LASF132
+ 2482 0f92 07       		.byte	0x7
+ 2483 0f93 60       		.byte	0x60
+ 2484 0f94 00000F9F 		.4byte	0xf9f
+ 2485 0f98 01       		.byte	0x1
+ 2486 0f99 05       		.byte	0x5
+ 2487 0f9a 03       		.byte	0x3
+ 2488 0f9b 00000000 		.4byte	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT
+ 2489 0f9f 18       		.uleb128 0x18
+ 2490 0fa0 00000F14 		.4byte	0xf14
+ 2491 0fa4 17       		.uleb128 0x17
+ 2492 0fa5 00000000 		.4byte	.LASF133
+ 2493 0fa9 07       		.byte	0x7
+ 2494 0faa 6A       		.byte	0x6a
+ 2495 0fab 00000F14 		.4byte	0xf14
+ 2496 0faf 01       		.byte	0x1
+ 2497 0fb0 05       		.byte	0x5
+ 2498 0fb1 03       		.byte	0x3
+ 2499 0fb2 00000000 		.4byte	EV_VNH_ARRAY_IN_TOT_GPIO_PORT
+ 2500 0fb6 17       		.uleb128 0x17
+ 2501 0fb7 00000000 		.4byte	.LASF134
+ 2502 0fbb 07       		.byte	0x7
+ 2503 0fbc 71       		.byte	0x71
+ 2504 0fbd 00000FC8 		.4byte	0xfc8
+ 2505 0fc1 01       		.byte	0x1
+ 2506 0fc2 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 45
+
+
+ 2507 0fc3 03       		.byte	0x3
+ 2508 0fc4 00000000 		.4byte	EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER
+ 2509 0fc8 18       		.uleb128 0x18
+ 2510 0fc9 00000F14 		.4byte	0xf14
+ 2511 0fcd 17       		.uleb128 0x17
+ 2512 0fce 00000000 		.4byte	.LASF135
+ 2513 0fd2 07       		.byte	0x7
+ 2514 0fd3 77       		.byte	0x77
+ 2515 0fd4 00000FDF 		.4byte	0xfdf
+ 2516 0fd8 01       		.byte	0x1
+ 2517 0fd9 05       		.byte	0x5
+ 2518 0fda 03       		.byte	0x3
+ 2519 0fdb 00000000 		.4byte	EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER
+ 2520 0fdf 18       		.uleb128 0x18
+ 2521 0fe0 00000F14 		.4byte	0xf14
+ 2522 0fe4 17       		.uleb128 0x17
+ 2523 0fe5 00000000 		.4byte	.LASF136
+ 2524 0fe9 07       		.byte	0x7
+ 2525 0fea 7F       		.byte	0x7f
+ 2526 0feb 00000F14 		.4byte	0xf14
+ 2527 0fef 01       		.byte	0x1
+ 2528 0ff0 05       		.byte	0x5
+ 2529 0ff1 03       		.byte	0x3
+ 2530 0ff2 00000000 		.4byte	EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER
+ 2531 0ff6 17       		.uleb128 0x17
+ 2532 0ff7 00000000 		.4byte	.LASF137
+ 2533 0ffb 07       		.byte	0x7
+ 2534 0ffc 86       		.byte	0x86
+ 2535 0ffd 00001008 		.4byte	0x1008
+ 2536 1001 01       		.byte	0x1
+ 2537 1002 05       		.byte	0x5
+ 2538 1003 03       		.byte	0x3
+ 2539 1004 00000000 		.4byte	EV_VNH_IN_NUMBER_VALUE
+ 2540 1008 18       		.uleb128 0x18
+ 2541 1009 00000F14 		.4byte	0xf14
+ 2542 100d 17       		.uleb128 0x17
+ 2543 100e 00000000 		.4byte	.LASF138
+ 2544 1012 07       		.byte	0x7
+ 2545 1013 8C       		.byte	0x8c
+ 2546 1014 0000101F 		.4byte	0x101f
+ 2547 1018 01       		.byte	0x1
+ 2548 1019 05       		.byte	0x5
+ 2549 101a 03       		.byte	0x3
+ 2550 101b 00000000 		.4byte	EV_VNH_SEL_NUMBER_VALUE
+ 2551 101f 18       		.uleb128 0x18
+ 2552 1020 00000F14 		.4byte	0xf14
+ 2553 1024 06       		.uleb128 0x6
+ 2554 1025 00000D98 		.4byte	0xd98
+ 2555 1029 00001034 		.4byte	0x1034
+ 2556 102d 07       		.uleb128 0x7
+ 2557 102e 000000C5 		.4byte	0xc5
+ 2558 1032 01       		.byte	0x1
+ 2559 1033 00       		.byte	0
+ 2560 1034 17       		.uleb128 0x17
+ 2561 1035 00000000 		.4byte	.LASF139
+ 2562 1039 07       		.byte	0x7
+ 2563 103a 91       		.byte	0x91
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 46
+
+
+ 2564 103b 00001024 		.4byte	0x1024
+ 2565 103f 01       		.byte	0x1
+ 2566 1040 05       		.byte	0x5
+ 2567 1041 03       		.byte	0x3
+ 2568 1042 00000000 		.4byte	EV_VNH_ARRAY_PWM
+ 2569 1046 17       		.uleb128 0x17
+ 2570 1047 00000000 		.4byte	.LASF140
+ 2571 104b 07       		.byte	0x7
+ 2572 104c 97       		.byte	0x97
+ 2573 104d 00001058 		.4byte	0x1058
+ 2574 1051 01       		.byte	0x1
+ 2575 1052 05       		.byte	0x5
+ 2576 1053 03       		.byte	0x3
+ 2577 1054 00000000 		.4byte	PWMCHANNELS
+ 2578 1058 18       		.uleb128 0x18
+ 2579 1059 00000F14 		.4byte	0xf14
+ 2580 105d 06       		.uleb128 0x6
+ 2581 105e 00000E81 		.4byte	0xe81
+ 2582 1062 0000106D 		.4byte	0x106d
+ 2583 1066 07       		.uleb128 0x7
+ 2584 1067 000000C5 		.4byte	0xc5
+ 2585 106b 01       		.byte	0x1
+ 2586 106c 00       		.byte	0
+ 2587 106d 17       		.uleb128 0x17
+ 2588 106e 00000000 		.4byte	.LASF141
+ 2589 1072 07       		.byte	0x7
+ 2590 1073 9D       		.byte	0x9d
+ 2591 1074 0000105D 		.4byte	0x105d
+ 2592 1078 01       		.byte	0x1
+ 2593 1079 05       		.byte	0x5
+ 2594 107a 03       		.byte	0x3
+ 2595 107b 00000000 		.4byte	EV_VNH_ARRAY_PWM_CONFIGURATION
+ 2596 107f 17       		.uleb128 0x17
+ 2597 1080 00000000 		.4byte	.LASF142
+ 2598 1084 07       		.byte	0x7
+ 2599 1085 A6       		.byte	0xa6
+ 2600 1086 00001091 		.4byte	0x1091
+ 2601 108a 01       		.byte	0x1
+ 2602 108b 05       		.byte	0x5
+ 2603 108c 03       		.byte	0x3
+ 2604 108d 00000000 		.4byte	EV_VNH_ARRAY_PWM_GPIO_PORT
+ 2605 1091 18       		.uleb128 0x18
+ 2606 1092 00000F14 		.4byte	0xf14
+ 2607 1096 17       		.uleb128 0x17
+ 2608 1097 00000000 		.4byte	.LASF143
+ 2609 109b 07       		.byte	0x7
+ 2610 109c AC       		.byte	0xac
+ 2611 109d 000010A8 		.4byte	0x10a8
+ 2612 10a1 01       		.byte	0x1
+ 2613 10a2 05       		.byte	0x5
+ 2614 10a3 03       		.byte	0x3
+ 2615 10a4 00000000 		.4byte	EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER
+ 2616 10a8 18       		.uleb128 0x18
+ 2617 10a9 00000F14 		.4byte	0xf14
+ 2618 10ad 17       		.uleb128 0x17
+ 2619 10ae 00000000 		.4byte	.LASF144
+ 2620 10b2 07       		.byte	0x7
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 47
+
+
+ 2621 10b3 27       		.byte	0x27
+ 2622 10b4 0000008F 		.4byte	0x8f
+ 2623 10b8 01       		.byte	0x1
+ 2624 10b9 05       		.byte	0x5
+ 2625 10ba 03       		.byte	0x3
+ 2626 10bb 00000000 		.4byte	value
+ 2627 10bf 17       		.uleb128 0x17
+ 2628 10c0 00000000 		.4byte	.LASF145
+ 2629 10c4 07       		.byte	0x7
+ 2630 10c5 2C       		.byte	0x2c
+ 2631 10c6 000010D1 		.4byte	0x10d1
+ 2632 10ca 01       		.byte	0x1
+ 2633 10cb 05       		.byte	0x5
+ 2634 10cc 03       		.byte	0x3
+ 2635 10cd 00000000 		.4byte	EV_VNH_MULTISENSE_BOOL
+ 2636 10d1 18       		.uleb128 0x18
+ 2637 10d2 00000F14 		.4byte	0xf14
+ 2638 10d6 00       		.byte	0
+ 2639              		.section	.debug_abbrev,"",@progbits
+ 2640              	.Ldebug_abbrev0:
+ 2641 0000 01       		.uleb128 0x1
+ 2642 0001 11       		.uleb128 0x11
+ 2643 0002 01       		.byte	0x1
+ 2644 0003 25       		.uleb128 0x25
+ 2645 0004 0E       		.uleb128 0xe
+ 2646 0005 13       		.uleb128 0x13
+ 2647 0006 0B       		.uleb128 0xb
+ 2648 0007 03       		.uleb128 0x3
+ 2649 0008 0E       		.uleb128 0xe
+ 2650 0009 1B       		.uleb128 0x1b
+ 2651 000a 0E       		.uleb128 0xe
+ 2652 000b 10       		.uleb128 0x10
+ 2653 000c 06       		.uleb128 0x6
+ 2654 000d 00       		.byte	0
+ 2655 000e 00       		.byte	0
+ 2656 000f 02       		.uleb128 0x2
+ 2657 0010 24       		.uleb128 0x24
+ 2658 0011 00       		.byte	0
+ 2659 0012 0B       		.uleb128 0xb
+ 2660 0013 0B       		.uleb128 0xb
+ 2661 0014 3E       		.uleb128 0x3e
+ 2662 0015 0B       		.uleb128 0xb
+ 2663 0016 03       		.uleb128 0x3
+ 2664 0017 0E       		.uleb128 0xe
+ 2665 0018 00       		.byte	0
+ 2666 0019 00       		.byte	0
+ 2667 001a 03       		.uleb128 0x3
+ 2668 001b 16       		.uleb128 0x16
+ 2669 001c 00       		.byte	0
+ 2670 001d 03       		.uleb128 0x3
+ 2671 001e 0E       		.uleb128 0xe
+ 2672 001f 3A       		.uleb128 0x3a
+ 2673 0020 0B       		.uleb128 0xb
+ 2674 0021 3B       		.uleb128 0x3b
+ 2675 0022 0B       		.uleb128 0xb
+ 2676 0023 49       		.uleb128 0x49
+ 2677 0024 13       		.uleb128 0x13
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 48
+
+
+ 2678 0025 00       		.byte	0
+ 2679 0026 00       		.byte	0
+ 2680 0027 04       		.uleb128 0x4
+ 2681 0028 24       		.uleb128 0x24
+ 2682 0029 00       		.byte	0
+ 2683 002a 0B       		.uleb128 0xb
+ 2684 002b 0B       		.uleb128 0xb
+ 2685 002c 3E       		.uleb128 0x3e
+ 2686 002d 0B       		.uleb128 0xb
+ 2687 002e 03       		.uleb128 0x3
+ 2688 002f 08       		.uleb128 0x8
+ 2689 0030 00       		.byte	0
+ 2690 0031 00       		.byte	0
+ 2691 0032 05       		.uleb128 0x5
+ 2692 0033 35       		.uleb128 0x35
+ 2693 0034 00       		.byte	0
+ 2694 0035 49       		.uleb128 0x49
+ 2695 0036 13       		.uleb128 0x13
+ 2696 0037 00       		.byte	0
+ 2697 0038 00       		.byte	0
+ 2698 0039 06       		.uleb128 0x6
+ 2699 003a 01       		.uleb128 0x1
+ 2700 003b 01       		.byte	0x1
+ 2701 003c 49       		.uleb128 0x49
+ 2702 003d 13       		.uleb128 0x13
+ 2703 003e 01       		.uleb128 0x1
+ 2704 003f 13       		.uleb128 0x13
+ 2705 0040 00       		.byte	0
+ 2706 0041 00       		.byte	0
+ 2707 0042 07       		.uleb128 0x7
+ 2708 0043 21       		.uleb128 0x21
+ 2709 0044 00       		.byte	0
+ 2710 0045 49       		.uleb128 0x49
+ 2711 0046 13       		.uleb128 0x13
+ 2712 0047 2F       		.uleb128 0x2f
+ 2713 0048 0B       		.uleb128 0xb
+ 2714 0049 00       		.byte	0
+ 2715 004a 00       		.byte	0
+ 2716 004b 08       		.uleb128 0x8
+ 2717 004c 13       		.uleb128 0x13
+ 2718 004d 01       		.byte	0x1
+ 2719 004e 0B       		.uleb128 0xb
+ 2720 004f 0B       		.uleb128 0xb
+ 2721 0050 3A       		.uleb128 0x3a
+ 2722 0051 0B       		.uleb128 0xb
+ 2723 0052 3B       		.uleb128 0x3b
+ 2724 0053 05       		.uleb128 0x5
+ 2725 0054 01       		.uleb128 0x1
+ 2726 0055 13       		.uleb128 0x13
+ 2727 0056 00       		.byte	0
+ 2728 0057 00       		.byte	0
+ 2729 0058 09       		.uleb128 0x9
+ 2730 0059 0D       		.uleb128 0xd
+ 2731 005a 00       		.byte	0
+ 2732 005b 03       		.uleb128 0x3
+ 2733 005c 0E       		.uleb128 0xe
+ 2734 005d 3A       		.uleb128 0x3a
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 49
+
+
+ 2735 005e 0B       		.uleb128 0xb
+ 2736 005f 3B       		.uleb128 0x3b
+ 2737 0060 05       		.uleb128 0x5
+ 2738 0061 49       		.uleb128 0x49
+ 2739 0062 13       		.uleb128 0x13
+ 2740 0063 0B       		.uleb128 0xb
+ 2741 0064 0B       		.uleb128 0xb
+ 2742 0065 0D       		.uleb128 0xd
+ 2743 0066 0B       		.uleb128 0xb
+ 2744 0067 0C       		.uleb128 0xc
+ 2745 0068 0B       		.uleb128 0xb
+ 2746 0069 38       		.uleb128 0x38
+ 2747 006a 0A       		.uleb128 0xa
+ 2748 006b 00       		.byte	0
+ 2749 006c 00       		.byte	0
+ 2750 006d 0A       		.uleb128 0xa
+ 2751 006e 0D       		.uleb128 0xd
+ 2752 006f 00       		.byte	0
+ 2753 0070 03       		.uleb128 0x3
+ 2754 0071 08       		.uleb128 0x8
+ 2755 0072 3A       		.uleb128 0x3a
+ 2756 0073 0B       		.uleb128 0xb
+ 2757 0074 3B       		.uleb128 0x3b
+ 2758 0075 05       		.uleb128 0x5
+ 2759 0076 49       		.uleb128 0x49
+ 2760 0077 13       		.uleb128 0x13
+ 2761 0078 0B       		.uleb128 0xb
+ 2762 0079 0B       		.uleb128 0xb
+ 2763 007a 0D       		.uleb128 0xd
+ 2764 007b 0B       		.uleb128 0xb
+ 2765 007c 0C       		.uleb128 0xc
+ 2766 007d 0B       		.uleb128 0xb
+ 2767 007e 38       		.uleb128 0x38
+ 2768 007f 0A       		.uleb128 0xa
+ 2769 0080 00       		.byte	0
+ 2770 0081 00       		.byte	0
+ 2771 0082 0B       		.uleb128 0xb
+ 2772 0083 17       		.uleb128 0x17
+ 2773 0084 01       		.byte	0x1
+ 2774 0085 0B       		.uleb128 0xb
+ 2775 0086 0B       		.uleb128 0xb
+ 2776 0087 3A       		.uleb128 0x3a
+ 2777 0088 0B       		.uleb128 0xb
+ 2778 0089 3B       		.uleb128 0x3b
+ 2779 008a 05       		.uleb128 0x5
+ 2780 008b 01       		.uleb128 0x1
+ 2781 008c 13       		.uleb128 0x13
+ 2782 008d 00       		.byte	0
+ 2783 008e 00       		.byte	0
+ 2784 008f 0C       		.uleb128 0xc
+ 2785 0090 0D       		.uleb128 0xd
+ 2786 0091 00       		.byte	0
+ 2787 0092 03       		.uleb128 0x3
+ 2788 0093 08       		.uleb128 0x8
+ 2789 0094 3A       		.uleb128 0x3a
+ 2790 0095 0B       		.uleb128 0xb
+ 2791 0096 3B       		.uleb128 0x3b
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 50
+
+
+ 2792 0097 05       		.uleb128 0x5
+ 2793 0098 49       		.uleb128 0x49
+ 2794 0099 13       		.uleb128 0x13
+ 2795 009a 00       		.byte	0
+ 2796 009b 00       		.byte	0
+ 2797 009c 0D       		.uleb128 0xd
+ 2798 009d 0D       		.uleb128 0xd
+ 2799 009e 00       		.byte	0
+ 2800 009f 03       		.uleb128 0x3
+ 2801 00a0 08       		.uleb128 0x8
+ 2802 00a1 3A       		.uleb128 0x3a
+ 2803 00a2 0B       		.uleb128 0xb
+ 2804 00a3 3B       		.uleb128 0x3b
+ 2805 00a4 05       		.uleb128 0x5
+ 2806 00a5 49       		.uleb128 0x49
+ 2807 00a6 13       		.uleb128 0x13
+ 2808 00a7 38       		.uleb128 0x38
+ 2809 00a8 0A       		.uleb128 0xa
+ 2810 00a9 00       		.byte	0
+ 2811 00aa 00       		.byte	0
+ 2812 00ab 0E       		.uleb128 0xe
+ 2813 00ac 0D       		.uleb128 0xd
+ 2814 00ad 00       		.byte	0
+ 2815 00ae 03       		.uleb128 0x3
+ 2816 00af 0E       		.uleb128 0xe
+ 2817 00b0 3A       		.uleb128 0x3a
+ 2818 00b1 0B       		.uleb128 0xb
+ 2819 00b2 3B       		.uleb128 0x3b
+ 2820 00b3 05       		.uleb128 0x5
+ 2821 00b4 49       		.uleb128 0x49
+ 2822 00b5 13       		.uleb128 0x13
+ 2823 00b6 38       		.uleb128 0x38
+ 2824 00b7 0A       		.uleb128 0xa
+ 2825 00b8 00       		.byte	0
+ 2826 00b9 00       		.byte	0
+ 2827 00ba 0F       		.uleb128 0xf
+ 2828 00bb 13       		.uleb128 0x13
+ 2829 00bc 01       		.byte	0x1
+ 2830 00bd 03       		.uleb128 0x3
+ 2831 00be 0E       		.uleb128 0xe
+ 2832 00bf 0B       		.uleb128 0xb
+ 2833 00c0 05       		.uleb128 0x5
+ 2834 00c1 3A       		.uleb128 0x3a
+ 2835 00c2 0B       		.uleb128 0xb
+ 2836 00c3 3B       		.uleb128 0x3b
+ 2837 00c4 05       		.uleb128 0x5
+ 2838 00c5 01       		.uleb128 0x1
+ 2839 00c6 13       		.uleb128 0x13
+ 2840 00c7 00       		.byte	0
+ 2841 00c8 00       		.byte	0
+ 2842 00c9 10       		.uleb128 0x10
+ 2843 00ca 0F       		.uleb128 0xf
+ 2844 00cb 00       		.byte	0
+ 2845 00cc 0B       		.uleb128 0xb
+ 2846 00cd 0B       		.uleb128 0xb
+ 2847 00ce 49       		.uleb128 0x49
+ 2848 00cf 13       		.uleb128 0x13
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 51
+
+
+ 2849 00d0 00       		.byte	0
+ 2850 00d1 00       		.byte	0
+ 2851 00d2 11       		.uleb128 0x11
+ 2852 00d3 13       		.uleb128 0x13
+ 2853 00d4 01       		.byte	0x1
+ 2854 00d5 03       		.uleb128 0x3
+ 2855 00d6 0E       		.uleb128 0xe
+ 2856 00d7 0B       		.uleb128 0xb
+ 2857 00d8 0B       		.uleb128 0xb
+ 2858 00d9 3A       		.uleb128 0x3a
+ 2859 00da 0B       		.uleb128 0xb
+ 2860 00db 3B       		.uleb128 0x3b
+ 2861 00dc 05       		.uleb128 0x5
+ 2862 00dd 01       		.uleb128 0x1
+ 2863 00de 13       		.uleb128 0x13
+ 2864 00df 00       		.byte	0
+ 2865 00e0 00       		.byte	0
+ 2866 00e1 12       		.uleb128 0x12
+ 2867 00e2 15       		.uleb128 0x15
+ 2868 00e3 01       		.byte	0x1
+ 2869 00e4 27       		.uleb128 0x27
+ 2870 00e5 0C       		.uleb128 0xc
+ 2871 00e6 01       		.uleb128 0x1
+ 2872 00e7 13       		.uleb128 0x13
+ 2873 00e8 00       		.byte	0
+ 2874 00e9 00       		.byte	0
+ 2875 00ea 13       		.uleb128 0x13
+ 2876 00eb 05       		.uleb128 0x5
+ 2877 00ec 00       		.byte	0
+ 2878 00ed 49       		.uleb128 0x49
+ 2879 00ee 13       		.uleb128 0x13
+ 2880 00ef 00       		.byte	0
+ 2881 00f0 00       		.byte	0
+ 2882 00f1 14       		.uleb128 0x14
+ 2883 00f2 16       		.uleb128 0x16
+ 2884 00f3 00       		.byte	0
+ 2885 00f4 03       		.uleb128 0x3
+ 2886 00f5 0E       		.uleb128 0xe
+ 2887 00f6 3A       		.uleb128 0x3a
+ 2888 00f7 0B       		.uleb128 0xb
+ 2889 00f8 3B       		.uleb128 0x3b
+ 2890 00f9 05       		.uleb128 0x5
+ 2891 00fa 49       		.uleb128 0x49
+ 2892 00fb 13       		.uleb128 0x13
+ 2893 00fc 00       		.byte	0
+ 2894 00fd 00       		.byte	0
+ 2895 00fe 15       		.uleb128 0x15
+ 2896 00ff 34       		.uleb128 0x34
+ 2897 0100 00       		.byte	0
+ 2898 0101 03       		.uleb128 0x3
+ 2899 0102 0E       		.uleb128 0xe
+ 2900 0103 3A       		.uleb128 0x3a
+ 2901 0104 0B       		.uleb128 0xb
+ 2902 0105 3B       		.uleb128 0x3b
+ 2903 0106 05       		.uleb128 0x5
+ 2904 0107 49       		.uleb128 0x49
+ 2905 0108 13       		.uleb128 0x13
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 52
+
+
+ 2906 0109 3F       		.uleb128 0x3f
+ 2907 010a 0C       		.uleb128 0xc
+ 2908 010b 3C       		.uleb128 0x3c
+ 2909 010c 0C       		.uleb128 0xc
+ 2910 010d 00       		.byte	0
+ 2911 010e 00       		.byte	0
+ 2912 010f 16       		.uleb128 0x16
+ 2913 0110 34       		.uleb128 0x34
+ 2914 0111 00       		.byte	0
+ 2915 0112 03       		.uleb128 0x3
+ 2916 0113 0E       		.uleb128 0xe
+ 2917 0114 3A       		.uleb128 0x3a
+ 2918 0115 0B       		.uleb128 0xb
+ 2919 0116 3B       		.uleb128 0x3b
+ 2920 0117 0B       		.uleb128 0xb
+ 2921 0118 49       		.uleb128 0x49
+ 2922 0119 13       		.uleb128 0x13
+ 2923 011a 3F       		.uleb128 0x3f
+ 2924 011b 0C       		.uleb128 0xc
+ 2925 011c 3C       		.uleb128 0x3c
+ 2926 011d 0C       		.uleb128 0xc
+ 2927 011e 00       		.byte	0
+ 2928 011f 00       		.byte	0
+ 2929 0120 17       		.uleb128 0x17
+ 2930 0121 34       		.uleb128 0x34
+ 2931 0122 00       		.byte	0
+ 2932 0123 03       		.uleb128 0x3
+ 2933 0124 0E       		.uleb128 0xe
+ 2934 0125 3A       		.uleb128 0x3a
+ 2935 0126 0B       		.uleb128 0xb
+ 2936 0127 3B       		.uleb128 0x3b
+ 2937 0128 0B       		.uleb128 0xb
+ 2938 0129 49       		.uleb128 0x49
+ 2939 012a 13       		.uleb128 0x13
+ 2940 012b 3F       		.uleb128 0x3f
+ 2941 012c 0C       		.uleb128 0xc
+ 2942 012d 02       		.uleb128 0x2
+ 2943 012e 0A       		.uleb128 0xa
+ 2944 012f 00       		.byte	0
+ 2945 0130 00       		.byte	0
+ 2946 0131 18       		.uleb128 0x18
+ 2947 0132 26       		.uleb128 0x26
+ 2948 0133 00       		.byte	0
+ 2949 0134 49       		.uleb128 0x49
+ 2950 0135 13       		.uleb128 0x13
+ 2951 0136 00       		.byte	0
+ 2952 0137 00       		.byte	0
+ 2953 0138 00       		.byte	0
+ 2954              		.section	.debug_aranges,"",@progbits
+ 2955 0000 00000014 		.4byte	0x14
+ 2956 0004 0002     		.2byte	0x2
+ 2957 0006 00000000 		.4byte	.Ldebug_info0
+ 2958 000a 04       		.byte	0x4
+ 2959 000b 00       		.byte	0
+ 2960 000c 0000     		.2byte	0
+ 2961 000e 0000     		.2byte	0
+ 2962 0010 00000000 		.4byte	0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 53
+
+
+ 2963 0014 00000000 		.4byte	0
+ 2964              		.section	.debug_line,"",@progbits
+ 2965              	.Ldebug_line0:
+ 2966 0000 00000291 		.section	.debug_str,"MS",@progbits,1
+ 2966      00020000 
+ 2966      028B0201 
+ 2966      FB0E0D00 
+ 2966      01010101 
+ 2967              	.LASF111:
+ 2968 0000 70776D63 		.string	"pwmchannel_t"
+ 2968      68616E6E 
+ 2968      656C5F74 
+ 2968      00
+ 2969              	.LASF84:
+ 2970 000d 55435052 		.string	"UCPREN"
+ 2970      454E00
+ 2971              	.LASF82:
+ 2972 0014 4F444953 		.string	"ODISSL"
+ 2972      534C00
+ 2973              	.LASF85:
+ 2974 001b 464F5243 		.string	"FORCMA"
+ 2974      4D4100
+ 2975              	.LASF86:
+ 2976 0022 464F5243 		.string	"FORCMB"
+ 2976      4D4200
+ 2977              	.LASF3:
+ 2978 0029 5F5F7569 		.string	"__uint8_t"
+ 2978      6E74385F 
+ 2978      7400
+ 2979              	.LASF126:
+ 2980 0033 45565F56 		.string	"EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT"
+ 2980      4E485F41 
+ 2980      52524159 
+ 2980      5F424F41 
+ 2980      52445F31 
+ 2981              	.LASF50:
+ 2982 0055 43484449 		.string	"CHDIS29"
+ 2982      53323900 
+ 2983              	.LASF123:
+ 2984 005d 76616C75 		.string	"valueVNH"
+ 2984      65564E48 
+ 2984      00
+ 2985              	.LASF62:
+ 2986 0066 43484449 		.string	"CHDIS17"
+ 2986      53313700 
+ 2987              	.LASF138:
+ 2988 006e 45565F56 		.string	"EV_VNH_SEL_NUMBER_VALUE"
+ 2988      4E485F53 
+ 2988      454C5F4E 
+ 2988      554D4245 
+ 2988      525F5641 
+ 2989              	.LASF104:
+ 2990 0086 70657269 		.string	"period"
+ 2990      6F6400
+ 2991              	.LASF36:
+ 2992 008d 4F553231 		.string	"OU21"
+ 2992      00
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 54
+
+
+ 2993              	.LASF34:
+ 2994 0092 4F553233 		.string	"OU23"
+ 2994      00
+ 2995              	.LASF32:
+ 2996 0097 4F553235 		.string	"OU25"
+ 2996      00
+ 2997              	.LASF10:
+ 2998 009c 6C6F6E67 		.string	"long long unsigned int"
+ 2998      206C6F6E 
+ 2998      6720756E 
+ 2998      7369676E 
+ 2998      65642069 
+ 2999              	.LASF37:
+ 3000 00b3 4F553230 		.string	"OU20"
+ 3000      00
+ 3001              	.LASF29:
+ 3002 00b8 4F553238 		.string	"OU28"
+ 3002      00
+ 3003              	.LASF28:
+ 3004 00bd 4F553239 		.string	"OU29"
+ 3004      00
+ 3005              	.LASF35:
+ 3006 00c2 4F553232 		.string	"OU22"
+ 3006      00
+ 3007              	.LASF129:
+ 3008 00c7 45565F56 		.string	"EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER"
+ 3008      4E485F41 
+ 3008      52524159 
+ 3008      5F424F41 
+ 3008      52445F31 
+ 3009              	.LASF71:
+ 3010 00f0 43484449 		.string	"CHDIS8"
+ 3010      533800
+ 3011              	.LASF33:
+ 3012 00f7 4F553234 		.string	"OU24"
+ 3012      00
+ 3013              	.LASF30:
+ 3014 00fc 4F553237 		.string	"OU27"
+ 3014      00
+ 3015              	.LASF131:
+ 3016 0101 45565F56 		.string	"EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT"
+ 3016      4E485F41 
+ 3016      52524159 
+ 3016      5F424F41 
+ 3016      52445F30 
+ 3017              	.LASF136:
+ 3018 0122 45565F56 		.string	"EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER"
+ 3018      4E485F41 
+ 3018      52524159 
+ 3018      5F494E5F 
+ 3018      544F545F 
+ 3019              	.LASF135:
+ 3020 0147 45565F56 		.string	"EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER"
+ 3020      4E485F41 
+ 3020      52524159 
+ 3020      5F424F41 
+ 3020      52445F31 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 55
+
+
+ 3021              	.LASF108:
+ 3022 016f 70776D6F 		.string	"pwmoutmode_t"
+ 3022      75746D6F 
+ 3022      64655F74 
+ 3022      00
+ 3023              	.LASF31:
+ 3024 017c 4F553236 		.string	"OU26"
+ 3024      00
+ 3025              	.LASF9:
+ 3026 0181 6C6F6E67 		.string	"long long int"
+ 3026      206C6F6E 
+ 3026      6720696E 
+ 3026      7400
+ 3027              	.LASF0:
+ 3028 018f 7369676E 		.string	"signed char"
+ 3028      65642063 
+ 3028      68617200 
+ 3029              	.LASF130:
+ 3030 019b 45565F56 		.string	"EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER"
+ 3030      4E485F41 
+ 3030      52524159 
+ 3030      5F53454C 
+ 3030      5F544F54 
+ 3031              	.LASF112:
+ 3032 01c1 70776D6D 		.string	"pwmmode_t"
+ 3032      6F64655F 
+ 3032      7400
+ 3033              	.LASF146:
+ 3034 01cb 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 3034      4320342E 
+ 3034      392E3420 
+ 3034      32303136 
+ 3034      30373236 
+ 3035 0207 75696C64 		.ascii	"uild.sh"
+ 3035      2E7368
+ 3036 020e 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 3036      3D676438 
+ 3036      62366332 
+ 3036      3020733D 
+ 3036      46343934 
+ 3037              	.LASF133:
+ 3038 030f 45565F56 		.string	"EV_VNH_ARRAY_IN_TOT_GPIO_PORT"
+ 3038      4E485F41 
+ 3038      52524159 
+ 3038      5F494E5F 
+ 3038      544F545F 
+ 3039              	.LASF79:
+ 3040 032d 43484449 		.string	"CHDIS0"
+ 3040      533000
+ 3041              	.LASF78:
+ 3042 0334 43484449 		.string	"CHDIS1"
+ 3042      533100
+ 3043              	.LASF95:
+ 3044 033b 454D494F 		.string	"EMIOS_reserved1"
+ 3044      535F7265 
+ 3044      73657276 
+ 3044      65643100 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 56
+
+
+ 3045              	.LASF76:
+ 3046 034b 43484449 		.string	"CHDIS3"
+ 3046      533300
+ 3047              	.LASF6:
+ 3048 0352 6C6F6E67 		.string	"long int"
+ 3048      20696E74 
+ 3048      00
+ 3049              	.LASF74:
+ 3050 035b 43484449 		.string	"CHDIS5"
+ 3050      533500
+ 3051              	.LASF73:
+ 3052 0362 43484449 		.string	"CHDIS6"
+ 3052      533600
+ 3053              	.LASF72:
+ 3054 0369 43484449 		.string	"CHDIS7"
+ 3054      533700
+ 3055              	.LASF148:
+ 3056 0370 433A5C41 		.string	"C:\\AutoDevKitStudio-2.1\\workspace\\AutoDevKitCarV1"
+ 3056      75746F44 
+ 3056      65764B69 
+ 3056      74537475 
+ 3056      64696F2D 
+ 3057              	.LASF80:
+ 3058 03a2 4652454E 		.string	"FREN"
+ 3058      00
+ 3059              	.LASF125:
+ 3060 03a7 45565F56 		.string	"EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT"
+ 3060      4E485F41 
+ 3060      52524159 
+ 3060      5F424F41 
+ 3060      52445F30 
+ 3061              	.LASF97:
+ 3062 03c9 4F554449 		.string	"OUDIS"
+ 3062      5300
+ 3063              	.LASF13:
+ 3064 03cf 75696E74 		.string	"uint16_t"
+ 3064      31365F74 
+ 3064      00
+ 3065              	.LASF110:
+ 3066 03d8 70776D63 		.string	"pwmcnt_t"
+ 3066      6E745F74 
+ 3066      00
+ 3067              	.LASF107:
+ 3068 03e1 70776D63 		.string	"pwmcallback_t"
+ 3068      616C6C62 
+ 3068      61636B5F 
+ 3068      7400
+ 3069              	.LASF121:
+ 3070 03ef 70776D5F 		.string	"pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14"
+ 3070      636F6E66 
+ 3070      69675F41 
+ 3070      454B5F45 
+ 3070      565F564E 
+ 3071              	.LASF81:
+ 3072 041a 4F444953 		.string	"ODIS"
+ 3072      00
+ 3073              	.LASF141:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 57
+
+
+ 3074 041f 45565F56 		.string	"EV_VNH_ARRAY_PWM_CONFIGURATION"
+ 3074      4E485F41 
+ 3074      52524159 
+ 3074      5F50574D 
+ 3074      5F434F4E 
+ 3075              	.LASF7:
+ 3076 043e 5F5F7569 		.string	"__uint32_t"
+ 3076      6E743332 
+ 3076      5F7400
+ 3077              	.LASF119:
+ 3078 0449 50574D44 		.string	"PWMD9"
+ 3078      3900
+ 3079              	.LASF20:
+ 3080 044f 47544245 		.string	"GTBE"
+ 3080      00
+ 3081              	.LASF134:
+ 3082 0454 45565F56 		.string	"EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER"
+ 3082      4E485F41 
+ 3082      52524159 
+ 3082      5F424F41 
+ 3082      52445F30 
+ 3083              	.LASF144:
+ 3084 047c 76616C75 		.string	"value"
+ 3084      6500
+ 3085              	.LASF57:
+ 3086 0482 43484449 		.string	"CHDIS22"
+ 3086      53323200 
+ 3087              	.LASF56:
+ 3088 048a 43484449 		.string	"CHDIS23"
+ 3088      53323300 
+ 3089              	.LASF55:
+ 3090 0492 43484449 		.string	"CHDIS24"
+ 3090      53323400 
+ 3091              	.LASF54:
+ 3092 049a 43484449 		.string	"CHDIS25"
+ 3092      53323500 
+ 3093              	.LASF11:
+ 3094 04a2 756E7369 		.string	"unsigned int"
+ 3094      676E6564 
+ 3094      20696E74 
+ 3094      00
+ 3095              	.LASF8:
+ 3096 04af 6C6F6E67 		.string	"long unsigned int"
+ 3096      20756E73 
+ 3096      69676E65 
+ 3096      6420696E 
+ 3096      7400
+ 3097              	.LASF27:
+ 3098 04c1 4F553330 		.string	"OU30"
+ 3098      00
+ 3099              	.LASF26:
+ 3100 04c6 4F553331 		.string	"OU31"
+ 3100      00
+ 3101              	.LASF24:
+ 3102 04cb 47505245 		.string	"GPRE"
+ 3102      00
+ 3103              	.LASF132:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 58
+
+
+ 3104 04d0 45565F56 		.string	"EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT"
+ 3104      4E485F41 
+ 3104      52524159 
+ 3104      5F424F41 
+ 3104      52445F31 
+ 3105              	.LASF102:
+ 3106 04f1 70657269 		.string	"period_ch"
+ 3106      6F645F63 
+ 3106      6800
+ 3107              	.LASF145:
+ 3108 04fb 45565F56 		.string	"EV_VNH_MULTISENSE_BOOL"
+ 3108      4E485F4D 
+ 3108      554C5449 
+ 3108      53454E53 
+ 3108      455F424F 
+ 3109              	.LASF5:
+ 3110 0512 73686F72 		.string	"short unsigned int"
+ 3110      7420756E 
+ 3110      7369676E 
+ 3110      65642069 
+ 3110      6E7400
+ 3111              	.LASF88:
+ 3112 0525 4544504F 		.string	"EDPOL"
+ 3112      4C00
+ 3113              	.LASF142:
+ 3114 052b 45565F56 		.string	"EV_VNH_ARRAY_PWM_GPIO_PORT"
+ 3114      4E485F41 
+ 3114      52524159 
+ 3114      5F50574D 
+ 3114      5F475049 
+ 3115              	.LASF2:
+ 3116 0546 73686F72 		.string	"short int"
+ 3116      7420696E 
+ 3116      7400
+ 3117              	.LASF25:
+ 3118 0550 756E7573 		.string	"unused_0"
+ 3118      65645F30 
+ 3118      00
+ 3119              	.LASF69:
+ 3120 0559 43484449 		.string	"CHDIS10"
+ 3120      53313000 
+ 3121              	.LASF101:
+ 3122 0561 73706335 		.string	"spc5_emios"
+ 3122      5F656D69 
+ 3122      6F7300
+ 3123              	.LASF67:
+ 3124 056c 43484449 		.string	"CHDIS12"
+ 3124      53313200 
+ 3125              	.LASF66:
+ 3126 0574 43484449 		.string	"CHDIS13"
+ 3126      53313300 
+ 3127              	.LASF65:
+ 3128 057c 43484449 		.string	"CHDIS14"
+ 3128      53313400 
+ 3129              	.LASF64:
+ 3130 0584 43484449 		.string	"CHDIS15"
+ 3130      53313500 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 59
+
+
+ 3131              	.LASF63:
+ 3132 058c 43484449 		.string	"CHDIS16"
+ 3132      53313600 
+ 3133              	.LASF16:
+ 3134 0594 7675696E 		.string	"vuint32_t"
+ 3134      7433325F 
+ 3134      7400
+ 3135              	.LASF61:
+ 3136 059e 43484449 		.string	"CHDIS18"
+ 3136      53313800 
+ 3137              	.LASF60:
+ 3138 05a6 43484449 		.string	"CHDIS19"
+ 3138      53313900 
+ 3139              	.LASF75:
+ 3140 05ae 43484449 		.string	"CHDIS4"
+ 3140      533400
+ 3141              	.LASF17:
+ 3142 05b5 73697A65 		.string	"sizetype"
+ 3142      74797065 
+ 3142      00
+ 3143              	.LASF23:
+ 3144 05be 756E7573 		.string	"unused_1"
+ 3144      65645F31 
+ 3144      00
+ 3145              	.LASF70:
+ 3146 05c7 43484449 		.string	"CHDIS9"
+ 3146      533900
+ 3147              	.LASF21:
+ 3148 05ce 756E7573 		.string	"unused_2"
+ 3148      65645F32 
+ 3148      00
+ 3149              	.LASF18:
+ 3150 05d7 756E7573 		.string	"unused_3"
+ 3150      65645F33 
+ 3150      00
+ 3151              	.LASF117:
+ 3152 05e0 63685F63 		.string	"ch_config"
+ 3152      6F6E6669 
+ 3152      6700
+ 3153              	.LASF87:
+ 3154 05ea 45445345 		.string	"EDSEL"
+ 3154      4C00
+ 3155              	.LASF92:
+ 3156 05f0 55434F55 		.string	"UCOUT"
+ 3156      5400
+ 3157              	.LASF90:
+ 3158 05f6 4F56464C 		.string	"OVFL"
+ 3158      00
+ 3159              	.LASF124:
+ 3160 05fb 666C6F61 		.string	"float"
+ 3160      7400
+ 3161              	.LASF59:
+ 3162 0601 43484449 		.string	"CHDIS20"
+ 3162      53323000 
+ 3163              	.LASF58:
+ 3164 0609 43484449 		.string	"CHDIS21"
+ 3164      53323100 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 60
+
+
+ 3165              	.LASF53:
+ 3166 0611 43484449 		.string	"CHDIS26"
+ 3166      53323600 
+ 3167              	.LASF52:
+ 3168 0619 43484449 		.string	"CHDIS27"
+ 3168      53323700 
+ 3169              	.LASF51:
+ 3170 0621 43484449 		.string	"CHDIS28"
+ 3170      53323800 
+ 3171              	.LASF109:
+ 3172 0629 70776D70 		.string	"pwmpsc_t"
+ 3172      73635F74 
+ 3172      00
+ 3173              	.LASF68:
+ 3174 0632 43484449 		.string	"CHDIS11"
+ 3174      53313100 
+ 3175              	.LASF106:
+ 3176 063a 656D696F 		.string	"emiosp"
+ 3176      737000
+ 3177              	.LASF19:
+ 3178 0641 4D444953 		.string	"MDIS"
+ 3178      00
+ 3179              	.LASF1:
+ 3180 0646 756E7369 		.string	"unsigned char"
+ 3180      676E6564 
+ 3180      20636861 
+ 3180      7200
+ 3181              	.LASF22:
+ 3182 0654 47505245 		.string	"GPREN"
+ 3182      4E00
+ 3183              	.LASF128:
+ 3184 065a 45565F56 		.string	"EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER"
+ 3184      4E485F41 
+ 3184      52524159 
+ 3184      5F424F41 
+ 3184      52445F30 
+ 3185              	.LASF15:
+ 3186 0683 7675696E 		.string	"vuint8_t"
+ 3186      74385F74 
+ 3186      00
+ 3187              	.LASF139:
+ 3188 068c 45565F56 		.string	"EV_VNH_ARRAY_PWM"
+ 3188      4E485F41 
+ 3188      52524159 
+ 3188      5F50574D 
+ 3188      00
+ 3189              	.LASF115:
+ 3190 069d 6578745F 		.string	"ext_clk"
+ 3190      636C6B00 
+ 3191              	.LASF93:
+ 3192 06a5 464C4147 		.string	"FLAG"
+ 3192      00
+ 3193              	.LASF49:
+ 3194 06aa 43484449 		.string	"CHDIS30"
+ 3194      53333000 
+ 3195              	.LASF48:
+ 3196 06b2 43484449 		.string	"CHDIS31"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 61
+
+
+ 3196      53333100 
+ 3197              	.LASF14:
+ 3198 06ba 75696E74 		.string	"uint32_t"
+ 3198      33325F74 
+ 3198      00
+ 3199              	.LASF118:
+ 3200 06c3 50574D43 		.string	"PWMConfig"
+ 3200      6F6E6669 
+ 3200      6700
+ 3201              	.LASF94:
+ 3202 06cd 414C5441 		.string	"ALTA"
+ 3202      00
+ 3203              	.LASF91:
+ 3204 06d2 5543494E 		.string	"UCIN"
+ 3204      00
+ 3205              	.LASF147:
+ 3206 06d7 2E2F636F 		.string	"./components/aek_ev_vnhx7xxx_component_rla/cfg/EV_VNHx7xxx_cfg.c"
+ 3206      6D706F6E 
+ 3206      656E7473 
+ 3206      2F61656B 
+ 3206      5F65765F 
+ 3207              	.LASF103:
+ 3208 0718 6D6F6465 		.string	"mode"
+ 3208      00
+ 3209              	.LASF77:
+ 3210 071d 43484449 		.string	"CHDIS2"
+ 3210      533200
+ 3211              	.LASF105:
+ 3212 0724 636F6E66 		.string	"config"
+ 3212      696700
+ 3213              	.LASF96:
+ 3214 072b 47464C41 		.string	"GFLAG"
+ 3214      4700
+ 3215              	.LASF4:
+ 3216 0731 5F5F7569 		.string	"__uint16_t"
+ 3216      6E743136 
+ 3216      5F7400
+ 3217              	.LASF137:
+ 3218 073c 45565F56 		.string	"EV_VNH_IN_NUMBER_VALUE"
+ 3218      4E485F49 
+ 3218      4E5F4E55 
+ 3218      4D424552 
+ 3218      5F56414C 
+ 3219              	.LASF89:
+ 3220 0753 4D4F4445 		.string	"MODE"
+ 3220      00
+ 3221              	.LASF143:
+ 3222 0758 45565F56 		.string	"EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER"
+ 3222      4E485F41 
+ 3222      52524159 
+ 3222      5F50574D 
+ 3222      5F475049 
+ 3223              	.LASF99:
+ 3224 077a 4144525F 		.string	"ADR_reserved0"
+ 3224      72657365 
+ 3224      72766564 
+ 3224      3000
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 62
+
+
+ 3225              	.LASF122:
+ 3226 0788 70776D5F 		.string	"pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28"
+ 3226      636F6E66 
+ 3226      69675F41 
+ 3226      454B5F45 
+ 3226      565F564E 
+ 3227              	.LASF114:
+ 3228 07b3 50574D43 		.string	"PWMChannelConfig"
+ 3228      68616E6E 
+ 3228      656C436F 
+ 3228      6E666967 
+ 3228      00
+ 3229              	.LASF120:
+ 3230 07c4 50574D44 		.string	"PWMD11"
+ 3230      313100
+ 3231              	.LASF113:
+ 3232 07cb 6368616E 		.string	"channel_callback"
+ 3232      6E656C5F 
+ 3232      63616C6C 
+ 3232      6261636B 
+ 3232      00
+ 3233              	.LASF38:
+ 3234 07dc 4F553139 		.string	"OU19"
+ 3234      00
+ 3235              	.LASF83:
+ 3236 07e1 55435052 		.string	"UCPRE"
+ 3236      4500
+ 3237              	.LASF140:
+ 3238 07e7 50574D43 		.string	"PWMCHANNELS"
+ 3238      48414E4E 
+ 3238      454C5300 
+ 3239              	.LASF12:
+ 3240 07f3 75696E74 		.string	"uint8_t"
+ 3240      385F7400 
+ 3241              	.LASF100:
+ 3242 07fb 50574D44 		.string	"PWMDriver"
+ 3242      72697665 
+ 3242      7200
+ 3243              	.LASF47:
+ 3244 0805 4F553130 		.string	"OU10"
+ 3244      00
+ 3245              	.LASF46:
+ 3246 080a 4F553131 		.string	"OU11"
+ 3246      00
+ 3247              	.LASF45:
+ 3248 080f 4F553132 		.string	"OU12"
+ 3248      00
+ 3249              	.LASF44:
+ 3250 0814 4F553133 		.string	"OU13"
+ 3250      00
+ 3251              	.LASF43:
+ 3252 0819 4F553134 		.string	"OU14"
+ 3252      00
+ 3253              	.LASF42:
+ 3254 081e 4F553135 		.string	"OU15"
+ 3254      00
+ 3255              	.LASF41:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 63
+
+
+ 3256 0823 4F553136 		.string	"OU16"
+ 3256      00
+ 3257              	.LASF40:
+ 3258 0828 4F553137 		.string	"OU17"
+ 3258      00
+ 3259              	.LASF39:
+ 3260 082d 4F553138 		.string	"OU18"
+ 3260      00
+ 3261              	.LASF98:
+ 3262 0832 55434449 		.string	"UCDIS"
+ 3262      5300
+ 3263              	.LASF116:
+ 3264 0838 70657269 		.string	"period_callback"
+ 3264      6F645F63 
+ 3264      616C6C62 
+ 3264      61636B00 
+ 3265              	.LASF127:
+ 3266 0848 45565F56 		.string	"EV_VNH_ARRAY_SEL_TOT_GPIO_PORT"
+ 3266      4E485F41 
+ 3266      52524159 
+ 3266      5F53454C 
+ 3266      5F544F54 
+ 3267              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s 			page 64
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 EV_VNHx7xxx_cfg.c
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:10     .bss.valueVNH:00000000 valueVNH
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:17     .bss.value:00000000 value
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:24     .rodata.EV_VNH_MULTISENSE_BOOL:00000000 EV_VNH_MULTISENSE_BOOL
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:31     .rodata.EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT:00000000 EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:38     .rodata.EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT:00000000 EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:45     .data.EV_VNH_ARRAY_SEL_TOT_GPIO_PORT:00000000 EV_VNH_ARRAY_SEL_TOT_GPIO_PORT
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:53     .rodata.EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER:00000000 EV_VNH_ARRAY_BOARD_0SEL_GPIO_PORT_NUMBER
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:60     .rodata.EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER:00000000 EV_VNH_ARRAY_BOARD_1SEL_GPIO_PORT_NUMBER
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:67     .data.EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER:00000000 EV_VNH_ARRAY_SEL_TOT_GPIO_PORT_NUMBER
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:75     .rodata.EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT:00000000 EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:83     .rodata.EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT:00000000 EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:90     .data.EV_VNH_ARRAY_IN_TOT_GPIO_PORT:00000000 EV_VNH_ARRAY_IN_TOT_GPIO_PORT
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:98     .rodata.EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER:00000000 EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:106    .rodata.EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER:00000000 EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:114    .data.EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER:00000000 EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:122    .rodata.EV_VNH_IN_NUMBER_VALUE:00000000 EV_VNH_IN_NUMBER_VALUE
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:130    .rodata.EV_VNH_SEL_NUMBER_VALUE:00000000 EV_VNH_SEL_NUMBER_VALUE
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:138    .data.EV_VNH_ARRAY_PWM:00000000 EV_VNH_ARRAY_PWM
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:146    .rodata.PWMCHANNELS:00000000 PWMCHANNELS
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:154    .data.EV_VNH_ARRAY_PWM_CONFIGURATION:00000000 EV_VNH_ARRAY_PWM_CONFIGURATION
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:162    .rodata.EV_VNH_ARRAY_PWM_GPIO_PORT:00000000 EV_VNH_ARRAY_PWM_GPIO_PORT
+C:\Users\nascapro\AppData\Local\Temp\ccCxnPcg.s:170    .rodata.EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER:00000000 EV_VNH_ARRAY_PWM_GPIO_PORT_NUMBER
+
+UNDEFINED SYMBOLS
+PWMD9
+PWMD11
+pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14
+pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28

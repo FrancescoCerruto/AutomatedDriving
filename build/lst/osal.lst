@@ -1,0 +1,3275 @@
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 1
+
+
+   1              		.file	"osal.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.section	.text.irqGetMsr,"axv",@progbits
+   6              		.align 1
+   7              		.p2align 4,,15
+   8              		.type	irqGetMsr, @function
+   9              	irqGetMsr:
+  10              	.LFB0:
+  11              		.file 1 "./components/spc582bxx_irq_component_rla/lib/include/irq.h"
+  12              		.loc 1 83 0
+  13              		.cfi_startproc
+  14 0000 182106E8 		e_stwu %r1,-24(%r1)
+  15              	.LCFI0:
+  16              		.cfi_def_cfa_offset 24
+  17              		.loc 1 85 0
+  18 0004 4807     		se_li %r7,0
+  19 0006 D271     		se_stw %r7,8(%r1)
+  20              		.loc 1 87 0
+  21              	 # 87 "./components/spc582bxx_irq_component_rla/lib/include/irq.h" 1
+  22 0008 7CE000A6 		mfmsr %r7
+  23              	 # 0 "" 2
+  24 000c D271     		se_stw %r7,8(%r1)
+  25              		.loc 1 89 0
+  26 000e C271     		se_lwz %r7,8(%r1)
+  27              		.loc 1 90 0
+  28 0010 0173     		se_mr %r3,%r7
+  29 0012 2171     		se_addi %r1,24
+  30              	.LCFI1:
+  31              		.cfi_def_cfa_offset 0
+  32 0014 0004     		se_blr
+  33              		.cfi_endproc
+  34              	.LFE0:
+  35              		.size	irqGetMsr, .-irqGetMsr
+  36              		.section	.text.irqGetExtIntEnable,"axv",@progbits
+  37              		.align 1
+  38              		.p2align 4,,15
+  39              		.type	irqGetExtIntEnable, @function
+  40              	irqGetExtIntEnable:
+  41              	.LFB1:
+  42              		.loc 1 98 0
+  43              		.cfi_startproc
+  44 0000 182106E8 		e_stwu %r1,-24(%r1)
+  45              	.LCFI2:
+  46              		.cfi_def_cfa_offset 24
+  47 0004 0080     		se_mflr %r0
+  48 0006 D701     		se_stw %r0,28(%r1)
+  49              		.cfi_offset 65, 4
+  50              		.loc 1 102 0
+  51 0008 78000001 		e_bl irqGetMsr
+  52 000c D231     		se_stw %r3,8(%r1)
+  53              		.loc 1 104 0
+  54 000e C271     		se_lwz %r7,8(%r1)
+  55 0010 68F7     		se_srwi %r7,15
+  56 0012 2E17     		se_andi %r7,1
+  57              		.loc 1 105 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 2
+
+
+  58 0014 0173     		se_mr %r3,%r7
+  59 0016 C701     		se_lwz %r0,28(%r1)
+  60 0018 0090     		se_mtlr %r0
+  61 001a 2171     		se_addi %r1,24
+  62              	.LCFI3:
+  63              		.cfi_def_cfa_offset 0
+  64 001c 0004     		se_blr
+  65              		.cfi_endproc
+  66              	.LFE1:
+  67              		.size	irqGetExtIntEnable, .-irqGetExtIntEnable
+  68              		.section	.bss.osalTimeOps,"aw",@nobits
+  69              		.align 2
+  70              		.type	osalTimeOps, @object
+  71              		.size	osalTimeOps, 48
+  72              	osalTimeOps:
+  73 0000 00000000 		.zero	48
+  73      00000000 
+  73      00000000 
+  73      00000000 
+  73      00000000 
+  74              		.section	.bss.osal_ticks_per_sec,"aw",@nobits
+  75              		.align 2
+  76              		.type	osal_ticks_per_sec, @object
+  77              		.size	osal_ticks_per_sec, 4
+  78              	osal_ticks_per_sec:
+  79 0000 00000000 		.zero	4
+  80              		.section	.bss.osalsystime,"aw",@nobits
+  81              		.align 2
+  82              		.type	osalsystime, @object
+  83              		.size	osalsystime, 4
+  84              	osalsystime:
+  85 0000 00000000 		.zero	4
+  86              		.section	.bss.osalIsrCnt,"aw",@nobits
+  87              		.align 2
+  88              		.type	osalIsrCnt, @object
+  89              		.size	osalIsrCnt, 4
+  90              	osalIsrCnt:
+  91 0000 00000000 		.zero	4
+  92              		.section	.bss.osalIsExtIntEnable,"aw",@nobits
+  93              		.align 2
+  94              		.type	osalIsExtIntEnable, @object
+  95              		.size	osalIsExtIntEnable, 4
+  96              	osalIsExtIntEnable:
+  97 0000 00000000 		.zero	4
+  98              		.section	.text.osalSysTimeSetup,"axv",@progbits
+  99              		.align 1
+ 100              		.p2align 4,,15
+ 101              		.globl osalSysTimeSetup
+ 102              		.type	osalSysTimeSetup, @function
+ 103              	osalSysTimeSetup:
+ 104              	.LFB2:
+ 105              		.file 2 "./components/spc582bxx_osal_component_rla/lib/src/osal.c"
+ 106              		.loc 2 102 0
+ 107              		.cfi_startproc
+ 108 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 109              	.LCFI4:
+ 110              		.cfi_def_cfa_offset 16
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 3
+
+
+ 111 0004 0080     		se_mflr %r0
+ 112 0006 D501     		se_stw %r0,20(%r1)
+ 113              		.cfi_offset 65, 4
+ 114 0008 D231     		se_stw %r3,8(%r1)
+ 115              		.loc 2 104 0
+ 116 000a 70E0E000 		e_lis %r7,osal_ticks_per_sec@ha
+ 117 000e C261     		se_lwz %r6,8(%r1)
+ 118 0010 54C70000 		e_stw %r6,osal_ticks_per_sec@l(%r7)
+ 119              		.loc 2 106 0
+ 120 0014 C231     		se_lwz %r3,8(%r1)
+ 121 0016 78000001 		e_bl sysTimeSetup
+ 122              		.loc 2 108 0
+ 123 001a 70E0E000 		e_lis %r7,osalsystime@ha
+ 124 001e 1CE70000 		e_la %r7,osalsystime@l(%r7)
+ 125              		.loc 2 109 0
+ 126 0022 0173     		se_mr %r3,%r7
+ 127 0024 C501     		se_lwz %r0,20(%r1)
+ 128 0026 0090     		se_mtlr %r0
+ 129 0028 20F1     		se_addi %r1,16
+ 130              	.LCFI5:
+ 131              		.cfi_def_cfa_offset 0
+ 132 002a 0004     		se_blr
+ 133              		.cfi_endproc
+ 134              	.LFE2:
+ 135              		.size	osalSysTimeSetup, .-osalSysTimeSetup
+ 136              		.section	.text.osalSysTimeReset,"axv",@progbits
+ 137              		.align 1
+ 138              		.p2align 4,,15
+ 139              		.globl osalSysTimeReset
+ 140              		.type	osalSysTimeReset, @function
+ 141              	osalSysTimeReset:
+ 142              	.LFB3:
+ 143              		.loc 2 117 0
+ 144              		.cfi_startproc
+ 145 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 146              	.LCFI6:
+ 147              		.cfi_def_cfa_offset 8
+ 148 0004 0080     		se_mflr %r0
+ 149 0006 D301     		se_stw %r0,12(%r1)
+ 150              		.cfi_offset 65, 4
+ 151              		.loc 2 119 0
+ 152 0008 78000001 		e_bl sysTimeReset
+ 153              		.loc 2 120 0
+ 154 000c C301     		se_lwz %r0,12(%r1)
+ 155 000e 0090     		se_mtlr %r0
+ 156 0010 2071     		se_addi %r1,8
+ 157              	.LCFI7:
+ 158              		.cfi_def_cfa_offset 0
+ 159 0012 0004     		se_blr
+ 160              		.cfi_endproc
+ 161              	.LFE3:
+ 162              		.size	osalSysTimeReset, .-osalSysTimeReset
+ 163              		.section	.text.osalSysTime_S2ST,"axv",@progbits
+ 164              		.align 1
+ 165              		.p2align 4,,15
+ 166              		.type	osalSysTime_S2ST, @function
+ 167              	osalSysTime_S2ST:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 4
+
+
+ 168              	.LFB4:
+ 169              		.loc 2 132 0
+ 170              		.cfi_startproc
+ 171 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 172              	.LCFI8:
+ 173              		.cfi_def_cfa_offset 16
+ 174 0004 D231     		se_stw %r3,8(%r1)
+ 175              		.loc 2 133 0
+ 176 0006 70E0E000 		e_lis %r7,osal_ticks_per_sec@ha
+ 177 000a 50C70000 		e_lwz %r6,osal_ticks_per_sec@l(%r7)
+ 178 000e C271     		se_lwz %r7,8(%r1)
+ 179 0010 0567     		se_mullw %r7,%r6
+ 180              		.loc 2 134 0
+ 181 0012 0173     		se_mr %r3,%r7
+ 182 0014 20F1     		se_addi %r1,16
+ 183              	.LCFI9:
+ 184              		.cfi_def_cfa_offset 0
+ 185 0016 0004     		se_blr
+ 186              		.cfi_endproc
+ 187              	.LFE4:
+ 188              		.size	osalSysTime_S2ST, .-osalSysTime_S2ST
+ 189              		.section	.text.osalSysTime_MS2ST,"axv",@progbits
+ 190              		.align 1
+ 191              		.p2align 4,,15
+ 192              		.type	osalSysTime_MS2ST, @function
+ 193              	osalSysTime_MS2ST:
+ 194              	.LFB5:
+ 195              		.loc 2 146 0
+ 196              		.cfi_startproc
+ 197 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 198              	.LCFI10:
+ 199              		.cfi_def_cfa_offset 16
+ 200 0004 D231     		se_stw %r3,8(%r1)
+ 201              		.loc 2 147 0
+ 202 0006 C271     		se_lwz %r7,8(%r1)
+ 203 0008 2A07     		se_cmpi %r7,0
+ 204 000a 7F800020 		e_mcrf %cr7,%cr0
+ 205 000e 7CE00026 		mfcr %r7
+ 206 0012 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 207 0016 7CE80120 		mtcrf 128,%r7
+ 208 001a 7A120028 		e_beq %cr0,.L11
+ 209              		.loc 2 148 0 discriminator 1
+ 210 001e 70E0E000 		e_lis %r7,osal_ticks_per_sec@ha
+ 211 0022 50C70000 		e_lwz %r6,osal_ticks_per_sec@l(%r7)
+ 212 0026 C271     		se_lwz %r7,8(%r1)
+ 213 0028 0567     		se_mullw %r7,%r6
+ 214 002a 18C784FF 		e_addi %r6,%r7,-1
+ 215 002e 70E2E062 		e_lis %r7,0x1062
+ 216 0032 70E9C5D3 		e_or2i %r7,19923
+ 217 0036 7CE63816 		mulhwu %r7,%r6,%r7
+ 218 003a 6867     		se_srwi %r7,6
+ 219              		.loc 2 147 0 discriminator 1
+ 220 003c 2007     		se_addi %r7,1
+ 221 003e 78000006 		e_b .L12
+ 222              	.L11:
+ 223              		.loc 2 147 0 is_stmt 0 discriminator 2
+ 224 0042 4807     		se_li %r7,0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 5
+
+
+ 225              	.L12:
+ 226              		.loc 2 149 0 is_stmt 1 discriminator 4
+ 227 0044 0173     		se_mr %r3,%r7
+ 228 0046 20F1     		se_addi %r1,16
+ 229              	.LCFI11:
+ 230              		.cfi_def_cfa_offset 0
+ 231 0048 0004     		se_blr
+ 232              		.cfi_endproc
+ 233              	.LFE5:
+ 234              		.size	osalSysTime_MS2ST, .-osalSysTime_MS2ST
+ 235              		.section	.text.osalSysTime_US2ST,"axv",@progbits
+ 236              		.align 1
+ 237              		.p2align 4,,15
+ 238              		.type	osalSysTime_US2ST, @function
+ 239              	osalSysTime_US2ST:
+ 240              	.LFB6:
+ 241              		.loc 2 161 0
+ 242              		.cfi_startproc
+ 243 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 244              	.LCFI12:
+ 245              		.cfi_def_cfa_offset 16
+ 246 0004 D231     		se_stw %r3,8(%r1)
+ 247              		.loc 2 162 0
+ 248 0006 C271     		se_lwz %r7,8(%r1)
+ 249 0008 2A07     		se_cmpi %r7,0
+ 250 000a 7F800020 		e_mcrf %cr7,%cr0
+ 251 000e 7CE00026 		mfcr %r7
+ 252 0012 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 253 0016 7CE80120 		mtcrf 128,%r7
+ 254 001a 7A120028 		e_beq %cr0,.L15
+ 255              		.loc 2 163 0 discriminator 1
+ 256 001e 70E0E000 		e_lis %r7,osal_ticks_per_sec@ha
+ 257 0022 50C70000 		e_lwz %r6,osal_ticks_per_sec@l(%r7)
+ 258 0026 C271     		se_lwz %r7,8(%r1)
+ 259 0028 0567     		se_mullw %r7,%r6
+ 260 002a 18C784FF 		e_addi %r6,%r7,-1
+ 261 002e 70E8E31B 		e_lis %r7,0x431b
+ 262 0032 70FBC683 		e_or2i %r7,56963
+ 263 0036 7CE63816 		mulhwu %r7,%r6,%r7
+ 264 003a 6927     		se_srwi %r7,18
+ 265              		.loc 2 162 0 discriminator 1
+ 266 003c 2007     		se_addi %r7,1
+ 267 003e 78000006 		e_b .L16
+ 268              	.L15:
+ 269              		.loc 2 162 0 is_stmt 0 discriminator 2
+ 270 0042 4807     		se_li %r7,0
+ 271              	.L16:
+ 272              		.loc 2 164 0 is_stmt 1 discriminator 4
+ 273 0044 0173     		se_mr %r3,%r7
+ 274 0046 20F1     		se_addi %r1,16
+ 275              	.LCFI13:
+ 276              		.cfi_def_cfa_offset 0
+ 277 0048 0004     		se_blr
+ 278              		.cfi_endproc
+ 279              	.LFE6:
+ 280              		.size	osalSysTime_US2ST, .-osalSysTime_US2ST
+ 281              		.section	.text.osalSysTime_ST2S,"axv",@progbits
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 6
+
+
+ 282              		.align 1
+ 283              		.p2align 4,,15
+ 284              		.type	osalSysTime_ST2S, @function
+ 285              	osalSysTime_ST2S:
+ 286              	.LFB7:
+ 287              		.loc 2 176 0
+ 288              		.cfi_startproc
+ 289 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 290              	.LCFI14:
+ 291              		.cfi_def_cfa_offset 16
+ 292 0004 D231     		se_stw %r3,8(%r1)
+ 293              		.loc 2 177 0
+ 294 0006 70E0E000 		e_lis %r7,osal_ticks_per_sec@ha
+ 295 000a 50E70000 		e_lwz %r7,osal_ticks_per_sec@l(%r7)
+ 296 000e C261     		se_lwz %r6,8(%r1)
+ 297 0010 7CE63B96 		divwu %r7,%r6,%r7
+ 298              		.loc 2 178 0
+ 299 0014 0173     		se_mr %r3,%r7
+ 300 0016 20F1     		se_addi %r1,16
+ 301              	.LCFI15:
+ 302              		.cfi_def_cfa_offset 0
+ 303 0018 0004     		se_blr
+ 304              		.cfi_endproc
+ 305              	.LFE7:
+ 306              		.size	osalSysTime_ST2S, .-osalSysTime_ST2S
+ 307              		.section	.text.osalSysTime_ST2MS,"axv",@progbits
+ 308              		.align 1
+ 309              		.p2align 4,,15
+ 310              		.type	osalSysTime_ST2MS, @function
+ 311              	osalSysTime_ST2MS:
+ 312              	.LFB8:
+ 313              		.loc 2 190 0
+ 314              		.cfi_startproc
+ 315 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 316              	.LCFI16:
+ 317              		.cfi_def_cfa_offset 16
+ 318 0004 D231     		se_stw %r3,8(%r1)
+ 319              		.loc 2 191 0
+ 320 0006 C271     		se_lwz %r7,8(%r1)
+ 321 0008 70A003E8 		e_li %r5,1000
+ 322 000c 7CC729D6 		mullw %r6,%r7,%r5
+ 323 0010 70E0E000 		e_lis %r7,osal_ticks_per_sec@ha
+ 324 0014 50E70000 		e_lwz %r7,osal_ticks_per_sec@l(%r7)
+ 325 0018 7CE63B96 		divwu %r7,%r6,%r7
+ 326              		.loc 2 192 0
+ 327 001c 0173     		se_mr %r3,%r7
+ 328 001e 20F1     		se_addi %r1,16
+ 329              	.LCFI17:
+ 330              		.cfi_def_cfa_offset 0
+ 331 0020 0004     		se_blr
+ 332              		.cfi_endproc
+ 333              	.LFE8:
+ 334              		.size	osalSysTime_ST2MS, .-osalSysTime_ST2MS
+ 335              		.section	.text.osalSysTime_ST2US,"axv",@progbits
+ 336              		.align 1
+ 337              		.p2align 4,,15
+ 338              		.type	osalSysTime_ST2US, @function
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 7
+
+
+ 339              	osalSysTime_ST2US:
+ 340              	.LFB9:
+ 341              		.loc 2 204 0
+ 342              		.cfi_startproc
+ 343 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 344              	.LCFI18:
+ 345              		.cfi_def_cfa_offset 16
+ 346 0004 D231     		se_stw %r3,8(%r1)
+ 347              		.loc 2 205 0
+ 348 0006 C261     		se_lwz %r6,8(%r1)
+ 349 0008 70E0E00F 		e_lis %r7,0xf
+ 350 000c 70E8C240 		e_or2i %r7,16960
+ 351 0010 0576     		se_mullw %r6,%r7
+ 352 0012 70E0E000 		e_lis %r7,osal_ticks_per_sec@ha
+ 353 0016 50E70000 		e_lwz %r7,osal_ticks_per_sec@l(%r7)
+ 354 001a 7CE63B96 		divwu %r7,%r6,%r7
+ 355              		.loc 2 206 0
+ 356 001e 0173     		se_mr %r3,%r7
+ 357 0020 20F1     		se_addi %r1,16
+ 358              	.LCFI19:
+ 359              		.cfi_def_cfa_offset 0
+ 360 0022 0004     		se_blr
+ 361              		.cfi_endproc
+ 362              	.LFE9:
+ 363              		.size	osalSysTime_ST2US, .-osalSysTime_ST2US
+ 364              		.section	.text.osalSysTimeInit,"axv",@progbits
+ 365              		.align 1
+ 366              		.p2align 4,,15
+ 367              		.type	osalSysTimeInit, @function
+ 368              	osalSysTimeInit:
+ 369              	.LFB10:
+ 370              		.loc 2 214 0
+ 371              		.cfi_startproc
+ 372 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 373              	.LCFI20:
+ 374              		.cfi_def_cfa_offset 8
+ 375 0004 0080     		se_mflr %r0
+ 376 0006 D301     		se_stw %r0,12(%r1)
+ 377              		.cfi_offset 65, 4
+ 378              		.loc 2 217 0
+ 379 0008 70E0E000 		e_lis %r7,osalsystime@ha
+ 380 000c 4806     		se_li %r6,0
+ 381 000e 54C70000 		e_stw %r6,osalsystime@l(%r7)
+ 382              		.loc 2 219 0
+ 383 0012 706003E8 		e_li %r3,1000
+ 384 0016 78000001 		e_bl osalSysTimeSetup
+ 385              		.loc 2 220 0
+ 386 001a C301     		se_lwz %r0,12(%r1)
+ 387 001c 0090     		se_mtlr %r0
+ 388 001e 2071     		se_addi %r1,8
+ 389              	.LCFI21:
+ 390              		.cfi_def_cfa_offset 0
+ 391 0020 0004     		se_blr
+ 392              		.cfi_endproc
+ 393              	.LFE10:
+ 394              		.size	osalSysTimeInit, .-osalSysTimeInit
+ 395              		.section	.text.osalSysTimeDelayTicks,"axv",@progbits
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 8
+
+
+ 396              		.align 1
+ 397              		.p2align 4,,15
+ 398              		.type	osalSysTimeDelayTicks, @function
+ 399              	osalSysTimeDelayTicks:
+ 400              	.LFB11:
+ 401              		.loc 2 229 0
+ 402              		.cfi_startproc
+ 403 0000 182106E0 		e_stwu %r1,-32(%r1)
+ 404              	.LCFI22:
+ 405              		.cfi_def_cfa_offset 32
+ 406 0004 D631     		se_stw %r3,24(%r1)
+ 407              		.loc 2 233 0
+ 408 0006 70E0E000 		e_lis %r7,osalsystime@ha
+ 409 000a 50E70000 		e_lwz %r7,osalsystime@l(%r7)
+ 410 000e D271     		se_stw %r7,8(%r1)
+ 411              		.loc 2 234 0
+ 412 0010 4400     		se_nop
+ 413              	.L26:
+ 414              		.loc 2 234 0 is_stmt 0 discriminator 1
+ 415 0012 C261     		se_lwz %r6,8(%r1)
+ 416 0014 C671     		se_lwz %r7,24(%r1)
+ 417 0016 0476     		se_add %r6,%r7
+ 418 0018 70E0E000 		e_lis %r7,osalsystime@ha
+ 419 001c 50E70000 		e_lwz %r7,osalsystime@l(%r7)
+ 420 0020 7F863840 		cmpl %cr7,%r6,%r7
+ 421 0024 7CE00026 		mfcr %r7
+ 422 0028 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 423 002c 7CE80120 		mtcrf 128,%r7
+ 424 0030 7A11FFE2 		e_bgt %cr0,.L26
+ 425              		.loc 2 237 0 is_stmt 1
+ 426 0034 21F1     		se_addi %r1,32
+ 427              	.LCFI23:
+ 428              		.cfi_def_cfa_offset 0
+ 429 0036 0004     		se_blr
+ 430              		.cfi_endproc
+ 431              	.LFE11:
+ 432              		.size	osalSysTimeDelayTicks, .-osalSysTimeDelayTicks
+ 433              		.section	.text.osalSysTimeGetTicks,"axv",@progbits
+ 434              		.align 1
+ 435              		.p2align 4,,15
+ 436              		.type	osalSysTimeGetTicks, @function
+ 437              	osalSysTimeGetTicks:
+ 438              	.LFB12:
+ 439              		.loc 2 246 0
+ 440              		.cfi_startproc
+ 441              		.loc 2 248 0
+ 442 0000 70E0E000 		e_lis %r7,osalsystime@ha
+ 443 0004 50E70000 		e_lwz %r7,osalsystime@l(%r7)
+ 444              		.loc 2 249 0
+ 445 0008 0173     		se_mr %r3,%r7
+ 446 000a 0004     		se_blr
+ 447              		.cfi_endproc
+ 448              	.LFE12:
+ 449              		.size	osalSysTimeGetTicks, .-osalSysTimeGetTicks
+ 450              		.section	.text.osalIsrDisable,"axv",@progbits
+ 451              		.align 1
+ 452              		.p2align 4,,15
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 9
+
+
+ 453              		.type	osalIsrDisable, @function
+ 454              	osalIsrDisable:
+ 455              	.LFB13:
+ 456              		.loc 2 260 0
+ 457              		.cfi_startproc
+ 458 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 459              	.LCFI24:
+ 460              		.cfi_def_cfa_offset 8
+ 461 0004 0080     		se_mflr %r0
+ 462 0006 D301     		se_stw %r0,12(%r1)
+ 463              		.cfi_offset 65, 4
+ 464              		.loc 2 262 0
+ 465 0008 70E0E000 		e_lis %r7,osalIsrCnt@ha
+ 466 000c 50E70000 		e_lwz %r7,osalIsrCnt@l(%r7)
+ 467 0010 18C78001 		e_addi %r6,%r7,1
+ 468 0014 70E0E000 		e_lis %r7,osalIsrCnt@ha
+ 469 0018 54C70000 		e_stw %r6,osalIsrCnt@l(%r7)
+ 470              		.loc 2 263 0
+ 471 001c 70E0E000 		e_lis %r7,osalIsrCnt@ha
+ 472 0020 50E70000 		e_lwz %r7,osalIsrCnt@l(%r7)
+ 473 0024 2207     		se_cmpli %r7,1
+ 474 0026 7F800020 		e_mcrf %cr7,%cr0
+ 475 002a 7CE00026 		mfcr %r7
+ 476 002e 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 477 0032 7CE80120 		mtcrf 128,%r7
+ 478 0036 7A020034 		e_bne %cr0,.L29
+ 479              		.loc 2 264 0
+ 480 003a 78000001 		e_bl irqGetExtIntEnable
+ 481 003e 0136     		se_mr %r6,%r3
+ 482 0040 70E0E000 		e_lis %r7,osalIsExtIntEnable@ha
+ 483 0044 54C70000 		e_stw %r6,osalIsExtIntEnable@l(%r7)
+ 484              		.loc 2 265 0
+ 485 0048 70E0E000 		e_lis %r7,osalIsExtIntEnable@ha
+ 486 004c 50E70000 		e_lwz %r7,osalIsExtIntEnable@l(%r7)
+ 487 0050 2A07     		se_cmpi %r7,0
+ 488 0052 7F800020 		e_mcrf %cr7,%cr0
+ 489 0056 7CE00026 		mfcr %r7
+ 490 005a 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 491 005e 7CE80120 		mtcrf 128,%r7
+ 492 0062 7A120008 		e_beq %cr0,.L29
+ 493              		.loc 2 266 0
+ 494              	 # 266 "./components/spc582bxx_osal_component_rla/lib/src/osal.c" 1
+ 495 0066 7C000146 		wrteei  0
+ 496              	 # 0 "" 2
+ 497              	.L29:
+ 498              		.loc 2 269 0
+ 499 006a C301     		se_lwz %r0,12(%r1)
+ 500 006c 0090     		se_mtlr %r0
+ 501 006e 2071     		se_addi %r1,8
+ 502              	.LCFI25:
+ 503              		.cfi_def_cfa_offset 0
+ 504 0070 0004     		se_blr
+ 505              		.cfi_endproc
+ 506              	.LFE13:
+ 507              		.size	osalIsrDisable, .-osalIsrDisable
+ 508              		.section	.text.osalIsrEnable,"axv",@progbits
+ 509              		.align 1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 10
+
+
+ 510              		.p2align 4,,15
+ 511              		.type	osalIsrEnable, @function
+ 512              	osalIsrEnable:
+ 513              	.LFB14:
+ 514              		.loc 2 276 0
+ 515              		.cfi_startproc
+ 516              		.loc 2 278 0
+ 517 0000 70E0E000 		e_lis %r7,osalIsrCnt@ha
+ 518 0004 50E70000 		e_lwz %r7,osalIsrCnt@l(%r7)
+ 519 0008 18C784FF 		e_addi %r6,%r7,-1
+ 520 000c 70E0E000 		e_lis %r7,osalIsrCnt@ha
+ 521 0010 54C70000 		e_stw %r6,osalIsrCnt@l(%r7)
+ 522              		.loc 2 279 0
+ 523 0014 70E0E000 		e_lis %r7,osalIsExtIntEnable@ha
+ 524 0018 50E70000 		e_lwz %r7,osalIsExtIntEnable@l(%r7)
+ 525 001c 2A07     		se_cmpi %r7,0
+ 526 001e 7F800020 		e_mcrf %cr7,%cr0
+ 527 0022 7CE00026 		mfcr %r7
+ 528 0026 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 529 002a 7CE80120 		mtcrf 128,%r7
+ 530 002e 7A120026 		e_beq %cr0,.L31
+ 531              		.loc 2 279 0 is_stmt 0 discriminator 1
+ 532 0032 70E0E000 		e_lis %r7,osalIsrCnt@ha
+ 533 0036 50E70000 		e_lwz %r7,osalIsrCnt@l(%r7)
+ 534 003a 2A07     		se_cmpi %r7,0
+ 535 003c 7F800020 		e_mcrf %cr7,%cr0
+ 536 0040 7CE00026 		mfcr %r7
+ 537 0044 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 538 0048 7CE80120 		mtcrf 128,%r7
+ 539 004c 7A020008 		e_bne %cr0,.L31
+ 540              		.loc 2 280 0 is_stmt 1
+ 541              	 # 280 "./components/spc582bxx_osal_component_rla/lib/src/osal.c" 1
+ 542 0050 7C008146 		wrteei  1
+ 543              	 # 0 "" 2
+ 544              	.L31:
+ 545              		.loc 2 282 0
+ 546 0054 0004     		se_blr
+ 547              		.cfi_endproc
+ 548              	.LFE14:
+ 549              		.size	osalIsrEnable, .-osalIsrEnable
+ 550              		.section	.text.vector226,"axv",@progbits
+ 551              		.align 1
+ 552              		.p2align 4,,15
+ 553              		.globl vector226
+ 554              		.type	vector226, @function
+ 555              	vector226:
+ 556              	.LFB15:
+ 557              		.loc 2 296 0
+ 558              		.cfi_startproc
+ 559 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 560              	.LCFI26:
+ 561              		.cfi_def_cfa_offset 8
+ 562 0004 0080     		se_mflr %r0
+ 563 0006 D301     		se_stw %r0,12(%r1)
+ 564              		.cfi_offset 65, 4
+ 565              		.loc 2 300 0
+ 566 0008 78000001 		e_bl osalEnterCriticalFromISR
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 11
+
+
+ 567              		.loc 2 302 0
+ 568 000c 70E0E000 		e_lis %r7,osalsystime@ha
+ 569 0010 50E70000 		e_lwz %r7,osalsystime@l(%r7)
+ 570 0014 18C78001 		e_addi %r6,%r7,1
+ 571 0018 70E0E000 		e_lis %r7,osalsystime@ha
+ 572 001c 54C70000 		e_stw %r6,osalsystime@l(%r7)
+ 573              		.loc 2 304 0
+ 574 0020 78000001 		e_bl osalExitCriticalFromISR
+ 575              		.loc 2 306 0
+ 576 0024 78000001 		e_bl osalSysTimeReset
+ 577              		.loc 2 309 0
+ 578 0028 C301     		se_lwz %r0,12(%r1)
+ 579 002a 0090     		se_mtlr %r0
+ 580 002c 2071     		se_addi %r1,8
+ 581              	.LCFI27:
+ 582              		.cfi_def_cfa_offset 0
+ 583 002e 0004     		se_blr
+ 584              		.cfi_endproc
+ 585              	.LFE15:
+ 586              		.size	vector226, .-vector226
+ 587              		.section	.text.osalThreadDelaySeconds,"axv",@progbits
+ 588              		.align 1
+ 589              		.p2align 4,,15
+ 590              		.globl osalThreadDelaySeconds
+ 591              		.type	osalThreadDelaySeconds, @function
+ 592              	osalThreadDelaySeconds:
+ 593              	.LFB16:
+ 594              		.loc 2 328 0
+ 595              		.cfi_startproc
+ 596 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 597              	.LCFI28:
+ 598              		.cfi_def_cfa_offset 24
+ 599 0004 0080     		se_mflr %r0
+ 600 0006 D701     		se_stw %r0,28(%r1)
+ 601 0008 D5F1     		se_stw %r31,20(%r1)
+ 602              		.cfi_offset 65, 4
+ 603              		.cfi_offset 31, -4
+ 604 000a D231     		se_stw %r3,8(%r1)
+ 605              		.loc 2 329 0
+ 606 000c 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 607 0010 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 608 0014 C0F7     		se_lwz %r31,0(%r7)
+ 609 0016 C231     		se_lwz %r3,8(%r1)
+ 610 0018 78000001 		e_bl osalSysTime_S2ST
+ 611 001c 0137     		se_mr %r7,%r3
+ 612 001e 0173     		se_mr %r3,%r7
+ 613 0020 00BF     		se_mtctr %r31
+ 614 0022 0007     		se_bctrl
+ 615              		.loc 2 330 0
+ 616 0024 C701     		se_lwz %r0,28(%r1)
+ 617 0026 0090     		se_mtlr %r0
+ 618 0028 C5F1     		se_lwz %r31,20(%r1)
+ 619 002a 2171     		se_addi %r1,24
+ 620              	.LCFI29:
+ 621              		.cfi_restore 31
+ 622              		.cfi_def_cfa_offset 0
+ 623 002c 0004     		se_blr
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 12
+
+
+ 624              		.cfi_endproc
+ 625              	.LFE16:
+ 626              		.size	osalThreadDelaySeconds, .-osalThreadDelaySeconds
+ 627              		.section	.text.osalThreadDelayMilliseconds,"axv",@progbits
+ 628              		.align 1
+ 629              		.p2align 4,,15
+ 630              		.globl osalThreadDelayMilliseconds
+ 631              		.type	osalThreadDelayMilliseconds, @function
+ 632              	osalThreadDelayMilliseconds:
+ 633              	.LFB17:
+ 634              		.loc 2 342 0
+ 635              		.cfi_startproc
+ 636 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 637              	.LCFI30:
+ 638              		.cfi_def_cfa_offset 24
+ 639 0004 0080     		se_mflr %r0
+ 640 0006 D701     		se_stw %r0,28(%r1)
+ 641 0008 D5F1     		se_stw %r31,20(%r1)
+ 642              		.cfi_offset 65, 4
+ 643              		.cfi_offset 31, -4
+ 644 000a D231     		se_stw %r3,8(%r1)
+ 645              		.loc 2 343 0
+ 646 000c 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 647 0010 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 648 0014 C0F7     		se_lwz %r31,0(%r7)
+ 649 0016 C231     		se_lwz %r3,8(%r1)
+ 650 0018 78000001 		e_bl osalSysTime_MS2ST
+ 651 001c 0137     		se_mr %r7,%r3
+ 652 001e 0173     		se_mr %r3,%r7
+ 653 0020 00BF     		se_mtctr %r31
+ 654 0022 0007     		se_bctrl
+ 655              		.loc 2 344 0
+ 656 0024 C701     		se_lwz %r0,28(%r1)
+ 657 0026 0090     		se_mtlr %r0
+ 658 0028 C5F1     		se_lwz %r31,20(%r1)
+ 659 002a 2171     		se_addi %r1,24
+ 660              	.LCFI31:
+ 661              		.cfi_restore 31
+ 662              		.cfi_def_cfa_offset 0
+ 663 002c 0004     		se_blr
+ 664              		.cfi_endproc
+ 665              	.LFE17:
+ 666              		.size	osalThreadDelayMilliseconds, .-osalThreadDelayMilliseconds
+ 667              		.section	.text.osalThreadDelayMicroseconds,"axv",@progbits
+ 668              		.align 1
+ 669              		.p2align 4,,15
+ 670              		.globl osalThreadDelayMicroseconds
+ 671              		.type	osalThreadDelayMicroseconds, @function
+ 672              	osalThreadDelayMicroseconds:
+ 673              	.LFB18:
+ 674              		.loc 2 356 0
+ 675              		.cfi_startproc
+ 676 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 677              	.LCFI32:
+ 678              		.cfi_def_cfa_offset 24
+ 679 0004 0080     		se_mflr %r0
+ 680 0006 D701     		se_stw %r0,28(%r1)
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 13
+
+
+ 681 0008 D5F1     		se_stw %r31,20(%r1)
+ 682              		.cfi_offset 65, 4
+ 683              		.cfi_offset 31, -4
+ 684 000a D231     		se_stw %r3,8(%r1)
+ 685              		.loc 2 357 0
+ 686 000c 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 687 0010 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 688 0014 C0F7     		se_lwz %r31,0(%r7)
+ 689 0016 C231     		se_lwz %r3,8(%r1)
+ 690 0018 78000001 		e_bl osalSysTime_US2ST
+ 691 001c 0137     		se_mr %r7,%r3
+ 692 001e 0173     		se_mr %r3,%r7
+ 693 0020 00BF     		se_mtctr %r31
+ 694 0022 0007     		se_bctrl
+ 695              		.loc 2 358 0
+ 696 0024 C701     		se_lwz %r0,28(%r1)
+ 697 0026 0090     		se_mtlr %r0
+ 698 0028 C5F1     		se_lwz %r31,20(%r1)
+ 699 002a 2171     		se_addi %r1,24
+ 700              	.LCFI33:
+ 701              		.cfi_restore 31
+ 702              		.cfi_def_cfa_offset 0
+ 703 002c 0004     		se_blr
+ 704              		.cfi_endproc
+ 705              	.LFE18:
+ 706              		.size	osalThreadDelayMicroseconds, .-osalThreadDelayMicroseconds
+ 707              		.section	.text.osalThreadGetSeconds,"axv",@progbits
+ 708              		.align 1
+ 709              		.p2align 4,,15
+ 710              		.globl osalThreadGetSeconds
+ 711              		.type	osalThreadGetSeconds, @function
+ 712              	osalThreadGetSeconds:
+ 713              	.LFB19:
+ 714              		.loc 2 367 0
+ 715              		.cfi_startproc
+ 716 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 717              	.LCFI34:
+ 718              		.cfi_def_cfa_offset 8
+ 719 0004 0080     		se_mflr %r0
+ 720 0006 D301     		se_stw %r0,12(%r1)
+ 721              		.cfi_offset 65, 4
+ 722              		.loc 2 368 0
+ 723 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 724 000c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 725 0010 C177     		se_lwz %r7,4(%r7)
+ 726 0012 00B7     		se_mtctr %r7
+ 727 0014 0007     		se_bctrl
+ 728 0016 0137     		se_mr %r7,%r3
+ 729 0018 0173     		se_mr %r3,%r7
+ 730 001a 78000001 		e_bl osalSysTime_ST2S
+ 731 001e 0137     		se_mr %r7,%r3
+ 732              		.loc 2 369 0
+ 733 0020 0173     		se_mr %r3,%r7
+ 734 0022 C301     		se_lwz %r0,12(%r1)
+ 735 0024 0090     		se_mtlr %r0
+ 736 0026 2071     		se_addi %r1,8
+ 737              	.LCFI35:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 14
+
+
+ 738              		.cfi_def_cfa_offset 0
+ 739 0028 0004     		se_blr
+ 740              		.cfi_endproc
+ 741              	.LFE19:
+ 742              		.size	osalThreadGetSeconds, .-osalThreadGetSeconds
+ 743              		.section	.text.osalThreadGetMilliseconds,"axv",@progbits
+ 744              		.align 1
+ 745              		.p2align 4,,15
+ 746              		.globl osalThreadGetMilliseconds
+ 747              		.type	osalThreadGetMilliseconds, @function
+ 748              	osalThreadGetMilliseconds:
+ 749              	.LFB20:
+ 750              		.loc 2 378 0
+ 751              		.cfi_startproc
+ 752 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 753              	.LCFI36:
+ 754              		.cfi_def_cfa_offset 8
+ 755 0004 0080     		se_mflr %r0
+ 756 0006 D301     		se_stw %r0,12(%r1)
+ 757              		.cfi_offset 65, 4
+ 758              		.loc 2 379 0
+ 759 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 760 000c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 761 0010 C177     		se_lwz %r7,4(%r7)
+ 762 0012 00B7     		se_mtctr %r7
+ 763 0014 0007     		se_bctrl
+ 764 0016 0137     		se_mr %r7,%r3
+ 765 0018 0173     		se_mr %r3,%r7
+ 766 001a 78000001 		e_bl osalSysTime_ST2MS
+ 767 001e 0137     		se_mr %r7,%r3
+ 768              		.loc 2 380 0
+ 769 0020 0173     		se_mr %r3,%r7
+ 770 0022 C301     		se_lwz %r0,12(%r1)
+ 771 0024 0090     		se_mtlr %r0
+ 772 0026 2071     		se_addi %r1,8
+ 773              	.LCFI37:
+ 774              		.cfi_def_cfa_offset 0
+ 775 0028 0004     		se_blr
+ 776              		.cfi_endproc
+ 777              	.LFE20:
+ 778              		.size	osalThreadGetMilliseconds, .-osalThreadGetMilliseconds
+ 779              		.section	.text.osalThreadGetMicroseconds,"axv",@progbits
+ 780              		.align 1
+ 781              		.p2align 4,,15
+ 782              		.globl osalThreadGetMicroseconds
+ 783              		.type	osalThreadGetMicroseconds, @function
+ 784              	osalThreadGetMicroseconds:
+ 785              	.LFB21:
+ 786              		.loc 2 389 0
+ 787              		.cfi_startproc
+ 788 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 789              	.LCFI38:
+ 790              		.cfi_def_cfa_offset 8
+ 791 0004 0080     		se_mflr %r0
+ 792 0006 D301     		se_stw %r0,12(%r1)
+ 793              		.cfi_offset 65, 4
+ 794              		.loc 2 390 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 15
+
+
+ 795 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 796 000c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 797 0010 C177     		se_lwz %r7,4(%r7)
+ 798 0012 00B7     		se_mtctr %r7
+ 799 0014 0007     		se_bctrl
+ 800 0016 0137     		se_mr %r7,%r3
+ 801 0018 0173     		se_mr %r3,%r7
+ 802 001a 78000001 		e_bl osalSysTime_ST2US
+ 803 001e 0137     		se_mr %r7,%r3
+ 804              		.loc 2 391 0
+ 805 0020 0173     		se_mr %r3,%r7
+ 806 0022 C301     		se_lwz %r0,12(%r1)
+ 807 0024 0090     		se_mtlr %r0
+ 808 0026 2071     		se_addi %r1,8
+ 809              	.LCFI39:
+ 810              		.cfi_def_cfa_offset 0
+ 811 0028 0004     		se_blr
+ 812              		.cfi_endproc
+ 813              	.LFE21:
+ 814              		.size	osalThreadGetMicroseconds, .-osalThreadGetMicroseconds
+ 815              		.section	.text.osalEnterCritical,"axv",@progbits
+ 816              		.align 1
+ 817              		.p2align 4,,15
+ 818              		.globl osalEnterCritical
+ 819              		.type	osalEnterCritical, @function
+ 820              	osalEnterCritical:
+ 821              	.LFB22:
+ 822              		.loc 2 399 0
+ 823              		.cfi_startproc
+ 824 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 825              	.LCFI40:
+ 826              		.cfi_def_cfa_offset 8
+ 827 0004 0080     		se_mflr %r0
+ 828 0006 D301     		se_stw %r0,12(%r1)
+ 829              		.cfi_offset 65, 4
+ 830              		.loc 2 400 0
+ 831 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 832 000c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 833 0010 C277     		se_lwz %r7,8(%r7)
+ 834 0012 00B7     		se_mtctr %r7
+ 835 0014 0007     		se_bctrl
+ 836              		.loc 2 401 0
+ 837 0016 C301     		se_lwz %r0,12(%r1)
+ 838 0018 0090     		se_mtlr %r0
+ 839 001a 2071     		se_addi %r1,8
+ 840              	.LCFI41:
+ 841              		.cfi_def_cfa_offset 0
+ 842 001c 0004     		se_blr
+ 843              		.cfi_endproc
+ 844              	.LFE22:
+ 845              		.size	osalEnterCritical, .-osalEnterCritical
+ 846              		.section	.text.osalExitCritical,"axv",@progbits
+ 847              		.align 1
+ 848              		.p2align 4,,15
+ 849              		.globl osalExitCritical
+ 850              		.type	osalExitCritical, @function
+ 851              	osalExitCritical:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 16
+
+
+ 852              	.LFB23:
+ 853              		.loc 2 408 0
+ 854              		.cfi_startproc
+ 855 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 856              	.LCFI42:
+ 857              		.cfi_def_cfa_offset 8
+ 858 0004 0080     		se_mflr %r0
+ 859 0006 D301     		se_stw %r0,12(%r1)
+ 860              		.cfi_offset 65, 4
+ 861              		.loc 2 409 0
+ 862 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 863 000c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 864 0010 C377     		se_lwz %r7,12(%r7)
+ 865 0012 00B7     		se_mtctr %r7
+ 866 0014 0007     		se_bctrl
+ 867              		.loc 2 410 0
+ 868 0016 C301     		se_lwz %r0,12(%r1)
+ 869 0018 0090     		se_mtlr %r0
+ 870 001a 2071     		se_addi %r1,8
+ 871              	.LCFI43:
+ 872              		.cfi_def_cfa_offset 0
+ 873 001c 0004     		se_blr
+ 874              		.cfi_endproc
+ 875              	.LFE23:
+ 876              		.size	osalExitCritical, .-osalExitCritical
+ 877              		.section	.text.osalEnterCriticalFromISR,"axv",@progbits
+ 878              		.align 1
+ 879              		.p2align 4,,15
+ 880              		.globl osalEnterCriticalFromISR
+ 881              		.type	osalEnterCriticalFromISR, @function
+ 882              	osalEnterCriticalFromISR:
+ 883              	.LFB24:
+ 884              		.loc 2 417 0
+ 885              		.cfi_startproc
+ 886 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 887              	.LCFI44:
+ 888              		.cfi_def_cfa_offset 8
+ 889 0004 0080     		se_mflr %r0
+ 890 0006 D301     		se_stw %r0,12(%r1)
+ 891              		.cfi_offset 65, 4
+ 892              		.loc 2 420 0
+ 893 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 894 000c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 895 0010 C277     		se_lwz %r7,8(%r7)
+ 896 0012 00B7     		se_mtctr %r7
+ 897 0014 0007     		se_bctrl
+ 898              		.loc 2 422 0
+ 899 0016 C301     		se_lwz %r0,12(%r1)
+ 900 0018 0090     		se_mtlr %r0
+ 901 001a 2071     		se_addi %r1,8
+ 902              	.LCFI45:
+ 903              		.cfi_def_cfa_offset 0
+ 904 001c 0004     		se_blr
+ 905              		.cfi_endproc
+ 906              	.LFE24:
+ 907              		.size	osalEnterCriticalFromISR, .-osalEnterCriticalFromISR
+ 908              		.section	.text.osalExitCriticalFromISR,"axv",@progbits
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 17
+
+
+ 909              		.align 1
+ 910              		.p2align 4,,15
+ 911              		.globl osalExitCriticalFromISR
+ 912              		.type	osalExitCriticalFromISR, @function
+ 913              	osalExitCriticalFromISR:
+ 914              	.LFB25:
+ 915              		.loc 2 429 0
+ 916              		.cfi_startproc
+ 917 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 918              	.LCFI46:
+ 919              		.cfi_def_cfa_offset 8
+ 920 0004 0080     		se_mflr %r0
+ 921 0006 D301     		se_stw %r0,12(%r1)
+ 922              		.cfi_offset 65, 4
+ 923              		.loc 2 432 0
+ 924 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 925 000c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 926 0010 C377     		se_lwz %r7,12(%r7)
+ 927 0012 00B7     		se_mtctr %r7
+ 928 0014 0007     		se_bctrl
+ 929              		.loc 2 434 0
+ 930 0016 C301     		se_lwz %r0,12(%r1)
+ 931 0018 0090     		se_mtlr %r0
+ 932 001a 2071     		se_addi %r1,8
+ 933              	.LCFI47:
+ 934              		.cfi_def_cfa_offset 0
+ 935 001c 0004     		se_blr
+ 936              		.cfi_endproc
+ 937              	.LFE25:
+ 938              		.size	osalExitCriticalFromISR, .-osalExitCriticalFromISR
+ 939              		.section	.text.osalInit,"axv",@progbits
+ 940              		.align 1
+ 941              		.p2align 4,,15
+ 942              		.globl osalInit
+ 943              		.type	osalInit, @function
+ 944              	osalInit:
+ 945              	.LFB26:
+ 946              		.loc 2 442 0
+ 947              		.cfi_startproc
+ 948 0000 182106F8 		e_stwu %r1,-8(%r1)
+ 949              	.LCFI48:
+ 950              		.cfi_def_cfa_offset 8
+ 951 0004 0080     		se_mflr %r0
+ 952 0006 D301     		se_stw %r0,12(%r1)
+ 953              		.cfi_offset 65, 4
+ 954              		.loc 2 452 0
+ 955 0008 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 956 000c 1C670000 		e_la %r3,osalTimeOps@l(%r7)
+ 957 0010 4804     		se_li %r4,0
+ 958 0012 4B05     		se_li %r5,48
+ 959 0014 78000001 		e_bl memset
+ 960              		.loc 2 553 0
+ 961 0018 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 962 001c 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 963 0020 70C0E000 		e_lis %r6,osalSysTimeDelayTicks@ha
+ 964 0024 1CC60000 		e_la %r6,osalSysTimeDelayTicks@l(%r6)
+ 965 0028 D067     		se_stw %r6,0(%r7)
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 18
+
+
+ 966              		.loc 2 554 0
+ 967 002a 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 968 002e 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 969 0032 70C0E000 		e_lis %r6,osalSysTimeGetTicks@ha
+ 970 0036 1CC60000 		e_la %r6,osalSysTimeGetTicks@l(%r6)
+ 971 003a D167     		se_stw %r6,4(%r7)
+ 972              		.loc 2 556 0
+ 973 003c 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 974 0040 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 975 0044 70C0E000 		e_lis %r6,osalIsrDisable@ha
+ 976 0048 1CC60000 		e_la %r6,osalIsrDisable@l(%r6)
+ 977 004c D267     		se_stw %r6,8(%r7)
+ 978              		.loc 2 557 0
+ 979 004e 70E0E000 		e_lis %r7,osalTimeOps@ha
+ 980 0052 1CE70000 		e_la %r7,osalTimeOps@l(%r7)
+ 981 0056 70C0E000 		e_lis %r6,osalIsrEnable@ha
+ 982 005a 1CC60000 		e_la %r6,osalIsrEnable@l(%r6)
+ 983 005e D367     		se_stw %r6,12(%r7)
+ 984              		.loc 2 579 0
+ 985 0060 78000001 		e_bl osalSysTimeInit
+ 986              		.loc 2 582 0
+ 987 0064 C301     		se_lwz %r0,12(%r1)
+ 988 0066 0090     		se_mtlr %r0
+ 989 0068 2071     		se_addi %r1,8
+ 990              	.LCFI49:
+ 991              		.cfi_def_cfa_offset 0
+ 992 006a 0004     		se_blr
+ 993              		.cfi_endproc
+ 994              	.LFE26:
+ 995              		.size	osalInit, .-osalInit
+ 996              		.section	".text","axv"
+ 997              	.Letext0:
+ 998              		.file 3 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 999              		.file 4 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 1000              		.file 5 "./components/spc582bxx_osal_component_rla/lib/include/osal.h"
+ 1001              		.section	.debug_info,"",@progbits
+ 1002              	.Ldebug_info0:
+ 1003 0000 0000053F 		.4byte	0x53f
+ 1004 0004 0002     		.2byte	0x2
+ 1005 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 1006 000a 04       		.byte	0x4
+ 1007 000b 01       		.uleb128 0x1
+ 1008 000c 00000000 		.4byte	.LASF57
+ 1009 0010 01       		.byte	0x1
+ 1010 0011 00000000 		.4byte	.LASF58
+ 1011 0015 00000000 		.4byte	.LASF59
+ 1012 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 1013 001d 00000000 		.4byte	0
+ 1014 0021 00000000 		.4byte	0
+ 1015 0025 00000000 		.4byte	.Ldebug_line0
+ 1016 0029 02       		.uleb128 0x2
+ 1017 002a 04       		.byte	0x4
+ 1018 002b 05       		.byte	0x5
+ 1019 002c 696E7400 		.string	"int"
+ 1020 0030 03       		.uleb128 0x3
+ 1021 0031 04       		.byte	0x4
+ 1022 0032 07       		.byte	0x7
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 19
+
+
+ 1023 0033 00000000 		.4byte	.LASF0
+ 1024 0037 03       		.uleb128 0x3
+ 1025 0038 04       		.byte	0x4
+ 1026 0039 05       		.byte	0x5
+ 1027 003a 00000000 		.4byte	.LASF1
+ 1028 003e 03       		.uleb128 0x3
+ 1029 003f 01       		.byte	0x1
+ 1030 0040 06       		.byte	0x6
+ 1031 0041 00000000 		.4byte	.LASF2
+ 1032 0045 03       		.uleb128 0x3
+ 1033 0046 01       		.byte	0x1
+ 1034 0047 08       		.byte	0x8
+ 1035 0048 00000000 		.4byte	.LASF3
+ 1036 004c 03       		.uleb128 0x3
+ 1037 004d 02       		.byte	0x2
+ 1038 004e 05       		.byte	0x5
+ 1039 004f 00000000 		.4byte	.LASF4
+ 1040 0053 03       		.uleb128 0x3
+ 1041 0054 02       		.byte	0x2
+ 1042 0055 07       		.byte	0x7
+ 1043 0056 00000000 		.4byte	.LASF5
+ 1044 005a 04       		.uleb128 0x4
+ 1045 005b 00000000 		.4byte	.LASF11
+ 1046 005f 03       		.byte	0x3
+ 1047 0060 41       		.byte	0x41
+ 1048 0061 00000065 		.4byte	0x65
+ 1049 0065 03       		.uleb128 0x3
+ 1050 0066 04       		.byte	0x4
+ 1051 0067 07       		.byte	0x7
+ 1052 0068 00000000 		.4byte	.LASF6
+ 1053 006c 03       		.uleb128 0x3
+ 1054 006d 08       		.byte	0x8
+ 1055 006e 05       		.byte	0x5
+ 1056 006f 00000000 		.4byte	.LASF7
+ 1057 0073 03       		.uleb128 0x3
+ 1058 0074 08       		.byte	0x8
+ 1059 0075 07       		.byte	0x7
+ 1060 0076 00000000 		.4byte	.LASF8
+ 1061 007a 03       		.uleb128 0x3
+ 1062 007b 04       		.byte	0x4
+ 1063 007c 07       		.byte	0x7
+ 1064 007d 00000000 		.4byte	.LASF9
+ 1065 0081 05       		.uleb128 0x5
+ 1066 0082 04       		.byte	0x4
+ 1067 0083 00000087 		.4byte	0x87
+ 1068 0087 06       		.uleb128 0x6
+ 1069 0088 01       		.byte	0x1
+ 1070 0089 03       		.uleb128 0x3
+ 1071 008a 01       		.byte	0x1
+ 1072 008b 08       		.byte	0x8
+ 1073 008c 00000000 		.4byte	.LASF10
+ 1074 0090 04       		.uleb128 0x4
+ 1075 0091 00000000 		.4byte	.LASF12
+ 1076 0095 04       		.byte	0x4
+ 1077 0096 2D       		.byte	0x2d
+ 1078 0097 0000005A 		.4byte	0x5a
+ 1079 009b 07       		.uleb128 0x7
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 20
+
+
+ 1080 009c 00000090 		.4byte	0x90
+ 1081 00a0 04       		.uleb128 0x4
+ 1082 00a1 00000000 		.4byte	.LASF13
+ 1083 00a5 05       		.byte	0x5
+ 1084 00a6 56       		.byte	0x56
+ 1085 00a7 00000090 		.4byte	0x90
+ 1086 00ab 04       		.uleb128 0x4
+ 1087 00ac 00000000 		.4byte	.LASF14
+ 1088 00b0 02       		.byte	0x2
+ 1089 00b1 29       		.byte	0x29
+ 1090 00b2 000000B6 		.4byte	0xb6
+ 1091 00b6 05       		.uleb128 0x5
+ 1092 00b7 04       		.byte	0x4
+ 1093 00b8 000000BC 		.4byte	0xbc
+ 1094 00bc 08       		.uleb128 0x8
+ 1095 00bd 01       		.byte	0x1
+ 1096 00be 000000C8 		.4byte	0xc8
+ 1097 00c2 09       		.uleb128 0x9
+ 1098 00c3 000000A0 		.4byte	0xa0
+ 1099 00c7 00       		.byte	0
+ 1100 00c8 04       		.uleb128 0x4
+ 1101 00c9 00000000 		.4byte	.LASF15
+ 1102 00cd 02       		.byte	0x2
+ 1103 00ce 2A       		.byte	0x2a
+ 1104 00cf 000000D3 		.4byte	0xd3
+ 1105 00d3 05       		.uleb128 0x5
+ 1106 00d4 04       		.byte	0x4
+ 1107 00d5 000000D9 		.4byte	0xd9
+ 1108 00d9 0A       		.uleb128 0xa
+ 1109 00da 01       		.byte	0x1
+ 1110 00db 00000090 		.4byte	0x90
+ 1111 00df 04       		.uleb128 0x4
+ 1112 00e0 00000000 		.4byte	.LASF16
+ 1113 00e4 02       		.byte	0x2
+ 1114 00e5 2B       		.byte	0x2b
+ 1115 00e6 00000081 		.4byte	0x81
+ 1116 00ea 04       		.uleb128 0x4
+ 1117 00eb 00000000 		.4byte	.LASF17
+ 1118 00ef 02       		.byte	0x2
+ 1119 00f0 2C       		.byte	0x2c
+ 1120 00f1 00000081 		.4byte	0x81
+ 1121 00f5 0B       		.uleb128 0xb
+ 1122 00f6 00000000 		.4byte	.LASF60
+ 1123 00fa 10       		.byte	0x10
+ 1124 00fb 02       		.byte	0x2
+ 1125 00fc 2E       		.byte	0x2e
+ 1126 00fd 0000013A 		.4byte	0x13a
+ 1127 0101 0C       		.uleb128 0xc
+ 1128 0102 00000000 		.4byte	.LASF18
+ 1129 0106 02       		.byte	0x2
+ 1130 0107 2F       		.byte	0x2f
+ 1131 0108 000000AB 		.4byte	0xab
+ 1132 010c 02       		.byte	0x2
+ 1133 010d 23       		.byte	0x23
+ 1134 010e 00       		.uleb128 0
+ 1135 010f 0C       		.uleb128 0xc
+ 1136 0110 00000000 		.4byte	.LASF19
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 21
+
+
+ 1137 0114 02       		.byte	0x2
+ 1138 0115 30       		.byte	0x30
+ 1139 0116 000000C8 		.4byte	0xc8
+ 1140 011a 02       		.byte	0x2
+ 1141 011b 23       		.byte	0x23
+ 1142 011c 04       		.uleb128 0x4
+ 1143 011d 0C       		.uleb128 0xc
+ 1144 011e 00000000 		.4byte	.LASF20
+ 1145 0122 02       		.byte	0x2
+ 1146 0123 31       		.byte	0x31
+ 1147 0124 000000DF 		.4byte	0xdf
+ 1148 0128 02       		.byte	0x2
+ 1149 0129 23       		.byte	0x23
+ 1150 012a 08       		.uleb128 0x8
+ 1151 012b 0C       		.uleb128 0xc
+ 1152 012c 00000000 		.4byte	.LASF21
+ 1153 0130 02       		.byte	0x2
+ 1154 0131 32       		.byte	0x32
+ 1155 0132 000000EA 		.4byte	0xea
+ 1156 0136 02       		.byte	0x2
+ 1157 0137 23       		.byte	0x23
+ 1158 0138 0C       		.uleb128 0xc
+ 1159 0139 00       		.byte	0
+ 1160 013a 04       		.uleb128 0x4
+ 1161 013b 00000000 		.4byte	.LASF22
+ 1162 013f 02       		.byte	0x2
+ 1163 0140 33       		.byte	0x33
+ 1164 0141 000000F5 		.4byte	0xf5
+ 1165 0145 0D       		.uleb128 0xd
+ 1166 0146 00000000 		.4byte	.LASF23
+ 1167 014a 01       		.byte	0x1
+ 1168 014b 53       		.byte	0x53
+ 1169 014c 01       		.byte	0x1
+ 1170 014d 00000090 		.4byte	0x90
+ 1171 0151 00000000 		.4byte	.LFB0
+ 1172 0155 00000000 		.4byte	.LFE0
+ 1173 0159 00000000 		.4byte	.LLST0
+ 1174 015d 01       		.byte	0x1
+ 1175 015e 00000171 		.4byte	0x171
+ 1176 0162 0E       		.uleb128 0xe
+ 1177 0163 6D737200 		.string	"msr"
+ 1178 0167 01       		.byte	0x1
+ 1179 0168 55       		.byte	0x55
+ 1180 0169 00000090 		.4byte	0x90
+ 1181 016d 02       		.byte	0x2
+ 1182 016e 91       		.byte	0x91
+ 1183 016f 70       		.sleb128 -16
+ 1184 0170 00       		.byte	0
+ 1185 0171 0F       		.uleb128 0xf
+ 1186 0172 00000000 		.4byte	.LASF24
+ 1187 0176 01       		.byte	0x1
+ 1188 0177 62       		.byte	0x62
+ 1189 0178 01       		.byte	0x1
+ 1190 0179 00000090 		.4byte	0x90
+ 1191 017d 00000000 		.4byte	.LFB1
+ 1192 0181 00000000 		.4byte	.LFE1
+ 1193 0185 00000000 		.4byte	.LLST1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 22
+
+
+ 1194 0189 01       		.byte	0x1
+ 1195 018a 0000019D 		.4byte	0x19d
+ 1196 018e 0E       		.uleb128 0xe
+ 1197 018f 6D737200 		.string	"msr"
+ 1198 0193 01       		.byte	0x1
+ 1199 0194 64       		.byte	0x64
+ 1200 0195 00000090 		.4byte	0x90
+ 1201 0199 02       		.byte	0x2
+ 1202 019a 91       		.byte	0x91
+ 1203 019b 70       		.sleb128 -16
+ 1204 019c 00       		.byte	0
+ 1205 019d 10       		.uleb128 0x10
+ 1206 019e 01       		.byte	0x1
+ 1207 019f 00000000 		.4byte	.LASF61
+ 1208 01a3 02       		.byte	0x2
+ 1209 01a4 65       		.byte	0x65
+ 1210 01a5 01       		.byte	0x1
+ 1211 01a6 000001CA 		.4byte	0x1ca
+ 1212 01aa 00000000 		.4byte	.LFB2
+ 1213 01ae 00000000 		.4byte	.LFE2
+ 1214 01b2 00000000 		.4byte	.LLST2
+ 1215 01b6 01       		.byte	0x1
+ 1216 01b7 000001CA 		.4byte	0x1ca
+ 1217 01bb 11       		.uleb128 0x11
+ 1218 01bc 00000000 		.4byte	.LASF26
+ 1219 01c0 02       		.byte	0x2
+ 1220 01c1 65       		.byte	0x65
+ 1221 01c2 00000090 		.4byte	0x90
+ 1222 01c6 02       		.byte	0x2
+ 1223 01c7 91       		.byte	0x91
+ 1224 01c8 78       		.sleb128 -8
+ 1225 01c9 00       		.byte	0
+ 1226 01ca 05       		.uleb128 0x5
+ 1227 01cb 04       		.byte	0x4
+ 1228 01cc 0000009B 		.4byte	0x9b
+ 1229 01d0 12       		.uleb128 0x12
+ 1230 01d1 01       		.byte	0x1
+ 1231 01d2 00000000 		.4byte	.LASF39
+ 1232 01d6 02       		.byte	0x2
+ 1233 01d7 74       		.byte	0x74
+ 1234 01d8 01       		.byte	0x1
+ 1235 01d9 00000000 		.4byte	.LFB3
+ 1236 01dd 00000000 		.4byte	.LFE3
+ 1237 01e1 00000000 		.4byte	.LLST3
+ 1238 01e5 01       		.byte	0x1
+ 1239 01e6 0D       		.uleb128 0xd
+ 1240 01e7 00000000 		.4byte	.LASF25
+ 1241 01eb 02       		.byte	0x2
+ 1242 01ec 84       		.byte	0x84
+ 1243 01ed 01       		.byte	0x1
+ 1244 01ee 000000A0 		.4byte	0xa0
+ 1245 01f2 00000000 		.4byte	.LFB4
+ 1246 01f6 00000000 		.4byte	.LFE4
+ 1247 01fa 00000000 		.4byte	.LLST4
+ 1248 01fe 01       		.byte	0x1
+ 1249 01ff 00000212 		.4byte	0x212
+ 1250 0203 13       		.uleb128 0x13
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 23
+
+
+ 1251 0204 73656300 		.string	"sec"
+ 1252 0208 02       		.byte	0x2
+ 1253 0209 84       		.byte	0x84
+ 1254 020a 00000090 		.4byte	0x90
+ 1255 020e 02       		.byte	0x2
+ 1256 020f 91       		.byte	0x91
+ 1257 0210 78       		.sleb128 -8
+ 1258 0211 00       		.byte	0
+ 1259 0212 0D       		.uleb128 0xd
+ 1260 0213 00000000 		.4byte	.LASF27
+ 1261 0217 02       		.byte	0x2
+ 1262 0218 92       		.byte	0x92
+ 1263 0219 01       		.byte	0x1
+ 1264 021a 000000A0 		.4byte	0xa0
+ 1265 021e 00000000 		.4byte	.LFB5
+ 1266 0222 00000000 		.4byte	.LFE5
+ 1267 0226 00000000 		.4byte	.LLST5
+ 1268 022a 01       		.byte	0x1
+ 1269 022b 0000023E 		.4byte	0x23e
+ 1270 022f 11       		.uleb128 0x11
+ 1271 0230 00000000 		.4byte	.LASF28
+ 1272 0234 02       		.byte	0x2
+ 1273 0235 92       		.byte	0x92
+ 1274 0236 00000090 		.4byte	0x90
+ 1275 023a 02       		.byte	0x2
+ 1276 023b 91       		.byte	0x91
+ 1277 023c 78       		.sleb128 -8
+ 1278 023d 00       		.byte	0
+ 1279 023e 0D       		.uleb128 0xd
+ 1280 023f 00000000 		.4byte	.LASF29
+ 1281 0243 02       		.byte	0x2
+ 1282 0244 A1       		.byte	0xa1
+ 1283 0245 01       		.byte	0x1
+ 1284 0246 000000A0 		.4byte	0xa0
+ 1285 024a 00000000 		.4byte	.LFB6
+ 1286 024e 00000000 		.4byte	.LFE6
+ 1287 0252 00000000 		.4byte	.LLST6
+ 1288 0256 01       		.byte	0x1
+ 1289 0257 0000026A 		.4byte	0x26a
+ 1290 025b 11       		.uleb128 0x11
+ 1291 025c 00000000 		.4byte	.LASF30
+ 1292 0260 02       		.byte	0x2
+ 1293 0261 A1       		.byte	0xa1
+ 1294 0262 00000090 		.4byte	0x90
+ 1295 0266 02       		.byte	0x2
+ 1296 0267 91       		.byte	0x91
+ 1297 0268 78       		.sleb128 -8
+ 1298 0269 00       		.byte	0
+ 1299 026a 0D       		.uleb128 0xd
+ 1300 026b 00000000 		.4byte	.LASF31
+ 1301 026f 02       		.byte	0x2
+ 1302 0270 B0       		.byte	0xb0
+ 1303 0271 01       		.byte	0x1
+ 1304 0272 00000090 		.4byte	0x90
+ 1305 0276 00000000 		.4byte	.LFB7
+ 1306 027a 00000000 		.4byte	.LFE7
+ 1307 027e 00000000 		.4byte	.LLST7
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 24
+
+
+ 1308 0282 01       		.byte	0x1
+ 1309 0283 00000296 		.4byte	0x296
+ 1310 0287 11       		.uleb128 0x11
+ 1311 0288 00000000 		.4byte	.LASF32
+ 1312 028c 02       		.byte	0x2
+ 1313 028d B0       		.byte	0xb0
+ 1314 028e 000000A0 		.4byte	0xa0
+ 1315 0292 02       		.byte	0x2
+ 1316 0293 91       		.byte	0x91
+ 1317 0294 78       		.sleb128 -8
+ 1318 0295 00       		.byte	0
+ 1319 0296 0D       		.uleb128 0xd
+ 1320 0297 00000000 		.4byte	.LASF33
+ 1321 029b 02       		.byte	0x2
+ 1322 029c BE       		.byte	0xbe
+ 1323 029d 01       		.byte	0x1
+ 1324 029e 00000090 		.4byte	0x90
+ 1325 02a2 00000000 		.4byte	.LFB8
+ 1326 02a6 00000000 		.4byte	.LFE8
+ 1327 02aa 00000000 		.4byte	.LLST8
+ 1328 02ae 01       		.byte	0x1
+ 1329 02af 000002C2 		.4byte	0x2c2
+ 1330 02b3 11       		.uleb128 0x11
+ 1331 02b4 00000000 		.4byte	.LASF32
+ 1332 02b8 02       		.byte	0x2
+ 1333 02b9 BE       		.byte	0xbe
+ 1334 02ba 000000A0 		.4byte	0xa0
+ 1335 02be 02       		.byte	0x2
+ 1336 02bf 91       		.byte	0x91
+ 1337 02c0 78       		.sleb128 -8
+ 1338 02c1 00       		.byte	0
+ 1339 02c2 0D       		.uleb128 0xd
+ 1340 02c3 00000000 		.4byte	.LASF34
+ 1341 02c7 02       		.byte	0x2
+ 1342 02c8 CC       		.byte	0xcc
+ 1343 02c9 01       		.byte	0x1
+ 1344 02ca 00000090 		.4byte	0x90
+ 1345 02ce 00000000 		.4byte	.LFB9
+ 1346 02d2 00000000 		.4byte	.LFE9
+ 1347 02d6 00000000 		.4byte	.LLST9
+ 1348 02da 01       		.byte	0x1
+ 1349 02db 000002EE 		.4byte	0x2ee
+ 1350 02df 11       		.uleb128 0x11
+ 1351 02e0 00000000 		.4byte	.LASF32
+ 1352 02e4 02       		.byte	0x2
+ 1353 02e5 CC       		.byte	0xcc
+ 1354 02e6 000000A0 		.4byte	0xa0
+ 1355 02ea 02       		.byte	0x2
+ 1356 02eb 91       		.byte	0x91
+ 1357 02ec 78       		.sleb128 -8
+ 1358 02ed 00       		.byte	0
+ 1359 02ee 14       		.uleb128 0x14
+ 1360 02ef 00000000 		.4byte	.LASF36
+ 1361 02f3 02       		.byte	0x2
+ 1362 02f4 D6       		.byte	0xd6
+ 1363 02f5 01       		.byte	0x1
+ 1364 02f6 00000000 		.4byte	.LFB10
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 25
+
+
+ 1365 02fa 00000000 		.4byte	.LFE10
+ 1366 02fe 00000000 		.4byte	.LLST10
+ 1367 0302 01       		.byte	0x1
+ 1368 0303 15       		.uleb128 0x15
+ 1369 0304 00000000 		.4byte	.LASF62
+ 1370 0308 02       		.byte	0x2
+ 1371 0309 E5       		.byte	0xe5
+ 1372 030a 01       		.byte	0x1
+ 1373 030b 00000000 		.4byte	.LFB11
+ 1374 030f 00000000 		.4byte	.LFE11
+ 1375 0313 00000000 		.4byte	.LLST11
+ 1376 0317 01       		.byte	0x1
+ 1377 0318 00000339 		.4byte	0x339
+ 1378 031c 11       		.uleb128 0x11
+ 1379 031d 00000000 		.4byte	.LASF32
+ 1380 0321 02       		.byte	0x2
+ 1381 0322 E5       		.byte	0xe5
+ 1382 0323 000000A0 		.4byte	0xa0
+ 1383 0327 02       		.byte	0x2
+ 1384 0328 91       		.byte	0x91
+ 1385 0329 78       		.sleb128 -8
+ 1386 032a 16       		.uleb128 0x16
+ 1387 032b 00000000 		.4byte	.LASF35
+ 1388 032f 02       		.byte	0x2
+ 1389 0330 E7       		.byte	0xe7
+ 1390 0331 000000A0 		.4byte	0xa0
+ 1391 0335 02       		.byte	0x2
+ 1392 0336 91       		.byte	0x91
+ 1393 0337 68       		.sleb128 -24
+ 1394 0338 00       		.byte	0
+ 1395 0339 17       		.uleb128 0x17
+ 1396 033a 00000000 		.4byte	.LASF63
+ 1397 033e 02       		.byte	0x2
+ 1398 033f F6       		.byte	0xf6
+ 1399 0340 01       		.byte	0x1
+ 1400 0341 00000090 		.4byte	0x90
+ 1401 0345 00000000 		.4byte	.LFB12
+ 1402 0349 00000000 		.4byte	.LFE12
+ 1403 034d 02       		.byte	0x2
+ 1404 034e 71       		.byte	0x71
+ 1405 034f 00       		.sleb128 0
+ 1406 0350 01       		.byte	0x1
+ 1407 0351 18       		.uleb128 0x18
+ 1408 0352 00000000 		.4byte	.LASF37
+ 1409 0356 02       		.byte	0x2
+ 1410 0357 0104     		.2byte	0x104
+ 1411 0359 01       		.byte	0x1
+ 1412 035a 00000000 		.4byte	.LFB13
+ 1413 035e 00000000 		.4byte	.LFE13
+ 1414 0362 00000000 		.4byte	.LLST12
+ 1415 0366 01       		.byte	0x1
+ 1416 0367 19       		.uleb128 0x19
+ 1417 0368 00000000 		.4byte	.LASF38
+ 1418 036c 02       		.byte	0x2
+ 1419 036d 0114     		.2byte	0x114
+ 1420 036f 01       		.byte	0x1
+ 1421 0370 00000000 		.4byte	.LFB14
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 26
+
+
+ 1422 0374 00000000 		.4byte	.LFE14
+ 1423 0378 02       		.byte	0x2
+ 1424 0379 71       		.byte	0x71
+ 1425 037a 00       		.sleb128 0
+ 1426 037b 01       		.byte	0x1
+ 1427 037c 1A       		.uleb128 0x1a
+ 1428 037d 01       		.byte	0x1
+ 1429 037e 00000000 		.4byte	.LASF40
+ 1430 0382 02       		.byte	0x2
+ 1431 0383 0128     		.2byte	0x128
+ 1432 0385 01       		.byte	0x1
+ 1433 0386 00000000 		.4byte	.LFB15
+ 1434 038a 00000000 		.4byte	.LFE15
+ 1435 038e 00000000 		.4byte	.LLST13
+ 1436 0392 01       		.byte	0x1
+ 1437 0393 1B       		.uleb128 0x1b
+ 1438 0394 01       		.byte	0x1
+ 1439 0395 00000000 		.4byte	.LASF41
+ 1440 0399 02       		.byte	0x2
+ 1441 039a 0148     		.2byte	0x148
+ 1442 039c 01       		.byte	0x1
+ 1443 039d 00000000 		.4byte	.LFB16
+ 1444 03a1 00000000 		.4byte	.LFE16
+ 1445 03a5 00000000 		.4byte	.LLST14
+ 1446 03a9 01       		.byte	0x1
+ 1447 03aa 000003BE 		.4byte	0x3be
+ 1448 03ae 1C       		.uleb128 0x1c
+ 1449 03af 73656300 		.string	"sec"
+ 1450 03b3 02       		.byte	0x2
+ 1451 03b4 0148     		.2byte	0x148
+ 1452 03b6 00000090 		.4byte	0x90
+ 1453 03ba 02       		.byte	0x2
+ 1454 03bb 91       		.byte	0x91
+ 1455 03bc 70       		.sleb128 -16
+ 1456 03bd 00       		.byte	0
+ 1457 03be 1B       		.uleb128 0x1b
+ 1458 03bf 01       		.byte	0x1
+ 1459 03c0 00000000 		.4byte	.LASF42
+ 1460 03c4 02       		.byte	0x2
+ 1461 03c5 0156     		.2byte	0x156
+ 1462 03c7 01       		.byte	0x1
+ 1463 03c8 00000000 		.4byte	.LFB17
+ 1464 03cc 00000000 		.4byte	.LFE17
+ 1465 03d0 00000000 		.4byte	.LLST15
+ 1466 03d4 01       		.byte	0x1
+ 1467 03d5 000003E9 		.4byte	0x3e9
+ 1468 03d9 1D       		.uleb128 0x1d
+ 1469 03da 00000000 		.4byte	.LASF28
+ 1470 03de 02       		.byte	0x2
+ 1471 03df 0156     		.2byte	0x156
+ 1472 03e1 00000090 		.4byte	0x90
+ 1473 03e5 02       		.byte	0x2
+ 1474 03e6 91       		.byte	0x91
+ 1475 03e7 70       		.sleb128 -16
+ 1476 03e8 00       		.byte	0
+ 1477 03e9 1B       		.uleb128 0x1b
+ 1478 03ea 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 27
+
+
+ 1479 03eb 00000000 		.4byte	.LASF43
+ 1480 03ef 02       		.byte	0x2
+ 1481 03f0 0164     		.2byte	0x164
+ 1482 03f2 01       		.byte	0x1
+ 1483 03f3 00000000 		.4byte	.LFB18
+ 1484 03f7 00000000 		.4byte	.LFE18
+ 1485 03fb 00000000 		.4byte	.LLST16
+ 1486 03ff 01       		.byte	0x1
+ 1487 0400 00000414 		.4byte	0x414
+ 1488 0404 1D       		.uleb128 0x1d
+ 1489 0405 00000000 		.4byte	.LASF30
+ 1490 0409 02       		.byte	0x2
+ 1491 040a 0164     		.2byte	0x164
+ 1492 040c 00000090 		.4byte	0x90
+ 1493 0410 02       		.byte	0x2
+ 1494 0411 91       		.byte	0x91
+ 1495 0412 70       		.sleb128 -16
+ 1496 0413 00       		.byte	0
+ 1497 0414 1E       		.uleb128 0x1e
+ 1498 0415 01       		.byte	0x1
+ 1499 0416 00000000 		.4byte	.LASF44
+ 1500 041a 02       		.byte	0x2
+ 1501 041b 016F     		.2byte	0x16f
+ 1502 041d 01       		.byte	0x1
+ 1503 041e 00000090 		.4byte	0x90
+ 1504 0422 00000000 		.4byte	.LFB19
+ 1505 0426 00000000 		.4byte	.LFE19
+ 1506 042a 00000000 		.4byte	.LLST17
+ 1507 042e 01       		.byte	0x1
+ 1508 042f 1E       		.uleb128 0x1e
+ 1509 0430 01       		.byte	0x1
+ 1510 0431 00000000 		.4byte	.LASF45
+ 1511 0435 02       		.byte	0x2
+ 1512 0436 017A     		.2byte	0x17a
+ 1513 0438 01       		.byte	0x1
+ 1514 0439 00000090 		.4byte	0x90
+ 1515 043d 00000000 		.4byte	.LFB20
+ 1516 0441 00000000 		.4byte	.LFE20
+ 1517 0445 00000000 		.4byte	.LLST18
+ 1518 0449 01       		.byte	0x1
+ 1519 044a 1E       		.uleb128 0x1e
+ 1520 044b 01       		.byte	0x1
+ 1521 044c 00000000 		.4byte	.LASF46
+ 1522 0450 02       		.byte	0x2
+ 1523 0451 0185     		.2byte	0x185
+ 1524 0453 01       		.byte	0x1
+ 1525 0454 00000090 		.4byte	0x90
+ 1526 0458 00000000 		.4byte	.LFB21
+ 1527 045c 00000000 		.4byte	.LFE21
+ 1528 0460 00000000 		.4byte	.LLST19
+ 1529 0464 01       		.byte	0x1
+ 1530 0465 1A       		.uleb128 0x1a
+ 1531 0466 01       		.byte	0x1
+ 1532 0467 00000000 		.4byte	.LASF47
+ 1533 046b 02       		.byte	0x2
+ 1534 046c 018F     		.2byte	0x18f
+ 1535 046e 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 28
+
+
+ 1536 046f 00000000 		.4byte	.LFB22
+ 1537 0473 00000000 		.4byte	.LFE22
+ 1538 0477 00000000 		.4byte	.LLST20
+ 1539 047b 01       		.byte	0x1
+ 1540 047c 1A       		.uleb128 0x1a
+ 1541 047d 01       		.byte	0x1
+ 1542 047e 00000000 		.4byte	.LASF48
+ 1543 0482 02       		.byte	0x2
+ 1544 0483 0198     		.2byte	0x198
+ 1545 0485 01       		.byte	0x1
+ 1546 0486 00000000 		.4byte	.LFB23
+ 1547 048a 00000000 		.4byte	.LFE23
+ 1548 048e 00000000 		.4byte	.LLST21
+ 1549 0492 01       		.byte	0x1
+ 1550 0493 1A       		.uleb128 0x1a
+ 1551 0494 01       		.byte	0x1
+ 1552 0495 00000000 		.4byte	.LASF49
+ 1553 0499 02       		.byte	0x2
+ 1554 049a 01A1     		.2byte	0x1a1
+ 1555 049c 01       		.byte	0x1
+ 1556 049d 00000000 		.4byte	.LFB24
+ 1557 04a1 00000000 		.4byte	.LFE24
+ 1558 04a5 00000000 		.4byte	.LLST22
+ 1559 04a9 01       		.byte	0x1
+ 1560 04aa 1A       		.uleb128 0x1a
+ 1561 04ab 01       		.byte	0x1
+ 1562 04ac 00000000 		.4byte	.LASF50
+ 1563 04b0 02       		.byte	0x2
+ 1564 04b1 01AD     		.2byte	0x1ad
+ 1565 04b3 01       		.byte	0x1
+ 1566 04b4 00000000 		.4byte	.LFB25
+ 1567 04b8 00000000 		.4byte	.LFE25
+ 1568 04bc 00000000 		.4byte	.LLST23
+ 1569 04c0 01       		.byte	0x1
+ 1570 04c1 1A       		.uleb128 0x1a
+ 1571 04c2 01       		.byte	0x1
+ 1572 04c3 00000000 		.4byte	.LASF51
+ 1573 04c7 02       		.byte	0x2
+ 1574 04c8 01BA     		.2byte	0x1ba
+ 1575 04ca 01       		.byte	0x1
+ 1576 04cb 00000000 		.4byte	.LFB26
+ 1577 04cf 00000000 		.4byte	.LFE26
+ 1578 04d3 00000000 		.4byte	.LLST24
+ 1579 04d7 01       		.byte	0x1
+ 1580 04d8 1F       		.uleb128 0x1f
+ 1581 04d9 0000013A 		.4byte	0x13a
+ 1582 04dd 000004E8 		.4byte	0x4e8
+ 1583 04e1 20       		.uleb128 0x20
+ 1584 04e2 0000007A 		.4byte	0x7a
+ 1585 04e6 02       		.byte	0x2
+ 1586 04e7 00       		.byte	0
+ 1587 04e8 16       		.uleb128 0x16
+ 1588 04e9 00000000 		.4byte	.LASF52
+ 1589 04ed 02       		.byte	0x2
+ 1590 04ee 3B       		.byte	0x3b
+ 1591 04ef 000004D8 		.4byte	0x4d8
+ 1592 04f3 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 29
+
+
+ 1593 04f4 03       		.byte	0x3
+ 1594 04f5 00000000 		.4byte	osalTimeOps
+ 1595 04f9 16       		.uleb128 0x16
+ 1596 04fa 00000000 		.4byte	.LASF53
+ 1597 04fe 02       		.byte	0x2
+ 1598 04ff 41       		.byte	0x41
+ 1599 0500 00000090 		.4byte	0x90
+ 1600 0504 05       		.byte	0x5
+ 1601 0505 03       		.byte	0x3
+ 1602 0506 00000000 		.4byte	osal_ticks_per_sec
+ 1603 050a 16       		.uleb128 0x16
+ 1604 050b 00000000 		.4byte	.LASF54
+ 1605 050f 02       		.byte	0x2
+ 1606 0510 47       		.byte	0x47
+ 1607 0511 0000051B 		.4byte	0x51b
+ 1608 0515 05       		.byte	0x5
+ 1609 0516 03       		.byte	0x3
+ 1610 0517 00000000 		.4byte	osalsystime
+ 1611 051b 07       		.uleb128 0x7
+ 1612 051c 000000A0 		.4byte	0xa0
+ 1613 0520 16       		.uleb128 0x16
+ 1614 0521 00000000 		.4byte	.LASF55
+ 1615 0525 02       		.byte	0x2
+ 1616 0526 4F       		.byte	0x4f
+ 1617 0527 00000090 		.4byte	0x90
+ 1618 052b 05       		.byte	0x5
+ 1619 052c 03       		.byte	0x3
+ 1620 052d 00000000 		.4byte	osalIsrCnt
+ 1621 0531 16       		.uleb128 0x16
+ 1622 0532 00000000 		.4byte	.LASF56
+ 1623 0536 02       		.byte	0x2
+ 1624 0537 54       		.byte	0x54
+ 1625 0538 00000090 		.4byte	0x90
+ 1626 053c 05       		.byte	0x5
+ 1627 053d 03       		.byte	0x3
+ 1628 053e 00000000 		.4byte	osalIsExtIntEnable
+ 1629 0542 00       		.byte	0
+ 1630              		.section	.debug_abbrev,"",@progbits
+ 1631              	.Ldebug_abbrev0:
+ 1632 0000 01       		.uleb128 0x1
+ 1633 0001 11       		.uleb128 0x11
+ 1634 0002 01       		.byte	0x1
+ 1635 0003 25       		.uleb128 0x25
+ 1636 0004 0E       		.uleb128 0xe
+ 1637 0005 13       		.uleb128 0x13
+ 1638 0006 0B       		.uleb128 0xb
+ 1639 0007 03       		.uleb128 0x3
+ 1640 0008 0E       		.uleb128 0xe
+ 1641 0009 1B       		.uleb128 0x1b
+ 1642 000a 0E       		.uleb128 0xe
+ 1643 000b 55       		.uleb128 0x55
+ 1644 000c 06       		.uleb128 0x6
+ 1645 000d 11       		.uleb128 0x11
+ 1646 000e 01       		.uleb128 0x1
+ 1647 000f 52       		.uleb128 0x52
+ 1648 0010 01       		.uleb128 0x1
+ 1649 0011 10       		.uleb128 0x10
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 30
+
+
+ 1650 0012 06       		.uleb128 0x6
+ 1651 0013 00       		.byte	0
+ 1652 0014 00       		.byte	0
+ 1653 0015 02       		.uleb128 0x2
+ 1654 0016 24       		.uleb128 0x24
+ 1655 0017 00       		.byte	0
+ 1656 0018 0B       		.uleb128 0xb
+ 1657 0019 0B       		.uleb128 0xb
+ 1658 001a 3E       		.uleb128 0x3e
+ 1659 001b 0B       		.uleb128 0xb
+ 1660 001c 03       		.uleb128 0x3
+ 1661 001d 08       		.uleb128 0x8
+ 1662 001e 00       		.byte	0
+ 1663 001f 00       		.byte	0
+ 1664 0020 03       		.uleb128 0x3
+ 1665 0021 24       		.uleb128 0x24
+ 1666 0022 00       		.byte	0
+ 1667 0023 0B       		.uleb128 0xb
+ 1668 0024 0B       		.uleb128 0xb
+ 1669 0025 3E       		.uleb128 0x3e
+ 1670 0026 0B       		.uleb128 0xb
+ 1671 0027 03       		.uleb128 0x3
+ 1672 0028 0E       		.uleb128 0xe
+ 1673 0029 00       		.byte	0
+ 1674 002a 00       		.byte	0
+ 1675 002b 04       		.uleb128 0x4
+ 1676 002c 16       		.uleb128 0x16
+ 1677 002d 00       		.byte	0
+ 1678 002e 03       		.uleb128 0x3
+ 1679 002f 0E       		.uleb128 0xe
+ 1680 0030 3A       		.uleb128 0x3a
+ 1681 0031 0B       		.uleb128 0xb
+ 1682 0032 3B       		.uleb128 0x3b
+ 1683 0033 0B       		.uleb128 0xb
+ 1684 0034 49       		.uleb128 0x49
+ 1685 0035 13       		.uleb128 0x13
+ 1686 0036 00       		.byte	0
+ 1687 0037 00       		.byte	0
+ 1688 0038 05       		.uleb128 0x5
+ 1689 0039 0F       		.uleb128 0xf
+ 1690 003a 00       		.byte	0
+ 1691 003b 0B       		.uleb128 0xb
+ 1692 003c 0B       		.uleb128 0xb
+ 1693 003d 49       		.uleb128 0x49
+ 1694 003e 13       		.uleb128 0x13
+ 1695 003f 00       		.byte	0
+ 1696 0040 00       		.byte	0
+ 1697 0041 06       		.uleb128 0x6
+ 1698 0042 15       		.uleb128 0x15
+ 1699 0043 00       		.byte	0
+ 1700 0044 27       		.uleb128 0x27
+ 1701 0045 0C       		.uleb128 0xc
+ 1702 0046 00       		.byte	0
+ 1703 0047 00       		.byte	0
+ 1704 0048 07       		.uleb128 0x7
+ 1705 0049 35       		.uleb128 0x35
+ 1706 004a 00       		.byte	0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 31
+
+
+ 1707 004b 49       		.uleb128 0x49
+ 1708 004c 13       		.uleb128 0x13
+ 1709 004d 00       		.byte	0
+ 1710 004e 00       		.byte	0
+ 1711 004f 08       		.uleb128 0x8
+ 1712 0050 15       		.uleb128 0x15
+ 1713 0051 01       		.byte	0x1
+ 1714 0052 27       		.uleb128 0x27
+ 1715 0053 0C       		.uleb128 0xc
+ 1716 0054 01       		.uleb128 0x1
+ 1717 0055 13       		.uleb128 0x13
+ 1718 0056 00       		.byte	0
+ 1719 0057 00       		.byte	0
+ 1720 0058 09       		.uleb128 0x9
+ 1721 0059 05       		.uleb128 0x5
+ 1722 005a 00       		.byte	0
+ 1723 005b 49       		.uleb128 0x49
+ 1724 005c 13       		.uleb128 0x13
+ 1725 005d 00       		.byte	0
+ 1726 005e 00       		.byte	0
+ 1727 005f 0A       		.uleb128 0xa
+ 1728 0060 15       		.uleb128 0x15
+ 1729 0061 00       		.byte	0
+ 1730 0062 27       		.uleb128 0x27
+ 1731 0063 0C       		.uleb128 0xc
+ 1732 0064 49       		.uleb128 0x49
+ 1733 0065 13       		.uleb128 0x13
+ 1734 0066 00       		.byte	0
+ 1735 0067 00       		.byte	0
+ 1736 0068 0B       		.uleb128 0xb
+ 1737 0069 13       		.uleb128 0x13
+ 1738 006a 01       		.byte	0x1
+ 1739 006b 03       		.uleb128 0x3
+ 1740 006c 0E       		.uleb128 0xe
+ 1741 006d 0B       		.uleb128 0xb
+ 1742 006e 0B       		.uleb128 0xb
+ 1743 006f 3A       		.uleb128 0x3a
+ 1744 0070 0B       		.uleb128 0xb
+ 1745 0071 3B       		.uleb128 0x3b
+ 1746 0072 0B       		.uleb128 0xb
+ 1747 0073 01       		.uleb128 0x1
+ 1748 0074 13       		.uleb128 0x13
+ 1749 0075 00       		.byte	0
+ 1750 0076 00       		.byte	0
+ 1751 0077 0C       		.uleb128 0xc
+ 1752 0078 0D       		.uleb128 0xd
+ 1753 0079 00       		.byte	0
+ 1754 007a 03       		.uleb128 0x3
+ 1755 007b 0E       		.uleb128 0xe
+ 1756 007c 3A       		.uleb128 0x3a
+ 1757 007d 0B       		.uleb128 0xb
+ 1758 007e 3B       		.uleb128 0x3b
+ 1759 007f 0B       		.uleb128 0xb
+ 1760 0080 49       		.uleb128 0x49
+ 1761 0081 13       		.uleb128 0x13
+ 1762 0082 38       		.uleb128 0x38
+ 1763 0083 0A       		.uleb128 0xa
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 32
+
+
+ 1764 0084 00       		.byte	0
+ 1765 0085 00       		.byte	0
+ 1766 0086 0D       		.uleb128 0xd
+ 1767 0087 2E       		.uleb128 0x2e
+ 1768 0088 01       		.byte	0x1
+ 1769 0089 03       		.uleb128 0x3
+ 1770 008a 0E       		.uleb128 0xe
+ 1771 008b 3A       		.uleb128 0x3a
+ 1772 008c 0B       		.uleb128 0xb
+ 1773 008d 3B       		.uleb128 0x3b
+ 1774 008e 0B       		.uleb128 0xb
+ 1775 008f 27       		.uleb128 0x27
+ 1776 0090 0C       		.uleb128 0xc
+ 1777 0091 49       		.uleb128 0x49
+ 1778 0092 13       		.uleb128 0x13
+ 1779 0093 11       		.uleb128 0x11
+ 1780 0094 01       		.uleb128 0x1
+ 1781 0095 12       		.uleb128 0x12
+ 1782 0096 01       		.uleb128 0x1
+ 1783 0097 40       		.uleb128 0x40
+ 1784 0098 06       		.uleb128 0x6
+ 1785 0099 9742     		.uleb128 0x2117
+ 1786 009b 0C       		.uleb128 0xc
+ 1787 009c 01       		.uleb128 0x1
+ 1788 009d 13       		.uleb128 0x13
+ 1789 009e 00       		.byte	0
+ 1790 009f 00       		.byte	0
+ 1791 00a0 0E       		.uleb128 0xe
+ 1792 00a1 34       		.uleb128 0x34
+ 1793 00a2 00       		.byte	0
+ 1794 00a3 03       		.uleb128 0x3
+ 1795 00a4 08       		.uleb128 0x8
+ 1796 00a5 3A       		.uleb128 0x3a
+ 1797 00a6 0B       		.uleb128 0xb
+ 1798 00a7 3B       		.uleb128 0x3b
+ 1799 00a8 0B       		.uleb128 0xb
+ 1800 00a9 49       		.uleb128 0x49
+ 1801 00aa 13       		.uleb128 0x13
+ 1802 00ab 02       		.uleb128 0x2
+ 1803 00ac 0A       		.uleb128 0xa
+ 1804 00ad 00       		.byte	0
+ 1805 00ae 00       		.byte	0
+ 1806 00af 0F       		.uleb128 0xf
+ 1807 00b0 2E       		.uleb128 0x2e
+ 1808 00b1 01       		.byte	0x1
+ 1809 00b2 03       		.uleb128 0x3
+ 1810 00b3 0E       		.uleb128 0xe
+ 1811 00b4 3A       		.uleb128 0x3a
+ 1812 00b5 0B       		.uleb128 0xb
+ 1813 00b6 3B       		.uleb128 0x3b
+ 1814 00b7 0B       		.uleb128 0xb
+ 1815 00b8 27       		.uleb128 0x27
+ 1816 00b9 0C       		.uleb128 0xc
+ 1817 00ba 49       		.uleb128 0x49
+ 1818 00bb 13       		.uleb128 0x13
+ 1819 00bc 11       		.uleb128 0x11
+ 1820 00bd 01       		.uleb128 0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 33
+
+
+ 1821 00be 12       		.uleb128 0x12
+ 1822 00bf 01       		.uleb128 0x1
+ 1823 00c0 40       		.uleb128 0x40
+ 1824 00c1 06       		.uleb128 0x6
+ 1825 00c2 9642     		.uleb128 0x2116
+ 1826 00c4 0C       		.uleb128 0xc
+ 1827 00c5 01       		.uleb128 0x1
+ 1828 00c6 13       		.uleb128 0x13
+ 1829 00c7 00       		.byte	0
+ 1830 00c8 00       		.byte	0
+ 1831 00c9 10       		.uleb128 0x10
+ 1832 00ca 2E       		.uleb128 0x2e
+ 1833 00cb 01       		.byte	0x1
+ 1834 00cc 3F       		.uleb128 0x3f
+ 1835 00cd 0C       		.uleb128 0xc
+ 1836 00ce 03       		.uleb128 0x3
+ 1837 00cf 0E       		.uleb128 0xe
+ 1838 00d0 3A       		.uleb128 0x3a
+ 1839 00d1 0B       		.uleb128 0xb
+ 1840 00d2 3B       		.uleb128 0x3b
+ 1841 00d3 0B       		.uleb128 0xb
+ 1842 00d4 27       		.uleb128 0x27
+ 1843 00d5 0C       		.uleb128 0xc
+ 1844 00d6 49       		.uleb128 0x49
+ 1845 00d7 13       		.uleb128 0x13
+ 1846 00d8 11       		.uleb128 0x11
+ 1847 00d9 01       		.uleb128 0x1
+ 1848 00da 12       		.uleb128 0x12
+ 1849 00db 01       		.uleb128 0x1
+ 1850 00dc 40       		.uleb128 0x40
+ 1851 00dd 06       		.uleb128 0x6
+ 1852 00de 9642     		.uleb128 0x2116
+ 1853 00e0 0C       		.uleb128 0xc
+ 1854 00e1 01       		.uleb128 0x1
+ 1855 00e2 13       		.uleb128 0x13
+ 1856 00e3 00       		.byte	0
+ 1857 00e4 00       		.byte	0
+ 1858 00e5 11       		.uleb128 0x11
+ 1859 00e6 05       		.uleb128 0x5
+ 1860 00e7 00       		.byte	0
+ 1861 00e8 03       		.uleb128 0x3
+ 1862 00e9 0E       		.uleb128 0xe
+ 1863 00ea 3A       		.uleb128 0x3a
+ 1864 00eb 0B       		.uleb128 0xb
+ 1865 00ec 3B       		.uleb128 0x3b
+ 1866 00ed 0B       		.uleb128 0xb
+ 1867 00ee 49       		.uleb128 0x49
+ 1868 00ef 13       		.uleb128 0x13
+ 1869 00f0 02       		.uleb128 0x2
+ 1870 00f1 0A       		.uleb128 0xa
+ 1871 00f2 00       		.byte	0
+ 1872 00f3 00       		.byte	0
+ 1873 00f4 12       		.uleb128 0x12
+ 1874 00f5 2E       		.uleb128 0x2e
+ 1875 00f6 00       		.byte	0
+ 1876 00f7 3F       		.uleb128 0x3f
+ 1877 00f8 0C       		.uleb128 0xc
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 34
+
+
+ 1878 00f9 03       		.uleb128 0x3
+ 1879 00fa 0E       		.uleb128 0xe
+ 1880 00fb 3A       		.uleb128 0x3a
+ 1881 00fc 0B       		.uleb128 0xb
+ 1882 00fd 3B       		.uleb128 0x3b
+ 1883 00fe 0B       		.uleb128 0xb
+ 1884 00ff 27       		.uleb128 0x27
+ 1885 0100 0C       		.uleb128 0xc
+ 1886 0101 11       		.uleb128 0x11
+ 1887 0102 01       		.uleb128 0x1
+ 1888 0103 12       		.uleb128 0x12
+ 1889 0104 01       		.uleb128 0x1
+ 1890 0105 40       		.uleb128 0x40
+ 1891 0106 06       		.uleb128 0x6
+ 1892 0107 9642     		.uleb128 0x2116
+ 1893 0109 0C       		.uleb128 0xc
+ 1894 010a 00       		.byte	0
+ 1895 010b 00       		.byte	0
+ 1896 010c 13       		.uleb128 0x13
+ 1897 010d 05       		.uleb128 0x5
+ 1898 010e 00       		.byte	0
+ 1899 010f 03       		.uleb128 0x3
+ 1900 0110 08       		.uleb128 0x8
+ 1901 0111 3A       		.uleb128 0x3a
+ 1902 0112 0B       		.uleb128 0xb
+ 1903 0113 3B       		.uleb128 0x3b
+ 1904 0114 0B       		.uleb128 0xb
+ 1905 0115 49       		.uleb128 0x49
+ 1906 0116 13       		.uleb128 0x13
+ 1907 0117 02       		.uleb128 0x2
+ 1908 0118 0A       		.uleb128 0xa
+ 1909 0119 00       		.byte	0
+ 1910 011a 00       		.byte	0
+ 1911 011b 14       		.uleb128 0x14
+ 1912 011c 2E       		.uleb128 0x2e
+ 1913 011d 00       		.byte	0
+ 1914 011e 03       		.uleb128 0x3
+ 1915 011f 0E       		.uleb128 0xe
+ 1916 0120 3A       		.uleb128 0x3a
+ 1917 0121 0B       		.uleb128 0xb
+ 1918 0122 3B       		.uleb128 0x3b
+ 1919 0123 0B       		.uleb128 0xb
+ 1920 0124 27       		.uleb128 0x27
+ 1921 0125 0C       		.uleb128 0xc
+ 1922 0126 11       		.uleb128 0x11
+ 1923 0127 01       		.uleb128 0x1
+ 1924 0128 12       		.uleb128 0x12
+ 1925 0129 01       		.uleb128 0x1
+ 1926 012a 40       		.uleb128 0x40
+ 1927 012b 06       		.uleb128 0x6
+ 1928 012c 9642     		.uleb128 0x2116
+ 1929 012e 0C       		.uleb128 0xc
+ 1930 012f 00       		.byte	0
+ 1931 0130 00       		.byte	0
+ 1932 0131 15       		.uleb128 0x15
+ 1933 0132 2E       		.uleb128 0x2e
+ 1934 0133 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 35
+
+
+ 1935 0134 03       		.uleb128 0x3
+ 1936 0135 0E       		.uleb128 0xe
+ 1937 0136 3A       		.uleb128 0x3a
+ 1938 0137 0B       		.uleb128 0xb
+ 1939 0138 3B       		.uleb128 0x3b
+ 1940 0139 0B       		.uleb128 0xb
+ 1941 013a 27       		.uleb128 0x27
+ 1942 013b 0C       		.uleb128 0xc
+ 1943 013c 11       		.uleb128 0x11
+ 1944 013d 01       		.uleb128 0x1
+ 1945 013e 12       		.uleb128 0x12
+ 1946 013f 01       		.uleb128 0x1
+ 1947 0140 40       		.uleb128 0x40
+ 1948 0141 06       		.uleb128 0x6
+ 1949 0142 9742     		.uleb128 0x2117
+ 1950 0144 0C       		.uleb128 0xc
+ 1951 0145 01       		.uleb128 0x1
+ 1952 0146 13       		.uleb128 0x13
+ 1953 0147 00       		.byte	0
+ 1954 0148 00       		.byte	0
+ 1955 0149 16       		.uleb128 0x16
+ 1956 014a 34       		.uleb128 0x34
+ 1957 014b 00       		.byte	0
+ 1958 014c 03       		.uleb128 0x3
+ 1959 014d 0E       		.uleb128 0xe
+ 1960 014e 3A       		.uleb128 0x3a
+ 1961 014f 0B       		.uleb128 0xb
+ 1962 0150 3B       		.uleb128 0x3b
+ 1963 0151 0B       		.uleb128 0xb
+ 1964 0152 49       		.uleb128 0x49
+ 1965 0153 13       		.uleb128 0x13
+ 1966 0154 02       		.uleb128 0x2
+ 1967 0155 0A       		.uleb128 0xa
+ 1968 0156 00       		.byte	0
+ 1969 0157 00       		.byte	0
+ 1970 0158 17       		.uleb128 0x17
+ 1971 0159 2E       		.uleb128 0x2e
+ 1972 015a 00       		.byte	0
+ 1973 015b 03       		.uleb128 0x3
+ 1974 015c 0E       		.uleb128 0xe
+ 1975 015d 3A       		.uleb128 0x3a
+ 1976 015e 0B       		.uleb128 0xb
+ 1977 015f 3B       		.uleb128 0x3b
+ 1978 0160 0B       		.uleb128 0xb
+ 1979 0161 27       		.uleb128 0x27
+ 1980 0162 0C       		.uleb128 0xc
+ 1981 0163 49       		.uleb128 0x49
+ 1982 0164 13       		.uleb128 0x13
+ 1983 0165 11       		.uleb128 0x11
+ 1984 0166 01       		.uleb128 0x1
+ 1985 0167 12       		.uleb128 0x12
+ 1986 0168 01       		.uleb128 0x1
+ 1987 0169 40       		.uleb128 0x40
+ 1988 016a 0A       		.uleb128 0xa
+ 1989 016b 9742     		.uleb128 0x2117
+ 1990 016d 0C       		.uleb128 0xc
+ 1991 016e 00       		.byte	0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 36
+
+
+ 1992 016f 00       		.byte	0
+ 1993 0170 18       		.uleb128 0x18
+ 1994 0171 2E       		.uleb128 0x2e
+ 1995 0172 00       		.byte	0
+ 1996 0173 03       		.uleb128 0x3
+ 1997 0174 0E       		.uleb128 0xe
+ 1998 0175 3A       		.uleb128 0x3a
+ 1999 0176 0B       		.uleb128 0xb
+ 2000 0177 3B       		.uleb128 0x3b
+ 2001 0178 05       		.uleb128 0x5
+ 2002 0179 27       		.uleb128 0x27
+ 2003 017a 0C       		.uleb128 0xc
+ 2004 017b 11       		.uleb128 0x11
+ 2005 017c 01       		.uleb128 0x1
+ 2006 017d 12       		.uleb128 0x12
+ 2007 017e 01       		.uleb128 0x1
+ 2008 017f 40       		.uleb128 0x40
+ 2009 0180 06       		.uleb128 0x6
+ 2010 0181 9642     		.uleb128 0x2116
+ 2011 0183 0C       		.uleb128 0xc
+ 2012 0184 00       		.byte	0
+ 2013 0185 00       		.byte	0
+ 2014 0186 19       		.uleb128 0x19
+ 2015 0187 2E       		.uleb128 0x2e
+ 2016 0188 00       		.byte	0
+ 2017 0189 03       		.uleb128 0x3
+ 2018 018a 0E       		.uleb128 0xe
+ 2019 018b 3A       		.uleb128 0x3a
+ 2020 018c 0B       		.uleb128 0xb
+ 2021 018d 3B       		.uleb128 0x3b
+ 2022 018e 05       		.uleb128 0x5
+ 2023 018f 27       		.uleb128 0x27
+ 2024 0190 0C       		.uleb128 0xc
+ 2025 0191 11       		.uleb128 0x11
+ 2026 0192 01       		.uleb128 0x1
+ 2027 0193 12       		.uleb128 0x12
+ 2028 0194 01       		.uleb128 0x1
+ 2029 0195 40       		.uleb128 0x40
+ 2030 0196 0A       		.uleb128 0xa
+ 2031 0197 9742     		.uleb128 0x2117
+ 2032 0199 0C       		.uleb128 0xc
+ 2033 019a 00       		.byte	0
+ 2034 019b 00       		.byte	0
+ 2035 019c 1A       		.uleb128 0x1a
+ 2036 019d 2E       		.uleb128 0x2e
+ 2037 019e 00       		.byte	0
+ 2038 019f 3F       		.uleb128 0x3f
+ 2039 01a0 0C       		.uleb128 0xc
+ 2040 01a1 03       		.uleb128 0x3
+ 2041 01a2 0E       		.uleb128 0xe
+ 2042 01a3 3A       		.uleb128 0x3a
+ 2043 01a4 0B       		.uleb128 0xb
+ 2044 01a5 3B       		.uleb128 0x3b
+ 2045 01a6 05       		.uleb128 0x5
+ 2046 01a7 27       		.uleb128 0x27
+ 2047 01a8 0C       		.uleb128 0xc
+ 2048 01a9 11       		.uleb128 0x11
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 37
+
+
+ 2049 01aa 01       		.uleb128 0x1
+ 2050 01ab 12       		.uleb128 0x12
+ 2051 01ac 01       		.uleb128 0x1
+ 2052 01ad 40       		.uleb128 0x40
+ 2053 01ae 06       		.uleb128 0x6
+ 2054 01af 9642     		.uleb128 0x2116
+ 2055 01b1 0C       		.uleb128 0xc
+ 2056 01b2 00       		.byte	0
+ 2057 01b3 00       		.byte	0
+ 2058 01b4 1B       		.uleb128 0x1b
+ 2059 01b5 2E       		.uleb128 0x2e
+ 2060 01b6 01       		.byte	0x1
+ 2061 01b7 3F       		.uleb128 0x3f
+ 2062 01b8 0C       		.uleb128 0xc
+ 2063 01b9 03       		.uleb128 0x3
+ 2064 01ba 0E       		.uleb128 0xe
+ 2065 01bb 3A       		.uleb128 0x3a
+ 2066 01bc 0B       		.uleb128 0xb
+ 2067 01bd 3B       		.uleb128 0x3b
+ 2068 01be 05       		.uleb128 0x5
+ 2069 01bf 27       		.uleb128 0x27
+ 2070 01c0 0C       		.uleb128 0xc
+ 2071 01c1 11       		.uleb128 0x11
+ 2072 01c2 01       		.uleb128 0x1
+ 2073 01c3 12       		.uleb128 0x12
+ 2074 01c4 01       		.uleb128 0x1
+ 2075 01c5 40       		.uleb128 0x40
+ 2076 01c6 06       		.uleb128 0x6
+ 2077 01c7 9642     		.uleb128 0x2116
+ 2078 01c9 0C       		.uleb128 0xc
+ 2079 01ca 01       		.uleb128 0x1
+ 2080 01cb 13       		.uleb128 0x13
+ 2081 01cc 00       		.byte	0
+ 2082 01cd 00       		.byte	0
+ 2083 01ce 1C       		.uleb128 0x1c
+ 2084 01cf 05       		.uleb128 0x5
+ 2085 01d0 00       		.byte	0
+ 2086 01d1 03       		.uleb128 0x3
+ 2087 01d2 08       		.uleb128 0x8
+ 2088 01d3 3A       		.uleb128 0x3a
+ 2089 01d4 0B       		.uleb128 0xb
+ 2090 01d5 3B       		.uleb128 0x3b
+ 2091 01d6 05       		.uleb128 0x5
+ 2092 01d7 49       		.uleb128 0x49
+ 2093 01d8 13       		.uleb128 0x13
+ 2094 01d9 02       		.uleb128 0x2
+ 2095 01da 0A       		.uleb128 0xa
+ 2096 01db 00       		.byte	0
+ 2097 01dc 00       		.byte	0
+ 2098 01dd 1D       		.uleb128 0x1d
+ 2099 01de 05       		.uleb128 0x5
+ 2100 01df 00       		.byte	0
+ 2101 01e0 03       		.uleb128 0x3
+ 2102 01e1 0E       		.uleb128 0xe
+ 2103 01e2 3A       		.uleb128 0x3a
+ 2104 01e3 0B       		.uleb128 0xb
+ 2105 01e4 3B       		.uleb128 0x3b
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 38
+
+
+ 2106 01e5 05       		.uleb128 0x5
+ 2107 01e6 49       		.uleb128 0x49
+ 2108 01e7 13       		.uleb128 0x13
+ 2109 01e8 02       		.uleb128 0x2
+ 2110 01e9 0A       		.uleb128 0xa
+ 2111 01ea 00       		.byte	0
+ 2112 01eb 00       		.byte	0
+ 2113 01ec 1E       		.uleb128 0x1e
+ 2114 01ed 2E       		.uleb128 0x2e
+ 2115 01ee 00       		.byte	0
+ 2116 01ef 3F       		.uleb128 0x3f
+ 2117 01f0 0C       		.uleb128 0xc
+ 2118 01f1 03       		.uleb128 0x3
+ 2119 01f2 0E       		.uleb128 0xe
+ 2120 01f3 3A       		.uleb128 0x3a
+ 2121 01f4 0B       		.uleb128 0xb
+ 2122 01f5 3B       		.uleb128 0x3b
+ 2123 01f6 05       		.uleb128 0x5
+ 2124 01f7 27       		.uleb128 0x27
+ 2125 01f8 0C       		.uleb128 0xc
+ 2126 01f9 49       		.uleb128 0x49
+ 2127 01fa 13       		.uleb128 0x13
+ 2128 01fb 11       		.uleb128 0x11
+ 2129 01fc 01       		.uleb128 0x1
+ 2130 01fd 12       		.uleb128 0x12
+ 2131 01fe 01       		.uleb128 0x1
+ 2132 01ff 40       		.uleb128 0x40
+ 2133 0200 06       		.uleb128 0x6
+ 2134 0201 9642     		.uleb128 0x2116
+ 2135 0203 0C       		.uleb128 0xc
+ 2136 0204 00       		.byte	0
+ 2137 0205 00       		.byte	0
+ 2138 0206 1F       		.uleb128 0x1f
+ 2139 0207 01       		.uleb128 0x1
+ 2140 0208 01       		.byte	0x1
+ 2141 0209 49       		.uleb128 0x49
+ 2142 020a 13       		.uleb128 0x13
+ 2143 020b 01       		.uleb128 0x1
+ 2144 020c 13       		.uleb128 0x13
+ 2145 020d 00       		.byte	0
+ 2146 020e 00       		.byte	0
+ 2147 020f 20       		.uleb128 0x20
+ 2148 0210 21       		.uleb128 0x21
+ 2149 0211 00       		.byte	0
+ 2150 0212 49       		.uleb128 0x49
+ 2151 0213 13       		.uleb128 0x13
+ 2152 0214 2F       		.uleb128 0x2f
+ 2153 0215 0B       		.uleb128 0xb
+ 2154 0216 00       		.byte	0
+ 2155 0217 00       		.byte	0
+ 2156 0218 00       		.byte	0
+ 2157              		.section	.debug_loc,"",@progbits
+ 2158              	.Ldebug_loc0:
+ 2159              	.LLST0:
+ 2160 0000 00000000 		.4byte	.LFB0
+ 2161 0004 00000000 		.4byte	.LCFI0
+ 2162 0008 0002     		.2byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 39
+
+
+ 2163 000a 71       		.byte	0x71
+ 2164 000b 00       		.sleb128 0
+ 2165 000c 00000000 		.4byte	.LCFI0
+ 2166 0010 00000000 		.4byte	.LCFI1
+ 2167 0014 0002     		.2byte	0x2
+ 2168 0016 71       		.byte	0x71
+ 2169 0017 18       		.sleb128 24
+ 2170 0018 00000000 		.4byte	.LCFI1
+ 2171 001c 00000000 		.4byte	.LFE0
+ 2172 0020 0002     		.2byte	0x2
+ 2173 0022 71       		.byte	0x71
+ 2174 0023 00       		.sleb128 0
+ 2175 0024 00000000 		.4byte	0
+ 2176 0028 00000000 		.4byte	0
+ 2177              	.LLST1:
+ 2178 002c 00000000 		.4byte	.LFB1
+ 2179 0030 00000000 		.4byte	.LCFI2
+ 2180 0034 0002     		.2byte	0x2
+ 2181 0036 71       		.byte	0x71
+ 2182 0037 00       		.sleb128 0
+ 2183 0038 00000000 		.4byte	.LCFI2
+ 2184 003c 00000000 		.4byte	.LCFI3
+ 2185 0040 0002     		.2byte	0x2
+ 2186 0042 71       		.byte	0x71
+ 2187 0043 18       		.sleb128 24
+ 2188 0044 00000000 		.4byte	.LCFI3
+ 2189 0048 00000000 		.4byte	.LFE1
+ 2190 004c 0002     		.2byte	0x2
+ 2191 004e 71       		.byte	0x71
+ 2192 004f 00       		.sleb128 0
+ 2193 0050 00000000 		.4byte	0
+ 2194 0054 00000000 		.4byte	0
+ 2195              	.LLST2:
+ 2196 0058 00000000 		.4byte	.LFB2
+ 2197 005c 00000000 		.4byte	.LCFI4
+ 2198 0060 0002     		.2byte	0x2
+ 2199 0062 71       		.byte	0x71
+ 2200 0063 00       		.sleb128 0
+ 2201 0064 00000000 		.4byte	.LCFI4
+ 2202 0068 00000000 		.4byte	.LCFI5
+ 2203 006c 0002     		.2byte	0x2
+ 2204 006e 71       		.byte	0x71
+ 2205 006f 10       		.sleb128 16
+ 2206 0070 00000000 		.4byte	.LCFI5
+ 2207 0074 00000000 		.4byte	.LFE2
+ 2208 0078 0002     		.2byte	0x2
+ 2209 007a 71       		.byte	0x71
+ 2210 007b 00       		.sleb128 0
+ 2211 007c 00000000 		.4byte	0
+ 2212 0080 00000000 		.4byte	0
+ 2213              	.LLST3:
+ 2214 0084 00000000 		.4byte	.LFB3
+ 2215 0088 00000000 		.4byte	.LCFI6
+ 2216 008c 0002     		.2byte	0x2
+ 2217 008e 71       		.byte	0x71
+ 2218 008f 00       		.sleb128 0
+ 2219 0090 00000000 		.4byte	.LCFI6
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 40
+
+
+ 2220 0094 00000000 		.4byte	.LCFI7
+ 2221 0098 0002     		.2byte	0x2
+ 2222 009a 71       		.byte	0x71
+ 2223 009b 08       		.sleb128 8
+ 2224 009c 00000000 		.4byte	.LCFI7
+ 2225 00a0 00000000 		.4byte	.LFE3
+ 2226 00a4 0002     		.2byte	0x2
+ 2227 00a6 71       		.byte	0x71
+ 2228 00a7 00       		.sleb128 0
+ 2229 00a8 00000000 		.4byte	0
+ 2230 00ac 00000000 		.4byte	0
+ 2231              	.LLST4:
+ 2232 00b0 00000000 		.4byte	.LFB4
+ 2233 00b4 00000000 		.4byte	.LCFI8
+ 2234 00b8 0002     		.2byte	0x2
+ 2235 00ba 71       		.byte	0x71
+ 2236 00bb 00       		.sleb128 0
+ 2237 00bc 00000000 		.4byte	.LCFI8
+ 2238 00c0 00000000 		.4byte	.LCFI9
+ 2239 00c4 0002     		.2byte	0x2
+ 2240 00c6 71       		.byte	0x71
+ 2241 00c7 10       		.sleb128 16
+ 2242 00c8 00000000 		.4byte	.LCFI9
+ 2243 00cc 00000000 		.4byte	.LFE4
+ 2244 00d0 0002     		.2byte	0x2
+ 2245 00d2 71       		.byte	0x71
+ 2246 00d3 00       		.sleb128 0
+ 2247 00d4 00000000 		.4byte	0
+ 2248 00d8 00000000 		.4byte	0
+ 2249              	.LLST5:
+ 2250 00dc 00000000 		.4byte	.LFB5
+ 2251 00e0 00000000 		.4byte	.LCFI10
+ 2252 00e4 0002     		.2byte	0x2
+ 2253 00e6 71       		.byte	0x71
+ 2254 00e7 00       		.sleb128 0
+ 2255 00e8 00000000 		.4byte	.LCFI10
+ 2256 00ec 00000000 		.4byte	.LCFI11
+ 2257 00f0 0002     		.2byte	0x2
+ 2258 00f2 71       		.byte	0x71
+ 2259 00f3 10       		.sleb128 16
+ 2260 00f4 00000000 		.4byte	.LCFI11
+ 2261 00f8 00000000 		.4byte	.LFE5
+ 2262 00fc 0002     		.2byte	0x2
+ 2263 00fe 71       		.byte	0x71
+ 2264 00ff 00       		.sleb128 0
+ 2265 0100 00000000 		.4byte	0
+ 2266 0104 00000000 		.4byte	0
+ 2267              	.LLST6:
+ 2268 0108 00000000 		.4byte	.LFB6
+ 2269 010c 00000000 		.4byte	.LCFI12
+ 2270 0110 0002     		.2byte	0x2
+ 2271 0112 71       		.byte	0x71
+ 2272 0113 00       		.sleb128 0
+ 2273 0114 00000000 		.4byte	.LCFI12
+ 2274 0118 00000000 		.4byte	.LCFI13
+ 2275 011c 0002     		.2byte	0x2
+ 2276 011e 71       		.byte	0x71
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 41
+
+
+ 2277 011f 10       		.sleb128 16
+ 2278 0120 00000000 		.4byte	.LCFI13
+ 2279 0124 00000000 		.4byte	.LFE6
+ 2280 0128 0002     		.2byte	0x2
+ 2281 012a 71       		.byte	0x71
+ 2282 012b 00       		.sleb128 0
+ 2283 012c 00000000 		.4byte	0
+ 2284 0130 00000000 		.4byte	0
+ 2285              	.LLST7:
+ 2286 0134 00000000 		.4byte	.LFB7
+ 2287 0138 00000000 		.4byte	.LCFI14
+ 2288 013c 0002     		.2byte	0x2
+ 2289 013e 71       		.byte	0x71
+ 2290 013f 00       		.sleb128 0
+ 2291 0140 00000000 		.4byte	.LCFI14
+ 2292 0144 00000000 		.4byte	.LCFI15
+ 2293 0148 0002     		.2byte	0x2
+ 2294 014a 71       		.byte	0x71
+ 2295 014b 10       		.sleb128 16
+ 2296 014c 00000000 		.4byte	.LCFI15
+ 2297 0150 00000000 		.4byte	.LFE7
+ 2298 0154 0002     		.2byte	0x2
+ 2299 0156 71       		.byte	0x71
+ 2300 0157 00       		.sleb128 0
+ 2301 0158 00000000 		.4byte	0
+ 2302 015c 00000000 		.4byte	0
+ 2303              	.LLST8:
+ 2304 0160 00000000 		.4byte	.LFB8
+ 2305 0164 00000000 		.4byte	.LCFI16
+ 2306 0168 0002     		.2byte	0x2
+ 2307 016a 71       		.byte	0x71
+ 2308 016b 00       		.sleb128 0
+ 2309 016c 00000000 		.4byte	.LCFI16
+ 2310 0170 00000000 		.4byte	.LCFI17
+ 2311 0174 0002     		.2byte	0x2
+ 2312 0176 71       		.byte	0x71
+ 2313 0177 10       		.sleb128 16
+ 2314 0178 00000000 		.4byte	.LCFI17
+ 2315 017c 00000000 		.4byte	.LFE8
+ 2316 0180 0002     		.2byte	0x2
+ 2317 0182 71       		.byte	0x71
+ 2318 0183 00       		.sleb128 0
+ 2319 0184 00000000 		.4byte	0
+ 2320 0188 00000000 		.4byte	0
+ 2321              	.LLST9:
+ 2322 018c 00000000 		.4byte	.LFB9
+ 2323 0190 00000000 		.4byte	.LCFI18
+ 2324 0194 0002     		.2byte	0x2
+ 2325 0196 71       		.byte	0x71
+ 2326 0197 00       		.sleb128 0
+ 2327 0198 00000000 		.4byte	.LCFI18
+ 2328 019c 00000000 		.4byte	.LCFI19
+ 2329 01a0 0002     		.2byte	0x2
+ 2330 01a2 71       		.byte	0x71
+ 2331 01a3 10       		.sleb128 16
+ 2332 01a4 00000000 		.4byte	.LCFI19
+ 2333 01a8 00000000 		.4byte	.LFE9
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 42
+
+
+ 2334 01ac 0002     		.2byte	0x2
+ 2335 01ae 71       		.byte	0x71
+ 2336 01af 00       		.sleb128 0
+ 2337 01b0 00000000 		.4byte	0
+ 2338 01b4 00000000 		.4byte	0
+ 2339              	.LLST10:
+ 2340 01b8 00000000 		.4byte	.LFB10
+ 2341 01bc 00000000 		.4byte	.LCFI20
+ 2342 01c0 0002     		.2byte	0x2
+ 2343 01c2 71       		.byte	0x71
+ 2344 01c3 00       		.sleb128 0
+ 2345 01c4 00000000 		.4byte	.LCFI20
+ 2346 01c8 00000000 		.4byte	.LCFI21
+ 2347 01cc 0002     		.2byte	0x2
+ 2348 01ce 71       		.byte	0x71
+ 2349 01cf 08       		.sleb128 8
+ 2350 01d0 00000000 		.4byte	.LCFI21
+ 2351 01d4 00000000 		.4byte	.LFE10
+ 2352 01d8 0002     		.2byte	0x2
+ 2353 01da 71       		.byte	0x71
+ 2354 01db 00       		.sleb128 0
+ 2355 01dc 00000000 		.4byte	0
+ 2356 01e0 00000000 		.4byte	0
+ 2357              	.LLST11:
+ 2358 01e4 00000000 		.4byte	.LFB11
+ 2359 01e8 00000000 		.4byte	.LCFI22
+ 2360 01ec 0002     		.2byte	0x2
+ 2361 01ee 71       		.byte	0x71
+ 2362 01ef 00       		.sleb128 0
+ 2363 01f0 00000000 		.4byte	.LCFI22
+ 2364 01f4 00000000 		.4byte	.LCFI23
+ 2365 01f8 0002     		.2byte	0x2
+ 2366 01fa 71       		.byte	0x71
+ 2367 01fb 20       		.sleb128 32
+ 2368 01fc 00000000 		.4byte	.LCFI23
+ 2369 0200 00000000 		.4byte	.LFE11
+ 2370 0204 0002     		.2byte	0x2
+ 2371 0206 71       		.byte	0x71
+ 2372 0207 00       		.sleb128 0
+ 2373 0208 00000000 		.4byte	0
+ 2374 020c 00000000 		.4byte	0
+ 2375              	.LLST12:
+ 2376 0210 00000000 		.4byte	.LFB13
+ 2377 0214 00000000 		.4byte	.LCFI24
+ 2378 0218 0002     		.2byte	0x2
+ 2379 021a 71       		.byte	0x71
+ 2380 021b 00       		.sleb128 0
+ 2381 021c 00000000 		.4byte	.LCFI24
+ 2382 0220 00000000 		.4byte	.LCFI25
+ 2383 0224 0002     		.2byte	0x2
+ 2384 0226 71       		.byte	0x71
+ 2385 0227 08       		.sleb128 8
+ 2386 0228 00000000 		.4byte	.LCFI25
+ 2387 022c 00000000 		.4byte	.LFE13
+ 2388 0230 0002     		.2byte	0x2
+ 2389 0232 71       		.byte	0x71
+ 2390 0233 00       		.sleb128 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 43
+
+
+ 2391 0234 00000000 		.4byte	0
+ 2392 0238 00000000 		.4byte	0
+ 2393              	.LLST13:
+ 2394 023c 00000000 		.4byte	.LFB15
+ 2395 0240 00000000 		.4byte	.LCFI26
+ 2396 0244 0002     		.2byte	0x2
+ 2397 0246 71       		.byte	0x71
+ 2398 0247 00       		.sleb128 0
+ 2399 0248 00000000 		.4byte	.LCFI26
+ 2400 024c 00000000 		.4byte	.LCFI27
+ 2401 0250 0002     		.2byte	0x2
+ 2402 0252 71       		.byte	0x71
+ 2403 0253 08       		.sleb128 8
+ 2404 0254 00000000 		.4byte	.LCFI27
+ 2405 0258 00000000 		.4byte	.LFE15
+ 2406 025c 0002     		.2byte	0x2
+ 2407 025e 71       		.byte	0x71
+ 2408 025f 00       		.sleb128 0
+ 2409 0260 00000000 		.4byte	0
+ 2410 0264 00000000 		.4byte	0
+ 2411              	.LLST14:
+ 2412 0268 00000000 		.4byte	.LFB16
+ 2413 026c 00000000 		.4byte	.LCFI28
+ 2414 0270 0002     		.2byte	0x2
+ 2415 0272 71       		.byte	0x71
+ 2416 0273 00       		.sleb128 0
+ 2417 0274 00000000 		.4byte	.LCFI28
+ 2418 0278 00000000 		.4byte	.LCFI29
+ 2419 027c 0002     		.2byte	0x2
+ 2420 027e 71       		.byte	0x71
+ 2421 027f 18       		.sleb128 24
+ 2422 0280 00000000 		.4byte	.LCFI29
+ 2423 0284 00000000 		.4byte	.LFE16
+ 2424 0288 0002     		.2byte	0x2
+ 2425 028a 71       		.byte	0x71
+ 2426 028b 00       		.sleb128 0
+ 2427 028c 00000000 		.4byte	0
+ 2428 0290 00000000 		.4byte	0
+ 2429              	.LLST15:
+ 2430 0294 00000000 		.4byte	.LFB17
+ 2431 0298 00000000 		.4byte	.LCFI30
+ 2432 029c 0002     		.2byte	0x2
+ 2433 029e 71       		.byte	0x71
+ 2434 029f 00       		.sleb128 0
+ 2435 02a0 00000000 		.4byte	.LCFI30
+ 2436 02a4 00000000 		.4byte	.LCFI31
+ 2437 02a8 0002     		.2byte	0x2
+ 2438 02aa 71       		.byte	0x71
+ 2439 02ab 18       		.sleb128 24
+ 2440 02ac 00000000 		.4byte	.LCFI31
+ 2441 02b0 00000000 		.4byte	.LFE17
+ 2442 02b4 0002     		.2byte	0x2
+ 2443 02b6 71       		.byte	0x71
+ 2444 02b7 00       		.sleb128 0
+ 2445 02b8 00000000 		.4byte	0
+ 2446 02bc 00000000 		.4byte	0
+ 2447              	.LLST16:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 44
+
+
+ 2448 02c0 00000000 		.4byte	.LFB18
+ 2449 02c4 00000000 		.4byte	.LCFI32
+ 2450 02c8 0002     		.2byte	0x2
+ 2451 02ca 71       		.byte	0x71
+ 2452 02cb 00       		.sleb128 0
+ 2453 02cc 00000000 		.4byte	.LCFI32
+ 2454 02d0 00000000 		.4byte	.LCFI33
+ 2455 02d4 0002     		.2byte	0x2
+ 2456 02d6 71       		.byte	0x71
+ 2457 02d7 18       		.sleb128 24
+ 2458 02d8 00000000 		.4byte	.LCFI33
+ 2459 02dc 00000000 		.4byte	.LFE18
+ 2460 02e0 0002     		.2byte	0x2
+ 2461 02e2 71       		.byte	0x71
+ 2462 02e3 00       		.sleb128 0
+ 2463 02e4 00000000 		.4byte	0
+ 2464 02e8 00000000 		.4byte	0
+ 2465              	.LLST17:
+ 2466 02ec 00000000 		.4byte	.LFB19
+ 2467 02f0 00000000 		.4byte	.LCFI34
+ 2468 02f4 0002     		.2byte	0x2
+ 2469 02f6 71       		.byte	0x71
+ 2470 02f7 00       		.sleb128 0
+ 2471 02f8 00000000 		.4byte	.LCFI34
+ 2472 02fc 00000000 		.4byte	.LCFI35
+ 2473 0300 0002     		.2byte	0x2
+ 2474 0302 71       		.byte	0x71
+ 2475 0303 08       		.sleb128 8
+ 2476 0304 00000000 		.4byte	.LCFI35
+ 2477 0308 00000000 		.4byte	.LFE19
+ 2478 030c 0002     		.2byte	0x2
+ 2479 030e 71       		.byte	0x71
+ 2480 030f 00       		.sleb128 0
+ 2481 0310 00000000 		.4byte	0
+ 2482 0314 00000000 		.4byte	0
+ 2483              	.LLST18:
+ 2484 0318 00000000 		.4byte	.LFB20
+ 2485 031c 00000000 		.4byte	.LCFI36
+ 2486 0320 0002     		.2byte	0x2
+ 2487 0322 71       		.byte	0x71
+ 2488 0323 00       		.sleb128 0
+ 2489 0324 00000000 		.4byte	.LCFI36
+ 2490 0328 00000000 		.4byte	.LCFI37
+ 2491 032c 0002     		.2byte	0x2
+ 2492 032e 71       		.byte	0x71
+ 2493 032f 08       		.sleb128 8
+ 2494 0330 00000000 		.4byte	.LCFI37
+ 2495 0334 00000000 		.4byte	.LFE20
+ 2496 0338 0002     		.2byte	0x2
+ 2497 033a 71       		.byte	0x71
+ 2498 033b 00       		.sleb128 0
+ 2499 033c 00000000 		.4byte	0
+ 2500 0340 00000000 		.4byte	0
+ 2501              	.LLST19:
+ 2502 0344 00000000 		.4byte	.LFB21
+ 2503 0348 00000000 		.4byte	.LCFI38
+ 2504 034c 0002     		.2byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 45
+
+
+ 2505 034e 71       		.byte	0x71
+ 2506 034f 00       		.sleb128 0
+ 2507 0350 00000000 		.4byte	.LCFI38
+ 2508 0354 00000000 		.4byte	.LCFI39
+ 2509 0358 0002     		.2byte	0x2
+ 2510 035a 71       		.byte	0x71
+ 2511 035b 08       		.sleb128 8
+ 2512 035c 00000000 		.4byte	.LCFI39
+ 2513 0360 00000000 		.4byte	.LFE21
+ 2514 0364 0002     		.2byte	0x2
+ 2515 0366 71       		.byte	0x71
+ 2516 0367 00       		.sleb128 0
+ 2517 0368 00000000 		.4byte	0
+ 2518 036c 00000000 		.4byte	0
+ 2519              	.LLST20:
+ 2520 0370 00000000 		.4byte	.LFB22
+ 2521 0374 00000000 		.4byte	.LCFI40
+ 2522 0378 0002     		.2byte	0x2
+ 2523 037a 71       		.byte	0x71
+ 2524 037b 00       		.sleb128 0
+ 2525 037c 00000000 		.4byte	.LCFI40
+ 2526 0380 00000000 		.4byte	.LCFI41
+ 2527 0384 0002     		.2byte	0x2
+ 2528 0386 71       		.byte	0x71
+ 2529 0387 08       		.sleb128 8
+ 2530 0388 00000000 		.4byte	.LCFI41
+ 2531 038c 00000000 		.4byte	.LFE22
+ 2532 0390 0002     		.2byte	0x2
+ 2533 0392 71       		.byte	0x71
+ 2534 0393 00       		.sleb128 0
+ 2535 0394 00000000 		.4byte	0
+ 2536 0398 00000000 		.4byte	0
+ 2537              	.LLST21:
+ 2538 039c 00000000 		.4byte	.LFB23
+ 2539 03a0 00000000 		.4byte	.LCFI42
+ 2540 03a4 0002     		.2byte	0x2
+ 2541 03a6 71       		.byte	0x71
+ 2542 03a7 00       		.sleb128 0
+ 2543 03a8 00000000 		.4byte	.LCFI42
+ 2544 03ac 00000000 		.4byte	.LCFI43
+ 2545 03b0 0002     		.2byte	0x2
+ 2546 03b2 71       		.byte	0x71
+ 2547 03b3 08       		.sleb128 8
+ 2548 03b4 00000000 		.4byte	.LCFI43
+ 2549 03b8 00000000 		.4byte	.LFE23
+ 2550 03bc 0002     		.2byte	0x2
+ 2551 03be 71       		.byte	0x71
+ 2552 03bf 00       		.sleb128 0
+ 2553 03c0 00000000 		.4byte	0
+ 2554 03c4 00000000 		.4byte	0
+ 2555              	.LLST22:
+ 2556 03c8 00000000 		.4byte	.LFB24
+ 2557 03cc 00000000 		.4byte	.LCFI44
+ 2558 03d0 0002     		.2byte	0x2
+ 2559 03d2 71       		.byte	0x71
+ 2560 03d3 00       		.sleb128 0
+ 2561 03d4 00000000 		.4byte	.LCFI44
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 46
+
+
+ 2562 03d8 00000000 		.4byte	.LCFI45
+ 2563 03dc 0002     		.2byte	0x2
+ 2564 03de 71       		.byte	0x71
+ 2565 03df 08       		.sleb128 8
+ 2566 03e0 00000000 		.4byte	.LCFI45
+ 2567 03e4 00000000 		.4byte	.LFE24
+ 2568 03e8 0002     		.2byte	0x2
+ 2569 03ea 71       		.byte	0x71
+ 2570 03eb 00       		.sleb128 0
+ 2571 03ec 00000000 		.4byte	0
+ 2572 03f0 00000000 		.4byte	0
+ 2573              	.LLST23:
+ 2574 03f4 00000000 		.4byte	.LFB25
+ 2575 03f8 00000000 		.4byte	.LCFI46
+ 2576 03fc 0002     		.2byte	0x2
+ 2577 03fe 71       		.byte	0x71
+ 2578 03ff 00       		.sleb128 0
+ 2579 0400 00000000 		.4byte	.LCFI46
+ 2580 0404 00000000 		.4byte	.LCFI47
+ 2581 0408 0002     		.2byte	0x2
+ 2582 040a 71       		.byte	0x71
+ 2583 040b 08       		.sleb128 8
+ 2584 040c 00000000 		.4byte	.LCFI47
+ 2585 0410 00000000 		.4byte	.LFE25
+ 2586 0414 0002     		.2byte	0x2
+ 2587 0416 71       		.byte	0x71
+ 2588 0417 00       		.sleb128 0
+ 2589 0418 00000000 		.4byte	0
+ 2590 041c 00000000 		.4byte	0
+ 2591              	.LLST24:
+ 2592 0420 00000000 		.4byte	.LFB26
+ 2593 0424 00000000 		.4byte	.LCFI48
+ 2594 0428 0002     		.2byte	0x2
+ 2595 042a 71       		.byte	0x71
+ 2596 042b 00       		.sleb128 0
+ 2597 042c 00000000 		.4byte	.LCFI48
+ 2598 0430 00000000 		.4byte	.LCFI49
+ 2599 0434 0002     		.2byte	0x2
+ 2600 0436 71       		.byte	0x71
+ 2601 0437 08       		.sleb128 8
+ 2602 0438 00000000 		.4byte	.LCFI49
+ 2603 043c 00000000 		.4byte	.LFE26
+ 2604 0440 0002     		.2byte	0x2
+ 2605 0442 71       		.byte	0x71
+ 2606 0443 00       		.sleb128 0
+ 2607 0444 00000000 		.4byte	0
+ 2608 0448 00000000 		.4byte	0
+ 2609              		.section	.debug_aranges,"",@progbits
+ 2610 0000 000000EC 		.4byte	0xec
+ 2611 0004 0002     		.2byte	0x2
+ 2612 0006 00000000 		.4byte	.Ldebug_info0
+ 2613 000a 04       		.byte	0x4
+ 2614 000b 00       		.byte	0
+ 2615 000c 0000     		.2byte	0
+ 2616 000e 0000     		.2byte	0
+ 2617 0010 00000000 		.4byte	.LFB0
+ 2618 0014 00000016 		.4byte	.LFE0-.LFB0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 47
+
+
+ 2619 0018 00000000 		.4byte	.LFB1
+ 2620 001c 0000001E 		.4byte	.LFE1-.LFB1
+ 2621 0020 00000000 		.4byte	.LFB2
+ 2622 0024 0000002C 		.4byte	.LFE2-.LFB2
+ 2623 0028 00000000 		.4byte	.LFB3
+ 2624 002c 00000014 		.4byte	.LFE3-.LFB3
+ 2625 0030 00000000 		.4byte	.LFB4
+ 2626 0034 00000018 		.4byte	.LFE4-.LFB4
+ 2627 0038 00000000 		.4byte	.LFB5
+ 2628 003c 0000004A 		.4byte	.LFE5-.LFB5
+ 2629 0040 00000000 		.4byte	.LFB6
+ 2630 0044 0000004A 		.4byte	.LFE6-.LFB6
+ 2631 0048 00000000 		.4byte	.LFB7
+ 2632 004c 0000001A 		.4byte	.LFE7-.LFB7
+ 2633 0050 00000000 		.4byte	.LFB8
+ 2634 0054 00000022 		.4byte	.LFE8-.LFB8
+ 2635 0058 00000000 		.4byte	.LFB9
+ 2636 005c 00000024 		.4byte	.LFE9-.LFB9
+ 2637 0060 00000000 		.4byte	.LFB10
+ 2638 0064 00000022 		.4byte	.LFE10-.LFB10
+ 2639 0068 00000000 		.4byte	.LFB11
+ 2640 006c 00000038 		.4byte	.LFE11-.LFB11
+ 2641 0070 00000000 		.4byte	.LFB12
+ 2642 0074 0000000C 		.4byte	.LFE12-.LFB12
+ 2643 0078 00000000 		.4byte	.LFB13
+ 2644 007c 00000072 		.4byte	.LFE13-.LFB13
+ 2645 0080 00000000 		.4byte	.LFB14
+ 2646 0084 00000056 		.4byte	.LFE14-.LFB14
+ 2647 0088 00000000 		.4byte	.LFB15
+ 2648 008c 00000030 		.4byte	.LFE15-.LFB15
+ 2649 0090 00000000 		.4byte	.LFB16
+ 2650 0094 0000002E 		.4byte	.LFE16-.LFB16
+ 2651 0098 00000000 		.4byte	.LFB17
+ 2652 009c 0000002E 		.4byte	.LFE17-.LFB17
+ 2653 00a0 00000000 		.4byte	.LFB18
+ 2654 00a4 0000002E 		.4byte	.LFE18-.LFB18
+ 2655 00a8 00000000 		.4byte	.LFB19
+ 2656 00ac 0000002A 		.4byte	.LFE19-.LFB19
+ 2657 00b0 00000000 		.4byte	.LFB20
+ 2658 00b4 0000002A 		.4byte	.LFE20-.LFB20
+ 2659 00b8 00000000 		.4byte	.LFB21
+ 2660 00bc 0000002A 		.4byte	.LFE21-.LFB21
+ 2661 00c0 00000000 		.4byte	.LFB22
+ 2662 00c4 0000001E 		.4byte	.LFE22-.LFB22
+ 2663 00c8 00000000 		.4byte	.LFB23
+ 2664 00cc 0000001E 		.4byte	.LFE23-.LFB23
+ 2665 00d0 00000000 		.4byte	.LFB24
+ 2666 00d4 0000001E 		.4byte	.LFE24-.LFB24
+ 2667 00d8 00000000 		.4byte	.LFB25
+ 2668 00dc 0000001E 		.4byte	.LFE25-.LFB25
+ 2669 00e0 00000000 		.4byte	.LFB26
+ 2670 00e4 0000006C 		.4byte	.LFE26-.LFB26
+ 2671 00e8 00000000 		.4byte	0
+ 2672 00ec 00000000 		.4byte	0
+ 2673              		.section	.debug_ranges,"",@progbits
+ 2674              	.Ldebug_ranges0:
+ 2675 0000 00000000 		.4byte	.LFB0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 48
+
+
+ 2676 0004 00000000 		.4byte	.LFE0
+ 2677 0008 00000000 		.4byte	.LFB1
+ 2678 000c 00000000 		.4byte	.LFE1
+ 2679 0010 00000000 		.4byte	.LFB2
+ 2680 0014 00000000 		.4byte	.LFE2
+ 2681 0018 00000000 		.4byte	.LFB3
+ 2682 001c 00000000 		.4byte	.LFE3
+ 2683 0020 00000000 		.4byte	.LFB4
+ 2684 0024 00000000 		.4byte	.LFE4
+ 2685 0028 00000000 		.4byte	.LFB5
+ 2686 002c 00000000 		.4byte	.LFE5
+ 2687 0030 00000000 		.4byte	.LFB6
+ 2688 0034 00000000 		.4byte	.LFE6
+ 2689 0038 00000000 		.4byte	.LFB7
+ 2690 003c 00000000 		.4byte	.LFE7
+ 2691 0040 00000000 		.4byte	.LFB8
+ 2692 0044 00000000 		.4byte	.LFE8
+ 2693 0048 00000000 		.4byte	.LFB9
+ 2694 004c 00000000 		.4byte	.LFE9
+ 2695 0050 00000000 		.4byte	.LFB10
+ 2696 0054 00000000 		.4byte	.LFE10
+ 2697 0058 00000000 		.4byte	.LFB11
+ 2698 005c 00000000 		.4byte	.LFE11
+ 2699 0060 00000000 		.4byte	.LFB12
+ 2700 0064 00000000 		.4byte	.LFE12
+ 2701 0068 00000000 		.4byte	.LFB13
+ 2702 006c 00000000 		.4byte	.LFE13
+ 2703 0070 00000000 		.4byte	.LFB14
+ 2704 0074 00000000 		.4byte	.LFE14
+ 2705 0078 00000000 		.4byte	.LFB15
+ 2706 007c 00000000 		.4byte	.LFE15
+ 2707 0080 00000000 		.4byte	.LFB16
+ 2708 0084 00000000 		.4byte	.LFE16
+ 2709 0088 00000000 		.4byte	.LFB17
+ 2710 008c 00000000 		.4byte	.LFE17
+ 2711 0090 00000000 		.4byte	.LFB18
+ 2712 0094 00000000 		.4byte	.LFE18
+ 2713 0098 00000000 		.4byte	.LFB19
+ 2714 009c 00000000 		.4byte	.LFE19
+ 2715 00a0 00000000 		.4byte	.LFB20
+ 2716 00a4 00000000 		.4byte	.LFE20
+ 2717 00a8 00000000 		.4byte	.LFB21
+ 2718 00ac 00000000 		.4byte	.LFE21
+ 2719 00b0 00000000 		.4byte	.LFB22
+ 2720 00b4 00000000 		.4byte	.LFE22
+ 2721 00b8 00000000 		.4byte	.LFB23
+ 2722 00bc 00000000 		.4byte	.LFE23
+ 2723 00c0 00000000 		.4byte	.LFB24
+ 2724 00c4 00000000 		.4byte	.LFE24
+ 2725 00c8 00000000 		.4byte	.LFB25
+ 2726 00cc 00000000 		.4byte	.LFE25
+ 2727 00d0 00000000 		.4byte	.LFB26
+ 2728 00d4 00000000 		.4byte	.LFE26
+ 2729 00d8 00000000 		.4byte	0
+ 2730 00dc 00000000 		.4byte	0
+ 2731              		.section	.debug_line,"",@progbits
+ 2732              	.Ldebug_line0:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 49
+
+
+ 2733 0000 00000480 		.section	.debug_str,"MS",@progbits,1
+ 2733      00020000 
+ 2733      020D0201 
+ 2733      FB0E0D00 
+ 2733      01010101 
+ 2734              	.LASF32:
+ 2735 0000 7469636B 		.string	"ticks"
+ 2735      7300
+ 2736              	.LASF42:
+ 2737 0006 6F73616C 		.string	"osalThreadDelayMilliseconds"
+ 2737      54687265 
+ 2737      61644465 
+ 2737      6C61794D 
+ 2737      696C6C69 
+ 2738              	.LASF39:
+ 2739 0022 6F73616C 		.string	"osalSysTimeReset"
+ 2739      53797354 
+ 2739      696D6552 
+ 2739      65736574 
+ 2739      00
+ 2740              	.LASF58:
+ 2741 0033 2E2F636F 		.string	"./components/spc582bxx_osal_component_rla/lib/src/osal.c"
+ 2741      6D706F6E 
+ 2741      656E7473 
+ 2741      2F737063 
+ 2741      35383262 
+ 2742              	.LASF4:
+ 2743 006c 73686F72 		.string	"short int"
+ 2743      7420696E 
+ 2743      7400
+ 2744              	.LASF9:
+ 2745 0076 73697A65 		.string	"sizetype"
+ 2745      74797065 
+ 2745      00
+ 2746              	.LASF50:
+ 2747 007f 6F73616C 		.string	"osalExitCriticalFromISR"
+ 2747      45786974 
+ 2747      43726974 
+ 2747      6963616C 
+ 2747      46726F6D 
+ 2748              	.LASF33:
+ 2749 0097 6F73616C 		.string	"osalSysTime_ST2MS"
+ 2749      53797354 
+ 2749      696D655F 
+ 2749      5354324D 
+ 2749      5300
+ 2750              	.LASF11:
+ 2751 00a9 5F5F7569 		.string	"__uint32_t"
+ 2751      6E743332 
+ 2751      5F7400
+ 2752              	.LASF18:
+ 2753 00b4 64656C61 		.string	"delayTicks"
+ 2753      79546963 
+ 2753      6B7300
+ 2754              	.LASF52:
+ 2755 00bf 6F73616C 		.string	"osalTimeOps"
+ 2755      54696D65 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 50
+
+
+ 2755      4F707300 
+ 2756              	.LASF29:
+ 2757 00cb 6F73616C 		.string	"osalSysTime_US2ST"
+ 2757      53797354 
+ 2757      696D655F 
+ 2757      55533253 
+ 2757      5400
+ 2758              	.LASF26:
+ 2759 00dd 7469636B 		.string	"ticks_per_sec"
+ 2759      735F7065 
+ 2759      725F7365 
+ 2759      6300
+ 2760              	.LASF13:
+ 2761 00eb 6F73616C 		.string	"osalsystime_t"
+ 2761      73797374 
+ 2761      696D655F 
+ 2761      7400
+ 2762              	.LASF14:
+ 2763 00f9 64656C61 		.string	"delayTicks_t"
+ 2763      79546963 
+ 2763      6B735F74 
+ 2763      00
+ 2764              	.LASF41:
+ 2765 0106 6F73616C 		.string	"osalThreadDelaySeconds"
+ 2765      54687265 
+ 2765      61644465 
+ 2765      6C617953 
+ 2765      65636F6E 
+ 2766              	.LASF34:
+ 2767 011d 6F73616C 		.string	"osalSysTime_ST2US"
+ 2767      53797354 
+ 2767      696D655F 
+ 2767      53543255 
+ 2767      5300
+ 2768              	.LASF17:
+ 2769 012f 65786974 		.string	"exitCritical_t"
+ 2769      43726974 
+ 2769      6963616C 
+ 2769      5F7400
+ 2770              	.LASF19:
+ 2771 013e 67657454 		.string	"getTicks"
+ 2771      69636B73 
+ 2771      00
+ 2772              	.LASF55:
+ 2773 0147 6F73616C 		.string	"osalIsrCnt"
+ 2773      49737243 
+ 2773      6E7400
+ 2774              	.LASF38:
+ 2775 0152 6F73616C 		.string	"osalIsrEnable"
+ 2775      49737245 
+ 2775      6E61626C 
+ 2775      6500
+ 2776              	.LASF7:
+ 2777 0160 6C6F6E67 		.string	"long long int"
+ 2777      206C6F6E 
+ 2777      6720696E 
+ 2777      7400
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 51
+
+
+ 2778              	.LASF1:
+ 2779 016e 6C6F6E67 		.string	"long int"
+ 2779      20696E74 
+ 2779      00
+ 2780              	.LASF27:
+ 2781 0177 6F73616C 		.string	"osalSysTime_MS2ST"
+ 2781      53797354 
+ 2781      696D655F 
+ 2781      4D533253 
+ 2781      5400
+ 2782              	.LASF21:
+ 2783 0189 65786974 		.string	"exitCritical"
+ 2783      43726974 
+ 2783      6963616C 
+ 2783      00
+ 2784              	.LASF15:
+ 2785 0196 67657454 		.string	"getTicks_t"
+ 2785      69636B73 
+ 2785      5F7400
+ 2786              	.LASF44:
+ 2787 01a1 6F73616C 		.string	"osalThreadGetSeconds"
+ 2787      54687265 
+ 2787      61644765 
+ 2787      74536563 
+ 2787      6F6E6473 
+ 2788              	.LASF47:
+ 2789 01b6 6F73616C 		.string	"osalEnterCritical"
+ 2789      456E7465 
+ 2789      72437269 
+ 2789      74696361 
+ 2789      6C00
+ 2790              	.LASF51:
+ 2791 01c8 6F73616C 		.string	"osalInit"
+ 2791      496E6974 
+ 2791      00
+ 2792              	.LASF56:
+ 2793 01d1 6F73616C 		.string	"osalIsExtIntEnable"
+ 2793      49734578 
+ 2793      74496E74 
+ 2793      456E6162 
+ 2793      6C6500
+ 2794              	.LASF3:
+ 2795 01e4 756E7369 		.string	"unsigned char"
+ 2795      676E6564 
+ 2795      20636861 
+ 2795      7200
+ 2796              	.LASF60:
+ 2797 01f2 6F73616C 		.string	"osalTime_s"
+ 2797      54696D65 
+ 2797      5F7300
+ 2798              	.LASF22:
+ 2799 01fd 6F73616C 		.string	"osalTime_t"
+ 2799      54696D65 
+ 2799      5F7400
+ 2800              	.LASF54:
+ 2801 0208 6F73616C 		.string	"osalsystime"
+ 2801      73797374 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 52
+
+
+ 2801      696D6500 
+ 2802              	.LASF2:
+ 2803 0214 7369676E 		.string	"signed char"
+ 2803      65642063 
+ 2803      68617200 
+ 2804              	.LASF8:
+ 2805 0220 6C6F6E67 		.string	"long long unsigned int"
+ 2805      206C6F6E 
+ 2805      6720756E 
+ 2805      7369676E 
+ 2805      65642069 
+ 2806              	.LASF12:
+ 2807 0237 75696E74 		.string	"uint32_t"
+ 2807      33325F74 
+ 2807      00
+ 2808              	.LASF61:
+ 2809 0240 6F73616C 		.string	"osalSysTimeSetup"
+ 2809      53797354 
+ 2809      696D6553 
+ 2809      65747570 
+ 2809      00
+ 2810              	.LASF0:
+ 2811 0251 756E7369 		.string	"unsigned int"
+ 2811      676E6564 
+ 2811      20696E74 
+ 2811      00
+ 2812              	.LASF35:
+ 2813 025e 63757272 		.string	"current"
+ 2813      656E7400 
+ 2814              	.LASF23:
+ 2815 0266 69727147 		.string	"irqGetMsr"
+ 2815      65744D73 
+ 2815      7200
+ 2816              	.LASF49:
+ 2817 0270 6F73616C 		.string	"osalEnterCriticalFromISR"
+ 2817      456E7465 
+ 2817      72437269 
+ 2817      74696361 
+ 2817      6C46726F 
+ 2818              	.LASF5:
+ 2819 0289 73686F72 		.string	"short unsigned int"
+ 2819      7420756E 
+ 2819      7369676E 
+ 2819      65642069 
+ 2819      6E7400
+ 2820              	.LASF10:
+ 2821 029c 63686172 		.string	"char"
+ 2821      00
+ 2822              	.LASF48:
+ 2823 02a1 6F73616C 		.string	"osalExitCritical"
+ 2823      45786974 
+ 2823      43726974 
+ 2823      6963616C 
+ 2823      00
+ 2824              	.LASF59:
+ 2825 02b2 433A5C41 		.string	"C:\\AutoDevKitStudio-2.1\\workspace\\AutoDevKitCarV1"
+ 2825      75746F44 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 53
+
+
+ 2825      65764B69 
+ 2825      74537475 
+ 2825      64696F2D 
+ 2826              	.LASF53:
+ 2827 02e4 6F73616C 		.string	"osal_ticks_per_sec"
+ 2827      5F746963 
+ 2827      6B735F70 
+ 2827      65725F73 
+ 2827      656300
+ 2828              	.LASF45:
+ 2829 02f7 6F73616C 		.string	"osalThreadGetMilliseconds"
+ 2829      54687265 
+ 2829      61644765 
+ 2829      744D696C 
+ 2829      6C697365 
+ 2830              	.LASF25:
+ 2831 0311 6F73616C 		.string	"osalSysTime_S2ST"
+ 2831      53797354 
+ 2831      696D655F 
+ 2831      53325354 
+ 2831      00
+ 2832              	.LASF43:
+ 2833 0322 6F73616C 		.string	"osalThreadDelayMicroseconds"
+ 2833      54687265 
+ 2833      61644465 
+ 2833      6C61794D 
+ 2833      6963726F 
+ 2834              	.LASF20:
+ 2835 033e 656E7465 		.string	"enterCritical"
+ 2835      72437269 
+ 2835      74696361 
+ 2835      6C00
+ 2836              	.LASF40:
+ 2837 034c 76656374 		.string	"vector226"
+ 2837      6F723232 
+ 2837      3600
+ 2838              	.LASF6:
+ 2839 0356 6C6F6E67 		.string	"long unsigned int"
+ 2839      20756E73 
+ 2839      69676E65 
+ 2839      6420696E 
+ 2839      7400
+ 2840              	.LASF62:
+ 2841 0368 6F73616C 		.string	"osalSysTimeDelayTicks"
+ 2841      53797354 
+ 2841      696D6544 
+ 2841      656C6179 
+ 2841      5469636B 
+ 2842              	.LASF57:
+ 2843 037e 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 2843      4320342E 
+ 2843      392E3420 
+ 2843      32303136 
+ 2843      30373236 
+ 2844 03ba 75696C64 		.ascii	"uild.sh"
+ 2844      2E7368
+ 2845 03c1 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 54
+
+
+ 2845      3D676438 
+ 2845      62366332 
+ 2845      3020733D 
+ 2845      46343934 
+ 2846              	.LASF36:
+ 2847 04c2 6F73616C 		.string	"osalSysTimeInit"
+ 2847      53797354 
+ 2847      696D6549 
+ 2847      6E697400 
+ 2848              	.LASF31:
+ 2849 04d2 6F73616C 		.string	"osalSysTime_ST2S"
+ 2849      53797354 
+ 2849      696D655F 
+ 2849      53543253 
+ 2849      00
+ 2850              	.LASF63:
+ 2851 04e3 6F73616C 		.string	"osalSysTimeGetTicks"
+ 2851      53797354 
+ 2851      696D6547 
+ 2851      65745469 
+ 2851      636B7300 
+ 2852              	.LASF46:
+ 2853 04f7 6F73616C 		.string	"osalThreadGetMicroseconds"
+ 2853      54687265 
+ 2853      61644765 
+ 2853      744D6963 
+ 2853      726F7365 
+ 2854              	.LASF30:
+ 2855 0511 75736563 		.string	"usec"
+ 2855      00
+ 2856              	.LASF16:
+ 2857 0516 656E7465 		.string	"enterCritical_t"
+ 2857      72437269 
+ 2857      74696361 
+ 2857      6C5F7400 
+ 2858              	.LASF24:
+ 2859 0526 69727147 		.string	"irqGetExtIntEnable"
+ 2859      65744578 
+ 2859      74496E74 
+ 2859      456E6162 
+ 2859      6C6500
+ 2860              	.LASF28:
+ 2861 0539 6D736563 		.string	"msec"
+ 2861      00
+ 2862              	.LASF37:
+ 2863 053e 6F73616C 		.string	"osalIsrDisable"
+ 2863      49737244 
+ 2863      69736162 
+ 2863      6C6500
+ 2864              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cczORafq.s 			page 55
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 osal.c
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:9      .text.irqGetMsr:00000000 irqGetMsr
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:40     .text.irqGetExtIntEnable:00000000 irqGetExtIntEnable
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:72     .bss.osalTimeOps:00000000 osalTimeOps
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:78     .bss.osal_ticks_per_sec:00000000 osal_ticks_per_sec
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:84     .bss.osalsystime:00000000 osalsystime
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:90     .bss.osalIsrCnt:00000000 osalIsrCnt
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:96     .bss.osalIsExtIntEnable:00000000 osalIsExtIntEnable
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:103    .text.osalSysTimeSetup:00000000 osalSysTimeSetup
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:141    .text.osalSysTimeReset:00000000 osalSysTimeReset
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:167    .text.osalSysTime_S2ST:00000000 osalSysTime_S2ST
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:193    .text.osalSysTime_MS2ST:00000000 osalSysTime_MS2ST
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:239    .text.osalSysTime_US2ST:00000000 osalSysTime_US2ST
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:285    .text.osalSysTime_ST2S:00000000 osalSysTime_ST2S
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:311    .text.osalSysTime_ST2MS:00000000 osalSysTime_ST2MS
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:339    .text.osalSysTime_ST2US:00000000 osalSysTime_ST2US
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:368    .text.osalSysTimeInit:00000000 osalSysTimeInit
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:399    .text.osalSysTimeDelayTicks:00000000 osalSysTimeDelayTicks
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:437    .text.osalSysTimeGetTicks:00000000 osalSysTimeGetTicks
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:454    .text.osalIsrDisable:00000000 osalIsrDisable
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:512    .text.osalIsrEnable:00000000 osalIsrEnable
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:555    .text.vector226:00000000 vector226
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:882    .text.osalEnterCriticalFromISR:00000000 osalEnterCriticalFromISR
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:913    .text.osalExitCriticalFromISR:00000000 osalExitCriticalFromISR
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:592    .text.osalThreadDelaySeconds:00000000 osalThreadDelaySeconds
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:632    .text.osalThreadDelayMilliseconds:00000000 osalThreadDelayMilliseconds
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:672    .text.osalThreadDelayMicroseconds:00000000 osalThreadDelayMicroseconds
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:712    .text.osalThreadGetSeconds:00000000 osalThreadGetSeconds
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:748    .text.osalThreadGetMilliseconds:00000000 osalThreadGetMilliseconds
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:784    .text.osalThreadGetMicroseconds:00000000 osalThreadGetMicroseconds
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:820    .text.osalEnterCritical:00000000 osalEnterCritical
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:851    .text.osalExitCritical:00000000 osalExitCritical
+C:\Users\nascapro\AppData\Local\Temp\cczORafq.s:944    .text.osalInit:00000000 osalInit
+
+UNDEFINED SYMBOLS
+sysTimeSetup
+sysTimeReset
+memset

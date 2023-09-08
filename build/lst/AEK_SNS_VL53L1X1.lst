@@ -1,0 +1,3222 @@
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 1
+
+
+   1              		.file	"AEK_SNS_VL53L1X1.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.globl methods_available
+   6              		.section	.bss.methods_available,"aw",@nobits
+   7              		.type	methods_available, @object
+   8              		.size	methods_available, 1
+   9              	methods_available:
+  10 0000 00       		.zero	1
+  11              		.globl AEK_TOF_METHODS
+  12              		.section	.bss.AEK_TOF_METHODS,"aw",@nobits
+  13              		.align 2
+  14              		.type	AEK_TOF_METHODS, @object
+  15              		.size	AEK_TOF_METHODS, 204
+  16              	AEK_TOF_METHODS:
+  17 0000 00000000 		.zero	204
+  17      00000000 
+  17      00000000 
+  17      00000000 
+  17      00000000 
+  18              		.section	.text.fillMethodsStructULD,"axv",@progbits
+  19              		.align 1
+  20              		.p2align 4,,15
+  21              		.globl fillMethodsStructULD
+  22              		.type	fillMethodsStructULD, @function
+  23              	fillMethodsStructULD:
+  24              	.LFB2:
+  25              		.file 1 "./components/aek_sns_vl53l1x1_component_rla/lib/src/AEK_SNS_VL53L1X1.c"
+  26              		.loc 1 29 0
+  27              		.cfi_startproc
+  28 0000 182106F0 		e_stwu %r1,-16(%r1)
+  29              	.LCFI0:
+  30              		.cfi_def_cfa_offset 16
+  31 0004 D231     		se_stw %r3,8(%r1)
+  32              		.loc 1 30 0
+  33 0006 C271     		se_lwz %r7,8(%r1)
+  34 0008 70C0E000 		e_lis %r6,ULD_GetIRQSensorState@ha
+  35 000c 1CC60000 		e_la %r6,ULD_GetIRQSensorState@l(%r6)
+  36 0010 D267     		se_stw %r6,8(%r7)
+  37              		.loc 1 31 0
+  38 0012 C271     		se_lwz %r7,8(%r1)
+  39 0014 70C0E000 		e_lis %r6,ULD_SetIRQSensorState@ha
+  40 0018 1CC60000 		e_la %r6,ULD_SetIRQSensorState@l(%r6)
+  41 001c D167     		se_stw %r6,4(%r7)
+  42              		.loc 1 32 0
+  43 001e C271     		se_lwz %r7,8(%r1)
+  44 0020 70C0E000 		e_lis %r6,ULD_TurnOnSensor@ha
+  45 0024 1CC60000 		e_la %r6,ULD_TurnOnSensor@l(%r6)
+  46 0028 D367     		se_stw %r6,12(%r7)
+  47              		.loc 1 33 0
+  48 002a C271     		se_lwz %r7,8(%r1)
+  49 002c 70C0E000 		e_lis %r6,ULD_TurnOffSensor@ha
+  50 0030 1CC60000 		e_la %r6,ULD_TurnOffSensor@l(%r6)
+  51 0034 D467     		se_stw %r6,16(%r7)
+  52              		.loc 1 34 0
+  53 0036 C271     		se_lwz %r7,8(%r1)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 2
+
+
+  54 0038 70C0E000 		e_lis %r6,ULD_TurnOffAllSensors@ha
+  55 003c 1CC60000 		e_la %r6,ULD_TurnOffAllSensors@l(%r6)
+  56 0040 D667     		se_stw %r6,24(%r7)
+  57              		.loc 1 35 0
+  58 0042 C271     		se_lwz %r7,8(%r1)
+  59 0044 70C0E000 		e_lis %r6,ULD_TurnOnAllSensors@ha
+  60 0048 1CC60000 		e_la %r6,ULD_TurnOnAllSensors@l(%r6)
+  61 004c D567     		se_stw %r6,20(%r7)
+  62              		.loc 1 36 0
+  63 004e C271     		se_lwz %r7,8(%r1)
+  64 0050 70C0E000 		e_lis %r6,ULD_GetSWVersion@ha
+  65 0054 1CC60000 		e_la %r6,ULD_GetSWVersion@l(%r6)
+  66 0058 D767     		se_stw %r6,28(%r7)
+  67              		.loc 1 37 0
+  68 005a C271     		se_lwz %r7,8(%r1)
+  69 005c 70C0E000 		e_lis %r6,ULD_SetI2CAddress@ha
+  70 0060 1CC60000 		e_la %r6,ULD_SetI2CAddress@l(%r6)
+  71 0064 D867     		se_stw %r6,32(%r7)
+  72              		.loc 1 38 0
+  73 0066 C271     		se_lwz %r7,8(%r1)
+  74 0068 70C0E000 		e_lis %r6,ULD_SensorInit@ha
+  75 006c 1CC60000 		e_la %r6,ULD_SensorInit@l(%r6)
+  76 0070 D967     		se_stw %r6,36(%r7)
+  77              		.loc 1 39 0
+  78 0072 C271     		se_lwz %r7,8(%r1)
+  79 0074 70C0E000 		e_lis %r6,ULD_ClearInterrupt@ha
+  80 0078 1CC60000 		e_la %r6,ULD_ClearInterrupt@l(%r6)
+  81 007c DA67     		se_stw %r6,40(%r7)
+  82              		.loc 1 40 0
+  83 007e C271     		se_lwz %r7,8(%r1)
+  84 0080 70C0E000 		e_lis %r6,ULD_SetInterruptPolarity@ha
+  85 0084 1CC60000 		e_la %r6,ULD_SetInterruptPolarity@l(%r6)
+  86 0088 DB67     		se_stw %r6,44(%r7)
+  87              		.loc 1 41 0
+  88 008a C271     		se_lwz %r7,8(%r1)
+  89 008c 70C0E000 		e_lis %r6,ULD_GetInterruptPolarity@ha
+  90 0090 1CC60000 		e_la %r6,ULD_GetInterruptPolarity@l(%r6)
+  91 0094 DC67     		se_stw %r6,48(%r7)
+  92              		.loc 1 42 0
+  93 0096 C271     		se_lwz %r7,8(%r1)
+  94 0098 70C0E000 		e_lis %r6,ULD_StartRanging@ha
+  95 009c 1CC60000 		e_la %r6,ULD_StartRanging@l(%r6)
+  96 00a0 DD67     		se_stw %r6,52(%r7)
+  97              		.loc 1 43 0
+  98 00a2 C271     		se_lwz %r7,8(%r1)
+  99 00a4 70C0E000 		e_lis %r6,ULD_StopRanging@ha
+ 100 00a8 1CC60000 		e_la %r6,ULD_StopRanging@l(%r6)
+ 101 00ac DE67     		se_stw %r6,56(%r7)
+ 102              		.loc 1 44 0
+ 103 00ae C271     		se_lwz %r7,8(%r1)
+ 104 00b0 70C0E000 		e_lis %r6,ULD_CheckForDataReady@ha
+ 105 00b4 1CC60000 		e_la %r6,ULD_CheckForDataReady@l(%r6)
+ 106 00b8 DF67     		se_stw %r6,60(%r7)
+ 107              		.loc 1 45 0
+ 108 00ba C271     		se_lwz %r7,8(%r1)
+ 109 00bc 70C0E000 		e_lis %r6,ULD_SetTimingBudgetInMs@ha
+ 110 00c0 1CC60000 		e_la %r6,ULD_SetTimingBudgetInMs@l(%r6)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 3
+
+
+ 111 00c4 54C70040 		e_stw %r6,64(%r7)
+ 112              		.loc 1 46 0
+ 113 00c8 C271     		se_lwz %r7,8(%r1)
+ 114 00ca 70C0E000 		e_lis %r6,ULD_GetTimingBudgetInMs@ha
+ 115 00ce 1CC60000 		e_la %r6,ULD_GetTimingBudgetInMs@l(%r6)
+ 116 00d2 54C70044 		e_stw %r6,68(%r7)
+ 117              		.loc 1 47 0
+ 118 00d6 C271     		se_lwz %r7,8(%r1)
+ 119 00d8 70C0E000 		e_lis %r6,ULD_SetDistanceMode@ha
+ 120 00dc 1CC60000 		e_la %r6,ULD_SetDistanceMode@l(%r6)
+ 121 00e0 54C70048 		e_stw %r6,72(%r7)
+ 122              		.loc 1 48 0
+ 123 00e4 C271     		se_lwz %r7,8(%r1)
+ 124 00e6 70C0E000 		e_lis %r6,ULD_GetDistanceMode@ha
+ 125 00ea 1CC60000 		e_la %r6,ULD_GetDistanceMode@l(%r6)
+ 126 00ee 54C7004C 		e_stw %r6,76(%r7)
+ 127              		.loc 1 49 0
+ 128 00f2 C271     		se_lwz %r7,8(%r1)
+ 129 00f4 70C0E000 		e_lis %r6,ULD_SetInterMeasurementInMs@ha
+ 130 00f8 1CC60000 		e_la %r6,ULD_SetInterMeasurementInMs@l(%r6)
+ 131 00fc 54C70050 		e_stw %r6,80(%r7)
+ 132              		.loc 1 50 0
+ 133 0100 C271     		se_lwz %r7,8(%r1)
+ 134 0102 70C0E000 		e_lis %r6,ULD_GetInterMeasurementInMs@ha
+ 135 0106 1CC60000 		e_la %r6,ULD_GetInterMeasurementInMs@l(%r6)
+ 136 010a 54C70054 		e_stw %r6,84(%r7)
+ 137              		.loc 1 51 0
+ 138 010e C271     		se_lwz %r7,8(%r1)
+ 139 0110 70C0E000 		e_lis %r6,ULD_BootState@ha
+ 140 0114 1CC60000 		e_la %r6,ULD_BootState@l(%r6)
+ 141 0118 54C70058 		e_stw %r6,88(%r7)
+ 142              		.loc 1 52 0
+ 143 011c C271     		se_lwz %r7,8(%r1)
+ 144 011e 70C0E000 		e_lis %r6,ULD_GetSensorId@ha
+ 145 0122 1CC60000 		e_la %r6,ULD_GetSensorId@l(%r6)
+ 146 0126 54C7005C 		e_stw %r6,92(%r7)
+ 147              		.loc 1 53 0
+ 148 012a C271     		se_lwz %r7,8(%r1)
+ 149 012c 70C0E000 		e_lis %r6,ULD_GetDistance@ha
+ 150 0130 1CC60000 		e_la %r6,ULD_GetDistance@l(%r6)
+ 151 0134 54C70060 		e_stw %r6,96(%r7)
+ 152              		.loc 1 54 0
+ 153 0138 C271     		se_lwz %r7,8(%r1)
+ 154 013a 70C0E000 		e_lis %r6,ULD_GetSignalPerSpad@ha
+ 155 013e 1CC60000 		e_la %r6,ULD_GetSignalPerSpad@l(%r6)
+ 156 0142 54C70064 		e_stw %r6,100(%r7)
+ 157              		.loc 1 55 0
+ 158 0146 C271     		se_lwz %r7,8(%r1)
+ 159 0148 70C0E000 		e_lis %r6,ULD_GetAmbientPerSpad@ha
+ 160 014c 1CC60000 		e_la %r6,ULD_GetAmbientPerSpad@l(%r6)
+ 161 0150 54C70068 		e_stw %r6,104(%r7)
+ 162              		.loc 1 56 0
+ 163 0154 C271     		se_lwz %r7,8(%r1)
+ 164 0156 70C0E000 		e_lis %r6,ULD_GetSignalRate@ha
+ 165 015a 1CC60000 		e_la %r6,ULD_GetSignalRate@l(%r6)
+ 166 015e 54C7006C 		e_stw %r6,108(%r7)
+ 167              		.loc 1 57 0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 4
+
+
+ 168 0162 C271     		se_lwz %r7,8(%r1)
+ 169 0164 70C0E000 		e_lis %r6,ULD_GetSpadNb@ha
+ 170 0168 1CC60000 		e_la %r6,ULD_GetSpadNb@l(%r6)
+ 171 016c 54C70070 		e_stw %r6,112(%r7)
+ 172              		.loc 1 58 0
+ 173 0170 C271     		se_lwz %r7,8(%r1)
+ 174 0172 70C0E000 		e_lis %r6,ULD_GetAmbientRate@ha
+ 175 0176 1CC60000 		e_la %r6,ULD_GetAmbientRate@l(%r6)
+ 176 017a 54C70074 		e_stw %r6,116(%r7)
+ 177              		.loc 1 59 0
+ 178 017e C271     		se_lwz %r7,8(%r1)
+ 179 0180 70C0E000 		e_lis %r6,ULD_GetRangeStatus@ha
+ 180 0184 1CC60000 		e_la %r6,ULD_GetRangeStatus@l(%r6)
+ 181 0188 54C70078 		e_stw %r6,120(%r7)
+ 182              		.loc 1 60 0
+ 183 018c C271     		se_lwz %r7,8(%r1)
+ 184 018e 70C0E000 		e_lis %r6,ULD_GetResult@ha
+ 185 0192 1CC60000 		e_la %r6,ULD_GetResult@l(%r6)
+ 186 0196 54C7007C 		e_stw %r6,124(%r7)
+ 187              		.loc 1 61 0
+ 188 019a C271     		se_lwz %r7,8(%r1)
+ 189 019c 70C0E000 		e_lis %r6,ULD_SetOffset@ha
+ 190 01a0 1CC60000 		e_la %r6,ULD_SetOffset@l(%r6)
+ 191 01a4 54C70080 		e_stw %r6,128(%r7)
+ 192              		.loc 1 62 0
+ 193 01a8 C271     		se_lwz %r7,8(%r1)
+ 194 01aa 70C0E000 		e_lis %r6,ULD_GetOffset@ha
+ 195 01ae 1CC60000 		e_la %r6,ULD_GetOffset@l(%r6)
+ 196 01b2 54C70084 		e_stw %r6,132(%r7)
+ 197              		.loc 1 63 0
+ 198 01b6 C271     		se_lwz %r7,8(%r1)
+ 199 01b8 70C0E000 		e_lis %r6,ULD_SetXtalk@ha
+ 200 01bc 1CC60000 		e_la %r6,ULD_SetXtalk@l(%r6)
+ 201 01c0 54C70088 		e_stw %r6,136(%r7)
+ 202              		.loc 1 64 0
+ 203 01c4 C271     		se_lwz %r7,8(%r1)
+ 204 01c6 70C0E000 		e_lis %r6,ULD_GetXtalk@ha
+ 205 01ca 1CC60000 		e_la %r6,ULD_GetXtalk@l(%r6)
+ 206 01ce 54C7008C 		e_stw %r6,140(%r7)
+ 207              		.loc 1 65 0
+ 208 01d2 C271     		se_lwz %r7,8(%r1)
+ 209 01d4 70C0E000 		e_lis %r6,ULD_SetDistanceThreshold@ha
+ 210 01d8 1CC60000 		e_la %r6,ULD_SetDistanceThreshold@l(%r6)
+ 211 01dc 54C70090 		e_stw %r6,144(%r7)
+ 212              		.loc 1 66 0
+ 213 01e0 C271     		se_lwz %r7,8(%r1)
+ 214 01e2 70C0E000 		e_lis %r6,ULD_GetDistanceThresholdWindow@ha
+ 215 01e6 1CC60000 		e_la %r6,ULD_GetDistanceThresholdWindow@l(%r6)
+ 216 01ea 54C70094 		e_stw %r6,148(%r7)
+ 217              		.loc 1 67 0
+ 218 01ee C271     		se_lwz %r7,8(%r1)
+ 219 01f0 70C0E000 		e_lis %r6,ULD_GetDistanceThresholdLow@ha
+ 220 01f4 1CC60000 		e_la %r6,ULD_GetDistanceThresholdLow@l(%r6)
+ 221 01f8 54C70098 		e_stw %r6,152(%r7)
+ 222              		.loc 1 68 0
+ 223 01fc C271     		se_lwz %r7,8(%r1)
+ 224 01fe 70C0E000 		e_lis %r6,ULD_GetDistanceThresholdHigh@ha
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 5
+
+
+ 225 0202 1CC60000 		e_la %r6,ULD_GetDistanceThresholdHigh@l(%r6)
+ 226 0206 54C7009C 		e_stw %r6,156(%r7)
+ 227              		.loc 1 69 0
+ 228 020a C271     		se_lwz %r7,8(%r1)
+ 229 020c 70C0E000 		e_lis %r6,ULD_SetROI@ha
+ 230 0210 1CC60000 		e_la %r6,ULD_SetROI@l(%r6)
+ 231 0214 54C700A0 		e_stw %r6,160(%r7)
+ 232              		.loc 1 70 0
+ 233 0218 C271     		se_lwz %r7,8(%r1)
+ 234 021a 70C0E000 		e_lis %r6,ULD_GetROI_XY@ha
+ 235 021e 1CC60000 		e_la %r6,ULD_GetROI_XY@l(%r6)
+ 236 0222 54C700A4 		e_stw %r6,164(%r7)
+ 237              		.loc 1 71 0
+ 238 0226 C271     		se_lwz %r7,8(%r1)
+ 239 0228 70C0E000 		e_lis %r6,ULD_SetROICenter@ha
+ 240 022c 1CC60000 		e_la %r6,ULD_SetROICenter@l(%r6)
+ 241 0230 54C700A8 		e_stw %r6,168(%r7)
+ 242              		.loc 1 72 0
+ 243 0234 C271     		se_lwz %r7,8(%r1)
+ 244 0236 70C0E000 		e_lis %r6,ULD_GetROICenter@ha
+ 245 023a 1CC60000 		e_la %r6,ULD_GetROICenter@l(%r6)
+ 246 023e 54C700AC 		e_stw %r6,172(%r7)
+ 247              		.loc 1 73 0
+ 248 0242 C271     		se_lwz %r7,8(%r1)
+ 249 0244 70C0E000 		e_lis %r6,ULD_SetSignalThreshold@ha
+ 250 0248 1CC60000 		e_la %r6,ULD_SetSignalThreshold@l(%r6)
+ 251 024c 54C700B0 		e_stw %r6,176(%r7)
+ 252              		.loc 1 74 0
+ 253 0250 C271     		se_lwz %r7,8(%r1)
+ 254 0252 70C0E000 		e_lis %r6,ULD_GetSignalThreshold@ha
+ 255 0256 1CC60000 		e_la %r6,ULD_GetSignalThreshold@l(%r6)
+ 256 025a 54C700B4 		e_stw %r6,180(%r7)
+ 257              		.loc 1 75 0
+ 258 025e C271     		se_lwz %r7,8(%r1)
+ 259 0260 70C0E000 		e_lis %r6,ULD_SetSigmaThreshold@ha
+ 260 0264 1CC60000 		e_la %r6,ULD_SetSigmaThreshold@l(%r6)
+ 261 0268 54C700B8 		e_stw %r6,184(%r7)
+ 262              		.loc 1 76 0
+ 263 026c C271     		se_lwz %r7,8(%r1)
+ 264 026e 70C0E000 		e_lis %r6,ULD_GetSigmaThreshold@ha
+ 265 0272 1CC60000 		e_la %r6,ULD_GetSigmaThreshold@l(%r6)
+ 266 0276 54C700BC 		e_stw %r6,188(%r7)
+ 267              		.loc 1 77 0
+ 268 027a C271     		se_lwz %r7,8(%r1)
+ 269 027c 70C0E000 		e_lis %r6,ULD_StartTemperatureUpdate@ha
+ 270 0280 1CC60000 		e_la %r6,ULD_StartTemperatureUpdate@l(%r6)
+ 271 0284 54C700C0 		e_stw %r6,192(%r7)
+ 272              		.loc 1 78 0
+ 273 0288 C271     		se_lwz %r7,8(%r1)
+ 274 028a 70C0E000 		e_lis %r6,ULD_CalibrateOffset@ha
+ 275 028e 1CC60000 		e_la %r6,ULD_CalibrateOffset@l(%r6)
+ 276 0292 54C700C4 		e_stw %r6,196(%r7)
+ 277              		.loc 1 79 0
+ 278 0296 C271     		se_lwz %r7,8(%r1)
+ 279 0298 70C0E000 		e_lis %r6,ULD_CalibrateXtalk@ha
+ 280 029c 1CC60000 		e_la %r6,ULD_CalibrateXtalk@l(%r6)
+ 281 02a0 54C700C8 		e_stw %r6,200(%r7)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 6
+
+
+ 282              		.loc 1 80 0
+ 283 02a4 20F1     		se_addi %r1,16
+ 284              	.LCFI1:
+ 285              		.cfi_def_cfa_offset 0
+ 286 02a6 0004     		se_blr
+ 287              		.cfi_endproc
+ 288              	.LFE2:
+ 289              		.size	fillMethodsStructULD, .-fillMethodsStructULD
+ 290              		.section	.text.AEK_TOF_CONFIG,"axv",@progbits
+ 291              		.align 1
+ 292              		.p2align 4,,15
+ 293              		.globl AEK_TOF_CONFIG
+ 294              		.type	AEK_TOF_CONFIG, @function
+ 295              	AEK_TOF_CONFIG:
+ 296              	.LFB3:
+ 297              		.loc 1 151 0
+ 298              		.cfi_startproc
+ 299 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 300              	.LCFI2:
+ 301              		.cfi_def_cfa_offset 24
+ 302 0004 0080     		se_mflr %r0
+ 303 0006 D701     		se_stw %r0,28(%r1)
+ 304              		.cfi_offset 65, 4
+ 305              		.loc 1 152 0
+ 306 0008 4807     		se_li %r7,0
+ 307 000a D271     		se_stw %r7,8(%r1)
+ 308              		.loc 1 153 0
+ 309              	 # 153 "./components/aek_sns_vl53l1x1_component_rla/lib/src/AEK_SNS_VL53L1X1.c" 1
+ 310 000c 7C008146 		wrteei  1
+ 311              	 # 0 "" 2
+ 312              		.loc 1 154 0
+ 313 0010 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@ha
+ 314 0014 50C70000 		e_lwz %r6,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@l(%r7)
+ 315 0018 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_CONFIGURATION@ha
+ 316 001c 50E70000 		e_lwz %r7,AEK_SNS_VL53L1X_I2C_ARRAY_CONFIGURATION@l(%r7)
+ 317 0020 0163     		se_mr %r3,%r6
+ 318 0022 0174     		se_mr %r4,%r7
+ 319 0024 78000001 		e_bl i2c_lld_start
+ 320              		.loc 1 156 0
+ 321 0028 70E0E000 		e_lis %r7,methods_available@ha
+ 322 002c 30E70000 		e_lbz %r7,methods_available@l(%r7)
+ 323 0030 00C7     		se_extzb %r7
+ 324 0032 2A07     		se_cmpi %r7,0
+ 325 0034 7F800020 		e_mcrf %cr7,%cr0
+ 326 0038 7CE00026 		mfcr %r7
+ 327 003c 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 328 0040 7CE80120 		mtcrf 128,%r7
+ 329 0044 7A020010 		e_bne %cr0,.L3
+ 330              		.loc 1 159 0
+ 331 0048 70E0E000 		e_lis %r7,AEK_TOF_METHODS@ha
+ 332 004c 1C670000 		e_la %r3,AEK_TOF_METHODS@l(%r7)
+ 333 0050 78000001 		e_bl fillMethodsStructULD
+ 334              	.L3:
+ 335              		.loc 1 164 0
+ 336 0054 4D27     		se_li %r7,82
+ 337 0056 9C71     		se_stb %r7,12(%r1)
+ 338              		.loc 1 167 0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 7
+
+
+ 339 0058 4807     		se_li %r7,0
+ 340 005a D471     		se_stw %r7,16(%r1)
+ 341 005c 7800004E 		e_b .L4
+ 342              	.L5:
+ 343              		.loc 1 169 0 discriminator 3
+ 344 0060 8C71     		se_lbz %r7,12(%r1)
+ 345 0062 2017     		se_addi %r7,2
+ 346 0064 9C71     		se_stb %r7,12(%r1)
+ 347              		.loc 1 170 0 discriminator 3
+ 348 0066 C441     		se_lwz %r4,16(%r1)
+ 349 0068 70E0E000 		e_lis %r7,XshutMatrix@ha
+ 350 006c C461     		se_lwz %r6,16(%r1)
+ 351 006e 6C16     		se_slwi %r6, 1
+ 352 0070 1CE70000 		e_la %r7,XshutMatrix@l(%r7)
+ 353 0074 7CE63A14 		add %r7,%r6,%r7
+ 354 0078 8077     		se_lbz %r7,0(%r7)
+ 355 007a 74E5063F 		e_rlwinm %r5,%r7,0,0xff
+ 356 007e 70E0E000 		e_lis %r7,XshutMatrix@ha
+ 357 0082 C461     		se_lwz %r6,16(%r1)
+ 358 0084 6C16     		se_slwi %r6, 1
+ 359 0086 1CE70000 		e_la %r7,XshutMatrix@l(%r7)
+ 360 008a 7CE63A14 		add %r7,%r6,%r7
+ 361 008e 2007     		se_addi %r7,1
+ 362 0090 8077     		se_lbz %r7,0(%r7)
+ 363 0092 00C7     		se_extzb %r7
+ 364 0094 8C61     		se_lbz %r6,12(%r1)
+ 365 0096 00C6     		se_extzb %r6
+ 366 0098 0143     		se_mr %r3,%r4
+ 367 009a 0164     		se_mr %r4,%r6
+ 368 009c 0176     		se_mr %r6,%r7
+ 369 009e 78000001 		e_bl ULD_CreateSensor
+ 370 00a2 D231     		se_stw %r3,8(%r1)
+ 371              		.loc 1 167 0 discriminator 3
+ 372 00a4 C471     		se_lwz %r7,16(%r1)
+ 373 00a6 2007     		se_addi %r7,1
+ 374 00a8 D471     		se_stw %r7,16(%r1)
+ 375              	.L4:
+ 376              		.loc 1 167 0 is_stmt 0 discriminator 1
+ 377 00aa C471     		se_lwz %r7,16(%r1)
+ 378 00ac 2A07     		se_cmpi %r7,0
+ 379 00ae 7F800020 		e_mcrf %cr7,%cr0
+ 380 00b2 7CE00026 		mfcr %r7
+ 381 00b6 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 382 00ba 7CE80120 		mtcrf 128,%r7
+ 383 00be 7A01FFA2 		e_ble %cr0,.L5
+ 384              		.loc 1 172 0 is_stmt 1
+ 385 00c2 C271     		se_lwz %r7,8(%r1)
+ 386              		.loc 1 181 0
+ 387 00c4 0173     		se_mr %r3,%r7
+ 388 00c6 C701     		se_lwz %r0,28(%r1)
+ 389 00c8 0090     		se_mtlr %r0
+ 390 00ca 2171     		se_addi %r1,24
+ 391              	.LCFI3:
+ 392              		.cfi_def_cfa_offset 0
+ 393 00cc 0004     		se_blr
+ 394              		.cfi_endproc
+ 395              	.LFE3:
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 8
+
+
+ 396              		.size	AEK_TOF_CONFIG, .-AEK_TOF_CONFIG
+ 397              		.section	".text","axv"
+ 398              	.Letext0:
+ 399              		.file 2 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 400              		.file 3 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 401              		.file 4 "./components/spc582bxx_low_level_drivers_component_rla/lib/include/i2c_lld.h"
+ 402              		.file 5 "./components/aek_sns_vl53l1x1_component_rla/cfg/AEK_SNS_VL53L1X1_cfg.h"
+ 403              		.file 6 "./components/aek_sns_vl53l1x1_component_rla/lib/include/uld_include/VL53L1X_api.h"
+ 404              		.file 7 "./components/aek_sns_vl53l1x1_component_rla/lib/include/uld_include/uld_api.h"
+ 405              		.section	.debug_info,"",@progbits
+ 406              	.Ldebug_info0:
+ 407 0000 00000A69 		.4byte	0xa69
+ 408 0004 0002     		.2byte	0x2
+ 409 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 410 000a 04       		.byte	0x4
+ 411 000b 01       		.uleb128 0x1
+ 412 000c 00000000 		.4byte	.LASF154
+ 413 0010 01       		.byte	0x1
+ 414 0011 00000000 		.4byte	.LASF155
+ 415 0015 00000000 		.4byte	.LASF156
+ 416 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 417 001d 00000000 		.4byte	0
+ 418 0021 00000000 		.4byte	0
+ 419 0025 00000000 		.4byte	.Ldebug_line0
+ 420 0029 02       		.uleb128 0x2
+ 421 002a 01       		.byte	0x1
+ 422 002b 06       		.byte	0x6
+ 423 002c 00000000 		.4byte	.LASF0
+ 424 0030 03       		.uleb128 0x3
+ 425 0031 00000000 		.4byte	.LASF2
+ 426 0035 02       		.byte	0x2
+ 427 0036 1D       		.byte	0x1d
+ 428 0037 0000003B 		.4byte	0x3b
+ 429 003b 02       		.uleb128 0x2
+ 430 003c 01       		.byte	0x1
+ 431 003d 08       		.byte	0x8
+ 432 003e 00000000 		.4byte	.LASF1
+ 433 0042 03       		.uleb128 0x3
+ 434 0043 00000000 		.4byte	.LASF3
+ 435 0047 02       		.byte	0x2
+ 436 0048 29       		.byte	0x29
+ 437 0049 0000004D 		.4byte	0x4d
+ 438 004d 02       		.uleb128 0x2
+ 439 004e 02       		.byte	0x2
+ 440 004f 05       		.byte	0x5
+ 441 0050 00000000 		.4byte	.LASF4
+ 442 0054 03       		.uleb128 0x3
+ 443 0055 00000000 		.4byte	.LASF5
+ 444 0059 02       		.byte	0x2
+ 445 005a 2B       		.byte	0x2b
+ 446 005b 0000005F 		.4byte	0x5f
+ 447 005f 02       		.uleb128 0x2
+ 448 0060 02       		.byte	0x2
+ 449 0061 07       		.byte	0x7
+ 450 0062 00000000 		.4byte	.LASF6
+ 451 0066 02       		.uleb128 0x2
+ 452 0067 04       		.byte	0x4
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 9
+
+
+ 453 0068 05       		.byte	0x5
+ 454 0069 00000000 		.4byte	.LASF7
+ 455 006d 03       		.uleb128 0x3
+ 456 006e 00000000 		.4byte	.LASF8
+ 457 0072 02       		.byte	0x2
+ 458 0073 41       		.byte	0x41
+ 459 0074 00000078 		.4byte	0x78
+ 460 0078 02       		.uleb128 0x2
+ 461 0079 04       		.byte	0x4
+ 462 007a 07       		.byte	0x7
+ 463 007b 00000000 		.4byte	.LASF9
+ 464 007f 02       		.uleb128 0x2
+ 465 0080 08       		.byte	0x8
+ 466 0081 05       		.byte	0x5
+ 467 0082 00000000 		.4byte	.LASF10
+ 468 0086 02       		.uleb128 0x2
+ 469 0087 08       		.byte	0x8
+ 470 0088 07       		.byte	0x7
+ 471 0089 00000000 		.4byte	.LASF11
+ 472 008d 04       		.uleb128 0x4
+ 473 008e 04       		.byte	0x4
+ 474 008f 05       		.byte	0x5
+ 475 0090 696E7400 		.string	"int"
+ 476 0094 02       		.uleb128 0x2
+ 477 0095 04       		.byte	0x4
+ 478 0096 07       		.byte	0x7
+ 479 0097 00000000 		.4byte	.LASF12
+ 480 009b 03       		.uleb128 0x3
+ 481 009c 00000000 		.4byte	.LASF13
+ 482 00a0 03       		.byte	0x3
+ 483 00a1 15       		.byte	0x15
+ 484 00a2 00000030 		.4byte	0x30
+ 485 00a6 03       		.uleb128 0x3
+ 486 00a7 00000000 		.4byte	.LASF14
+ 487 00ab 03       		.byte	0x3
+ 488 00ac 20       		.byte	0x20
+ 489 00ad 00000042 		.4byte	0x42
+ 490 00b1 03       		.uleb128 0x3
+ 491 00b2 00000000 		.4byte	.LASF15
+ 492 00b6 03       		.byte	0x3
+ 493 00b7 21       		.byte	0x21
+ 494 00b8 00000054 		.4byte	0x54
+ 495 00bc 03       		.uleb128 0x3
+ 496 00bd 00000000 		.4byte	.LASF16
+ 497 00c1 03       		.byte	0x3
+ 498 00c2 2D       		.byte	0x2d
+ 499 00c3 0000006D 		.4byte	0x6d
+ 500 00c7 05       		.uleb128 0x5
+ 501 00c8 0000009B 		.4byte	0x9b
+ 502 00cc 02       		.uleb128 0x2
+ 503 00cd 04       		.byte	0x4
+ 504 00ce 07       		.byte	0x7
+ 505 00cf 00000000 		.4byte	.LASF17
+ 506 00d3 03       		.uleb128 0x3
+ 507 00d4 00000000 		.4byte	.LASF18
+ 508 00d8 04       		.byte	0x4
+ 509 00d9 2D       		.byte	0x2d
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 10
+
+
+ 510 00da 000000DE 		.4byte	0xde
+ 511 00de 06       		.uleb128 0x6
+ 512 00df 00000000 		.4byte	.LASF18
+ 513 00e3 01       		.byte	0x1
+ 514 00e4 07       		.uleb128 0x7
+ 515 00e5 04       		.byte	0x4
+ 516 00e6 04       		.byte	0x4
+ 517 00e7 5A       		.byte	0x5a
+ 518 00e8 00000123 		.4byte	0x123
+ 519 00ec 08       		.uleb128 0x8
+ 520 00ed 00000000 		.4byte	.LASF19
+ 521 00f1 00       		.sleb128 0
+ 522 00f2 08       		.uleb128 0x8
+ 523 00f3 00000000 		.4byte	.LASF20
+ 524 00f7 7F       		.sleb128 -1
+ 525 00f8 08       		.uleb128 0x8
+ 526 00f9 00000000 		.4byte	.LASF21
+ 527 00fd 7E       		.sleb128 -2
+ 528 00fe 08       		.uleb128 0x8
+ 529 00ff 00000000 		.4byte	.LASF22
+ 530 0103 7D       		.sleb128 -3
+ 531 0104 08       		.uleb128 0x8
+ 532 0105 00000000 		.4byte	.LASF23
+ 533 0109 7C       		.sleb128 -4
+ 534 010a 08       		.uleb128 0x8
+ 535 010b 00000000 		.4byte	.LASF24
+ 536 010f 7B       		.sleb128 -5
+ 537 0110 08       		.uleb128 0x8
+ 538 0111 00000000 		.4byte	.LASF25
+ 539 0115 7A       		.sleb128 -6
+ 540 0116 08       		.uleb128 0x8
+ 541 0117 00000000 		.4byte	.LASF26
+ 542 011b 79       		.sleb128 -7
+ 543 011c 08       		.uleb128 0x8
+ 544 011d 00000000 		.4byte	.LASF27
+ 545 0121 78       		.sleb128 -8
+ 546 0122 00       		.byte	0
+ 547 0123 03       		.uleb128 0x3
+ 548 0124 00000000 		.4byte	.LASF28
+ 549 0128 04       		.byte	0x4
+ 550 0129 64       		.byte	0x64
+ 551 012a 000000E4 		.4byte	0xe4
+ 552 012e 07       		.uleb128 0x7
+ 553 012f 04       		.byte	0x4
+ 554 0130 05       		.byte	0x5
+ 555 0131 2A       		.byte	0x2a
+ 556 0132 0000013D 		.4byte	0x13d
+ 557 0136 08       		.uleb128 0x8
+ 558 0137 00000000 		.4byte	.LASF29
+ 559 013b 00       		.sleb128 0
+ 560 013c 00       		.byte	0
+ 561 013d 03       		.uleb128 0x3
+ 562 013e 00000000 		.4byte	.LASF30
+ 563 0142 05       		.byte	0x5
+ 564 0143 2D       		.byte	0x2d
+ 565 0144 0000012E 		.4byte	0x12e
+ 566 0148 07       		.uleb128 0x7
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 11
+
+
+ 567 0149 04       		.byte	0x4
+ 568 014a 05       		.byte	0x5
+ 569 014b 42       		.byte	0x42
+ 570 014c 0000015D 		.4byte	0x15d
+ 571 0150 08       		.uleb128 0x8
+ 572 0151 00000000 		.4byte	.LASF31
+ 573 0155 00       		.sleb128 0
+ 574 0156 08       		.uleb128 0x8
+ 575 0157 00000000 		.4byte	.LASF32
+ 576 015b 01       		.sleb128 1
+ 577 015c 00       		.byte	0
+ 578 015d 03       		.uleb128 0x3
+ 579 015e 00000000 		.4byte	.LASF33
+ 580 0162 05       		.byte	0x5
+ 581 0163 45       		.byte	0x45
+ 582 0164 00000148 		.4byte	0x148
+ 583 0168 09       		.uleb128 0x9
+ 584 0169 04       		.byte	0x4
+ 585 016a 0A       		.uleb128 0xa
+ 586 016b 04       		.byte	0x4
+ 587 016c 0000009B 		.4byte	0x9b
+ 588 0170 0A       		.uleb128 0xa
+ 589 0171 04       		.byte	0x4
+ 590 0172 000000B1 		.4byte	0xb1
+ 591 0176 0A       		.uleb128 0xa
+ 592 0177 04       		.byte	0x4
+ 593 0178 0000017C 		.4byte	0x17c
+ 594 017c 0B       		.uleb128 0xb
+ 595 017d 01       		.byte	0x1
+ 596 017e 0C       		.uleb128 0xc
+ 597 017f 08       		.byte	0x8
+ 598 0180 06       		.byte	0x6
+ 599 0181 56       		.byte	0x56
+ 600 0182 000001BF 		.4byte	0x1bf
+ 601 0186 0D       		.uleb128 0xd
+ 602 0187 00000000 		.4byte	.LASF34
+ 603 018b 06       		.byte	0x6
+ 604 018c 57       		.byte	0x57
+ 605 018d 0000009B 		.4byte	0x9b
+ 606 0191 02       		.byte	0x2
+ 607 0192 23       		.byte	0x23
+ 608 0193 00       		.uleb128 0
+ 609 0194 0D       		.uleb128 0xd
+ 610 0195 00000000 		.4byte	.LASF35
+ 611 0199 06       		.byte	0x6
+ 612 019a 58       		.byte	0x58
+ 613 019b 0000009B 		.4byte	0x9b
+ 614 019f 02       		.byte	0x2
+ 615 01a0 23       		.byte	0x23
+ 616 01a1 01       		.uleb128 0x1
+ 617 01a2 0D       		.uleb128 0xd
+ 618 01a3 00000000 		.4byte	.LASF36
+ 619 01a7 06       		.byte	0x6
+ 620 01a8 59       		.byte	0x59
+ 621 01a9 0000009B 		.4byte	0x9b
+ 622 01ad 02       		.byte	0x2
+ 623 01ae 23       		.byte	0x23
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 12
+
+
+ 624 01af 02       		.uleb128 0x2
+ 625 01b0 0D       		.uleb128 0xd
+ 626 01b1 00000000 		.4byte	.LASF37
+ 627 01b5 06       		.byte	0x6
+ 628 01b6 5A       		.byte	0x5a
+ 629 01b7 000000BC 		.4byte	0xbc
+ 630 01bb 02       		.byte	0x2
+ 631 01bc 23       		.byte	0x23
+ 632 01bd 04       		.uleb128 0x4
+ 633 01be 00       		.byte	0
+ 634 01bf 03       		.uleb128 0x3
+ 635 01c0 00000000 		.4byte	.LASF38
+ 636 01c4 06       		.byte	0x6
+ 637 01c5 5B       		.byte	0x5b
+ 638 01c6 0000017E 		.4byte	0x17e
+ 639 01ca 0C       		.uleb128 0xc
+ 640 01cb 0A       		.byte	0xa
+ 641 01cc 06       		.byte	0x6
+ 642 01cd 60       		.byte	0x60
+ 643 01ce 00000219 		.4byte	0x219
+ 644 01d2 0D       		.uleb128 0xd
+ 645 01d3 00000000 		.4byte	.LASF39
+ 646 01d7 06       		.byte	0x6
+ 647 01d8 61       		.byte	0x61
+ 648 01d9 0000009B 		.4byte	0x9b
+ 649 01dd 02       		.byte	0x2
+ 650 01de 23       		.byte	0x23
+ 651 01df 00       		.uleb128 0
+ 652 01e0 0D       		.uleb128 0xd
+ 653 01e1 00000000 		.4byte	.LASF40
+ 654 01e5 06       		.byte	0x6
+ 655 01e6 62       		.byte	0x62
+ 656 01e7 000000B1 		.4byte	0xb1
+ 657 01eb 02       		.byte	0x2
+ 658 01ec 23       		.byte	0x23
+ 659 01ed 02       		.uleb128 0x2
+ 660 01ee 0D       		.uleb128 0xd
+ 661 01ef 00000000 		.4byte	.LASF41
+ 662 01f3 06       		.byte	0x6
+ 663 01f4 63       		.byte	0x63
+ 664 01f5 000000B1 		.4byte	0xb1
+ 665 01f9 02       		.byte	0x2
+ 666 01fa 23       		.byte	0x23
+ 667 01fb 04       		.uleb128 0x4
+ 668 01fc 0D       		.uleb128 0xd
+ 669 01fd 00000000 		.4byte	.LASF42
+ 670 0201 06       		.byte	0x6
+ 671 0202 64       		.byte	0x64
+ 672 0203 000000B1 		.4byte	0xb1
+ 673 0207 02       		.byte	0x2
+ 674 0208 23       		.byte	0x23
+ 675 0209 06       		.uleb128 0x6
+ 676 020a 0D       		.uleb128 0xd
+ 677 020b 00000000 		.4byte	.LASF43
+ 678 020f 06       		.byte	0x6
+ 679 0210 65       		.byte	0x65
+ 680 0211 000000B1 		.4byte	0xb1
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 13
+
+
+ 681 0215 02       		.byte	0x2
+ 682 0216 23       		.byte	0x23
+ 683 0217 08       		.uleb128 0x8
+ 684 0218 00       		.byte	0
+ 685 0219 03       		.uleb128 0x3
+ 686 021a 00000000 		.4byte	.LASF44
+ 687 021e 06       		.byte	0x6
+ 688 021f 66       		.byte	0x66
+ 689 0220 000001CA 		.4byte	0x1ca
+ 690 0224 03       		.uleb128 0x3
+ 691 0225 00000000 		.4byte	.LASF45
+ 692 0229 07       		.byte	0x7
+ 693 022a 2A       		.byte	0x2a
+ 694 022b 0000022F 		.4byte	0x22f
+ 695 022f 0A       		.uleb128 0xa
+ 696 0230 04       		.byte	0x4
+ 697 0231 00000235 		.4byte	0x235
+ 698 0235 0E       		.uleb128 0xe
+ 699 0236 01       		.byte	0x1
+ 700 0237 00000246 		.4byte	0x246
+ 701 023b 0F       		.uleb128 0xf
+ 702 023c 0000013D 		.4byte	0x13d
+ 703 0240 0F       		.uleb128 0xf
+ 704 0241 00000246 		.4byte	0x246
+ 705 0245 00       		.byte	0
+ 706 0246 0A       		.uleb128 0xa
+ 707 0247 04       		.byte	0x4
+ 708 0248 0000015D 		.4byte	0x15d
+ 709 024c 03       		.uleb128 0x3
+ 710 024d 00000000 		.4byte	.LASF46
+ 711 0251 07       		.byte	0x7
+ 712 0252 2C       		.byte	0x2c
+ 713 0253 00000257 		.4byte	0x257
+ 714 0257 0A       		.uleb128 0xa
+ 715 0258 04       		.byte	0x4
+ 716 0259 0000025D 		.4byte	0x25d
+ 717 025d 0E       		.uleb128 0xe
+ 718 025e 01       		.byte	0x1
+ 719 025f 00000269 		.4byte	0x269
+ 720 0263 0F       		.uleb128 0xf
+ 721 0264 0000013D 		.4byte	0x13d
+ 722 0268 00       		.byte	0
+ 723 0269 03       		.uleb128 0x3
+ 724 026a 00000000 		.4byte	.LASF47
+ 725 026e 07       		.byte	0x7
+ 726 026f 2E       		.byte	0x2e
+ 727 0270 00000274 		.4byte	0x274
+ 728 0274 0A       		.uleb128 0xa
+ 729 0275 04       		.byte	0x4
+ 730 0276 0000027A 		.4byte	0x27a
+ 731 027a 0E       		.uleb128 0xe
+ 732 027b 01       		.byte	0x1
+ 733 027c 0000028B 		.4byte	0x28b
+ 734 0280 0F       		.uleb128 0xf
+ 735 0281 0000013D 		.4byte	0x13d
+ 736 0285 0F       		.uleb128 0xf
+ 737 0286 0000028B 		.4byte	0x28b
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 14
+
+
+ 738 028a 00       		.byte	0
+ 739 028b 0A       		.uleb128 0xa
+ 740 028c 04       		.byte	0x4
+ 741 028d 000000C7 		.4byte	0xc7
+ 742 0291 03       		.uleb128 0x3
+ 743 0292 00000000 		.4byte	.LASF48
+ 744 0296 07       		.byte	0x7
+ 745 0297 30       		.byte	0x30
+ 746 0298 00000257 		.4byte	0x257
+ 747 029c 03       		.uleb128 0x3
+ 748 029d 00000000 		.4byte	.LASF49
+ 749 02a1 07       		.byte	0x7
+ 750 02a2 32       		.byte	0x32
+ 751 02a3 00000257 		.4byte	0x257
+ 752 02a7 03       		.uleb128 0x3
+ 753 02a8 00000000 		.4byte	.LASF50
+ 754 02ac 07       		.byte	0x7
+ 755 02ad 34       		.byte	0x34
+ 756 02ae 00000176 		.4byte	0x176
+ 757 02b2 03       		.uleb128 0x3
+ 758 02b3 00000000 		.4byte	.LASF51
+ 759 02b7 07       		.byte	0x7
+ 760 02b8 36       		.byte	0x36
+ 761 02b9 00000176 		.4byte	0x176
+ 762 02bd 03       		.uleb128 0x3
+ 763 02be 00000000 		.4byte	.LASF52
+ 764 02c2 07       		.byte	0x7
+ 765 02c3 38       		.byte	0x38
+ 766 02c4 000002C8 		.4byte	0x2c8
+ 767 02c8 0A       		.uleb128 0xa
+ 768 02c9 04       		.byte	0x4
+ 769 02ca 000002CE 		.4byte	0x2ce
+ 770 02ce 10       		.uleb128 0x10
+ 771 02cf 01       		.byte	0x1
+ 772 02d0 00000123 		.4byte	0x123
+ 773 02d4 000002DE 		.4byte	0x2de
+ 774 02d8 0F       		.uleb128 0xf
+ 775 02d9 000002DE 		.4byte	0x2de
+ 776 02dd 00       		.byte	0
+ 777 02de 0A       		.uleb128 0xa
+ 778 02df 04       		.byte	0x4
+ 779 02e0 000001BF 		.4byte	0x1bf
+ 780 02e4 03       		.uleb128 0x3
+ 781 02e5 00000000 		.4byte	.LASF53
+ 782 02e9 07       		.byte	0x7
+ 783 02ea 3A       		.byte	0x3a
+ 784 02eb 000002EF 		.4byte	0x2ef
+ 785 02ef 0A       		.uleb128 0xa
+ 786 02f0 04       		.byte	0x4
+ 787 02f1 000002F5 		.4byte	0x2f5
+ 788 02f5 10       		.uleb128 0x10
+ 789 02f6 01       		.byte	0x1
+ 790 02f7 00000123 		.4byte	0x123
+ 791 02fb 0000030A 		.4byte	0x30a
+ 792 02ff 0F       		.uleb128 0xf
+ 793 0300 0000013D 		.4byte	0x13d
+ 794 0304 0F       		.uleb128 0xf
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 15
+
+
+ 795 0305 0000009B 		.4byte	0x9b
+ 796 0309 00       		.byte	0
+ 797 030a 03       		.uleb128 0x3
+ 798 030b 00000000 		.4byte	.LASF54
+ 799 030f 07       		.byte	0x7
+ 800 0310 3C       		.byte	0x3c
+ 801 0311 00000315 		.4byte	0x315
+ 802 0315 0A       		.uleb128 0xa
+ 803 0316 04       		.byte	0x4
+ 804 0317 0000031B 		.4byte	0x31b
+ 805 031b 10       		.uleb128 0x10
+ 806 031c 01       		.byte	0x1
+ 807 031d 00000123 		.4byte	0x123
+ 808 0321 0000032B 		.4byte	0x32b
+ 809 0325 0F       		.uleb128 0xf
+ 810 0326 0000013D 		.4byte	0x13d
+ 811 032a 00       		.byte	0
+ 812 032b 03       		.uleb128 0x3
+ 813 032c 00000000 		.4byte	.LASF55
+ 814 0330 07       		.byte	0x7
+ 815 0331 3E       		.byte	0x3e
+ 816 0332 00000315 		.4byte	0x315
+ 817 0336 03       		.uleb128 0x3
+ 818 0337 00000000 		.4byte	.LASF56
+ 819 033b 07       		.byte	0x7
+ 820 033c 40       		.byte	0x40
+ 821 033d 000002EF 		.4byte	0x2ef
+ 822 0341 03       		.uleb128 0x3
+ 823 0342 00000000 		.4byte	.LASF57
+ 824 0346 07       		.byte	0x7
+ 825 0347 42       		.byte	0x42
+ 826 0348 0000034C 		.4byte	0x34c
+ 827 034c 0A       		.uleb128 0xa
+ 828 034d 04       		.byte	0x4
+ 829 034e 00000352 		.4byte	0x352
+ 830 0352 10       		.uleb128 0x10
+ 831 0353 01       		.byte	0x1
+ 832 0354 00000123 		.4byte	0x123
+ 833 0358 00000367 		.4byte	0x367
+ 834 035c 0F       		.uleb128 0xf
+ 835 035d 0000013D 		.4byte	0x13d
+ 836 0361 0F       		.uleb128 0xf
+ 837 0362 0000016A 		.4byte	0x16a
+ 838 0366 00       		.byte	0
+ 839 0367 03       		.uleb128 0x3
+ 840 0368 00000000 		.4byte	.LASF58
+ 841 036c 07       		.byte	0x7
+ 842 036d 44       		.byte	0x44
+ 843 036e 00000315 		.4byte	0x315
+ 844 0372 03       		.uleb128 0x3
+ 845 0373 00000000 		.4byte	.LASF59
+ 846 0377 07       		.byte	0x7
+ 847 0378 46       		.byte	0x46
+ 848 0379 00000315 		.4byte	0x315
+ 849 037d 03       		.uleb128 0x3
+ 850 037e 00000000 		.4byte	.LASF60
+ 851 0382 07       		.byte	0x7
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 16
+
+
+ 852 0383 48       		.byte	0x48
+ 853 0384 0000034C 		.4byte	0x34c
+ 854 0388 03       		.uleb128 0x3
+ 855 0389 00000000 		.4byte	.LASF61
+ 856 038d 07       		.byte	0x7
+ 857 038e 4A       		.byte	0x4a
+ 858 038f 00000393 		.4byte	0x393
+ 859 0393 0A       		.uleb128 0xa
+ 860 0394 04       		.byte	0x4
+ 861 0395 00000399 		.4byte	0x399
+ 862 0399 10       		.uleb128 0x10
+ 863 039a 01       		.byte	0x1
+ 864 039b 00000123 		.4byte	0x123
+ 865 039f 000003AE 		.4byte	0x3ae
+ 866 03a3 0F       		.uleb128 0xf
+ 867 03a4 0000013D 		.4byte	0x13d
+ 868 03a8 0F       		.uleb128 0xf
+ 869 03a9 000000B1 		.4byte	0xb1
+ 870 03ad 00       		.byte	0
+ 871 03ae 03       		.uleb128 0x3
+ 872 03af 00000000 		.4byte	.LASF62
+ 873 03b3 07       		.byte	0x7
+ 874 03b4 4C       		.byte	0x4c
+ 875 03b5 000003B9 		.4byte	0x3b9
+ 876 03b9 0A       		.uleb128 0xa
+ 877 03ba 04       		.byte	0x4
+ 878 03bb 000003BF 		.4byte	0x3bf
+ 879 03bf 10       		.uleb128 0x10
+ 880 03c0 01       		.byte	0x1
+ 881 03c1 00000123 		.4byte	0x123
+ 882 03c5 000003D4 		.4byte	0x3d4
+ 883 03c9 0F       		.uleb128 0xf
+ 884 03ca 0000013D 		.4byte	0x13d
+ 885 03ce 0F       		.uleb128 0xf
+ 886 03cf 00000170 		.4byte	0x170
+ 887 03d3 00       		.byte	0
+ 888 03d4 03       		.uleb128 0x3
+ 889 03d5 00000000 		.4byte	.LASF63
+ 890 03d9 07       		.byte	0x7
+ 891 03da 4E       		.byte	0x4e
+ 892 03db 00000393 		.4byte	0x393
+ 893 03df 03       		.uleb128 0x3
+ 894 03e0 00000000 		.4byte	.LASF64
+ 895 03e4 07       		.byte	0x7
+ 896 03e5 50       		.byte	0x50
+ 897 03e6 000003B9 		.4byte	0x3b9
+ 898 03ea 03       		.uleb128 0x3
+ 899 03eb 00000000 		.4byte	.LASF65
+ 900 03ef 07       		.byte	0x7
+ 901 03f0 52       		.byte	0x52
+ 902 03f1 000003F5 		.4byte	0x3f5
+ 903 03f5 0A       		.uleb128 0xa
+ 904 03f6 04       		.byte	0x4
+ 905 03f7 000003FB 		.4byte	0x3fb
+ 906 03fb 10       		.uleb128 0x10
+ 907 03fc 01       		.byte	0x1
+ 908 03fd 00000123 		.4byte	0x123
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 17
+
+
+ 909 0401 00000410 		.4byte	0x410
+ 910 0405 0F       		.uleb128 0xf
+ 911 0406 0000013D 		.4byte	0x13d
+ 912 040a 0F       		.uleb128 0xf
+ 913 040b 000000BC 		.4byte	0xbc
+ 914 040f 00       		.byte	0
+ 915 0410 03       		.uleb128 0x3
+ 916 0411 00000000 		.4byte	.LASF66
+ 917 0415 07       		.byte	0x7
+ 918 0416 54       		.byte	0x54
+ 919 0417 000003B9 		.4byte	0x3b9
+ 920 041b 03       		.uleb128 0x3
+ 921 041c 00000000 		.4byte	.LASF67
+ 922 0420 07       		.byte	0x7
+ 923 0421 56       		.byte	0x56
+ 924 0422 0000034C 		.4byte	0x34c
+ 925 0426 03       		.uleb128 0x3
+ 926 0427 00000000 		.4byte	.LASF68
+ 927 042b 07       		.byte	0x7
+ 928 042c 58       		.byte	0x58
+ 929 042d 000003B9 		.4byte	0x3b9
+ 930 0431 03       		.uleb128 0x3
+ 931 0432 00000000 		.4byte	.LASF69
+ 932 0436 07       		.byte	0x7
+ 933 0437 5A       		.byte	0x5a
+ 934 0438 000003B9 		.4byte	0x3b9
+ 935 043c 03       		.uleb128 0x3
+ 936 043d 00000000 		.4byte	.LASF70
+ 937 0441 07       		.byte	0x7
+ 938 0442 5C       		.byte	0x5c
+ 939 0443 000003B9 		.4byte	0x3b9
+ 940 0447 03       		.uleb128 0x3
+ 941 0448 00000000 		.4byte	.LASF71
+ 942 044c 07       		.byte	0x7
+ 943 044d 5E       		.byte	0x5e
+ 944 044e 000003B9 		.4byte	0x3b9
+ 945 0452 03       		.uleb128 0x3
+ 946 0453 00000000 		.4byte	.LASF72
+ 947 0457 07       		.byte	0x7
+ 948 0458 60       		.byte	0x60
+ 949 0459 000003B9 		.4byte	0x3b9
+ 950 045d 03       		.uleb128 0x3
+ 951 045e 00000000 		.4byte	.LASF73
+ 952 0462 07       		.byte	0x7
+ 953 0463 62       		.byte	0x62
+ 954 0464 000003B9 		.4byte	0x3b9
+ 955 0468 03       		.uleb128 0x3
+ 956 0469 00000000 		.4byte	.LASF74
+ 957 046d 07       		.byte	0x7
+ 958 046e 64       		.byte	0x64
+ 959 046f 000003B9 		.4byte	0x3b9
+ 960 0473 03       		.uleb128 0x3
+ 961 0474 00000000 		.4byte	.LASF75
+ 962 0478 07       		.byte	0x7
+ 963 0479 66       		.byte	0x66
+ 964 047a 0000034C 		.4byte	0x34c
+ 965 047e 03       		.uleb128 0x3
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 18
+
+
+ 966 047f 00000000 		.4byte	.LASF76
+ 967 0483 07       		.byte	0x7
+ 968 0484 68       		.byte	0x68
+ 969 0485 00000489 		.4byte	0x489
+ 970 0489 0A       		.uleb128 0xa
+ 971 048a 04       		.byte	0x4
+ 972 048b 0000048F 		.4byte	0x48f
+ 973 048f 10       		.uleb128 0x10
+ 974 0490 01       		.byte	0x1
+ 975 0491 00000123 		.4byte	0x123
+ 976 0495 000004A4 		.4byte	0x4a4
+ 977 0499 0F       		.uleb128 0xf
+ 978 049a 0000013D 		.4byte	0x13d
+ 979 049e 0F       		.uleb128 0xf
+ 980 049f 000004A4 		.4byte	0x4a4
+ 981 04a3 00       		.byte	0
+ 982 04a4 0A       		.uleb128 0xa
+ 983 04a5 04       		.byte	0x4
+ 984 04a6 00000219 		.4byte	0x219
+ 985 04aa 03       		.uleb128 0x3
+ 986 04ab 00000000 		.4byte	.LASF77
+ 987 04af 07       		.byte	0x7
+ 988 04b0 6A       		.byte	0x6a
+ 989 04b1 000004B5 		.4byte	0x4b5
+ 990 04b5 0A       		.uleb128 0xa
+ 991 04b6 04       		.byte	0x4
+ 992 04b7 000004BB 		.4byte	0x4bb
+ 993 04bb 10       		.uleb128 0x10
+ 994 04bc 01       		.byte	0x1
+ 995 04bd 00000123 		.4byte	0x123
+ 996 04c1 000004D0 		.4byte	0x4d0
+ 997 04c5 0F       		.uleb128 0xf
+ 998 04c6 0000013D 		.4byte	0x13d
+ 999 04ca 0F       		.uleb128 0xf
+ 1000 04cb 000000A6 		.4byte	0xa6
+ 1001 04cf 00       		.byte	0
+ 1002 04d0 03       		.uleb128 0x3
+ 1003 04d1 00000000 		.4byte	.LASF78
+ 1004 04d5 07       		.byte	0x7
+ 1005 04d6 6C       		.byte	0x6c
+ 1006 04d7 000004DB 		.4byte	0x4db
+ 1007 04db 0A       		.uleb128 0xa
+ 1008 04dc 04       		.byte	0x4
+ 1009 04dd 000004E1 		.4byte	0x4e1
+ 1010 04e1 10       		.uleb128 0x10
+ 1011 04e2 01       		.byte	0x1
+ 1012 04e3 00000123 		.4byte	0x123
+ 1013 04e7 000004F6 		.4byte	0x4f6
+ 1014 04eb 0F       		.uleb128 0xf
+ 1015 04ec 0000013D 		.4byte	0x13d
+ 1016 04f0 0F       		.uleb128 0xf
+ 1017 04f1 000004F6 		.4byte	0x4f6
+ 1018 04f5 00       		.byte	0
+ 1019 04f6 0A       		.uleb128 0xa
+ 1020 04f7 04       		.byte	0x4
+ 1021 04f8 000000A6 		.4byte	0xa6
+ 1022 04fc 03       		.uleb128 0x3
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 19
+
+
+ 1023 04fd 00000000 		.4byte	.LASF79
+ 1024 0501 07       		.byte	0x7
+ 1025 0502 6E       		.byte	0x6e
+ 1026 0503 00000393 		.4byte	0x393
+ 1027 0507 03       		.uleb128 0x3
+ 1028 0508 00000000 		.4byte	.LASF80
+ 1029 050c 07       		.byte	0x7
+ 1030 050d 70       		.byte	0x70
+ 1031 050e 000003B9 		.4byte	0x3b9
+ 1032 0512 03       		.uleb128 0x3
+ 1033 0513 00000000 		.4byte	.LASF81
+ 1034 0517 07       		.byte	0x7
+ 1035 0518 72       		.byte	0x72
+ 1036 0519 0000051D 		.4byte	0x51d
+ 1037 051d 0A       		.uleb128 0xa
+ 1038 051e 04       		.byte	0x4
+ 1039 051f 00000523 		.4byte	0x523
+ 1040 0523 10       		.uleb128 0x10
+ 1041 0524 01       		.byte	0x1
+ 1042 0525 00000123 		.4byte	0x123
+ 1043 0529 00000547 		.4byte	0x547
+ 1044 052d 0F       		.uleb128 0xf
+ 1045 052e 0000013D 		.4byte	0x13d
+ 1046 0532 0F       		.uleb128 0xf
+ 1047 0533 000000B1 		.4byte	0xb1
+ 1048 0537 0F       		.uleb128 0xf
+ 1049 0538 000000B1 		.4byte	0xb1
+ 1050 053c 0F       		.uleb128 0xf
+ 1051 053d 0000009B 		.4byte	0x9b
+ 1052 0541 0F       		.uleb128 0xf
+ 1053 0542 0000009B 		.4byte	0x9b
+ 1054 0546 00       		.byte	0
+ 1055 0547 03       		.uleb128 0x3
+ 1056 0548 00000000 		.4byte	.LASF82
+ 1057 054c 07       		.byte	0x7
+ 1058 054d 7E       		.byte	0x7e
+ 1059 054e 000003B9 		.4byte	0x3b9
+ 1060 0552 03       		.uleb128 0x3
+ 1061 0553 00000000 		.4byte	.LASF83
+ 1062 0557 07       		.byte	0x7
+ 1063 0558 80       		.byte	0x80
+ 1064 0559 000003B9 		.4byte	0x3b9
+ 1065 055d 03       		.uleb128 0x3
+ 1066 055e 00000000 		.4byte	.LASF84
+ 1067 0562 07       		.byte	0x7
+ 1068 0563 82       		.byte	0x82
+ 1069 0564 00000568 		.4byte	0x568
+ 1070 0568 0A       		.uleb128 0xa
+ 1071 0569 04       		.byte	0x4
+ 1072 056a 0000056E 		.4byte	0x56e
+ 1073 056e 10       		.uleb128 0x10
+ 1074 056f 01       		.byte	0x1
+ 1075 0570 00000123 		.4byte	0x123
+ 1076 0574 00000588 		.4byte	0x588
+ 1077 0578 0F       		.uleb128 0xf
+ 1078 0579 0000013D 		.4byte	0x13d
+ 1079 057d 0F       		.uleb128 0xf
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 20
+
+
+ 1080 057e 000000B1 		.4byte	0xb1
+ 1081 0582 0F       		.uleb128 0xf
+ 1082 0583 000000B1 		.4byte	0xb1
+ 1083 0587 00       		.byte	0
+ 1084 0588 03       		.uleb128 0x3
+ 1085 0589 00000000 		.4byte	.LASF85
+ 1086 058d 07       		.byte	0x7
+ 1087 058e 84       		.byte	0x84
+ 1088 058f 00000593 		.4byte	0x593
+ 1089 0593 0A       		.uleb128 0xa
+ 1090 0594 04       		.byte	0x4
+ 1091 0595 00000599 		.4byte	0x599
+ 1092 0599 10       		.uleb128 0x10
+ 1093 059a 01       		.byte	0x1
+ 1094 059b 00000123 		.4byte	0x123
+ 1095 059f 000005B3 		.4byte	0x5b3
+ 1096 05a3 0F       		.uleb128 0xf
+ 1097 05a4 0000013D 		.4byte	0x13d
+ 1098 05a8 0F       		.uleb128 0xf
+ 1099 05a9 00000170 		.4byte	0x170
+ 1100 05ad 0F       		.uleb128 0xf
+ 1101 05ae 00000170 		.4byte	0x170
+ 1102 05b2 00       		.byte	0
+ 1103 05b3 03       		.uleb128 0x3
+ 1104 05b4 00000000 		.4byte	.LASF86
+ 1105 05b8 07       		.byte	0x7
+ 1106 05b9 86       		.byte	0x86
+ 1107 05ba 000002EF 		.4byte	0x2ef
+ 1108 05be 03       		.uleb128 0x3
+ 1109 05bf 00000000 		.4byte	.LASF87
+ 1110 05c3 07       		.byte	0x7
+ 1111 05c4 88       		.byte	0x88
+ 1112 05c5 0000034C 		.4byte	0x34c
+ 1113 05c9 03       		.uleb128 0x3
+ 1114 05ca 00000000 		.4byte	.LASF88
+ 1115 05ce 07       		.byte	0x7
+ 1116 05cf 8A       		.byte	0x8a
+ 1117 05d0 00000393 		.4byte	0x393
+ 1118 05d4 03       		.uleb128 0x3
+ 1119 05d5 00000000 		.4byte	.LASF89
+ 1120 05d9 07       		.byte	0x7
+ 1121 05da 8C       		.byte	0x8c
+ 1122 05db 000003B9 		.4byte	0x3b9
+ 1123 05df 03       		.uleb128 0x3
+ 1124 05e0 00000000 		.4byte	.LASF90
+ 1125 05e4 07       		.byte	0x7
+ 1126 05e5 8E       		.byte	0x8e
+ 1127 05e6 00000393 		.4byte	0x393
+ 1128 05ea 03       		.uleb128 0x3
+ 1129 05eb 00000000 		.4byte	.LASF91
+ 1130 05ef 07       		.byte	0x7
+ 1131 05f0 90       		.byte	0x90
+ 1132 05f1 000003B9 		.4byte	0x3b9
+ 1133 05f5 03       		.uleb128 0x3
+ 1134 05f6 00000000 		.4byte	.LASF92
+ 1135 05fa 07       		.byte	0x7
+ 1136 05fb 92       		.byte	0x92
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 21
+
+
+ 1137 05fc 00000315 		.4byte	0x315
+ 1138 0600 03       		.uleb128 0x3
+ 1139 0601 00000000 		.4byte	.LASF93
+ 1140 0605 07       		.byte	0x7
+ 1141 0606 94       		.byte	0x94
+ 1142 0607 0000060B 		.4byte	0x60b
+ 1143 060b 0A       		.uleb128 0xa
+ 1144 060c 04       		.byte	0x4
+ 1145 060d 00000611 		.4byte	0x611
+ 1146 0611 10       		.uleb128 0x10
+ 1147 0612 01       		.byte	0x1
+ 1148 0613 00000123 		.4byte	0x123
+ 1149 0617 0000062B 		.4byte	0x62b
+ 1150 061b 0F       		.uleb128 0xf
+ 1151 061c 0000013D 		.4byte	0x13d
+ 1152 0620 0F       		.uleb128 0xf
+ 1153 0621 000000B1 		.4byte	0xb1
+ 1154 0625 0F       		.uleb128 0xf
+ 1155 0626 000004F6 		.4byte	0x4f6
+ 1156 062a 00       		.byte	0
+ 1157 062b 03       		.uleb128 0x3
+ 1158 062c 00000000 		.4byte	.LASF94
+ 1159 0630 07       		.byte	0x7
+ 1160 0631 96       		.byte	0x96
+ 1161 0632 00000636 		.4byte	0x636
+ 1162 0636 0A       		.uleb128 0xa
+ 1163 0637 04       		.byte	0x4
+ 1164 0638 0000063C 		.4byte	0x63c
+ 1165 063c 10       		.uleb128 0x10
+ 1166 063d 01       		.byte	0x1
+ 1167 063e 00000123 		.4byte	0x123
+ 1168 0642 00000656 		.4byte	0x656
+ 1169 0646 0F       		.uleb128 0xf
+ 1170 0647 0000013D 		.4byte	0x13d
+ 1171 064b 0F       		.uleb128 0xf
+ 1172 064c 000000B1 		.4byte	0xb1
+ 1173 0650 0F       		.uleb128 0xf
+ 1174 0651 00000170 		.4byte	0x170
+ 1175 0655 00       		.byte	0
+ 1176 0656 0C       		.uleb128 0xc
+ 1177 0657 CC       		.byte	0xcc
+ 1178 0658 07       		.byte	0x7
+ 1179 0659 98       		.byte	0x98
+ 1180 065a 00000963 		.4byte	0x963
+ 1181 065e 0D       		.uleb128 0xd
+ 1182 065f 00000000 		.4byte	.LASF95
+ 1183 0663 07       		.byte	0x7
+ 1184 0664 A1       		.byte	0xa1
+ 1185 0665 00000224 		.4byte	0x224
+ 1186 0669 02       		.byte	0x2
+ 1187 066a 23       		.byte	0x23
+ 1188 066b 00       		.uleb128 0
+ 1189 066c 0D       		.uleb128 0xd
+ 1190 066d 00000000 		.4byte	.LASF96
+ 1191 0671 07       		.byte	0x7
+ 1192 0672 A8       		.byte	0xa8
+ 1193 0673 0000024C 		.4byte	0x24c
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 22
+
+
+ 1194 0677 02       		.byte	0x2
+ 1195 0678 23       		.byte	0x23
+ 1196 0679 04       		.uleb128 0x4
+ 1197 067a 0D       		.uleb128 0xd
+ 1198 067b 00000000 		.4byte	.LASF97
+ 1199 067f 07       		.byte	0x7
+ 1200 0680 B0       		.byte	0xb0
+ 1201 0681 00000269 		.4byte	0x269
+ 1202 0685 02       		.byte	0x2
+ 1203 0686 23       		.byte	0x23
+ 1204 0687 08       		.uleb128 0x8
+ 1205 0688 0D       		.uleb128 0xd
+ 1206 0689 00000000 		.4byte	.LASF98
+ 1207 068d 07       		.byte	0x7
+ 1208 068e B7       		.byte	0xb7
+ 1209 068f 00000291 		.4byte	0x291
+ 1210 0693 02       		.byte	0x2
+ 1211 0694 23       		.byte	0x23
+ 1212 0695 0C       		.uleb128 0xc
+ 1213 0696 0D       		.uleb128 0xd
+ 1214 0697 00000000 		.4byte	.LASF99
+ 1215 069b 07       		.byte	0x7
+ 1216 069c BE       		.byte	0xbe
+ 1217 069d 0000029C 		.4byte	0x29c
+ 1218 06a1 02       		.byte	0x2
+ 1219 06a2 23       		.byte	0x23
+ 1220 06a3 10       		.uleb128 0x10
+ 1221 06a4 0D       		.uleb128 0xd
+ 1222 06a5 00000000 		.4byte	.LASF100
+ 1223 06a9 07       		.byte	0x7
+ 1224 06aa C2       		.byte	0xc2
+ 1225 06ab 000002A7 		.4byte	0x2a7
+ 1226 06af 02       		.byte	0x2
+ 1227 06b0 23       		.byte	0x23
+ 1228 06b1 14       		.uleb128 0x14
+ 1229 06b2 0D       		.uleb128 0xd
+ 1230 06b3 00000000 		.4byte	.LASF101
+ 1231 06b7 07       		.byte	0x7
+ 1232 06b8 C6       		.byte	0xc6
+ 1233 06b9 000002B2 		.4byte	0x2b2
+ 1234 06bd 02       		.byte	0x2
+ 1235 06be 23       		.byte	0x23
+ 1236 06bf 18       		.uleb128 0x18
+ 1237 06c0 0D       		.uleb128 0xd
+ 1238 06c1 00000000 		.4byte	.LASF102
+ 1239 06c5 07       		.byte	0x7
+ 1240 06c6 C8       		.byte	0xc8
+ 1241 06c7 000002BD 		.4byte	0x2bd
+ 1242 06cb 02       		.byte	0x2
+ 1243 06cc 23       		.byte	0x23
+ 1244 06cd 1C       		.uleb128 0x1c
+ 1245 06ce 0D       		.uleb128 0xd
+ 1246 06cf 00000000 		.4byte	.LASF103
+ 1247 06d3 07       		.byte	0x7
+ 1248 06d4 D5       		.byte	0xd5
+ 1249 06d5 000002E4 		.4byte	0x2e4
+ 1250 06d9 02       		.byte	0x2
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 23
+
+
+ 1251 06da 23       		.byte	0x23
+ 1252 06db 20       		.uleb128 0x20
+ 1253 06dc 0D       		.uleb128 0xd
+ 1254 06dd 00000000 		.4byte	.LASF104
+ 1255 06e1 07       		.byte	0x7
+ 1256 06e2 DF       		.byte	0xdf
+ 1257 06e3 0000030A 		.4byte	0x30a
+ 1258 06e7 02       		.byte	0x2
+ 1259 06e8 23       		.byte	0x23
+ 1260 06e9 24       		.uleb128 0x24
+ 1261 06ea 0D       		.uleb128 0xd
+ 1262 06eb 00000000 		.4byte	.LASF105
+ 1263 06ef 07       		.byte	0x7
+ 1264 06f0 E9       		.byte	0xe9
+ 1265 06f1 0000032B 		.4byte	0x32b
+ 1266 06f5 02       		.byte	0x2
+ 1267 06f6 23       		.byte	0x23
+ 1268 06f7 28       		.uleb128 0x28
+ 1269 06f8 0D       		.uleb128 0xd
+ 1270 06f9 00000000 		.4byte	.LASF106
+ 1271 06fd 07       		.byte	0x7
+ 1272 06fe F5       		.byte	0xf5
+ 1273 06ff 00000336 		.4byte	0x336
+ 1274 0703 02       		.byte	0x2
+ 1275 0704 23       		.byte	0x23
+ 1276 0705 2C       		.uleb128 0x2c
+ 1277 0706 11       		.uleb128 0x11
+ 1278 0707 00000000 		.4byte	.LASF107
+ 1279 070b 07       		.byte	0x7
+ 1280 070c 0101     		.2byte	0x101
+ 1281 070e 00000341 		.4byte	0x341
+ 1282 0712 02       		.byte	0x2
+ 1283 0713 23       		.byte	0x23
+ 1284 0714 30       		.uleb128 0x30
+ 1285 0715 11       		.uleb128 0x11
+ 1286 0716 00000000 		.4byte	.LASF108
+ 1287 071a 07       		.byte	0x7
+ 1288 071b 010B     		.2byte	0x10b
+ 1289 071d 00000367 		.4byte	0x367
+ 1290 0721 02       		.byte	0x2
+ 1291 0722 23       		.byte	0x23
+ 1292 0723 34       		.uleb128 0x34
+ 1293 0724 11       		.uleb128 0x11
+ 1294 0725 00000000 		.4byte	.LASF109
+ 1295 0729 07       		.byte	0x7
+ 1296 072a 0115     		.2byte	0x115
+ 1297 072c 00000372 		.4byte	0x372
+ 1298 0730 02       		.byte	0x2
+ 1299 0731 23       		.byte	0x23
+ 1300 0732 38       		.uleb128 0x38
+ 1301 0733 11       		.uleb128 0x11
+ 1302 0734 00000000 		.4byte	.LASF110
+ 1303 0738 07       		.byte	0x7
+ 1304 0739 0121     		.2byte	0x121
+ 1305 073b 0000037D 		.4byte	0x37d
+ 1306 073f 02       		.byte	0x2
+ 1307 0740 23       		.byte	0x23
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 24
+
+
+ 1308 0741 3C       		.uleb128 0x3c
+ 1309 0742 11       		.uleb128 0x11
+ 1310 0743 00000000 		.4byte	.LASF111
+ 1311 0747 07       		.byte	0x7
+ 1312 0748 012D     		.2byte	0x12d
+ 1313 074a 00000388 		.4byte	0x388
+ 1314 074e 02       		.byte	0x2
+ 1315 074f 23       		.byte	0x23
+ 1316 0750 40       		.uleb128 0x40
+ 1317 0751 11       		.uleb128 0x11
+ 1318 0752 00000000 		.4byte	.LASF112
+ 1319 0756 07       		.byte	0x7
+ 1320 0757 0139     		.2byte	0x139
+ 1321 0759 000003AE 		.4byte	0x3ae
+ 1322 075d 02       		.byte	0x2
+ 1323 075e 23       		.byte	0x23
+ 1324 075f 44       		.uleb128 0x44
+ 1325 0760 11       		.uleb128 0x11
+ 1326 0761 00000000 		.4byte	.LASF113
+ 1327 0765 07       		.byte	0x7
+ 1328 0766 0145     		.2byte	0x145
+ 1329 0768 000003D4 		.4byte	0x3d4
+ 1330 076c 02       		.byte	0x2
+ 1331 076d 23       		.byte	0x23
+ 1332 076e 48       		.uleb128 0x48
+ 1333 076f 11       		.uleb128 0x11
+ 1334 0770 00000000 		.4byte	.LASF114
+ 1335 0774 07       		.byte	0x7
+ 1336 0775 0151     		.2byte	0x151
+ 1337 0777 000003DF 		.4byte	0x3df
+ 1338 077b 02       		.byte	0x2
+ 1339 077c 23       		.byte	0x23
+ 1340 077d 4C       		.uleb128 0x4c
+ 1341 077e 11       		.uleb128 0x11
+ 1342 077f 00000000 		.4byte	.LASF115
+ 1343 0783 07       		.byte	0x7
+ 1344 0784 015D     		.2byte	0x15d
+ 1345 0786 000003EA 		.4byte	0x3ea
+ 1346 078a 02       		.byte	0x2
+ 1347 078b 23       		.byte	0x23
+ 1348 078c 50       		.uleb128 0x50
+ 1349 078d 11       		.uleb128 0x11
+ 1350 078e 00000000 		.4byte	.LASF116
+ 1351 0792 07       		.byte	0x7
+ 1352 0793 0169     		.2byte	0x169
+ 1353 0795 00000410 		.4byte	0x410
+ 1354 0799 02       		.byte	0x2
+ 1355 079a 23       		.byte	0x23
+ 1356 079b 54       		.uleb128 0x54
+ 1357 079c 11       		.uleb128 0x11
+ 1358 079d 00000000 		.4byte	.LASF117
+ 1359 07a1 07       		.byte	0x7
+ 1360 07a2 0174     		.2byte	0x174
+ 1361 07a4 0000041B 		.4byte	0x41b
+ 1362 07a8 02       		.byte	0x2
+ 1363 07a9 23       		.byte	0x23
+ 1364 07aa 58       		.uleb128 0x58
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 25
+
+
+ 1365 07ab 11       		.uleb128 0x11
+ 1366 07ac 00000000 		.4byte	.LASF118
+ 1367 07b0 07       		.byte	0x7
+ 1368 07b1 0180     		.2byte	0x180
+ 1369 07b3 00000426 		.4byte	0x426
+ 1370 07b7 02       		.byte	0x2
+ 1371 07b8 23       		.byte	0x23
+ 1372 07b9 5C       		.uleb128 0x5c
+ 1373 07ba 11       		.uleb128 0x11
+ 1374 07bb 00000000 		.4byte	.LASF119
+ 1375 07bf 07       		.byte	0x7
+ 1376 07c0 018D     		.2byte	0x18d
+ 1377 07c2 00000431 		.4byte	0x431
+ 1378 07c6 02       		.byte	0x2
+ 1379 07c7 23       		.byte	0x23
+ 1380 07c8 60       		.uleb128 0x60
+ 1381 07c9 11       		.uleb128 0x11
+ 1382 07ca 00000000 		.4byte	.LASF120
+ 1383 07ce 07       		.byte	0x7
+ 1384 07cf 0199     		.2byte	0x199
+ 1385 07d1 0000043C 		.4byte	0x43c
+ 1386 07d5 02       		.byte	0x2
+ 1387 07d6 23       		.byte	0x23
+ 1388 07d7 64       		.uleb128 0x64
+ 1389 07d8 11       		.uleb128 0x11
+ 1390 07d9 00000000 		.4byte	.LASF121
+ 1391 07dd 07       		.byte	0x7
+ 1392 07de 01A5     		.2byte	0x1a5
+ 1393 07e0 00000447 		.4byte	0x447
+ 1394 07e4 02       		.byte	0x2
+ 1395 07e5 23       		.byte	0x23
+ 1396 07e6 68       		.uleb128 0x68
+ 1397 07e7 11       		.uleb128 0x11
+ 1398 07e8 00000000 		.4byte	.LASF122
+ 1399 07ec 07       		.byte	0x7
+ 1400 07ed 01B1     		.2byte	0x1b1
+ 1401 07ef 00000452 		.4byte	0x452
+ 1402 07f3 02       		.byte	0x2
+ 1403 07f4 23       		.byte	0x23
+ 1404 07f5 6C       		.uleb128 0x6c
+ 1405 07f6 11       		.uleb128 0x11
+ 1406 07f7 00000000 		.4byte	.LASF123
+ 1407 07fb 07       		.byte	0x7
+ 1408 07fc 01BD     		.2byte	0x1bd
+ 1409 07fe 0000045D 		.4byte	0x45d
+ 1410 0802 02       		.byte	0x2
+ 1411 0803 23       		.byte	0x23
+ 1412 0804 70       		.uleb128 0x70
+ 1413 0805 11       		.uleb128 0x11
+ 1414 0806 00000000 		.4byte	.LASF124
+ 1415 080a 07       		.byte	0x7
+ 1416 080b 01CA     		.2byte	0x1ca
+ 1417 080d 00000468 		.4byte	0x468
+ 1418 0811 02       		.byte	0x2
+ 1419 0812 23       		.byte	0x23
+ 1420 0813 74       		.uleb128 0x74
+ 1421 0814 11       		.uleb128 0x11
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 26
+
+
+ 1422 0815 00000000 		.4byte	.LASF125
+ 1423 0819 07       		.byte	0x7
+ 1424 081a 01D7     		.2byte	0x1d7
+ 1425 081c 00000473 		.4byte	0x473
+ 1426 0820 02       		.byte	0x2
+ 1427 0821 23       		.byte	0x23
+ 1428 0822 78       		.uleb128 0x78
+ 1429 0823 11       		.uleb128 0x11
+ 1430 0824 00000000 		.4byte	.LASF126
+ 1431 0828 07       		.byte	0x7
+ 1432 0829 01E4     		.2byte	0x1e4
+ 1433 082b 0000047E 		.4byte	0x47e
+ 1434 082f 02       		.byte	0x2
+ 1435 0830 23       		.byte	0x23
+ 1436 0831 7C       		.uleb128 0x7c
+ 1437 0832 11       		.uleb128 0x11
+ 1438 0833 00000000 		.4byte	.LASF127
+ 1439 0837 07       		.byte	0x7
+ 1440 0838 01F1     		.2byte	0x1f1
+ 1441 083a 000004AA 		.4byte	0x4aa
+ 1442 083e 03       		.byte	0x3
+ 1443 083f 23       		.byte	0x23
+ 1444 0840 8001     		.uleb128 0x80
+ 1445 0842 11       		.uleb128 0x11
+ 1446 0843 00000000 		.4byte	.LASF128
+ 1447 0847 07       		.byte	0x7
+ 1448 0848 01FD     		.2byte	0x1fd
+ 1449 084a 000004D0 		.4byte	0x4d0
+ 1450 084e 03       		.byte	0x3
+ 1451 084f 23       		.byte	0x23
+ 1452 0850 8401     		.uleb128 0x84
+ 1453 0852 11       		.uleb128 0x11
+ 1454 0853 00000000 		.4byte	.LASF129
+ 1455 0857 07       		.byte	0x7
+ 1456 0858 0209     		.2byte	0x209
+ 1457 085a 000004FC 		.4byte	0x4fc
+ 1458 085e 03       		.byte	0x3
+ 1459 085f 23       		.byte	0x23
+ 1460 0860 8801     		.uleb128 0x88
+ 1461 0862 11       		.uleb128 0x11
+ 1462 0863 00000000 		.4byte	.LASF130
+ 1463 0867 07       		.byte	0x7
+ 1464 0868 0216     		.2byte	0x216
+ 1465 086a 00000507 		.4byte	0x507
+ 1466 086e 03       		.byte	0x3
+ 1467 086f 23       		.byte	0x23
+ 1468 0870 8C01     		.uleb128 0x8c
+ 1469 0872 11       		.uleb128 0x11
+ 1470 0873 00000000 		.4byte	.LASF131
+ 1471 0877 07       		.byte	0x7
+ 1472 0878 022E     		.2byte	0x22e
+ 1473 087a 00000512 		.4byte	0x512
+ 1474 087e 03       		.byte	0x3
+ 1475 087f 23       		.byte	0x23
+ 1476 0880 9001     		.uleb128 0x90
+ 1477 0882 11       		.uleb128 0x11
+ 1478 0883 00000000 		.4byte	.LASF132
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 27
+
+
+ 1479 0887 07       		.byte	0x7
+ 1480 0888 023B     		.2byte	0x23b
+ 1481 088a 000003B9 		.4byte	0x3b9
+ 1482 088e 03       		.byte	0x3
+ 1483 088f 23       		.byte	0x23
+ 1484 0890 9401     		.uleb128 0x94
+ 1485 0892 11       		.uleb128 0x11
+ 1486 0893 00000000 		.4byte	.LASF133
+ 1487 0897 07       		.byte	0x7
+ 1488 0898 0247     		.2byte	0x247
+ 1489 089a 00000547 		.4byte	0x547
+ 1490 089e 03       		.byte	0x3
+ 1491 089f 23       		.byte	0x23
+ 1492 08a0 9801     		.uleb128 0x98
+ 1493 08a2 11       		.uleb128 0x11
+ 1494 08a3 00000000 		.4byte	.LASF134
+ 1495 08a7 07       		.byte	0x7
+ 1496 08a8 0254     		.2byte	0x254
+ 1497 08aa 00000552 		.4byte	0x552
+ 1498 08ae 03       		.byte	0x3
+ 1499 08af 23       		.byte	0x23
+ 1500 08b0 9C01     		.uleb128 0x9c
+ 1501 08b2 11       		.uleb128 0x11
+ 1502 08b3 00000000 		.4byte	.LASF135
+ 1503 08b7 07       		.byte	0x7
+ 1504 08b8 0261     		.2byte	0x261
+ 1505 08ba 0000055D 		.4byte	0x55d
+ 1506 08be 03       		.byte	0x3
+ 1507 08bf 23       		.byte	0x23
+ 1508 08c0 A001     		.uleb128 0xa0
+ 1509 08c2 11       		.uleb128 0x11
+ 1510 08c3 00000000 		.4byte	.LASF136
+ 1511 08c7 07       		.byte	0x7
+ 1512 08c8 026E     		.2byte	0x26e
+ 1513 08ca 00000588 		.4byte	0x588
+ 1514 08ce 03       		.byte	0x3
+ 1515 08cf 23       		.byte	0x23
+ 1516 08d0 A401     		.uleb128 0xa4
+ 1517 08d2 11       		.uleb128 0x11
+ 1518 08d3 00000000 		.4byte	.LASF137
+ 1519 08d7 07       		.byte	0x7
+ 1520 08d8 027D     		.2byte	0x27d
+ 1521 08da 000005B3 		.4byte	0x5b3
+ 1522 08de 03       		.byte	0x3
+ 1523 08df 23       		.byte	0x23
+ 1524 08e0 A801     		.uleb128 0xa8
+ 1525 08e2 11       		.uleb128 0x11
+ 1526 08e3 00000000 		.4byte	.LASF138
+ 1527 08e7 07       		.byte	0x7
+ 1528 08e8 028C     		.2byte	0x28c
+ 1529 08ea 000005BE 		.4byte	0x5be
+ 1530 08ee 03       		.byte	0x3
+ 1531 08ef 23       		.byte	0x23
+ 1532 08f0 AC01     		.uleb128 0xac
+ 1533 08f2 11       		.uleb128 0x11
+ 1534 08f3 00000000 		.4byte	.LASF139
+ 1535 08f7 07       		.byte	0x7
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 28
+
+
+ 1536 08f8 0299     		.2byte	0x299
+ 1537 08fa 000005C9 		.4byte	0x5c9
+ 1538 08fe 03       		.byte	0x3
+ 1539 08ff 23       		.byte	0x23
+ 1540 0900 B001     		.uleb128 0xb0
+ 1541 0902 11       		.uleb128 0x11
+ 1542 0903 00000000 		.4byte	.LASF140
+ 1543 0907 07       		.byte	0x7
+ 1544 0908 02A6     		.2byte	0x2a6
+ 1545 090a 000005D4 		.4byte	0x5d4
+ 1546 090e 03       		.byte	0x3
+ 1547 090f 23       		.byte	0x23
+ 1548 0910 B401     		.uleb128 0xb4
+ 1549 0912 11       		.uleb128 0x11
+ 1550 0913 00000000 		.4byte	.LASF141
+ 1551 0917 07       		.byte	0x7
+ 1552 0918 02B2     		.2byte	0x2b2
+ 1553 091a 000005DF 		.4byte	0x5df
+ 1554 091e 03       		.byte	0x3
+ 1555 091f 23       		.byte	0x23
+ 1556 0920 B801     		.uleb128 0xb8
+ 1557 0922 11       		.uleb128 0x11
+ 1558 0923 00000000 		.4byte	.LASF142
+ 1559 0927 07       		.byte	0x7
+ 1560 0928 02BE     		.2byte	0x2be
+ 1561 092a 000005EA 		.4byte	0x5ea
+ 1562 092e 03       		.byte	0x3
+ 1563 092f 23       		.byte	0x23
+ 1564 0930 BC01     		.uleb128 0xbc
+ 1565 0932 11       		.uleb128 0x11
+ 1566 0933 00000000 		.4byte	.LASF143
+ 1567 0937 07       		.byte	0x7
+ 1568 0938 02C8     		.2byte	0x2c8
+ 1569 093a 000005F5 		.4byte	0x5f5
+ 1570 093e 03       		.byte	0x3
+ 1571 093f 23       		.byte	0x23
+ 1572 0940 C001     		.uleb128 0xc0
+ 1573 0942 11       		.uleb128 0x11
+ 1574 0943 00000000 		.4byte	.LASF144
+ 1575 0947 07       		.byte	0x7
+ 1576 0948 02D3     		.2byte	0x2d3
+ 1577 094a 00000600 		.4byte	0x600
+ 1578 094e 03       		.byte	0x3
+ 1579 094f 23       		.byte	0x23
+ 1580 0950 C401     		.uleb128 0xc4
+ 1581 0952 11       		.uleb128 0x11
+ 1582 0953 00000000 		.4byte	.LASF145
+ 1583 0957 07       		.byte	0x7
+ 1584 0958 02E0     		.2byte	0x2e0
+ 1585 095a 0000062B 		.4byte	0x62b
+ 1586 095e 03       		.byte	0x3
+ 1587 095f 23       		.byte	0x23
+ 1588 0960 C801     		.uleb128 0xc8
+ 1589 0962 00       		.byte	0
+ 1590 0963 12       		.uleb128 0x12
+ 1591 0964 00000000 		.4byte	.LASF146
+ 1592 0968 07       		.byte	0x7
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 29
+
+
+ 1593 0969 02E1     		.2byte	0x2e1
+ 1594 096b 00000656 		.4byte	0x656
+ 1595 096f 13       		.uleb128 0x13
+ 1596 0970 01       		.byte	0x1
+ 1597 0971 00000000 		.4byte	.LASF157
+ 1598 0975 01       		.byte	0x1
+ 1599 0976 1C       		.byte	0x1c
+ 1600 0977 01       		.byte	0x1
+ 1601 0978 00000000 		.4byte	.LFB2
+ 1602 097c 00000000 		.4byte	.LFE2
+ 1603 0980 00000000 		.4byte	.LLST0
+ 1604 0984 01       		.byte	0x1
+ 1605 0985 00000998 		.4byte	0x998
+ 1606 0989 14       		.uleb128 0x14
+ 1607 098a 00000000 		.4byte	.LASF152
+ 1608 098e 01       		.byte	0x1
+ 1609 098f 1C       		.byte	0x1c
+ 1610 0990 00000998 		.4byte	0x998
+ 1611 0994 02       		.byte	0x2
+ 1612 0995 91       		.byte	0x91
+ 1613 0996 78       		.sleb128 -8
+ 1614 0997 00       		.byte	0
+ 1615 0998 0A       		.uleb128 0xa
+ 1616 0999 04       		.byte	0x4
+ 1617 099a 00000963 		.4byte	0x963
+ 1618 099e 15       		.uleb128 0x15
+ 1619 099f 01       		.byte	0x1
+ 1620 09a0 00000000 		.4byte	.LASF158
+ 1621 09a4 01       		.byte	0x1
+ 1622 09a5 96       		.byte	0x96
+ 1623 09a6 01       		.byte	0x1
+ 1624 09a7 0000015D 		.4byte	0x15d
+ 1625 09ab 00000000 		.4byte	.LFB3
+ 1626 09af 00000000 		.4byte	.LFE3
+ 1627 09b3 00000000 		.4byte	.LLST1
+ 1628 09b7 01       		.byte	0x1
+ 1629 09b8 000009E5 		.4byte	0x9e5
+ 1630 09bc 16       		.uleb128 0x16
+ 1631 09bd 00000000 		.4byte	.LASF147
+ 1632 09c1 01       		.byte	0x1
+ 1633 09c2 98       		.byte	0x98
+ 1634 09c3 0000015D 		.4byte	0x15d
+ 1635 09c7 02       		.byte	0x2
+ 1636 09c8 91       		.byte	0x91
+ 1637 09c9 70       		.sleb128 -16
+ 1638 09ca 16       		.uleb128 0x16
+ 1639 09cb 00000000 		.4byte	.LASF148
+ 1640 09cf 01       		.byte	0x1
+ 1641 09d0 A4       		.byte	0xa4
+ 1642 09d1 0000009B 		.4byte	0x9b
+ 1643 09d5 02       		.byte	0x2
+ 1644 09d6 91       		.byte	0x91
+ 1645 09d7 74       		.sleb128 -12
+ 1646 09d8 17       		.uleb128 0x17
+ 1647 09d9 6900     		.string	"i"
+ 1648 09db 01       		.byte	0x1
+ 1649 09dc A5       		.byte	0xa5
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 30
+
+
+ 1650 09dd 0000008D 		.4byte	0x8d
+ 1651 09e1 02       		.byte	0x2
+ 1652 09e2 91       		.byte	0x91
+ 1653 09e3 78       		.sleb128 -8
+ 1654 09e4 00       		.byte	0
+ 1655 09e5 18       		.uleb128 0x18
+ 1656 09e6 000009F5 		.4byte	0x9f5
+ 1657 09ea 000009F5 		.4byte	0x9f5
+ 1658 09ee 19       		.uleb128 0x19
+ 1659 09ef 000000CC 		.4byte	0xcc
+ 1660 09f3 00       		.byte	0
+ 1661 09f4 00       		.byte	0
+ 1662 09f5 0A       		.uleb128 0xa
+ 1663 09f6 04       		.byte	0x4
+ 1664 09f7 000000D3 		.4byte	0xd3
+ 1665 09fb 1A       		.uleb128 0x1a
+ 1666 09fc 00000000 		.4byte	.LASF149
+ 1667 0a00 05       		.byte	0x5
+ 1668 0a01 2F       		.byte	0x2f
+ 1669 0a02 000009E5 		.4byte	0x9e5
+ 1670 0a06 01       		.byte	0x1
+ 1671 0a07 01       		.byte	0x1
+ 1672 0a08 18       		.uleb128 0x18
+ 1673 0a09 00000168 		.4byte	0x168
+ 1674 0a0d 00000A18 		.4byte	0xa18
+ 1675 0a11 19       		.uleb128 0x19
+ 1676 0a12 000000CC 		.4byte	0xcc
+ 1677 0a16 00       		.byte	0
+ 1678 0a17 00       		.byte	0
+ 1679 0a18 1A       		.uleb128 0x1a
+ 1680 0a19 00000000 		.4byte	.LASF150
+ 1681 0a1d 05       		.byte	0x5
+ 1682 0a1e 30       		.byte	0x30
+ 1683 0a1f 00000A08 		.4byte	0xa08
+ 1684 0a23 01       		.byte	0x1
+ 1685 0a24 01       		.byte	0x1
+ 1686 0a25 18       		.uleb128 0x18
+ 1687 0a26 0000009B 		.4byte	0x9b
+ 1688 0a2a 00000A3B 		.4byte	0xa3b
+ 1689 0a2e 19       		.uleb128 0x19
+ 1690 0a2f 000000CC 		.4byte	0xcc
+ 1691 0a33 00       		.byte	0
+ 1692 0a34 19       		.uleb128 0x19
+ 1693 0a35 000000CC 		.4byte	0xcc
+ 1694 0a39 01       		.byte	0x1
+ 1695 0a3a 00       		.byte	0
+ 1696 0a3b 1A       		.uleb128 0x1a
+ 1697 0a3c 00000000 		.4byte	.LASF151
+ 1698 0a40 05       		.byte	0x5
+ 1699 0a41 36       		.byte	0x36
+ 1700 0a42 00000A25 		.4byte	0xa25
+ 1701 0a46 01       		.byte	0x1
+ 1702 0a47 01       		.byte	0x1
+ 1703 0a48 1B       		.uleb128 0x1b
+ 1704 0a49 00000000 		.4byte	.LASF152
+ 1705 0a4d 01       		.byte	0x1
+ 1706 0a4e 1A       		.byte	0x1a
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 31
+
+
+ 1707 0a4f 00000963 		.4byte	0x963
+ 1708 0a53 01       		.byte	0x1
+ 1709 0a54 05       		.byte	0x5
+ 1710 0a55 03       		.byte	0x3
+ 1711 0a56 00000000 		.4byte	AEK_TOF_METHODS
+ 1712 0a5a 1B       		.uleb128 0x1b
+ 1713 0a5b 00000000 		.4byte	.LASF153
+ 1714 0a5f 01       		.byte	0x1
+ 1715 0a60 18       		.byte	0x18
+ 1716 0a61 0000009B 		.4byte	0x9b
+ 1717 0a65 01       		.byte	0x1
+ 1718 0a66 05       		.byte	0x5
+ 1719 0a67 03       		.byte	0x3
+ 1720 0a68 00000000 		.4byte	methods_available
+ 1721 0a6c 00       		.byte	0
+ 1722              		.section	.debug_abbrev,"",@progbits
+ 1723              	.Ldebug_abbrev0:
+ 1724 0000 01       		.uleb128 0x1
+ 1725 0001 11       		.uleb128 0x11
+ 1726 0002 01       		.byte	0x1
+ 1727 0003 25       		.uleb128 0x25
+ 1728 0004 0E       		.uleb128 0xe
+ 1729 0005 13       		.uleb128 0x13
+ 1730 0006 0B       		.uleb128 0xb
+ 1731 0007 03       		.uleb128 0x3
+ 1732 0008 0E       		.uleb128 0xe
+ 1733 0009 1B       		.uleb128 0x1b
+ 1734 000a 0E       		.uleb128 0xe
+ 1735 000b 55       		.uleb128 0x55
+ 1736 000c 06       		.uleb128 0x6
+ 1737 000d 11       		.uleb128 0x11
+ 1738 000e 01       		.uleb128 0x1
+ 1739 000f 52       		.uleb128 0x52
+ 1740 0010 01       		.uleb128 0x1
+ 1741 0011 10       		.uleb128 0x10
+ 1742 0012 06       		.uleb128 0x6
+ 1743 0013 00       		.byte	0
+ 1744 0014 00       		.byte	0
+ 1745 0015 02       		.uleb128 0x2
+ 1746 0016 24       		.uleb128 0x24
+ 1747 0017 00       		.byte	0
+ 1748 0018 0B       		.uleb128 0xb
+ 1749 0019 0B       		.uleb128 0xb
+ 1750 001a 3E       		.uleb128 0x3e
+ 1751 001b 0B       		.uleb128 0xb
+ 1752 001c 03       		.uleb128 0x3
+ 1753 001d 0E       		.uleb128 0xe
+ 1754 001e 00       		.byte	0
+ 1755 001f 00       		.byte	0
+ 1756 0020 03       		.uleb128 0x3
+ 1757 0021 16       		.uleb128 0x16
+ 1758 0022 00       		.byte	0
+ 1759 0023 03       		.uleb128 0x3
+ 1760 0024 0E       		.uleb128 0xe
+ 1761 0025 3A       		.uleb128 0x3a
+ 1762 0026 0B       		.uleb128 0xb
+ 1763 0027 3B       		.uleb128 0x3b
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 32
+
+
+ 1764 0028 0B       		.uleb128 0xb
+ 1765 0029 49       		.uleb128 0x49
+ 1766 002a 13       		.uleb128 0x13
+ 1767 002b 00       		.byte	0
+ 1768 002c 00       		.byte	0
+ 1769 002d 04       		.uleb128 0x4
+ 1770 002e 24       		.uleb128 0x24
+ 1771 002f 00       		.byte	0
+ 1772 0030 0B       		.uleb128 0xb
+ 1773 0031 0B       		.uleb128 0xb
+ 1774 0032 3E       		.uleb128 0x3e
+ 1775 0033 0B       		.uleb128 0xb
+ 1776 0034 03       		.uleb128 0x3
+ 1777 0035 08       		.uleb128 0x8
+ 1778 0036 00       		.byte	0
+ 1779 0037 00       		.byte	0
+ 1780 0038 05       		.uleb128 0x5
+ 1781 0039 35       		.uleb128 0x35
+ 1782 003a 00       		.byte	0
+ 1783 003b 49       		.uleb128 0x49
+ 1784 003c 13       		.uleb128 0x13
+ 1785 003d 00       		.byte	0
+ 1786 003e 00       		.byte	0
+ 1787 003f 06       		.uleb128 0x6
+ 1788 0040 13       		.uleb128 0x13
+ 1789 0041 00       		.byte	0
+ 1790 0042 03       		.uleb128 0x3
+ 1791 0043 0E       		.uleb128 0xe
+ 1792 0044 3C       		.uleb128 0x3c
+ 1793 0045 0C       		.uleb128 0xc
+ 1794 0046 00       		.byte	0
+ 1795 0047 00       		.byte	0
+ 1796 0048 07       		.uleb128 0x7
+ 1797 0049 04       		.uleb128 0x4
+ 1798 004a 01       		.byte	0x1
+ 1799 004b 0B       		.uleb128 0xb
+ 1800 004c 0B       		.uleb128 0xb
+ 1801 004d 3A       		.uleb128 0x3a
+ 1802 004e 0B       		.uleb128 0xb
+ 1803 004f 3B       		.uleb128 0x3b
+ 1804 0050 0B       		.uleb128 0xb
+ 1805 0051 01       		.uleb128 0x1
+ 1806 0052 13       		.uleb128 0x13
+ 1807 0053 00       		.byte	0
+ 1808 0054 00       		.byte	0
+ 1809 0055 08       		.uleb128 0x8
+ 1810 0056 28       		.uleb128 0x28
+ 1811 0057 00       		.byte	0
+ 1812 0058 03       		.uleb128 0x3
+ 1813 0059 0E       		.uleb128 0xe
+ 1814 005a 1C       		.uleb128 0x1c
+ 1815 005b 0D       		.uleb128 0xd
+ 1816 005c 00       		.byte	0
+ 1817 005d 00       		.byte	0
+ 1818 005e 09       		.uleb128 0x9
+ 1819 005f 0F       		.uleb128 0xf
+ 1820 0060 00       		.byte	0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 33
+
+
+ 1821 0061 0B       		.uleb128 0xb
+ 1822 0062 0B       		.uleb128 0xb
+ 1823 0063 00       		.byte	0
+ 1824 0064 00       		.byte	0
+ 1825 0065 0A       		.uleb128 0xa
+ 1826 0066 0F       		.uleb128 0xf
+ 1827 0067 00       		.byte	0
+ 1828 0068 0B       		.uleb128 0xb
+ 1829 0069 0B       		.uleb128 0xb
+ 1830 006a 49       		.uleb128 0x49
+ 1831 006b 13       		.uleb128 0x13
+ 1832 006c 00       		.byte	0
+ 1833 006d 00       		.byte	0
+ 1834 006e 0B       		.uleb128 0xb
+ 1835 006f 15       		.uleb128 0x15
+ 1836 0070 00       		.byte	0
+ 1837 0071 27       		.uleb128 0x27
+ 1838 0072 0C       		.uleb128 0xc
+ 1839 0073 00       		.byte	0
+ 1840 0074 00       		.byte	0
+ 1841 0075 0C       		.uleb128 0xc
+ 1842 0076 13       		.uleb128 0x13
+ 1843 0077 01       		.byte	0x1
+ 1844 0078 0B       		.uleb128 0xb
+ 1845 0079 0B       		.uleb128 0xb
+ 1846 007a 3A       		.uleb128 0x3a
+ 1847 007b 0B       		.uleb128 0xb
+ 1848 007c 3B       		.uleb128 0x3b
+ 1849 007d 0B       		.uleb128 0xb
+ 1850 007e 01       		.uleb128 0x1
+ 1851 007f 13       		.uleb128 0x13
+ 1852 0080 00       		.byte	0
+ 1853 0081 00       		.byte	0
+ 1854 0082 0D       		.uleb128 0xd
+ 1855 0083 0D       		.uleb128 0xd
+ 1856 0084 00       		.byte	0
+ 1857 0085 03       		.uleb128 0x3
+ 1858 0086 0E       		.uleb128 0xe
+ 1859 0087 3A       		.uleb128 0x3a
+ 1860 0088 0B       		.uleb128 0xb
+ 1861 0089 3B       		.uleb128 0x3b
+ 1862 008a 0B       		.uleb128 0xb
+ 1863 008b 49       		.uleb128 0x49
+ 1864 008c 13       		.uleb128 0x13
+ 1865 008d 38       		.uleb128 0x38
+ 1866 008e 0A       		.uleb128 0xa
+ 1867 008f 00       		.byte	0
+ 1868 0090 00       		.byte	0
+ 1869 0091 0E       		.uleb128 0xe
+ 1870 0092 15       		.uleb128 0x15
+ 1871 0093 01       		.byte	0x1
+ 1872 0094 27       		.uleb128 0x27
+ 1873 0095 0C       		.uleb128 0xc
+ 1874 0096 01       		.uleb128 0x1
+ 1875 0097 13       		.uleb128 0x13
+ 1876 0098 00       		.byte	0
+ 1877 0099 00       		.byte	0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 34
+
+
+ 1878 009a 0F       		.uleb128 0xf
+ 1879 009b 05       		.uleb128 0x5
+ 1880 009c 00       		.byte	0
+ 1881 009d 49       		.uleb128 0x49
+ 1882 009e 13       		.uleb128 0x13
+ 1883 009f 00       		.byte	0
+ 1884 00a0 00       		.byte	0
+ 1885 00a1 10       		.uleb128 0x10
+ 1886 00a2 15       		.uleb128 0x15
+ 1887 00a3 01       		.byte	0x1
+ 1888 00a4 27       		.uleb128 0x27
+ 1889 00a5 0C       		.uleb128 0xc
+ 1890 00a6 49       		.uleb128 0x49
+ 1891 00a7 13       		.uleb128 0x13
+ 1892 00a8 01       		.uleb128 0x1
+ 1893 00a9 13       		.uleb128 0x13
+ 1894 00aa 00       		.byte	0
+ 1895 00ab 00       		.byte	0
+ 1896 00ac 11       		.uleb128 0x11
+ 1897 00ad 0D       		.uleb128 0xd
+ 1898 00ae 00       		.byte	0
+ 1899 00af 03       		.uleb128 0x3
+ 1900 00b0 0E       		.uleb128 0xe
+ 1901 00b1 3A       		.uleb128 0x3a
+ 1902 00b2 0B       		.uleb128 0xb
+ 1903 00b3 3B       		.uleb128 0x3b
+ 1904 00b4 05       		.uleb128 0x5
+ 1905 00b5 49       		.uleb128 0x49
+ 1906 00b6 13       		.uleb128 0x13
+ 1907 00b7 38       		.uleb128 0x38
+ 1908 00b8 0A       		.uleb128 0xa
+ 1909 00b9 00       		.byte	0
+ 1910 00ba 00       		.byte	0
+ 1911 00bb 12       		.uleb128 0x12
+ 1912 00bc 16       		.uleb128 0x16
+ 1913 00bd 00       		.byte	0
+ 1914 00be 03       		.uleb128 0x3
+ 1915 00bf 0E       		.uleb128 0xe
+ 1916 00c0 3A       		.uleb128 0x3a
+ 1917 00c1 0B       		.uleb128 0xb
+ 1918 00c2 3B       		.uleb128 0x3b
+ 1919 00c3 05       		.uleb128 0x5
+ 1920 00c4 49       		.uleb128 0x49
+ 1921 00c5 13       		.uleb128 0x13
+ 1922 00c6 00       		.byte	0
+ 1923 00c7 00       		.byte	0
+ 1924 00c8 13       		.uleb128 0x13
+ 1925 00c9 2E       		.uleb128 0x2e
+ 1926 00ca 01       		.byte	0x1
+ 1927 00cb 3F       		.uleb128 0x3f
+ 1928 00cc 0C       		.uleb128 0xc
+ 1929 00cd 03       		.uleb128 0x3
+ 1930 00ce 0E       		.uleb128 0xe
+ 1931 00cf 3A       		.uleb128 0x3a
+ 1932 00d0 0B       		.uleb128 0xb
+ 1933 00d1 3B       		.uleb128 0x3b
+ 1934 00d2 0B       		.uleb128 0xb
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 35
+
+
+ 1935 00d3 27       		.uleb128 0x27
+ 1936 00d4 0C       		.uleb128 0xc
+ 1937 00d5 11       		.uleb128 0x11
+ 1938 00d6 01       		.uleb128 0x1
+ 1939 00d7 12       		.uleb128 0x12
+ 1940 00d8 01       		.uleb128 0x1
+ 1941 00d9 40       		.uleb128 0x40
+ 1942 00da 06       		.uleb128 0x6
+ 1943 00db 9742     		.uleb128 0x2117
+ 1944 00dd 0C       		.uleb128 0xc
+ 1945 00de 01       		.uleb128 0x1
+ 1946 00df 13       		.uleb128 0x13
+ 1947 00e0 00       		.byte	0
+ 1948 00e1 00       		.byte	0
+ 1949 00e2 14       		.uleb128 0x14
+ 1950 00e3 05       		.uleb128 0x5
+ 1951 00e4 00       		.byte	0
+ 1952 00e5 03       		.uleb128 0x3
+ 1953 00e6 0E       		.uleb128 0xe
+ 1954 00e7 3A       		.uleb128 0x3a
+ 1955 00e8 0B       		.uleb128 0xb
+ 1956 00e9 3B       		.uleb128 0x3b
+ 1957 00ea 0B       		.uleb128 0xb
+ 1958 00eb 49       		.uleb128 0x49
+ 1959 00ec 13       		.uleb128 0x13
+ 1960 00ed 02       		.uleb128 0x2
+ 1961 00ee 0A       		.uleb128 0xa
+ 1962 00ef 00       		.byte	0
+ 1963 00f0 00       		.byte	0
+ 1964 00f1 15       		.uleb128 0x15
+ 1965 00f2 2E       		.uleb128 0x2e
+ 1966 00f3 01       		.byte	0x1
+ 1967 00f4 3F       		.uleb128 0x3f
+ 1968 00f5 0C       		.uleb128 0xc
+ 1969 00f6 03       		.uleb128 0x3
+ 1970 00f7 0E       		.uleb128 0xe
+ 1971 00f8 3A       		.uleb128 0x3a
+ 1972 00f9 0B       		.uleb128 0xb
+ 1973 00fa 3B       		.uleb128 0x3b
+ 1974 00fb 0B       		.uleb128 0xb
+ 1975 00fc 27       		.uleb128 0x27
+ 1976 00fd 0C       		.uleb128 0xc
+ 1977 00fe 49       		.uleb128 0x49
+ 1978 00ff 13       		.uleb128 0x13
+ 1979 0100 11       		.uleb128 0x11
+ 1980 0101 01       		.uleb128 0x1
+ 1981 0102 12       		.uleb128 0x12
+ 1982 0103 01       		.uleb128 0x1
+ 1983 0104 40       		.uleb128 0x40
+ 1984 0105 06       		.uleb128 0x6
+ 1985 0106 9642     		.uleb128 0x2116
+ 1986 0108 0C       		.uleb128 0xc
+ 1987 0109 01       		.uleb128 0x1
+ 1988 010a 13       		.uleb128 0x13
+ 1989 010b 00       		.byte	0
+ 1990 010c 00       		.byte	0
+ 1991 010d 16       		.uleb128 0x16
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 36
+
+
+ 1992 010e 34       		.uleb128 0x34
+ 1993 010f 00       		.byte	0
+ 1994 0110 03       		.uleb128 0x3
+ 1995 0111 0E       		.uleb128 0xe
+ 1996 0112 3A       		.uleb128 0x3a
+ 1997 0113 0B       		.uleb128 0xb
+ 1998 0114 3B       		.uleb128 0x3b
+ 1999 0115 0B       		.uleb128 0xb
+ 2000 0116 49       		.uleb128 0x49
+ 2001 0117 13       		.uleb128 0x13
+ 2002 0118 02       		.uleb128 0x2
+ 2003 0119 0A       		.uleb128 0xa
+ 2004 011a 00       		.byte	0
+ 2005 011b 00       		.byte	0
+ 2006 011c 17       		.uleb128 0x17
+ 2007 011d 34       		.uleb128 0x34
+ 2008 011e 00       		.byte	0
+ 2009 011f 03       		.uleb128 0x3
+ 2010 0120 08       		.uleb128 0x8
+ 2011 0121 3A       		.uleb128 0x3a
+ 2012 0122 0B       		.uleb128 0xb
+ 2013 0123 3B       		.uleb128 0x3b
+ 2014 0124 0B       		.uleb128 0xb
+ 2015 0125 49       		.uleb128 0x49
+ 2016 0126 13       		.uleb128 0x13
+ 2017 0127 02       		.uleb128 0x2
+ 2018 0128 0A       		.uleb128 0xa
+ 2019 0129 00       		.byte	0
+ 2020 012a 00       		.byte	0
+ 2021 012b 18       		.uleb128 0x18
+ 2022 012c 01       		.uleb128 0x1
+ 2023 012d 01       		.byte	0x1
+ 2024 012e 49       		.uleb128 0x49
+ 2025 012f 13       		.uleb128 0x13
+ 2026 0130 01       		.uleb128 0x1
+ 2027 0131 13       		.uleb128 0x13
+ 2028 0132 00       		.byte	0
+ 2029 0133 00       		.byte	0
+ 2030 0134 19       		.uleb128 0x19
+ 2031 0135 21       		.uleb128 0x21
+ 2032 0136 00       		.byte	0
+ 2033 0137 49       		.uleb128 0x49
+ 2034 0138 13       		.uleb128 0x13
+ 2035 0139 2F       		.uleb128 0x2f
+ 2036 013a 0B       		.uleb128 0xb
+ 2037 013b 00       		.byte	0
+ 2038 013c 00       		.byte	0
+ 2039 013d 1A       		.uleb128 0x1a
+ 2040 013e 34       		.uleb128 0x34
+ 2041 013f 00       		.byte	0
+ 2042 0140 03       		.uleb128 0x3
+ 2043 0141 0E       		.uleb128 0xe
+ 2044 0142 3A       		.uleb128 0x3a
+ 2045 0143 0B       		.uleb128 0xb
+ 2046 0144 3B       		.uleb128 0x3b
+ 2047 0145 0B       		.uleb128 0xb
+ 2048 0146 49       		.uleb128 0x49
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 37
+
+
+ 2049 0147 13       		.uleb128 0x13
+ 2050 0148 3F       		.uleb128 0x3f
+ 2051 0149 0C       		.uleb128 0xc
+ 2052 014a 3C       		.uleb128 0x3c
+ 2053 014b 0C       		.uleb128 0xc
+ 2054 014c 00       		.byte	0
+ 2055 014d 00       		.byte	0
+ 2056 014e 1B       		.uleb128 0x1b
+ 2057 014f 34       		.uleb128 0x34
+ 2058 0150 00       		.byte	0
+ 2059 0151 03       		.uleb128 0x3
+ 2060 0152 0E       		.uleb128 0xe
+ 2061 0153 3A       		.uleb128 0x3a
+ 2062 0154 0B       		.uleb128 0xb
+ 2063 0155 3B       		.uleb128 0x3b
+ 2064 0156 0B       		.uleb128 0xb
+ 2065 0157 49       		.uleb128 0x49
+ 2066 0158 13       		.uleb128 0x13
+ 2067 0159 3F       		.uleb128 0x3f
+ 2068 015a 0C       		.uleb128 0xc
+ 2069 015b 02       		.uleb128 0x2
+ 2070 015c 0A       		.uleb128 0xa
+ 2071 015d 00       		.byte	0
+ 2072 015e 00       		.byte	0
+ 2073 015f 00       		.byte	0
+ 2074              		.section	.debug_loc,"",@progbits
+ 2075              	.Ldebug_loc0:
+ 2076              	.LLST0:
+ 2077 0000 00000000 		.4byte	.LFB2
+ 2078 0004 00000000 		.4byte	.LCFI0
+ 2079 0008 0002     		.2byte	0x2
+ 2080 000a 71       		.byte	0x71
+ 2081 000b 00       		.sleb128 0
+ 2082 000c 00000000 		.4byte	.LCFI0
+ 2083 0010 00000000 		.4byte	.LCFI1
+ 2084 0014 0002     		.2byte	0x2
+ 2085 0016 71       		.byte	0x71
+ 2086 0017 10       		.sleb128 16
+ 2087 0018 00000000 		.4byte	.LCFI1
+ 2088 001c 00000000 		.4byte	.LFE2
+ 2089 0020 0002     		.2byte	0x2
+ 2090 0022 71       		.byte	0x71
+ 2091 0023 00       		.sleb128 0
+ 2092 0024 00000000 		.4byte	0
+ 2093 0028 00000000 		.4byte	0
+ 2094              	.LLST1:
+ 2095 002c 00000000 		.4byte	.LFB3
+ 2096 0030 00000000 		.4byte	.LCFI2
+ 2097 0034 0002     		.2byte	0x2
+ 2098 0036 71       		.byte	0x71
+ 2099 0037 00       		.sleb128 0
+ 2100 0038 00000000 		.4byte	.LCFI2
+ 2101 003c 00000000 		.4byte	.LCFI3
+ 2102 0040 0002     		.2byte	0x2
+ 2103 0042 71       		.byte	0x71
+ 2104 0043 18       		.sleb128 24
+ 2105 0044 00000000 		.4byte	.LCFI3
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 38
+
+
+ 2106 0048 00000000 		.4byte	.LFE3
+ 2107 004c 0002     		.2byte	0x2
+ 2108 004e 71       		.byte	0x71
+ 2109 004f 00       		.sleb128 0
+ 2110 0050 00000000 		.4byte	0
+ 2111 0054 00000000 		.4byte	0
+ 2112              		.section	.debug_aranges,"",@progbits
+ 2113 0000 00000024 		.4byte	0x24
+ 2114 0004 0002     		.2byte	0x2
+ 2115 0006 00000000 		.4byte	.Ldebug_info0
+ 2116 000a 04       		.byte	0x4
+ 2117 000b 00       		.byte	0
+ 2118 000c 0000     		.2byte	0
+ 2119 000e 0000     		.2byte	0
+ 2120 0010 00000000 		.4byte	.LFB2
+ 2121 0014 000002A8 		.4byte	.LFE2-.LFB2
+ 2122 0018 00000000 		.4byte	.LFB3
+ 2123 001c 000000CE 		.4byte	.LFE3-.LFB3
+ 2124 0020 00000000 		.4byte	0
+ 2125 0024 00000000 		.4byte	0
+ 2126              		.section	.debug_ranges,"",@progbits
+ 2127              	.Ldebug_ranges0:
+ 2128 0000 00000000 		.4byte	.LFB2
+ 2129 0004 00000000 		.4byte	.LFE2
+ 2130 0008 00000000 		.4byte	.LFB3
+ 2131 000c 00000000 		.4byte	.LFE3
+ 2132 0010 00000000 		.4byte	0
+ 2133 0014 00000000 		.4byte	0
+ 2134              		.section	.debug_line,"",@progbits
+ 2135              	.Ldebug_line0:
+ 2136 0000 00000313 		.section	.debug_str,"MS",@progbits,1
+ 2136      00020000 
+ 2136      02990201 
+ 2136      FB0E0D00 
+ 2136      01010101 
+ 2137              	.LASF132:
+ 2138 0000 47657444 		.string	"GetDistanceThresholdWindow"
+ 2138      69737461 
+ 2138      6E636554 
+ 2138      68726573 
+ 2138      686F6C64 
+ 2139              	.LASF124:
+ 2140 001b 47657441 		.string	"GetAmbientRate"
+ 2140      6D626965 
+ 2140      6E745261 
+ 2140      746500
+ 2141              	.LASF113:
+ 2142 002a 53657444 		.string	"SetDistanceMode"
+ 2142      69737461 
+ 2142      6E63654D 
+ 2142      6F646500 
+ 2143              	.LASF47:
+ 2144 003a 554C445F 		.string	"ULD_GetIRQSensorState_ptr"
+ 2144      47657449 
+ 2144      52515365 
+ 2144      6E736F72 
+ 2144      53746174 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 39
+
+
+ 2145              	.LASF62:
+ 2146 0054 554C445F 		.string	"ULD_GetTimingBudgetInMs_ptr"
+ 2146      47657454 
+ 2146      696D696E 
+ 2146      67427564 
+ 2146      67657449 
+ 2147              	.LASF82:
+ 2148 0070 554C445F 		.string	"ULD_GetDistanceThresholdLow_ptr"
+ 2148      47657444 
+ 2148      69737461 
+ 2148      6E636554 
+ 2148      68726573 
+ 2149              	.LASF76:
+ 2150 0090 554C445F 		.string	"ULD_GetResult_ptr"
+ 2150      47657452 
+ 2150      6573756C 
+ 2150      745F7074 
+ 2150      7200
+ 2151              	.LASF144:
+ 2152 00a2 43616C69 		.string	"CalibrateOffset"
+ 2152      62726174 
+ 2152      654F6666 
+ 2152      73657400 
+ 2153              	.LASF104:
+ 2154 00b2 53656E73 		.string	"SensorInit"
+ 2154      6F72496E 
+ 2154      697400
+ 2155              	.LASF55:
+ 2156 00bd 554C445F 		.string	"ULD_ClearInterrupt_ptr"
+ 2156      436C6561 
+ 2156      72496E74 
+ 2156      65727275 
+ 2156      70745F70 
+ 2157              	.LASF2:
+ 2158 00d4 5F5F7569 		.string	"__uint8_t"
+ 2158      6E74385F 
+ 2158      7400
+ 2159              	.LASF92:
+ 2160 00de 554C445F 		.string	"ULD_StartTemperatureUpdate_ptr"
+ 2160      53746172 
+ 2160      7454656D 
+ 2160      70657261 
+ 2160      74757265 
+ 2161              	.LASF137:
+ 2162 00fd 53657452 		.string	"SetROICenter"
+ 2162      4F494365 
+ 2162      6E746572 
+ 2162      00
+ 2163              	.LASF24:
+ 2164 010a 4932435F 		.string	"I2C_ERROR_INVALID_ADDRESS"
+ 2164      4552524F 
+ 2164      525F494E 
+ 2164      56414C49 
+ 2164      445F4144 
+ 2165              	.LASF37:
+ 2166 0124 72657669 		.string	"revision"
+ 2166      73696F6E 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 40
+
+
+ 2166      00
+ 2167              	.LASF134:
+ 2168 012d 47657444 		.string	"GetDistanceThresholdHigh"
+ 2168      69737461 
+ 2168      6E636554 
+ 2168      68726573 
+ 2168      686F6C64 
+ 2169              	.LASF38:
+ 2170 0146 564C3533 		.string	"VL53L1X_Version_t"
+ 2170      4C31585F 
+ 2170      56657273 
+ 2170      696F6E5F 
+ 2170      7400
+ 2171              	.LASF54:
+ 2172 0158 554C445F 		.string	"ULD_SensorInit_ptr"
+ 2172      53656E73 
+ 2172      6F72496E 
+ 2172      69745F70 
+ 2172      747200
+ 2173              	.LASF85:
+ 2174 016b 554C445F 		.string	"ULD_GetROI_XY_ptr"
+ 2174      47657452 
+ 2174      4F495F58 
+ 2174      595F7074 
+ 2174      7200
+ 2175              	.LASF51:
+ 2176 017d 554C445F 		.string	"ULD_TurnOffAllSensors_ptr"
+ 2176      5475726E 
+ 2176      4F666641 
+ 2176      6C6C5365 
+ 2176      6E736F72 
+ 2177              	.LASF11:
+ 2178 0197 6C6F6E67 		.string	"long long unsigned int"
+ 2178      206C6F6E 
+ 2178      6720756E 
+ 2178      7369676E 
+ 2178      65642069 
+ 2179              	.LASF90:
+ 2180 01ae 554C445F 		.string	"ULD_SetSigmaThreshold_ptr"
+ 2180      53657453 
+ 2180      69676D61 
+ 2180      54687265 
+ 2180      73686F6C 
+ 2181              	.LASF59:
+ 2182 01c8 554C445F 		.string	"ULD_StopRanging_ptr"
+ 2182      53746F70 
+ 2182      52616E67 
+ 2182      696E675F 
+ 2182      70747200 
+ 2183              	.LASF149:
+ 2184 01dc 41454B5F 		.string	"AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER"
+ 2184      534E535F 
+ 2184      564C3533 
+ 2184      4C31585F 
+ 2184      4932435F 
+ 2185              	.LASF151:
+ 2186 01fd 58736875 		.string	"XshutMatrix"
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 41
+
+
+ 2186      744D6174 
+ 2186      72697800 
+ 2187              	.LASF74:
+ 2188 0209 554C445F 		.string	"ULD_GetAmbientRate_ptr"
+ 2188      47657441 
+ 2188      6D626965 
+ 2188      6E745261 
+ 2188      74655F70 
+ 2189              	.LASF102:
+ 2190 0220 47657453 		.string	"GetSWVersion"
+ 2190      57566572 
+ 2190      73696F6E 
+ 2190      00
+ 2191              	.LASF19:
+ 2192 022d 4932435F 		.string	"I2C_NO_ERROR"
+ 2192      4E4F5F45 
+ 2192      52524F52 
+ 2192      00
+ 2193              	.LASF14:
+ 2194 023a 696E7431 		.string	"int16_t"
+ 2194      365F7400 
+ 2195              	.LASF10:
+ 2196 0242 6C6F6E67 		.string	"long long int"
+ 2196      206C6F6E 
+ 2196      6720696E 
+ 2196      7400
+ 2197              	.LASF0:
+ 2198 0250 7369676E 		.string	"signed char"
+ 2198      65642063 
+ 2198      68617200 
+ 2199              	.LASF147:
+ 2200 025c 73746174 		.string	"status"
+ 2200      757300
+ 2201              	.LASF125:
+ 2202 0263 47657452 		.string	"GetRangeStatus"
+ 2202      616E6765 
+ 2202      53746174 
+ 2202      757300
+ 2203              	.LASF31:
+ 2204 0272 41454B5F 		.string	"AEK_TOF_NO_ERROR"
+ 2204      544F465F 
+ 2204      4E4F5F45 
+ 2204      52524F52 
+ 2204      00
+ 2205              	.LASF99:
+ 2206 0283 5475726E 		.string	"TurnOffSensor"
+ 2206      4F666653 
+ 2206      656E736F 
+ 2206      7200
+ 2207              	.LASF67:
+ 2208 0291 554C445F 		.string	"ULD_BootState_ptr"
+ 2208      426F6F74 
+ 2208      53746174 
+ 2208      655F7074 
+ 2208      7200
+ 2209              	.LASF143:
+ 2210 02a3 53746172 		.string	"StartTemperatureUpdate"
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 42
+
+
+ 2210      7454656D 
+ 2210      70657261 
+ 2210      74757265 
+ 2210      55706461 
+ 2211              	.LASF71:
+ 2212 02ba 554C445F 		.string	"ULD_GetAmbientPerSpad_ptr"
+ 2212      47657441 
+ 2212      6D626965 
+ 2212      6E745065 
+ 2212      72537061 
+ 2213              	.LASF27:
+ 2214 02d4 4932435F 		.string	"I2C_ERROR_BUFFER_OVERFLOW"
+ 2214      4552524F 
+ 2214      525F4255 
+ 2214      46464552 
+ 2214      5F4F5645 
+ 2215              	.LASF142:
+ 2216 02ee 47657453 		.string	"GetSigmaThreshold"
+ 2216      69676D61 
+ 2216      54687265 
+ 2216      73686F6C 
+ 2216      6400
+ 2217              	.LASF154:
+ 2218 0300 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 2218      4320342E 
+ 2218      392E3420 
+ 2218      32303136 
+ 2218      30373236 
+ 2219 033c 75696C64 		.ascii	"uild.sh"
+ 2219      2E7368
+ 2220 0343 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 2220      3D676438 
+ 2220      62366332 
+ 2220      3020733D 
+ 2220      46343934 
+ 2221              	.LASF155:
+ 2222 0444 2E2F636F 		.string	"./components/aek_sns_vl53l1x1_component_rla/lib/src/AEK_SNS_VL53L1X1.c"
+ 2222      6D706F6E 
+ 2222      656E7473 
+ 2222      2F61656B 
+ 2222      5F736E73 
+ 2223              	.LASF7:
+ 2224 048b 6C6F6E67 		.string	"long int"
+ 2224      20696E74 
+ 2224      00
+ 2225              	.LASF21:
+ 2226 0494 4932435F 		.string	"I2C_ERROR_NO_ACK"
+ 2226      4552524F 
+ 2226      525F4E4F 
+ 2226      5F41434B 
+ 2226      00
+ 2227              	.LASF119:
+ 2228 04a5 47657444 		.string	"GetDistance"
+ 2228      69737461 
+ 2228      6E636500 
+ 2229              	.LASF112:
+ 2230 04b1 47657454 		.string	"GetTimingBudgetInMs"
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 43
+
+
+ 2230      696D696E 
+ 2230      67427564 
+ 2230      67657449 
+ 2230      6E4D7300 
+ 2231              	.LASF23:
+ 2232 04c5 4932435F 		.string	"I2C_ERROR_ARBITRATION_LOST"
+ 2232      4552524F 
+ 2232      525F4152 
+ 2232      42495452 
+ 2232      4154494F 
+ 2233              	.LASF68:
+ 2234 04e0 554C445F 		.string	"ULD_GetSensorId_ptr"
+ 2234      47657453 
+ 2234      656E736F 
+ 2234      7249645F 
+ 2234      70747200 
+ 2235              	.LASF94:
+ 2236 04f4 554C445F 		.string	"ULD_CalibrateXtalk_ptr"
+ 2236      43616C69 
+ 2236      62726174 
+ 2236      65587461 
+ 2236      6C6B5F70 
+ 2237              	.LASF39:
+ 2238 050b 53746174 		.string	"Status"
+ 2238      757300
+ 2239              	.LASF129:
+ 2240 0512 53657458 		.string	"SetXtalk"
+ 2240      74616C6B 
+ 2240      00
+ 2241              	.LASF15:
+ 2242 051b 75696E74 		.string	"uint16_t"
+ 2242      31365F74 
+ 2242      00
+ 2243              	.LASF42:
+ 2244 0524 53696750 		.string	"SigPerSPAD"
+ 2244      65725350 
+ 2244      414400
+ 2245              	.LASF40:
+ 2246 052f 44697374 		.string	"Distance"
+ 2246      616E6365 
+ 2246      00
+ 2247              	.LASF32:
+ 2248 0538 41454B5F 		.string	"AEK_TOF_ERROR_CONFIGURATION"
+ 2248      544F465F 
+ 2248      4552524F 
+ 2248      525F434F 
+ 2248      4E464947 
+ 2249              	.LASF123:
+ 2250 0554 47657453 		.string	"GetSpadNb"
+ 2250      7061644E 
+ 2250      6200
+ 2251              	.LASF105:
+ 2252 055e 436C6561 		.string	"ClearInterrupt"
+ 2252      72496E74 
+ 2252      65727275 
+ 2252      707400
+ 2253              	.LASF107:
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 44
+
+
+ 2254 056d 47657449 		.string	"GetInterruptPolarity"
+ 2254      6E746572 
+ 2254      72757074 
+ 2254      506F6C61 
+ 2254      72697479 
+ 2255              	.LASF138:
+ 2256 0582 47657452 		.string	"GetROICenter"
+ 2256      4F494365 
+ 2256      6E746572 
+ 2256      00
+ 2257              	.LASF8:
+ 2258 058f 5F5F7569 		.string	"__uint32_t"
+ 2258      6E743332 
+ 2258      5F7400
+ 2259              	.LASF127:
+ 2260 059a 5365744F 		.string	"SetOffset"
+ 2260      66667365 
+ 2260      7400
+ 2261              	.LASF3:
+ 2262 05a4 5F5F696E 		.string	"__int16_t"
+ 2262      7431365F 
+ 2262      7400
+ 2263              	.LASF78:
+ 2264 05ae 554C445F 		.string	"ULD_GetOffset_ptr"
+ 2264      4765744F 
+ 2264      66667365 
+ 2264      745F7074 
+ 2264      7200
+ 2265              	.LASF141:
+ 2266 05c0 53657453 		.string	"SetSigmaThreshold"
+ 2266      69676D61 
+ 2266      54687265 
+ 2266      73686F6C 
+ 2266      6400
+ 2267              	.LASF20:
+ 2268 05d2 4932435F 		.string	"I2C_ERROR_TRANSFER_IN_PROGRESS"
+ 2268      4552524F 
+ 2268      525F5452 
+ 2268      414E5346 
+ 2268      45525F49 
+ 2269              	.LASF58:
+ 2270 05f1 554C445F 		.string	"ULD_StartRanging_ptr"
+ 2270      53746172 
+ 2270      7452616E 
+ 2270      67696E67 
+ 2270      5F707472 
+ 2271              	.LASF12:
+ 2272 0606 756E7369 		.string	"unsigned int"
+ 2272      676E6564 
+ 2272      20696E74 
+ 2272      00
+ 2273              	.LASF95:
+ 2274 0613 47657445 		.string	"GetErrorSensorState"
+ 2274      72726F72 
+ 2274      53656E73 
+ 2274      6F725374 
+ 2274      61746500 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 45
+
+
+ 2275              	.LASF69:
+ 2276 0627 554C445F 		.string	"ULD_GetDistance_ptr"
+ 2276      47657444 
+ 2276      69737461 
+ 2276      6E63655F 
+ 2276      70747200 
+ 2277              	.LASF121:
+ 2278 063b 47657441 		.string	"GetAmbientPerSpad"
+ 2278      6D626965 
+ 2278      6E745065 
+ 2278      72537061 
+ 2278      6400
+ 2279              	.LASF35:
+ 2280 064d 6D696E6F 		.string	"minor"
+ 2280      7200
+ 2281              	.LASF9:
+ 2282 0653 6C6F6E67 		.string	"long unsigned int"
+ 2282      20756E73 
+ 2282      69676E65 
+ 2282      6420696E 
+ 2282      7400
+ 2283              	.LASF156:
+ 2284 0665 433A5C55 		.string	"C:\\Users\\cerru\\Desktop\\ferrari_st\\AutoDevKitCarV1UnictTestMotori"
+ 2284      73657273 
+ 2284      5C636572 
+ 2284      72755C44 
+ 2284      65736B74 
+ 2285              	.LASF88:
+ 2286 06a6 554C445F 		.string	"ULD_SetSignalThreshold_ptr"
+ 2286      53657453 
+ 2286      69676E61 
+ 2286      6C546872 
+ 2286      6573686F 
+ 2287              	.LASF87:
+ 2288 06c1 554C445F 		.string	"ULD_GetROICenter_ptr"
+ 2288      47657452 
+ 2288      4F494365 
+ 2288      6E746572 
+ 2288      5F707472 
+ 2289              	.LASF6:
+ 2290 06d6 73686F72 		.string	"short unsigned int"
+ 2290      7420756E 
+ 2290      7369676E 
+ 2290      65642069 
+ 2290      6E7400
+ 2291              	.LASF18:
+ 2292 06e9 49324344 		.string	"I2CDriver"
+ 2292      72697665 
+ 2292      7200
+ 2293              	.LASF33:
+ 2294 06f3 41454B5F 		.string	"AEK_TOF_ERROR"
+ 2294      544F465F 
+ 2294      4552524F 
+ 2294      5200
+ 2295              	.LASF30:
+ 2296 0701 41454B5F 		.string	"AEK_TOF_DEV"
+ 2296      544F465F 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 46
+
+
+ 2296      44455600 
+ 2297              	.LASF158:
+ 2298 070d 41454B5F 		.string	"AEK_TOF_CONFIG"
+ 2298      544F465F 
+ 2298      434F4E46 
+ 2298      494700
+ 2299              	.LASF53:
+ 2300 071c 554C445F 		.string	"ULD_SetI2CAddress_ptr"
+ 2300      53657449 
+ 2300      32434164 
+ 2300      64726573 
+ 2300      735F7074 
+ 2301              	.LASF146:
+ 2302 0732 6D657468 		.string	"methods_t"
+ 2302      6F64735F 
+ 2302      7400
+ 2303              	.LASF60:
+ 2304 073c 554C445F 		.string	"ULD_CheckForDataReady_ptr"
+ 2304      43686563 
+ 2304      6B466F72 
+ 2304      44617461 
+ 2304      52656164 
+ 2305              	.LASF83:
+ 2306 0756 554C445F 		.string	"ULD_GetDistanceThresholdHigh_ptr"
+ 2306      47657444 
+ 2306      69737461 
+ 2306      6E636554 
+ 2306      68726573 
+ 2307              	.LASF50:
+ 2308 0777 554C445F 		.string	"ULD_TurnOnAllSensors_ptr"
+ 2308      5475726E 
+ 2308      4F6E416C 
+ 2308      6C53656E 
+ 2308      736F7273 
+ 2309              	.LASF136:
+ 2310 0790 47657452 		.string	"GetROI_XY"
+ 2310      4F495F58 
+ 2310      5900
+ 2311              	.LASF153:
+ 2312 079a 6D657468 		.string	"methods_available"
+ 2312      6F64735F 
+ 2312      61766169 
+ 2312      6C61626C 
+ 2312      6500
+ 2313              	.LASF122:
+ 2314 07ac 47657453 		.string	"GetSignalRate"
+ 2314      69676E61 
+ 2314      6C526174 
+ 2314      6500
+ 2315              	.LASF80:
+ 2316 07ba 554C445F 		.string	"ULD_GetXtalk_ptr"
+ 2316      47657458 
+ 2316      74616C6B 
+ 2316      5F707472 
+ 2316      00
+ 2317              	.LASF25:
+ 2318 07cb 4932435F 		.string	"I2C_ERROR_INVALID_ARGUMENT"
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 47
+
+
+ 2318      4552524F 
+ 2318      525F494E 
+ 2318      56414C49 
+ 2318      445F4152 
+ 2319              	.LASF77:
+ 2320 07e6 554C445F 		.string	"ULD_SetOffset_ptr"
+ 2320      5365744F 
+ 2320      66667365 
+ 2320      745F7074 
+ 2320      7200
+ 2321              	.LASF128:
+ 2322 07f8 4765744F 		.string	"GetOffset"
+ 2322      66667365 
+ 2322      7400
+ 2323              	.LASF135:
+ 2324 0802 53657452 		.string	"SetROI"
+ 2324      4F4900
+ 2325              	.LASF17:
+ 2326 0809 73697A65 		.string	"sizetype"
+ 2326      74797065 
+ 2326      00
+ 2327              	.LASF41:
+ 2328 0812 416D6269 		.string	"Ambient"
+ 2328      656E7400 
+ 2329              	.LASF49:
+ 2330 081a 554C445F 		.string	"ULD_TurnOffSensor_ptr"
+ 2330      5475726E 
+ 2330      4F666653 
+ 2330      656E736F 
+ 2330      725F7074 
+ 2331              	.LASF114:
+ 2332 0830 47657444 		.string	"GetDistanceMode"
+ 2332      69737461 
+ 2332      6E63654D 
+ 2332      6F646500 
+ 2333              	.LASF45:
+ 2334 0840 554C445F 		.string	"ULD_GetErrorSensorState_ptr"
+ 2334      47657445 
+ 2334      72726F72 
+ 2334      53656E73 
+ 2334      6F725374 
+ 2335              	.LASF130:
+ 2336 085c 47657458 		.string	"GetXtalk"
+ 2336      74616C6B 
+ 2336      00
+ 2337              	.LASF150:
+ 2338 0865 41454B5F 		.string	"AEK_SNS_VL53L1X_I2C_ARRAY_CONFIGURATION"
+ 2338      534E535F 
+ 2338      564C3533 
+ 2338      4C31585F 
+ 2338      4932435F 
+ 2339              	.LASF120:
+ 2340 088d 47657453 		.string	"GetSignalPerSpad"
+ 2340      69676E61 
+ 2340      6C506572 
+ 2340      53706164 
+ 2340      00
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 48
+
+
+ 2341              	.LASF97:
+ 2342 089e 47657449 		.string	"GetIRQSensorState"
+ 2342      52515365 
+ 2342      6E736F72 
+ 2342      53746174 
+ 2342      6500
+ 2343              	.LASF65:
+ 2344 08b0 554C445F 		.string	"ULD_SetInterMeasurementInMs_ptr"
+ 2344      53657449 
+ 2344      6E746572 
+ 2344      4D656173 
+ 2344      7572656D 
+ 2345              	.LASF157:
+ 2346 08d0 66696C6C 		.string	"fillMethodsStructULD"
+ 2346      4D657468 
+ 2346      6F647353 
+ 2346      74727563 
+ 2346      74554C44 
+ 2347              	.LASF36:
+ 2348 08e5 6275696C 		.string	"build"
+ 2348      6400
+ 2349              	.LASF106:
+ 2350 08eb 53657449 		.string	"SetInterruptPolarity"
+ 2350      6E746572 
+ 2350      72757074 
+ 2350      506F6C61 
+ 2350      72697479 
+ 2351              	.LASF57:
+ 2352 0900 554C445F 		.string	"ULD_GetInterruptPolarity_ptr"
+ 2352      47657449 
+ 2352      6E746572 
+ 2352      72757074 
+ 2352      506F6C61 
+ 2353              	.LASF103:
+ 2354 091d 53657449 		.string	"SetI2CAddress"
+ 2354      32434164 
+ 2354      64726573 
+ 2354      7300
+ 2355              	.LASF61:
+ 2356 092b 554C445F 		.string	"ULD_SetTimingBudgetInMs_ptr"
+ 2356      53657454 
+ 2356      696D696E 
+ 2356      67427564 
+ 2356      67657449 
+ 2357              	.LASF81:
+ 2358 0947 554C445F 		.string	"ULD_SetDistanceThreshold_ptr"
+ 2358      53657444 
+ 2358      69737461 
+ 2358      6E636554 
+ 2358      68726573 
+ 2359              	.LASF109:
+ 2360 0964 53746F70 		.string	"StopRanging"
+ 2360      52616E67 
+ 2360      696E6700 
+ 2361              	.LASF44:
+ 2362 0970 564C3533 		.string	"VL53L1X_Result_t"
+ 2362      4C31585F 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 49
+
+
+ 2362      52657375 
+ 2362      6C745F74 
+ 2362      00
+ 2363              	.LASF1:
+ 2364 0981 756E7369 		.string	"unsigned char"
+ 2364      676E6564 
+ 2364      20636861 
+ 2364      7200
+ 2365              	.LASF70:
+ 2366 098f 554C445F 		.string	"ULD_GetSignalPerSpad_ptr"
+ 2366      47657453 
+ 2366      69676E61 
+ 2366      6C506572 
+ 2366      53706164 
+ 2367              	.LASF126:
+ 2368 09a8 47657452 		.string	"GetResult"
+ 2368      6573756C 
+ 2368      7400
+ 2369              	.LASF4:
+ 2370 09b2 73686F72 		.string	"short int"
+ 2370      7420696E 
+ 2370      7400
+ 2371              	.LASF118:
+ 2372 09bc 47657453 		.string	"GetSensorId"
+ 2372      656E736F 
+ 2372      72496400 
+ 2373              	.LASF148:
+ 2374 09c8 6E657749 		.string	"newI2CDevAddress"
+ 2374      32434465 
+ 2374      76416464 
+ 2374      72657373 
+ 2374      00
+ 2375              	.LASF100:
+ 2376 09d9 5475726E 		.string	"TurnOnAllSensors"
+ 2376      4F6E416C 
+ 2376      6C53656E 
+ 2376      736F7273 
+ 2376      00
+ 2377              	.LASF56:
+ 2378 09ea 554C445F 		.string	"ULD_SetInterruptPolarity_ptr"
+ 2378      53657449 
+ 2378      6E746572 
+ 2378      72757074 
+ 2378      506F6C61 
+ 2379              	.LASF63:
+ 2380 0a07 554C445F 		.string	"ULD_SetDistanceMode_ptr"
+ 2380      53657444 
+ 2380      69737461 
+ 2380      6E63654D 
+ 2380      6F64655F 
+ 2381              	.LASF91:
+ 2382 0a1f 554C445F 		.string	"ULD_GetSigmaThreshold_ptr"
+ 2382      47657453 
+ 2382      69676D61 
+ 2382      54687265 
+ 2382      73686F6C 
+ 2383              	.LASF46:
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 50
+
+
+ 2384 0a39 554C445F 		.string	"ULD_SetIRQSensorState_ptr"
+ 2384      53657449 
+ 2384      52515365 
+ 2384      6E736F72 
+ 2384      53746174 
+ 2385              	.LASF96:
+ 2386 0a53 53657449 		.string	"SetIRQSensorState"
+ 2386      52515365 
+ 2386      6E736F72 
+ 2386      53746174 
+ 2386      6500
+ 2387              	.LASF93:
+ 2388 0a65 554C445F 		.string	"ULD_CalibrateOffset_ptr"
+ 2388      43616C69 
+ 2388      62726174 
+ 2388      654F6666 
+ 2388      7365745F 
+ 2389              	.LASF152:
+ 2390 0a7d 41454B5F 		.string	"AEK_TOF_METHODS"
+ 2390      544F465F 
+ 2390      4D455448 
+ 2390      4F445300 
+ 2391              	.LASF75:
+ 2392 0a8d 554C445F 		.string	"ULD_GetRangeStatus_ptr"
+ 2392      47657452 
+ 2392      616E6765 
+ 2392      53746174 
+ 2392      75735F70 
+ 2393              	.LASF73:
+ 2394 0aa4 554C445F 		.string	"ULD_GetSpadNb_ptr"
+ 2394      47657453 
+ 2394      7061644E 
+ 2394      625F7074 
+ 2394      7200
+ 2395              	.LASF131:
+ 2396 0ab6 53657444 		.string	"SetDistanceThreshold"
+ 2396      69737461 
+ 2396      6E636554 
+ 2396      68726573 
+ 2396      686F6C64 
+ 2397              	.LASF108:
+ 2398 0acb 53746172 		.string	"StartRanging"
+ 2398      7452616E 
+ 2398      67696E67 
+ 2398      00
+ 2399              	.LASF5:
+ 2400 0ad8 5F5F7569 		.string	"__uint16_t"
+ 2400      6E743136 
+ 2400      5F7400
+ 2401              	.LASF89:
+ 2402 0ae3 554C445F 		.string	"ULD_GetSignalThreshold_ptr"
+ 2402      47657453 
+ 2402      69676E61 
+ 2402      6C546872 
+ 2402      6573686F 
+ 2403              	.LASF101:
+ 2404 0afe 5475726E 		.string	"TurnOffAllSensors"
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 51
+
+
+ 2404      4F666641 
+ 2404      6C6C5365 
+ 2404      6E736F72 
+ 2404      7300
+ 2405              	.LASF29:
+ 2406 0b10 41454B5F 		.string	"AEK_TOF_DEV0"
+ 2406      544F465F 
+ 2406      44455630 
+ 2406      00
+ 2407              	.LASF66:
+ 2408 0b1d 554C445F 		.string	"ULD_GetInterMeasurementInMs_ptr"
+ 2408      47657449 
+ 2408      6E746572 
+ 2408      4D656173 
+ 2408      7572656D 
+ 2409              	.LASF86:
+ 2410 0b3d 554C445F 		.string	"ULD_SetROICenter_ptr"
+ 2410      53657452 
+ 2410      4F494365 
+ 2410      6E746572 
+ 2410      5F707472 
+ 2411              	.LASF72:
+ 2412 0b52 554C445F 		.string	"ULD_GetSignalRate_ptr"
+ 2412      47657453 
+ 2412      69676E61 
+ 2412      6C526174 
+ 2412      655F7074 
+ 2413              	.LASF16:
+ 2414 0b68 75696E74 		.string	"uint32_t"
+ 2414      33325F74 
+ 2414      00
+ 2415              	.LASF43:
+ 2416 0b71 4E756D53 		.string	"NumSPADs"
+ 2416      50414473 
+ 2416      00
+ 2417              	.LASF115:
+ 2418 0b7a 53657449 		.string	"SetInterMeasurementInMs"
+ 2418      6E746572 
+ 2418      4D656173 
+ 2418      7572656D 
+ 2418      656E7449 
+ 2419              	.LASF52:
+ 2420 0b92 554C445F 		.string	"ULD_GetSWVersion_ptr"
+ 2420      47657453 
+ 2420      57566572 
+ 2420      73696F6E 
+ 2420      5F707472 
+ 2421              	.LASF98:
+ 2422 0ba7 5475726E 		.string	"TurnOnSensor"
+ 2422      4F6E5365 
+ 2422      6E736F72 
+ 2422      00
+ 2423              	.LASF28:
+ 2424 0bb4 6932635F 		.string	"i2c_result_t"
+ 2424      72657375 
+ 2424      6C745F74 
+ 2424      00
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 52
+
+
+ 2425              	.LASF13:
+ 2426 0bc1 75696E74 		.string	"uint8_t"
+ 2426      385F7400 
+ 2427              	.LASF111:
+ 2428 0bc9 53657454 		.string	"SetTimingBudgetInMs"
+ 2428      696D696E 
+ 2428      67427564 
+ 2428      67657449 
+ 2428      6E4D7300 
+ 2429              	.LASF48:
+ 2430 0bdd 554C445F 		.string	"ULD_TurnOnSensor_ptr"
+ 2430      5475726E 
+ 2430      4F6E5365 
+ 2430      6E736F72 
+ 2430      5F707472 
+ 2431              	.LASF133:
+ 2432 0bf2 47657444 		.string	"GetDistanceThresholdLow"
+ 2432      69737461 
+ 2432      6E636554 
+ 2432      68726573 
+ 2432      686F6C64 
+ 2433              	.LASF139:
+ 2434 0c0a 53657453 		.string	"SetSignalThreshold"
+ 2434      69676E61 
+ 2434      6C546872 
+ 2434      6573686F 
+ 2434      6C6400
+ 2435              	.LASF116:
+ 2436 0c1d 47657449 		.string	"GetInterMeasurementInMs"
+ 2436      6E746572 
+ 2436      4D656173 
+ 2436      7572656D 
+ 2436      656E7449 
+ 2437              	.LASF34:
+ 2438 0c35 6D616A6F 		.string	"major"
+ 2438      7200
+ 2439              	.LASF79:
+ 2440 0c3b 554C445F 		.string	"ULD_SetXtalk_ptr"
+ 2440      53657458 
+ 2440      74616C6B 
+ 2440      5F707472 
+ 2440      00
+ 2441              	.LASF145:
+ 2442 0c4c 43616C69 		.string	"CalibrateXtalk"
+ 2442      62726174 
+ 2442      65587461 
+ 2442      6C6B00
+ 2443              	.LASF140:
+ 2444 0c5b 47657453 		.string	"GetSignalThreshold"
+ 2444      69676E61 
+ 2444      6C546872 
+ 2444      6573686F 
+ 2444      6C6400
+ 2445              	.LASF110:
+ 2446 0c6e 43686563 		.string	"CheckForDataReady"
+ 2446      6B466F72 
+ 2446      44617461 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 53
+
+
+ 2446      52656164 
+ 2446      7900
+ 2447              	.LASF64:
+ 2448 0c80 554C445F 		.string	"ULD_GetDistanceMode_ptr"
+ 2448      47657444 
+ 2448      69737461 
+ 2448      6E63654D 
+ 2448      6F64655F 
+ 2449              	.LASF84:
+ 2450 0c98 554C445F 		.string	"ULD_SetROI_ptr"
+ 2450      53657452 
+ 2450      4F495F70 
+ 2450      747200
+ 2451              	.LASF22:
+ 2452 0ca7 4932435F 		.string	"I2C_ERROR_BUS_BUSY"
+ 2452      4552524F 
+ 2452      525F4255 
+ 2452      535F4255 
+ 2452      535900
+ 2453              	.LASF117:
+ 2454 0cba 426F6F74 		.string	"BootState"
+ 2454      53746174 
+ 2454      6500
+ 2455              	.LASF26:
+ 2456 0cc4 4932435F 		.string	"I2C_ERROR_TIMEOUT"
+ 2456      4552524F 
+ 2456      525F5449 
+ 2456      4D454F55 
+ 2456      5400
+ 2457              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 54
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 AEK_SNS_VL53L1X1.c
+C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s:9      .bss.methods_available:00000000 methods_available
+C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s:16     .bss.AEK_TOF_METHODS:00000000 AEK_TOF_METHODS
+C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s:23     .text.fillMethodsStructULD:00000000 fillMethodsStructULD
+C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s:295    .text.AEK_TOF_CONFIG:00000000 AEK_TOF_CONFIG
+
+UNDEFINED SYMBOLS
+ULD_GetIRQSensorState
+ULD_SetIRQSensorState
+ULD_TurnOnSensor
+ULD_TurnOffSensor
+ULD_TurnOffAllSensors
+ULD_TurnOnAllSensors
+ULD_GetSWVersion
+ULD_SetI2CAddress
+ULD_SensorInit
+ULD_ClearInterrupt
+ULD_SetInterruptPolarity
+ULD_GetInterruptPolarity
+ULD_StartRanging
+ULD_StopRanging
+ULD_CheckForDataReady
+ULD_SetTimingBudgetInMs
+ULD_GetTimingBudgetInMs
+ULD_SetDistanceMode
+ULD_GetDistanceMode
+ULD_SetInterMeasurementInMs
+ULD_GetInterMeasurementInMs
+ULD_BootState
+ULD_GetSensorId
+ULD_GetDistance
+ULD_GetSignalPerSpad
+ULD_GetAmbientPerSpad
+ULD_GetSignalRate
+ULD_GetSpadNb
+ULD_GetAmbientRate
+ULD_GetRangeStatus
+ULD_GetResult
+ULD_SetOffset
+ULD_GetOffset
+ULD_SetXtalk
+ULD_GetXtalk
+ULD_SetDistanceThreshold
+ULD_GetDistanceThresholdWindow
+ULD_GetDistanceThresholdLow
+ULD_GetDistanceThresholdHigh
+ULD_SetROI
+ULD_GetROI_XY
+ULD_SetROICenter
+ULD_GetROICenter
+ULD_SetSignalThreshold
+ULD_GetSignalThreshold
+ULD_SetSigmaThreshold
+ULD_GetSigmaThreshold
+ULD_StartTemperatureUpdate
+ULD_CalibrateOffset
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\cc6ahwVN.s 			page 55
+
+
+ULD_CalibrateXtalk
+AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER
+AEK_SNS_VL53L1X_I2C_ARRAY_CONFIGURATION
+i2c_lld_start
+XshutMatrix
+ULD_CreateSensor

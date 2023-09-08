@@ -1,0 +1,859 @@
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 1
+
+
+   1              		.file	"swirq.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.section	.text.swirqInit,"axv",@progbits
+   6              		.align 1
+   7              		.p2align 4,,15
+   8              		.globl swirqInit
+   9              		.type	swirqInit, @function
+  10              	swirqInit:
+  11              	.LFB0:
+  12              		.file 1 "./components/spc582bxx_irq_component_rla/lib/src/swirq.c"
+  13              		.loc 1 52 0
+  14              		.cfi_startproc
+  15 0000 182106F8 		e_stwu %r1,-8(%r1)
+  16              	.LCFI0:
+  17              		.cfi_def_cfa_offset 8
+  18 0004 0080     		se_mflr %r0
+  19 0006 D301     		se_stw %r0,12(%r1)
+  20              		.cfi_offset 65, 4
+  21              		.loc 1 55 0
+  22 0008 78000001 		e_bl swirq_init_prio
+  23              		.loc 1 56 0
+  24 000c C301     		se_lwz %r0,12(%r1)
+  25 000e 0090     		se_mtlr %r0
+  26 0010 2071     		se_addi %r1,8
+  27              	.LCFI1:
+  28              		.cfi_def_cfa_offset 0
+  29 0012 0004     		se_blr
+  30              		.cfi_endproc
+  31              	.LFE0:
+  32              		.size	swirqInit, .-swirqInit
+  33              		.section	.text.swirq_enable,"axv",@progbits
+  34              		.align 1
+  35              		.p2align 4,,15
+  36              		.globl swirq_enable
+  37              		.type	swirq_enable, @function
+  38              	swirq_enable:
+  39              	.LFB1:
+  40              		.loc 1 72 0
+  41              		.cfi_startproc
+  42 0000 182106F0 		e_stwu %r1,-16(%r1)
+  43              	.LCFI2:
+  44              		.cfi_def_cfa_offset 16
+  45 0004 0136     		se_mr %r6,%r3
+  46 0006 0147     		se_mr %r7,%r4
+  47 0008 D351     		se_stw %r5,12(%r1)
+  48 000a 9861     		se_stb %r6,8(%r1)
+  49 000c 9971     		se_stb %r7,9(%r1)
+  50              		.loc 1 73 0
+  51 000e 8871     		se_lbz %r7,8(%r1)
+  52 0010 2FF7     		se_andi %r7,31
+  53 0012 9871     		se_stb %r7,8(%r1)
+  54              		.loc 1 74 0
+  55 0014 8871     		se_lbz %r7,8(%r1)
+  56 0016 00C7     		se_extzb %r7
+  57 0018 70CFE202 		e_lis %r6,0x7a02
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 2
+
+
+  58 001c 70C4C030 		e_or2i %r6,8240
+  59 0020 7CE63A14 		add %r7,%r6,%r7
+  60 0024 6C17     		se_slwi %r7, 1
+  61 0026 0175     		se_mr %r5,%r7
+  62 0028 C371     		se_lwz %r7,12(%r1)
+  63 002a 74E6043F 		e_rlwinm %r6,%r7,0,0xffff
+  64 002e 8971     		se_lbz %r7,9(%r1)
+  65 0030 00C7     		se_extzb %r7
+  66 0032 00E7     		se_extzh %r7
+  67 0034 4467     		se_or %r7,%r6
+  68 0036 00E7     		se_extzh %r7
+  69 0038 B075     		se_sth %r7,0(%r5)
+  70              		.loc 1 75 0
+  71 003a 20F1     		se_addi %r1,16
+  72              	.LCFI3:
+  73              		.cfi_def_cfa_offset 0
+  74 003c 0004     		se_blr
+  75              		.cfi_endproc
+  76              	.LFE1:
+  77              		.size	swirq_enable, .-swirq_enable
+  78              		.section	.text.swirq_disable,"axv",@progbits
+  79              		.align 1
+  80              		.p2align 4,,15
+  81              		.globl swirq_disable
+  82              		.type	swirq_disable, @function
+  83              	swirq_disable:
+  84              	.LFB2:
+  85              		.loc 1 87 0
+  86              		.cfi_startproc
+  87 0000 182106F0 		e_stwu %r1,-16(%r1)
+  88              	.LCFI4:
+  89              		.cfi_def_cfa_offset 16
+  90 0004 0137     		se_mr %r7,%r3
+  91 0006 9871     		se_stb %r7,8(%r1)
+  92              		.loc 1 88 0
+  93 0008 8871     		se_lbz %r7,8(%r1)
+  94 000a 2FF7     		se_andi %r7,31
+  95 000c 9871     		se_stb %r7,8(%r1)
+  96              		.loc 1 89 0
+  97 000e 8871     		se_lbz %r7,8(%r1)
+  98 0010 00C7     		se_extzb %r7
+  99 0012 70CFE202 		e_lis %r6,0x7a02
+ 100 0016 70C4C030 		e_or2i %r6,8240
+ 101 001a 7CE63A14 		add %r7,%r6,%r7
+ 102 001e 6C17     		se_slwi %r7, 1
+ 103 0020 0176     		se_mr %r6,%r7
+ 104 0022 4807     		se_li %r7,0
+ 105 0024 B076     		se_sth %r7,0(%r6)
+ 106              		.loc 1 90 0
+ 107 0026 20F1     		se_addi %r1,16
+ 108              	.LCFI5:
+ 109              		.cfi_def_cfa_offset 0
+ 110 0028 0004     		se_blr
+ 111              		.cfi_endproc
+ 112              	.LFE2:
+ 113              		.size	swirq_disable, .-swirq_disable
+ 114              		.section	.text.swirq_set,"axv",@progbits
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 3
+
+
+ 115              		.align 1
+ 116              		.p2align 4,,15
+ 117              		.globl swirq_set
+ 118              		.type	swirq_set, @function
+ 119              	swirq_set:
+ 120              	.LFB3:
+ 121              		.loc 1 102 0
+ 122              		.cfi_startproc
+ 123 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 124              	.LCFI6:
+ 125              		.cfi_def_cfa_offset 16
+ 126 0004 0137     		se_mr %r7,%r3
+ 127 0006 9871     		se_stb %r7,8(%r1)
+ 128              		.loc 1 103 0
+ 129 0008 8871     		se_lbz %r7,8(%r1)
+ 130 000a 2FF7     		se_andi %r7,31
+ 131 000c 9871     		se_stb %r7,8(%r1)
+ 132              		.loc 1 104 0
+ 133 000e 8871     		se_lbz %r7,8(%r1)
+ 134 0010 00C7     		se_extzb %r7
+ 135 0012 70DEE404 		e_lis %r6,0xf404
+ 136 0016 70C8C040 		e_or2i %r6,16448
+ 137 001a 7CE63A14 		add %r7,%r6,%r7
+ 138 001e 0176     		se_mr %r6,%r7
+ 139 0020 4827     		se_li %r7,2
+ 140 0022 9076     		se_stb %r7,0(%r6)
+ 141              		.loc 1 105 0
+ 142 0024 20F1     		se_addi %r1,16
+ 143              	.LCFI7:
+ 144              		.cfi_def_cfa_offset 0
+ 145 0026 0004     		se_blr
+ 146              		.cfi_endproc
+ 147              	.LFE3:
+ 148              		.size	swirq_set, .-swirq_set
+ 149              		.section	.text.swirq_clear,"axv",@progbits
+ 150              		.align 1
+ 151              		.p2align 4,,15
+ 152              		.globl swirq_clear
+ 153              		.type	swirq_clear, @function
+ 154              	swirq_clear:
+ 155              	.LFB4:
+ 156              		.loc 1 117 0
+ 157              		.cfi_startproc
+ 158 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 159              	.LCFI8:
+ 160              		.cfi_def_cfa_offset 16
+ 161 0004 0137     		se_mr %r7,%r3
+ 162 0006 9871     		se_stb %r7,8(%r1)
+ 163              		.loc 1 118 0
+ 164 0008 8871     		se_lbz %r7,8(%r1)
+ 165 000a 2FF7     		se_andi %r7,31
+ 166 000c 9871     		se_stb %r7,8(%r1)
+ 167              		.loc 1 119 0
+ 168 000e 8871     		se_lbz %r7,8(%r1)
+ 169 0010 00C7     		se_extzb %r7
+ 170 0012 70DEE404 		e_lis %r6,0xf404
+ 171 0016 70C8C040 		e_or2i %r6,16448
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 4
+
+
+ 172 001a 7CE63A14 		add %r7,%r6,%r7
+ 173 001e 0176     		se_mr %r6,%r7
+ 174 0020 4817     		se_li %r7,1
+ 175 0022 9076     		se_stb %r7,0(%r6)
+ 176              		.loc 1 120 0
+ 177 0024 20F1     		se_addi %r1,16
+ 178              	.LCFI9:
+ 179              		.cfi_def_cfa_offset 0
+ 180 0026 0004     		se_blr
+ 181              		.cfi_endproc
+ 182              	.LFE4:
+ 183              		.size	swirq_clear, .-swirq_clear
+ 184              		.section	".text","axv"
+ 185              	.Letext0:
+ 186              		.file 2 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 187              		.file 3 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 188              		.section	.debug_info,"",@progbits
+ 189              	.Ldebug_info0:
+ 190 0000 00000187 		.4byte	0x187
+ 191 0004 0002     		.2byte	0x2
+ 192 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 193 000a 04       		.byte	0x4
+ 194 000b 01       		.uleb128 0x1
+ 195 000c 00000000 		.4byte	.LASF21
+ 196 0010 01       		.byte	0x1
+ 197 0011 00000000 		.4byte	.LASF22
+ 198 0015 00000000 		.4byte	.LASF23
+ 199 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 200 001d 00000000 		.4byte	0
+ 201 0021 00000000 		.4byte	0
+ 202 0025 00000000 		.4byte	.Ldebug_line0
+ 203 0029 02       		.uleb128 0x2
+ 204 002a 01       		.byte	0x1
+ 205 002b 06       		.byte	0x6
+ 206 002c 00000000 		.4byte	.LASF0
+ 207 0030 03       		.uleb128 0x3
+ 208 0031 00000000 		.4byte	.LASF3
+ 209 0035 02       		.byte	0x2
+ 210 0036 1D       		.byte	0x1d
+ 211 0037 0000003B 		.4byte	0x3b
+ 212 003b 02       		.uleb128 0x2
+ 213 003c 01       		.byte	0x1
+ 214 003d 08       		.byte	0x8
+ 215 003e 00000000 		.4byte	.LASF1
+ 216 0042 02       		.uleb128 0x2
+ 217 0043 02       		.byte	0x2
+ 218 0044 05       		.byte	0x5
+ 219 0045 00000000 		.4byte	.LASF2
+ 220 0049 03       		.uleb128 0x3
+ 221 004a 00000000 		.4byte	.LASF4
+ 222 004e 02       		.byte	0x2
+ 223 004f 2B       		.byte	0x2b
+ 224 0050 00000054 		.4byte	0x54
+ 225 0054 02       		.uleb128 0x2
+ 226 0055 02       		.byte	0x2
+ 227 0056 07       		.byte	0x7
+ 228 0057 00000000 		.4byte	.LASF5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 5
+
+
+ 229 005b 02       		.uleb128 0x2
+ 230 005c 04       		.byte	0x4
+ 231 005d 05       		.byte	0x5
+ 232 005e 00000000 		.4byte	.LASF6
+ 233 0062 03       		.uleb128 0x3
+ 234 0063 00000000 		.4byte	.LASF7
+ 235 0067 02       		.byte	0x2
+ 236 0068 41       		.byte	0x41
+ 237 0069 0000006D 		.4byte	0x6d
+ 238 006d 02       		.uleb128 0x2
+ 239 006e 04       		.byte	0x4
+ 240 006f 07       		.byte	0x7
+ 241 0070 00000000 		.4byte	.LASF8
+ 242 0074 02       		.uleb128 0x2
+ 243 0075 08       		.byte	0x8
+ 244 0076 05       		.byte	0x5
+ 245 0077 00000000 		.4byte	.LASF9
+ 246 007b 02       		.uleb128 0x2
+ 247 007c 08       		.byte	0x8
+ 248 007d 07       		.byte	0x7
+ 249 007e 00000000 		.4byte	.LASF10
+ 250 0082 04       		.uleb128 0x4
+ 251 0083 04       		.byte	0x4
+ 252 0084 05       		.byte	0x5
+ 253 0085 696E7400 		.string	"int"
+ 254 0089 02       		.uleb128 0x2
+ 255 008a 04       		.byte	0x4
+ 256 008b 07       		.byte	0x7
+ 257 008c 00000000 		.4byte	.LASF11
+ 258 0090 03       		.uleb128 0x3
+ 259 0091 00000000 		.4byte	.LASF12
+ 260 0095 03       		.byte	0x3
+ 261 0096 15       		.byte	0x15
+ 262 0097 00000030 		.4byte	0x30
+ 263 009b 03       		.uleb128 0x3
+ 264 009c 00000000 		.4byte	.LASF13
+ 265 00a0 03       		.byte	0x3
+ 266 00a1 21       		.byte	0x21
+ 267 00a2 00000049 		.4byte	0x49
+ 268 00a6 03       		.uleb128 0x3
+ 269 00a7 00000000 		.4byte	.LASF14
+ 270 00ab 03       		.byte	0x3
+ 271 00ac 2D       		.byte	0x2d
+ 272 00ad 00000062 		.4byte	0x62
+ 273 00b1 02       		.uleb128 0x2
+ 274 00b2 04       		.byte	0x4
+ 275 00b3 07       		.byte	0x7
+ 276 00b4 00000000 		.4byte	.LASF15
+ 277 00b8 05       		.uleb128 0x5
+ 278 00b9 01       		.byte	0x1
+ 279 00ba 00000000 		.4byte	.LASF24
+ 280 00be 01       		.byte	0x1
+ 281 00bf 34       		.byte	0x34
+ 282 00c0 01       		.byte	0x1
+ 283 00c1 00000000 		.4byte	.LFB0
+ 284 00c5 00000000 		.4byte	.LFE0
+ 285 00c9 00000000 		.4byte	.LLST0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 6
+
+
+ 286 00cd 01       		.byte	0x1
+ 287 00ce 06       		.uleb128 0x6
+ 288 00cf 01       		.byte	0x1
+ 289 00d0 00000000 		.4byte	.LASF18
+ 290 00d4 01       		.byte	0x1
+ 291 00d5 48       		.byte	0x48
+ 292 00d6 01       		.byte	0x1
+ 293 00d7 00000000 		.4byte	.LFB1
+ 294 00db 00000000 		.4byte	.LFE1
+ 295 00df 00000000 		.4byte	.LLST1
+ 296 00e3 01       		.byte	0x1
+ 297 00e4 00000113 		.4byte	0x113
+ 298 00e8 07       		.uleb128 0x7
+ 299 00e9 69727100 		.string	"irq"
+ 300 00ed 01       		.byte	0x1
+ 301 00ee 48       		.byte	0x48
+ 302 00ef 00000090 		.4byte	0x90
+ 303 00f3 02       		.byte	0x2
+ 304 00f4 91       		.byte	0x91
+ 305 00f5 78       		.sleb128 -8
+ 306 00f6 08       		.uleb128 0x8
+ 307 00f7 00000000 		.4byte	.LASF16
+ 308 00fb 01       		.byte	0x1
+ 309 00fc 48       		.byte	0x48
+ 310 00fd 00000090 		.4byte	0x90
+ 311 0101 02       		.byte	0x2
+ 312 0102 91       		.byte	0x91
+ 313 0103 79       		.sleb128 -7
+ 314 0104 08       		.uleb128 0x8
+ 315 0105 00000000 		.4byte	.LASF17
+ 316 0109 01       		.byte	0x1
+ 317 010a 48       		.byte	0x48
+ 318 010b 000000A6 		.4byte	0xa6
+ 319 010f 02       		.byte	0x2
+ 320 0110 91       		.byte	0x91
+ 321 0111 7C       		.sleb128 -4
+ 322 0112 00       		.byte	0
+ 323 0113 06       		.uleb128 0x6
+ 324 0114 01       		.byte	0x1
+ 325 0115 00000000 		.4byte	.LASF19
+ 326 0119 01       		.byte	0x1
+ 327 011a 57       		.byte	0x57
+ 328 011b 01       		.byte	0x1
+ 329 011c 00000000 		.4byte	.LFB2
+ 330 0120 00000000 		.4byte	.LFE2
+ 331 0124 00000000 		.4byte	.LLST2
+ 332 0128 01       		.byte	0x1
+ 333 0129 0000013C 		.4byte	0x13c
+ 334 012d 07       		.uleb128 0x7
+ 335 012e 69727100 		.string	"irq"
+ 336 0132 01       		.byte	0x1
+ 337 0133 57       		.byte	0x57
+ 338 0134 00000090 		.4byte	0x90
+ 339 0138 02       		.byte	0x2
+ 340 0139 91       		.byte	0x91
+ 341 013a 78       		.sleb128 -8
+ 342 013b 00       		.byte	0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 7
+
+
+ 343 013c 06       		.uleb128 0x6
+ 344 013d 01       		.byte	0x1
+ 345 013e 00000000 		.4byte	.LASF20
+ 346 0142 01       		.byte	0x1
+ 347 0143 66       		.byte	0x66
+ 348 0144 01       		.byte	0x1
+ 349 0145 00000000 		.4byte	.LFB3
+ 350 0149 00000000 		.4byte	.LFE3
+ 351 014d 00000000 		.4byte	.LLST3
+ 352 0151 01       		.byte	0x1
+ 353 0152 00000165 		.4byte	0x165
+ 354 0156 07       		.uleb128 0x7
+ 355 0157 69727100 		.string	"irq"
+ 356 015b 01       		.byte	0x1
+ 357 015c 66       		.byte	0x66
+ 358 015d 00000090 		.4byte	0x90
+ 359 0161 02       		.byte	0x2
+ 360 0162 91       		.byte	0x91
+ 361 0163 78       		.sleb128 -8
+ 362 0164 00       		.byte	0
+ 363 0165 09       		.uleb128 0x9
+ 364 0166 01       		.byte	0x1
+ 365 0167 00000000 		.4byte	.LASF25
+ 366 016b 01       		.byte	0x1
+ 367 016c 75       		.byte	0x75
+ 368 016d 01       		.byte	0x1
+ 369 016e 00000000 		.4byte	.LFB4
+ 370 0172 00000000 		.4byte	.LFE4
+ 371 0176 00000000 		.4byte	.LLST4
+ 372 017a 01       		.byte	0x1
+ 373 017b 07       		.uleb128 0x7
+ 374 017c 69727100 		.string	"irq"
+ 375 0180 01       		.byte	0x1
+ 376 0181 75       		.byte	0x75
+ 377 0182 00000090 		.4byte	0x90
+ 378 0186 02       		.byte	0x2
+ 379 0187 91       		.byte	0x91
+ 380 0188 78       		.sleb128 -8
+ 381 0189 00       		.byte	0
+ 382 018a 00       		.byte	0
+ 383              		.section	.debug_abbrev,"",@progbits
+ 384              	.Ldebug_abbrev0:
+ 385 0000 01       		.uleb128 0x1
+ 386 0001 11       		.uleb128 0x11
+ 387 0002 01       		.byte	0x1
+ 388 0003 25       		.uleb128 0x25
+ 389 0004 0E       		.uleb128 0xe
+ 390 0005 13       		.uleb128 0x13
+ 391 0006 0B       		.uleb128 0xb
+ 392 0007 03       		.uleb128 0x3
+ 393 0008 0E       		.uleb128 0xe
+ 394 0009 1B       		.uleb128 0x1b
+ 395 000a 0E       		.uleb128 0xe
+ 396 000b 55       		.uleb128 0x55
+ 397 000c 06       		.uleb128 0x6
+ 398 000d 11       		.uleb128 0x11
+ 399 000e 01       		.uleb128 0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 8
+
+
+ 400 000f 52       		.uleb128 0x52
+ 401 0010 01       		.uleb128 0x1
+ 402 0011 10       		.uleb128 0x10
+ 403 0012 06       		.uleb128 0x6
+ 404 0013 00       		.byte	0
+ 405 0014 00       		.byte	0
+ 406 0015 02       		.uleb128 0x2
+ 407 0016 24       		.uleb128 0x24
+ 408 0017 00       		.byte	0
+ 409 0018 0B       		.uleb128 0xb
+ 410 0019 0B       		.uleb128 0xb
+ 411 001a 3E       		.uleb128 0x3e
+ 412 001b 0B       		.uleb128 0xb
+ 413 001c 03       		.uleb128 0x3
+ 414 001d 0E       		.uleb128 0xe
+ 415 001e 00       		.byte	0
+ 416 001f 00       		.byte	0
+ 417 0020 03       		.uleb128 0x3
+ 418 0021 16       		.uleb128 0x16
+ 419 0022 00       		.byte	0
+ 420 0023 03       		.uleb128 0x3
+ 421 0024 0E       		.uleb128 0xe
+ 422 0025 3A       		.uleb128 0x3a
+ 423 0026 0B       		.uleb128 0xb
+ 424 0027 3B       		.uleb128 0x3b
+ 425 0028 0B       		.uleb128 0xb
+ 426 0029 49       		.uleb128 0x49
+ 427 002a 13       		.uleb128 0x13
+ 428 002b 00       		.byte	0
+ 429 002c 00       		.byte	0
+ 430 002d 04       		.uleb128 0x4
+ 431 002e 24       		.uleb128 0x24
+ 432 002f 00       		.byte	0
+ 433 0030 0B       		.uleb128 0xb
+ 434 0031 0B       		.uleb128 0xb
+ 435 0032 3E       		.uleb128 0x3e
+ 436 0033 0B       		.uleb128 0xb
+ 437 0034 03       		.uleb128 0x3
+ 438 0035 08       		.uleb128 0x8
+ 439 0036 00       		.byte	0
+ 440 0037 00       		.byte	0
+ 441 0038 05       		.uleb128 0x5
+ 442 0039 2E       		.uleb128 0x2e
+ 443 003a 00       		.byte	0
+ 444 003b 3F       		.uleb128 0x3f
+ 445 003c 0C       		.uleb128 0xc
+ 446 003d 03       		.uleb128 0x3
+ 447 003e 0E       		.uleb128 0xe
+ 448 003f 3A       		.uleb128 0x3a
+ 449 0040 0B       		.uleb128 0xb
+ 450 0041 3B       		.uleb128 0x3b
+ 451 0042 0B       		.uleb128 0xb
+ 452 0043 27       		.uleb128 0x27
+ 453 0044 0C       		.uleb128 0xc
+ 454 0045 11       		.uleb128 0x11
+ 455 0046 01       		.uleb128 0x1
+ 456 0047 12       		.uleb128 0x12
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 9
+
+
+ 457 0048 01       		.uleb128 0x1
+ 458 0049 40       		.uleb128 0x40
+ 459 004a 06       		.uleb128 0x6
+ 460 004b 9642     		.uleb128 0x2116
+ 461 004d 0C       		.uleb128 0xc
+ 462 004e 00       		.byte	0
+ 463 004f 00       		.byte	0
+ 464 0050 06       		.uleb128 0x6
+ 465 0051 2E       		.uleb128 0x2e
+ 466 0052 01       		.byte	0x1
+ 467 0053 3F       		.uleb128 0x3f
+ 468 0054 0C       		.uleb128 0xc
+ 469 0055 03       		.uleb128 0x3
+ 470 0056 0E       		.uleb128 0xe
+ 471 0057 3A       		.uleb128 0x3a
+ 472 0058 0B       		.uleb128 0xb
+ 473 0059 3B       		.uleb128 0x3b
+ 474 005a 0B       		.uleb128 0xb
+ 475 005b 27       		.uleb128 0x27
+ 476 005c 0C       		.uleb128 0xc
+ 477 005d 11       		.uleb128 0x11
+ 478 005e 01       		.uleb128 0x1
+ 479 005f 12       		.uleb128 0x12
+ 480 0060 01       		.uleb128 0x1
+ 481 0061 40       		.uleb128 0x40
+ 482 0062 06       		.uleb128 0x6
+ 483 0063 9742     		.uleb128 0x2117
+ 484 0065 0C       		.uleb128 0xc
+ 485 0066 01       		.uleb128 0x1
+ 486 0067 13       		.uleb128 0x13
+ 487 0068 00       		.byte	0
+ 488 0069 00       		.byte	0
+ 489 006a 07       		.uleb128 0x7
+ 490 006b 05       		.uleb128 0x5
+ 491 006c 00       		.byte	0
+ 492 006d 03       		.uleb128 0x3
+ 493 006e 08       		.uleb128 0x8
+ 494 006f 3A       		.uleb128 0x3a
+ 495 0070 0B       		.uleb128 0xb
+ 496 0071 3B       		.uleb128 0x3b
+ 497 0072 0B       		.uleb128 0xb
+ 498 0073 49       		.uleb128 0x49
+ 499 0074 13       		.uleb128 0x13
+ 500 0075 02       		.uleb128 0x2
+ 501 0076 0A       		.uleb128 0xa
+ 502 0077 00       		.byte	0
+ 503 0078 00       		.byte	0
+ 504 0079 08       		.uleb128 0x8
+ 505 007a 05       		.uleb128 0x5
+ 506 007b 00       		.byte	0
+ 507 007c 03       		.uleb128 0x3
+ 508 007d 0E       		.uleb128 0xe
+ 509 007e 3A       		.uleb128 0x3a
+ 510 007f 0B       		.uleb128 0xb
+ 511 0080 3B       		.uleb128 0x3b
+ 512 0081 0B       		.uleb128 0xb
+ 513 0082 49       		.uleb128 0x49
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 10
+
+
+ 514 0083 13       		.uleb128 0x13
+ 515 0084 02       		.uleb128 0x2
+ 516 0085 0A       		.uleb128 0xa
+ 517 0086 00       		.byte	0
+ 518 0087 00       		.byte	0
+ 519 0088 09       		.uleb128 0x9
+ 520 0089 2E       		.uleb128 0x2e
+ 521 008a 01       		.byte	0x1
+ 522 008b 3F       		.uleb128 0x3f
+ 523 008c 0C       		.uleb128 0xc
+ 524 008d 03       		.uleb128 0x3
+ 525 008e 0E       		.uleb128 0xe
+ 526 008f 3A       		.uleb128 0x3a
+ 527 0090 0B       		.uleb128 0xb
+ 528 0091 3B       		.uleb128 0x3b
+ 529 0092 0B       		.uleb128 0xb
+ 530 0093 27       		.uleb128 0x27
+ 531 0094 0C       		.uleb128 0xc
+ 532 0095 11       		.uleb128 0x11
+ 533 0096 01       		.uleb128 0x1
+ 534 0097 12       		.uleb128 0x12
+ 535 0098 01       		.uleb128 0x1
+ 536 0099 40       		.uleb128 0x40
+ 537 009a 06       		.uleb128 0x6
+ 538 009b 9742     		.uleb128 0x2117
+ 539 009d 0C       		.uleb128 0xc
+ 540 009e 00       		.byte	0
+ 541 009f 00       		.byte	0
+ 542 00a0 00       		.byte	0
+ 543              		.section	.debug_loc,"",@progbits
+ 544              	.Ldebug_loc0:
+ 545              	.LLST0:
+ 546 0000 00000000 		.4byte	.LFB0
+ 547 0004 00000000 		.4byte	.LCFI0
+ 548 0008 0002     		.2byte	0x2
+ 549 000a 71       		.byte	0x71
+ 550 000b 00       		.sleb128 0
+ 551 000c 00000000 		.4byte	.LCFI0
+ 552 0010 00000000 		.4byte	.LCFI1
+ 553 0014 0002     		.2byte	0x2
+ 554 0016 71       		.byte	0x71
+ 555 0017 08       		.sleb128 8
+ 556 0018 00000000 		.4byte	.LCFI1
+ 557 001c 00000000 		.4byte	.LFE0
+ 558 0020 0002     		.2byte	0x2
+ 559 0022 71       		.byte	0x71
+ 560 0023 00       		.sleb128 0
+ 561 0024 00000000 		.4byte	0
+ 562 0028 00000000 		.4byte	0
+ 563              	.LLST1:
+ 564 002c 00000000 		.4byte	.LFB1
+ 565 0030 00000000 		.4byte	.LCFI2
+ 566 0034 0002     		.2byte	0x2
+ 567 0036 71       		.byte	0x71
+ 568 0037 00       		.sleb128 0
+ 569 0038 00000000 		.4byte	.LCFI2
+ 570 003c 00000000 		.4byte	.LCFI3
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 11
+
+
+ 571 0040 0002     		.2byte	0x2
+ 572 0042 71       		.byte	0x71
+ 573 0043 10       		.sleb128 16
+ 574 0044 00000000 		.4byte	.LCFI3
+ 575 0048 00000000 		.4byte	.LFE1
+ 576 004c 0002     		.2byte	0x2
+ 577 004e 71       		.byte	0x71
+ 578 004f 00       		.sleb128 0
+ 579 0050 00000000 		.4byte	0
+ 580 0054 00000000 		.4byte	0
+ 581              	.LLST2:
+ 582 0058 00000000 		.4byte	.LFB2
+ 583 005c 00000000 		.4byte	.LCFI4
+ 584 0060 0002     		.2byte	0x2
+ 585 0062 71       		.byte	0x71
+ 586 0063 00       		.sleb128 0
+ 587 0064 00000000 		.4byte	.LCFI4
+ 588 0068 00000000 		.4byte	.LCFI5
+ 589 006c 0002     		.2byte	0x2
+ 590 006e 71       		.byte	0x71
+ 591 006f 10       		.sleb128 16
+ 592 0070 00000000 		.4byte	.LCFI5
+ 593 0074 00000000 		.4byte	.LFE2
+ 594 0078 0002     		.2byte	0x2
+ 595 007a 71       		.byte	0x71
+ 596 007b 00       		.sleb128 0
+ 597 007c 00000000 		.4byte	0
+ 598 0080 00000000 		.4byte	0
+ 599              	.LLST3:
+ 600 0084 00000000 		.4byte	.LFB3
+ 601 0088 00000000 		.4byte	.LCFI6
+ 602 008c 0002     		.2byte	0x2
+ 603 008e 71       		.byte	0x71
+ 604 008f 00       		.sleb128 0
+ 605 0090 00000000 		.4byte	.LCFI6
+ 606 0094 00000000 		.4byte	.LCFI7
+ 607 0098 0002     		.2byte	0x2
+ 608 009a 71       		.byte	0x71
+ 609 009b 10       		.sleb128 16
+ 610 009c 00000000 		.4byte	.LCFI7
+ 611 00a0 00000000 		.4byte	.LFE3
+ 612 00a4 0002     		.2byte	0x2
+ 613 00a6 71       		.byte	0x71
+ 614 00a7 00       		.sleb128 0
+ 615 00a8 00000000 		.4byte	0
+ 616 00ac 00000000 		.4byte	0
+ 617              	.LLST4:
+ 618 00b0 00000000 		.4byte	.LFB4
+ 619 00b4 00000000 		.4byte	.LCFI8
+ 620 00b8 0002     		.2byte	0x2
+ 621 00ba 71       		.byte	0x71
+ 622 00bb 00       		.sleb128 0
+ 623 00bc 00000000 		.4byte	.LCFI8
+ 624 00c0 00000000 		.4byte	.LCFI9
+ 625 00c4 0002     		.2byte	0x2
+ 626 00c6 71       		.byte	0x71
+ 627 00c7 10       		.sleb128 16
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 12
+
+
+ 628 00c8 00000000 		.4byte	.LCFI9
+ 629 00cc 00000000 		.4byte	.LFE4
+ 630 00d0 0002     		.2byte	0x2
+ 631 00d2 71       		.byte	0x71
+ 632 00d3 00       		.sleb128 0
+ 633 00d4 00000000 		.4byte	0
+ 634 00d8 00000000 		.4byte	0
+ 635              		.section	.debug_aranges,"",@progbits
+ 636 0000 0000003C 		.4byte	0x3c
+ 637 0004 0002     		.2byte	0x2
+ 638 0006 00000000 		.4byte	.Ldebug_info0
+ 639 000a 04       		.byte	0x4
+ 640 000b 00       		.byte	0
+ 641 000c 0000     		.2byte	0
+ 642 000e 0000     		.2byte	0
+ 643 0010 00000000 		.4byte	.LFB0
+ 644 0014 00000014 		.4byte	.LFE0-.LFB0
+ 645 0018 00000000 		.4byte	.LFB1
+ 646 001c 0000003E 		.4byte	.LFE1-.LFB1
+ 647 0020 00000000 		.4byte	.LFB2
+ 648 0024 0000002A 		.4byte	.LFE2-.LFB2
+ 649 0028 00000000 		.4byte	.LFB3
+ 650 002c 00000028 		.4byte	.LFE3-.LFB3
+ 651 0030 00000000 		.4byte	.LFB4
+ 652 0034 00000028 		.4byte	.LFE4-.LFB4
+ 653 0038 00000000 		.4byte	0
+ 654 003c 00000000 		.4byte	0
+ 655              		.section	.debug_ranges,"",@progbits
+ 656              	.Ldebug_ranges0:
+ 657 0000 00000000 		.4byte	.LFB0
+ 658 0004 00000000 		.4byte	.LFE0
+ 659 0008 00000000 		.4byte	.LFB1
+ 660 000c 00000000 		.4byte	.LFE1
+ 661 0010 00000000 		.4byte	.LFB2
+ 662 0014 00000000 		.4byte	.LFE2
+ 663 0018 00000000 		.4byte	.LFB3
+ 664 001c 00000000 		.4byte	.LFE3
+ 665 0020 00000000 		.4byte	.LFB4
+ 666 0024 00000000 		.4byte	.LFE4
+ 667 0028 00000000 		.4byte	0
+ 668 002c 00000000 		.4byte	0
+ 669              		.section	.debug_line,"",@progbits
+ 670              	.Ldebug_line0:
+ 671 0000 000001F3 		.section	.debug_str,"MS",@progbits,1
+ 671      00020000 
+ 671      018F0201 
+ 671      FB0E0D00 
+ 671      01010101 
+ 672              	.LASF9:
+ 673 0000 6C6F6E67 		.string	"long long int"
+ 673      206C6F6E 
+ 673      6720696E 
+ 673      7400
+ 674              	.LASF11:
+ 675 000e 756E7369 		.string	"unsigned int"
+ 675      676E6564 
+ 675      20696E74 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 13
+
+
+ 675      00
+ 676              	.LASF17:
+ 677 001b 636F7265 		.string	"core"
+ 677      00
+ 678              	.LASF7:
+ 679 0020 5F5F7569 		.string	"__uint32_t"
+ 679      6E743332 
+ 679      5F7400
+ 680              	.LASF16:
+ 681 002b 7072696F 		.string	"prio"
+ 681      00
+ 682              	.LASF12:
+ 683 0030 75696E74 		.string	"uint8_t"
+ 683      385F7400 
+ 684              	.LASF25:
+ 685 0038 73776972 		.string	"swirq_clear"
+ 685      715F636C 
+ 685      65617200 
+ 686              	.LASF8:
+ 687 0044 6C6F6E67 		.string	"long unsigned int"
+ 687      20756E73 
+ 687      69676E65 
+ 687      6420696E 
+ 687      7400
+ 688              	.LASF10:
+ 689 0056 6C6F6E67 		.string	"long long unsigned int"
+ 689      206C6F6E 
+ 689      6720756E 
+ 689      7369676E 
+ 689      65642069 
+ 690              	.LASF3:
+ 691 006d 5F5F7569 		.string	"__uint8_t"
+ 691      6E74385F 
+ 691      7400
+ 692              	.LASF19:
+ 693 0077 73776972 		.string	"swirq_disable"
+ 693      715F6469 
+ 693      7361626C 
+ 693      6500
+ 694              	.LASF4:
+ 695 0085 5F5F7569 		.string	"__uint16_t"
+ 695      6E743136 
+ 695      5F7400
+ 696              	.LASF24:
+ 697 0090 73776972 		.string	"swirqInit"
+ 697      71496E69 
+ 697      7400
+ 698              	.LASF1:
+ 699 009a 756E7369 		.string	"unsigned char"
+ 699      676E6564 
+ 699      20636861 
+ 699      7200
+ 700              	.LASF18:
+ 701 00a8 73776972 		.string	"swirq_enable"
+ 701      715F656E 
+ 701      61626C65 
+ 701      00
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 14
+
+
+ 702              	.LASF20:
+ 703 00b5 73776972 		.string	"swirq_set"
+ 703      715F7365 
+ 703      7400
+ 704              	.LASF14:
+ 705 00bf 75696E74 		.string	"uint32_t"
+ 705      33325F74 
+ 705      00
+ 706              	.LASF23:
+ 707 00c8 433A5C41 		.string	"C:\\AutoDevKitStudio-2.1\\workspace\\AutoDevKitCarV1"
+ 707      75746F44 
+ 707      65764B69 
+ 707      74537475 
+ 707      64696F2D 
+ 708              	.LASF21:
+ 709 00fa 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 709      4320342E 
+ 709      392E3420 
+ 709      32303136 
+ 709      30373236 
+ 710 0136 75696C64 		.ascii	"uild.sh"
+ 710      2E7368
+ 711 013d 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 711      3D676438 
+ 711      62366332 
+ 711      3020733D 
+ 711      46343934 
+ 712              	.LASF5:
+ 713 023e 73686F72 		.string	"short unsigned int"
+ 713      7420756E 
+ 713      7369676E 
+ 713      65642069 
+ 713      6E7400
+ 714              	.LASF0:
+ 715 0251 7369676E 		.string	"signed char"
+ 715      65642063 
+ 715      68617200 
+ 716              	.LASF6:
+ 717 025d 6C6F6E67 		.string	"long int"
+ 717      20696E74 
+ 717      00
+ 718              	.LASF13:
+ 719 0266 75696E74 		.string	"uint16_t"
+ 719      31365F74 
+ 719      00
+ 720              	.LASF2:
+ 721 026f 73686F72 		.string	"short int"
+ 721      7420696E 
+ 721      7400
+ 722              	.LASF15:
+ 723 0279 73697A65 		.string	"sizetype"
+ 723      74797065 
+ 723      00
+ 724              	.LASF22:
+ 725 0282 2E2F636F 		.string	"./components/spc582bxx_irq_component_rla/lib/src/swirq.c"
+ 725      6D706F6E 
+ 725      656E7473 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 15
+
+
+ 725      2F737063 
+ 725      35383262 
+ 726              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s 			page 16
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 swirq.c
+C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s:10     .text.swirqInit:00000000 swirqInit
+C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s:38     .text.swirq_enable:00000000 swirq_enable
+C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s:83     .text.swirq_disable:00000000 swirq_disable
+C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s:119    .text.swirq_set:00000000 swirq_set
+C:\Users\nascapro\AppData\Local\Temp\cc0qY8Mg.s:154    .text.swirq_clear:00000000 swirq_clear
+
+UNDEFINED SYMBOLS
+swirq_init_prio

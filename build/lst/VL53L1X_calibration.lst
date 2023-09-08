@@ -1,0 +1,1329 @@
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 1
+
+
+   1              		.file	"VL53L1X_calibration.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.section	.text.VL53L1X_CalibrateOffset,"axv",@progbits
+   6              		.align 1
+   7              		.p2align 4,,15
+   8              		.globl VL53L1X_CalibrateOffset
+   9              		.type	VL53L1X_CalibrateOffset, @function
+  10              	VL53L1X_CalibrateOffset:
+  11              	.LFB2:
+  12              		.file 1 "./components/aek_sns_vl53l1x1_component_rla/lib/src/uld_src/VL53L1X_calibration.c"
+  13              		.loc 1 41 0
+  14              		.cfi_startproc
+  15 0000 182106E0 		e_stwu %r1,-32(%r1)
+  16              	.LCFI0:
+  17              		.cfi_def_cfa_offset 32
+  18 0004 0080     		se_mflr %r0
+  19 0006 D901     		se_stw %r0,36(%r1)
+  20              		.cfi_offset 65, 4
+  21 0008 0136     		se_mr %r6,%r3
+  22 000a 0147     		se_mr %r7,%r4
+  23 000c D751     		se_stw %r5,28(%r1)
+  24 000e 34C10018 		e_stb %r6,24(%r1)
+  25 0012 BD71     		se_sth %r7,26(%r1)
+  26              		.loc 1 43 0
+  27 0014 4807     		se_li %r7,0
+  28 0016 B571     		se_sth %r7,10(%r1)
+  29              		.loc 1 45 0
+  30 0018 4807     		se_li %r7,0
+  31 001a D371     		se_stw %r7,12(%r1)
+  32              		.loc 1 47 0
+  33 001c 30E10018 		e_lbz %r7,24(%r1)
+  34 0020 00C7     		se_extzb %r7
+  35 0022 0173     		se_mr %r3,%r7
+  36 0024 49E4     		se_li %r4,30
+  37 0026 4805     		se_li %r5,0
+  38 0028 78000001 		e_bl VL53L1X_WrWord
+  39 002c D331     		se_stw %r3,12(%r1)
+  40              		.loc 1 48 0
+  41 002e 30E10018 		e_lbz %r7,24(%r1)
+  42 0032 00C7     		se_extzb %r7
+  43 0034 0173     		se_mr %r3,%r7
+  44 0036 4A04     		se_li %r4,32
+  45 0038 4805     		se_li %r5,0
+  46 003a 78000001 		e_bl VL53L1X_WrWord
+  47 003e D331     		se_stw %r3,12(%r1)
+  48              		.loc 1 49 0
+  49 0040 30E10018 		e_lbz %r7,24(%r1)
+  50 0044 00C7     		se_extzb %r7
+  51 0046 0173     		se_mr %r3,%r7
+  52 0048 4A24     		se_li %r4,34
+  53 004a 4805     		se_li %r5,0
+  54 004c 78000001 		e_bl VL53L1X_WrWord
+  55 0050 D331     		se_stw %r3,12(%r1)
+  56              		.loc 1 50 0
+  57 0052 30E10018 		e_lbz %r7,24(%r1)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 2
+
+
+  58 0056 00C7     		se_extzb %r7
+  59 0058 0173     		se_mr %r3,%r7
+  60 005a 78000001 		e_bl VL53L1X_StartRanging
+  61 005e D331     		se_stw %r3,12(%r1)
+  62              		.loc 1 51 0
+  63 0060 4807     		se_li %r7,0
+  64 0062 9871     		se_stb %r7,8(%r1)
+  65 0064 7800007E 		e_b .L2
+  66              	.L5:
+  67              		.loc 1 53 0
+  68 0068 4807     		se_li %r7,0
+  69 006a 34E10010 		e_stb %r7,16(%r1)
+  70              		.loc 1 54 0
+  71 006e 7800001A 		e_b .L3
+  72              	.L4:
+  73              		.loc 1 56 0
+  74 0072 30E10018 		e_lbz %r7,24(%r1)
+  75 0076 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+  76 007a 18E18010 		e_addi %r7,%r1,16
+  77 007e 0163     		se_mr %r3,%r6
+  78 0080 0174     		se_mr %r4,%r7
+  79 0082 78000001 		e_bl VL53L1X_CheckForDataReady
+  80 0086 D331     		se_stw %r3,12(%r1)
+  81              	.L3:
+  82              		.loc 1 54 0
+  83 0088 30E10010 		e_lbz %r7,16(%r1)
+  84 008c 00C7     		se_extzb %r7
+  85 008e 2A07     		se_cmpi %r7,0
+  86 0090 7F800020 		e_mcrf %cr7,%cr0
+  87 0094 7CE00026 		mfcr %r7
+  88 0098 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+  89 009c 7CE80120 		mtcrf 128,%r7
+  90 00a0 7A12FFD2 		e_beq %cr0,.L4
+  91              		.loc 1 58 0 discriminator 2
+  92 00a4 30E10018 		e_lbz %r7,24(%r1)
+  93 00a8 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+  94 00ac 18E18012 		e_addi %r7,%r1,18
+  95 00b0 0163     		se_mr %r3,%r6
+  96 00b2 0174     		se_mr %r4,%r7
+  97 00b4 78000001 		e_bl VL53L1X_GetDistance
+  98 00b8 D331     		se_stw %r3,12(%r1)
+  99              		.loc 1 59 0 discriminator 2
+ 100 00ba 30E10018 		e_lbz %r7,24(%r1)
+ 101 00be 00C7     		se_extzb %r7
+ 102 00c0 0173     		se_mr %r3,%r7
+ 103 00c2 78000001 		e_bl VL53L1X_ClearInterrupt
+ 104 00c6 D331     		se_stw %r3,12(%r1)
+ 105              		.loc 1 60 0 discriminator 2
+ 106 00c8 A571     		se_lhz %r7,10(%r1)
+ 107 00ca 74E6043F 		e_rlwinm %r6,%r7,0,0xffff
+ 108 00ce A971     		se_lhz %r7,18(%r1)
+ 109 00d0 00E7     		se_extzh %r7
+ 110 00d2 7CE63A14 		add %r7,%r6,%r7
+ 111 00d6 00E7     		se_extzh %r7
+ 112 00d8 B571     		se_sth %r7,10(%r1)
+ 113              		.loc 1 51 0 discriminator 2
+ 114 00da 8871     		se_lbz %r7,8(%r1)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 3
+
+
+ 115 00dc 00C7     		se_extzb %r7
+ 116 00de 2007     		se_addi %r7,1
+ 117 00e0 9871     		se_stb %r7,8(%r1)
+ 118              	.L2:
+ 119              		.loc 1 51 0 is_stmt 0 discriminator 1
+ 120 00e2 8871     		se_lbz %r7,8(%r1)
+ 121 00e4 00C7     		se_extzb %r7
+ 122 00e6 7007A831 		e_cmpl16i %r7,49
+ 123 00ea 7F800020 		e_mcrf %cr7,%cr0
+ 124 00ee 7CE00026 		mfcr %r7
+ 125 00f2 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 126 00f6 7CE80120 		mtcrf 128,%r7
+ 127 00fa 7A01FF6E 		e_ble %cr0,.L5
+ 128              		.loc 1 62 0 is_stmt 1
+ 129 00fe 30E10018 		e_lbz %r7,24(%r1)
+ 130 0102 00C7     		se_extzb %r7
+ 131 0104 0173     		se_mr %r3,%r7
+ 132 0106 78000001 		e_bl VL53L1X_StopRanging
+ 133 010a D331     		se_stw %r3,12(%r1)
+ 134              		.loc 1 63 0
+ 135 010c A571     		se_lhz %r7,10(%r1)
+ 136 010e 00F7     		se_extsh %r7
+ 137 0110 70CAE1EB 		e_lis %r6,0x51eb
+ 138 0114 70D0C51F 		e_or2i %r6,34079
+ 139 0118 7CC73096 		mulhw %r6,%r7,%r6
+ 140 011c 6A46     		se_srawi %r6, 4
+ 141 011e 6BF7     		se_srawi %r7, 31
+ 142 0120 0767     		se_subf %r7, %r6
+ 143 0122 B571     		se_sth %r7,10(%r1)
+ 144              		.loc 1 64 0
+ 145 0124 A571     		se_lhz %r7,10(%r1)
+ 146 0126 00E7     		se_extzh %r7
+ 147 0128 AD61     		se_lhz %r6,26(%r1)
+ 148 012a 0767     		se_subf %r7, %r6
+ 149 012c 00E7     		se_extzh %r7
+ 150 012e 7CE60734 		extsh %r6,%r7
+ 151 0132 C771     		se_lwz %r7,28(%r1)
+ 152 0134 B067     		se_sth %r6,0(%r7)
+ 153              		.loc 1 65 0
+ 154 0136 C771     		se_lwz %r7,28(%r1)
+ 155 0138 A077     		se_lhz %r7,0(%r7)
+ 156 013a 00F7     		se_extsh %r7
+ 157 013c 00E7     		se_extzh %r7
+ 158 013e 6C27     		se_slwi %r7, 2
+ 159 0140 00E7     		se_extzh %r7
+ 160 0142 30C10018 		e_lbz %r6,24(%r1)
+ 161 0146 00C6     		se_extzb %r6
+ 162 0148 0163     		se_mr %r3,%r6
+ 163 014a 49E4     		se_li %r4,30
+ 164 014c 0175     		se_mr %r5,%r7
+ 165 014e 78000001 		e_bl VL53L1X_WrWord
+ 166 0152 D331     		se_stw %r3,12(%r1)
+ 167              		.loc 1 66 0
+ 168 0154 C371     		se_lwz %r7,12(%r1)
+ 169              		.loc 1 67 0
+ 170 0156 0173     		se_mr %r3,%r7
+ 171 0158 C901     		se_lwz %r0,36(%r1)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 4
+
+
+ 172 015a 0090     		se_mtlr %r0
+ 173 015c 21F1     		se_addi %r1,32
+ 174              	.LCFI1:
+ 175              		.cfi_def_cfa_offset 0
+ 176 015e 0004     		se_blr
+ 177              		.cfi_endproc
+ 178              	.LFE2:
+ 179              		.size	VL53L1X_CalibrateOffset, .-VL53L1X_CalibrateOffset
+ 180              		.globl __floatsisf
+ 181              		.globl __addsf3
+ 182              		.globl __divsf3
+ 183              		.globl __subsf3
+ 184              		.globl __mulsf3
+ 185              		.globl __fixunssfsi
+ 186              		.section	.text.VL53L1X_CalibrateXtalk,"axv",@progbits
+ 187              		.align 1
+ 188              		.p2align 4,,15
+ 189              		.globl VL53L1X_CalibrateXtalk
+ 190              		.type	VL53L1X_CalibrateXtalk, @function
+ 191              	VL53L1X_CalibrateXtalk:
+ 192              	.LFB3:
+ 193              		.loc 1 81 0
+ 194              		.cfi_startproc
+ 195 0000 182106D0 		e_stwu %r1,-48(%r1)
+ 196              	.LCFI2:
+ 197              		.cfi_def_cfa_offset 48
+ 198 0004 0080     		se_mflr %r0
+ 199 0006 DD01     		se_stw %r0,52(%r1)
+ 200              		.cfi_offset 65, 4
+ 201 0008 0136     		se_mr %r6,%r3
+ 202 000a 0147     		se_mr %r7,%r4
+ 203 000c DB51     		se_stw %r5,44(%r1)
+ 204 000e 34C10028 		e_stb %r6,40(%r1)
+ 205 0012 5CE1002A 		e_sth %r7,42(%r1)
+ 206              		.loc 1 83 0
+ 207 0016 4807     		se_li %r7,0
+ 208 0018 54E1000C 		e_stw %r7,12(%r1)
+ 209              		.loc 1 84 0
+ 210 001c 4807     		se_li %r7,0
+ 211 001e 54E10010 		e_stw %r7,16(%r1)
+ 212              		.loc 1 85 0
+ 213 0022 4807     		se_li %r7,0
+ 214 0024 54E10014 		e_stw %r7,20(%r1)
+ 215              		.loc 1 86 0
+ 216 0028 4807     		se_li %r7,0
+ 217 002a 5CE10022 		e_sth %r7,34(%r1)
+ 218              		.loc 1 88 0
+ 219 002e 4807     		se_li %r7,0
+ 220 0030 D671     		se_stw %r7,24(%r1)
+ 221              		.loc 1 91 0
+ 222 0032 30E10028 		e_lbz %r7,40(%r1)
+ 223 0036 00C7     		se_extzb %r7
+ 224 0038 0173     		se_mr %r3,%r7
+ 225 003a 4964     		se_li %r4,22
+ 226 003c 4805     		se_li %r5,0
+ 227 003e 78000001 		e_bl VL53L1X_WrWord
+ 228 0042 D631     		se_stw %r3,24(%r1)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 5
+
+
+ 229              		.loc 1 92 0
+ 230 0044 30E10028 		e_lbz %r7,40(%r1)
+ 231 0048 00C7     		se_extzb %r7
+ 232 004a 0173     		se_mr %r3,%r7
+ 233 004c 78000001 		e_bl VL53L1X_StartRanging
+ 234 0050 D631     		se_stw %r3,24(%r1)
+ 235              		.loc 1 93 0
+ 236 0052 4807     		se_li %r7,0
+ 237 0054 9871     		se_stb %r7,8(%r1)
+ 238 0056 780000F2 		e_b .L8
+ 239              	.L11:
+ 240              		.loc 1 94 0
+ 241 005a 4807     		se_li %r7,0
+ 242 005c 34E10020 		e_stb %r7,32(%r1)
+ 243              		.loc 1 95 0
+ 244 0060 7800001A 		e_b .L9
+ 245              	.L10:
+ 246              		.loc 1 96 0
+ 247 0064 30E10028 		e_lbz %r7,40(%r1)
+ 248 0068 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 249 006c 18E18020 		e_addi %r7,%r1,32
+ 250 0070 0163     		se_mr %r3,%r6
+ 251 0072 0174     		se_mr %r4,%r7
+ 252 0074 78000001 		e_bl VL53L1X_CheckForDataReady
+ 253 0078 D631     		se_stw %r3,24(%r1)
+ 254              	.L9:
+ 255              		.loc 1 95 0
+ 256 007a 30E10020 		e_lbz %r7,32(%r1)
+ 257 007e 00C7     		se_extzb %r7
+ 258 0080 2A07     		se_cmpi %r7,0
+ 259 0082 7F800020 		e_mcrf %cr7,%cr0
+ 260 0086 7CE00026 		mfcr %r7
+ 261 008a 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 262 008e 7CE80120 		mtcrf 128,%r7
+ 263 0092 7A12FFD2 		e_beq %cr0,.L10
+ 264              		.loc 1 98 0 discriminator 2
+ 265 0096 30E10028 		e_lbz %r7,40(%r1)
+ 266 009a 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 267 009e 18E18026 		e_addi %r7,%r1,38
+ 268 00a2 0163     		se_mr %r3,%r6
+ 269 00a4 0174     		se_mr %r4,%r7
+ 270 00a6 78000001 		e_bl VL53L1X_GetSignalRate
+ 271 00aa D631     		se_stw %r3,24(%r1)
+ 272              		.loc 1 99 0 discriminator 2
+ 273 00ac 30E10028 		e_lbz %r7,40(%r1)
+ 274 00b0 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 275 00b4 18E18022 		e_addi %r7,%r1,34
+ 276 00b8 0163     		se_mr %r3,%r6
+ 277 00ba 0174     		se_mr %r4,%r7
+ 278 00bc 78000001 		e_bl VL53L1X_GetDistance
+ 279 00c0 D631     		se_stw %r3,24(%r1)
+ 280              		.loc 1 100 0 discriminator 2
+ 281 00c2 30E10028 		e_lbz %r7,40(%r1)
+ 282 00c6 00C7     		se_extzb %r7
+ 283 00c8 0173     		se_mr %r3,%r7
+ 284 00ca 78000001 		e_bl VL53L1X_ClearInterrupt
+ 285 00ce D631     		se_stw %r3,24(%r1)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 6
+
+
+ 286              		.loc 1 101 0 discriminator 2
+ 287 00d0 58E10022 		e_lhz %r7,34(%r1)
+ 288 00d4 00E7     		se_extzh %r7
+ 289 00d6 0173     		se_mr %r3,%r7
+ 290 00d8 78000001 		e_bl __floatsisf
+ 291 00dc 0137     		se_mr %r7,%r3
+ 292 00de 50610010 		e_lwz %r3,16(%r1)
+ 293 00e2 0174     		se_mr %r4,%r7
+ 294 00e4 78000001 		e_bl __addsf3
+ 295 00e8 0137     		se_mr %r7,%r3
+ 296 00ea 54E10010 		e_stw %r7,16(%r1)
+ 297              		.loc 1 102 0 discriminator 2
+ 298 00ee 30E10028 		e_lbz %r7,40(%r1)
+ 299 00f2 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 300 00f6 18E18024 		e_addi %r7,%r1,36
+ 301 00fa 0163     		se_mr %r3,%r6
+ 302 00fc 0174     		se_mr %r4,%r7
+ 303 00fe 78000001 		e_bl VL53L1X_GetSpadNb
+ 304 0102 D631     		se_stw %r3,24(%r1)
+ 305              		.loc 1 103 0 discriminator 2
+ 306 0104 58E10024 		e_lhz %r7,36(%r1)
+ 307 0108 00E7     		se_extzh %r7
+ 308 010a 0173     		se_mr %r3,%r7
+ 309 010c 78000001 		e_bl __floatsisf
+ 310 0110 0137     		se_mr %r7,%r3
+ 311 0112 50610014 		e_lwz %r3,20(%r1)
+ 312 0116 0174     		se_mr %r4,%r7
+ 313 0118 78000001 		e_bl __addsf3
+ 314 011c 0137     		se_mr %r7,%r3
+ 315 011e 54E10014 		e_stw %r7,20(%r1)
+ 316              		.loc 1 105 0 discriminator 2
+ 317 0122 58E10026 		e_lhz %r7,38(%r1)
+ 318 0126 00E7     		se_extzh %r7
+ 319 0128 0173     		se_mr %r3,%r7
+ 320 012a 78000001 		e_bl __floatsisf
+ 321 012e 0137     		se_mr %r7,%r3
+ 322              		.loc 1 104 0 discriminator 2
+ 323 0130 5061000C 		e_lwz %r3,12(%r1)
+ 324 0134 0174     		se_mr %r4,%r7
+ 325 0136 78000001 		e_bl __addsf3
+ 326 013a 0137     		se_mr %r7,%r3
+ 327 013c 54E1000C 		e_stw %r7,12(%r1)
+ 328              		.loc 1 93 0 discriminator 2
+ 329 0140 8871     		se_lbz %r7,8(%r1)
+ 330 0142 00C7     		se_extzb %r7
+ 331 0144 2007     		se_addi %r7,1
+ 332 0146 9871     		se_stb %r7,8(%r1)
+ 333              	.L8:
+ 334              		.loc 1 93 0 is_stmt 0 discriminator 1
+ 335 0148 8871     		se_lbz %r7,8(%r1)
+ 336 014a 00C7     		se_extzb %r7
+ 337 014c 7007A831 		e_cmpl16i %r7,49
+ 338 0150 7F800020 		e_mcrf %cr7,%cr0
+ 339 0154 7CE00026 		mfcr %r7
+ 340 0158 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 341 015c 7CE80120 		mtcrf 128,%r7
+ 342 0160 7A01FEFA 		e_ble %cr0,.L11
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 7
+
+
+ 343              		.loc 1 107 0 is_stmt 1
+ 344 0164 30E10028 		e_lbz %r7,40(%r1)
+ 345 0168 00C7     		se_extzb %r7
+ 346 016a 0173     		se_mr %r3,%r7
+ 347 016c 78000001 		e_bl VL53L1X_StopRanging
+ 348 0170 D631     		se_stw %r3,24(%r1)
+ 349              		.loc 1 108 0
+ 350 0172 50610010 		e_lwz %r3,16(%r1)
+ 351 0176 7088E248 		e_lis %r4,0x4248
+ 352 017a 78000001 		e_bl __divsf3
+ 353 017e 0137     		se_mr %r7,%r3
+ 354 0180 54E10010 		e_stw %r7,16(%r1)
+ 355              		.loc 1 109 0
+ 356 0184 50610014 		e_lwz %r3,20(%r1)
+ 357 0188 7088E248 		e_lis %r4,0x4248
+ 358 018c 78000001 		e_bl __divsf3
+ 359 0190 0137     		se_mr %r7,%r3
+ 360 0192 54E10014 		e_stw %r7,20(%r1)
+ 361              		.loc 1 110 0
+ 362 0196 5061000C 		e_lwz %r3,12(%r1)
+ 363 019a 7088E248 		e_lis %r4,0x4248
+ 364 019e 78000001 		e_bl __divsf3
+ 365 01a2 0137     		se_mr %r7,%r3
+ 366 01a4 54E1000C 		e_stw %r7,12(%r1)
+ 367              		.loc 1 112 0
+ 368 01a8 58E1002A 		e_lhz %r7,42(%r1)
+ 369 01ac 00E7     		se_extzh %r7
+ 370 01ae 0173     		se_mr %r3,%r7
+ 371 01b0 78000001 		e_bl __floatsisf
+ 372 01b4 0137     		se_mr %r7,%r3
+ 373 01b6 50610010 		e_lwz %r3,16(%r1)
+ 374 01ba 0174     		se_mr %r4,%r7
+ 375 01bc 78000001 		e_bl __divsf3
+ 376 01c0 0137     		se_mr %r7,%r3
+ 377 01c2 7067E780 		e_lis %r3,0x3f80
+ 378 01c6 0174     		se_mr %r4,%r7
+ 379 01c8 78000001 		e_bl __subsf3
+ 380 01cc 0137     		se_mr %r7,%r3
+ 381 01ce 0173     		se_mr %r3,%r7
+ 382 01d0 5081000C 		e_lwz %r4,12(%r1)
+ 383 01d4 78000001 		e_bl __mulsf3
+ 384 01d8 0137     		se_mr %r7,%r3
+ 385 01da 0173     		se_mr %r3,%r7
+ 386 01dc 7088E400 		e_lis %r4,0x4400
+ 387 01e0 78000001 		e_bl __mulsf3
+ 388 01e4 0137     		se_mr %r7,%r3
+ 389 01e6 0173     		se_mr %r3,%r7
+ 390 01e8 50810014 		e_lwz %r4,20(%r1)
+ 391 01ec 78000001 		e_bl __divsf3
+ 392 01f0 0137     		se_mr %r7,%r3
+ 393 01f2 0173     		se_mr %r3,%r7
+ 394 01f4 78000001 		e_bl __fixunssfsi
+ 395 01f8 0137     		se_mr %r7,%r3
+ 396 01fa 00E7     		se_extzh %r7
+ 397 01fc D771     		se_stw %r7,28(%r1)
+ 398              		.loc 1 113 0
+ 399 01fe C771     		se_lwz %r7,28(%r1)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 8
+
+
+ 400 0200 00E7     		se_extzh %r7
+ 401 0202 7007A3E8 		e_mull2i %r7,1000
+ 402 0206 00E7     		se_extzh %r7
+ 403 0208 6897     		se_srwi %r7,9
+ 404 020a 74E6043F 		e_rlwinm %r6,%r7,0,0xffff
+ 405 020e CB71     		se_lwz %r7,44(%r1)
+ 406 0210 B067     		se_sth %r6,0(%r7)
+ 407              		.loc 1 114 0
+ 408 0212 C771     		se_lwz %r7,28(%r1)
+ 409 0214 00E7     		se_extzh %r7
+ 410 0216 30C10028 		e_lbz %r6,40(%r1)
+ 411 021a 00C6     		se_extzb %r6
+ 412 021c 0163     		se_mr %r3,%r6
+ 413 021e 4964     		se_li %r4,22
+ 414 0220 0175     		se_mr %r5,%r7
+ 415 0222 78000001 		e_bl VL53L1X_WrWord
+ 416 0226 D631     		se_stw %r3,24(%r1)
+ 417              		.loc 1 115 0
+ 418 0228 C671     		se_lwz %r7,24(%r1)
+ 419              		.loc 1 116 0
+ 420 022a 0173     		se_mr %r3,%r7
+ 421 022c CD01     		se_lwz %r0,52(%r1)
+ 422 022e 0090     		se_mtlr %r0
+ 423 0230 18218030 		e_addi %r1,%r1,48
+ 424              	.LCFI3:
+ 425              		.cfi_def_cfa_offset 0
+ 426 0234 0004     		se_blr
+ 427              		.cfi_endproc
+ 428              	.LFE3:
+ 429              		.size	VL53L1X_CalibrateXtalk, .-VL53L1X_CalibrateXtalk
+ 430              		.section	".text","axv"
+ 431              	.Letext0:
+ 432              		.file 2 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 433              		.file 3 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 434              		.file 4 "./components/spc582bxx_low_level_drivers_component_rla/lib/include/i2c_lld.h"
+ 435              		.section	.debug_info,"",@progbits
+ 436              	.Ldebug_info0:
+ 437 0000 00000287 		.4byte	0x287
+ 438 0004 0002     		.2byte	0x2
+ 439 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 440 000a 04       		.byte	0x4
+ 441 000b 01       		.uleb128 0x1
+ 442 000c 00000000 		.4byte	.LASF41
+ 443 0010 01       		.byte	0x1
+ 444 0011 00000000 		.4byte	.LASF42
+ 445 0015 00000000 		.4byte	.LASF43
+ 446 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 447 001d 00000000 		.4byte	0
+ 448 0021 00000000 		.4byte	0
+ 449 0025 00000000 		.4byte	.Ldebug_line0
+ 450 0029 02       		.uleb128 0x2
+ 451 002a 01       		.byte	0x1
+ 452 002b 06       		.byte	0x6
+ 453 002c 00000000 		.4byte	.LASF0
+ 454 0030 03       		.uleb128 0x3
+ 455 0031 00000000 		.4byte	.LASF2
+ 456 0035 02       		.byte	0x2
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 9
+
+
+ 457 0036 1D       		.byte	0x1d
+ 458 0037 0000003B 		.4byte	0x3b
+ 459 003b 02       		.uleb128 0x2
+ 460 003c 01       		.byte	0x1
+ 461 003d 08       		.byte	0x8
+ 462 003e 00000000 		.4byte	.LASF1
+ 463 0042 03       		.uleb128 0x3
+ 464 0043 00000000 		.4byte	.LASF3
+ 465 0047 02       		.byte	0x2
+ 466 0048 29       		.byte	0x29
+ 467 0049 0000004D 		.4byte	0x4d
+ 468 004d 02       		.uleb128 0x2
+ 469 004e 02       		.byte	0x2
+ 470 004f 05       		.byte	0x5
+ 471 0050 00000000 		.4byte	.LASF4
+ 472 0054 03       		.uleb128 0x3
+ 473 0055 00000000 		.4byte	.LASF5
+ 474 0059 02       		.byte	0x2
+ 475 005a 2B       		.byte	0x2b
+ 476 005b 0000005F 		.4byte	0x5f
+ 477 005f 02       		.uleb128 0x2
+ 478 0060 02       		.byte	0x2
+ 479 0061 07       		.byte	0x7
+ 480 0062 00000000 		.4byte	.LASF6
+ 481 0066 02       		.uleb128 0x2
+ 482 0067 04       		.byte	0x4
+ 483 0068 05       		.byte	0x5
+ 484 0069 00000000 		.4byte	.LASF7
+ 485 006d 03       		.uleb128 0x3
+ 486 006e 00000000 		.4byte	.LASF8
+ 487 0072 02       		.byte	0x2
+ 488 0073 41       		.byte	0x41
+ 489 0074 00000078 		.4byte	0x78
+ 490 0078 02       		.uleb128 0x2
+ 491 0079 04       		.byte	0x4
+ 492 007a 07       		.byte	0x7
+ 493 007b 00000000 		.4byte	.LASF9
+ 494 007f 02       		.uleb128 0x2
+ 495 0080 08       		.byte	0x8
+ 496 0081 05       		.byte	0x5
+ 497 0082 00000000 		.4byte	.LASF10
+ 498 0086 02       		.uleb128 0x2
+ 499 0087 08       		.byte	0x8
+ 500 0088 07       		.byte	0x7
+ 501 0089 00000000 		.4byte	.LASF11
+ 502 008d 04       		.uleb128 0x4
+ 503 008e 04       		.byte	0x4
+ 504 008f 05       		.byte	0x5
+ 505 0090 696E7400 		.string	"int"
+ 506 0094 02       		.uleb128 0x2
+ 507 0095 04       		.byte	0x4
+ 508 0096 07       		.byte	0x7
+ 509 0097 00000000 		.4byte	.LASF12
+ 510 009b 03       		.uleb128 0x3
+ 511 009c 00000000 		.4byte	.LASF13
+ 512 00a0 03       		.byte	0x3
+ 513 00a1 15       		.byte	0x15
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 10
+
+
+ 514 00a2 00000030 		.4byte	0x30
+ 515 00a6 03       		.uleb128 0x3
+ 516 00a7 00000000 		.4byte	.LASF14
+ 517 00ab 03       		.byte	0x3
+ 518 00ac 20       		.byte	0x20
+ 519 00ad 00000042 		.4byte	0x42
+ 520 00b1 03       		.uleb128 0x3
+ 521 00b2 00000000 		.4byte	.LASF15
+ 522 00b6 03       		.byte	0x3
+ 523 00b7 21       		.byte	0x21
+ 524 00b8 00000054 		.4byte	0x54
+ 525 00bc 03       		.uleb128 0x3
+ 526 00bd 00000000 		.4byte	.LASF16
+ 527 00c1 03       		.byte	0x3
+ 528 00c2 2D       		.byte	0x2d
+ 529 00c3 0000006D 		.4byte	0x6d
+ 530 00c7 02       		.uleb128 0x2
+ 531 00c8 04       		.byte	0x4
+ 532 00c9 07       		.byte	0x7
+ 533 00ca 00000000 		.4byte	.LASF17
+ 534 00ce 05       		.uleb128 0x5
+ 535 00cf 04       		.byte	0x4
+ 536 00d0 000000B1 		.4byte	0xb1
+ 537 00d4 06       		.uleb128 0x6
+ 538 00d5 04       		.byte	0x4
+ 539 00d6 04       		.byte	0x4
+ 540 00d7 5A       		.byte	0x5a
+ 541 00d8 00000113 		.4byte	0x113
+ 542 00dc 07       		.uleb128 0x7
+ 543 00dd 00000000 		.4byte	.LASF18
+ 544 00e1 00       		.sleb128 0
+ 545 00e2 07       		.uleb128 0x7
+ 546 00e3 00000000 		.4byte	.LASF19
+ 547 00e7 7F       		.sleb128 -1
+ 548 00e8 07       		.uleb128 0x7
+ 549 00e9 00000000 		.4byte	.LASF20
+ 550 00ed 7E       		.sleb128 -2
+ 551 00ee 07       		.uleb128 0x7
+ 552 00ef 00000000 		.4byte	.LASF21
+ 553 00f3 7D       		.sleb128 -3
+ 554 00f4 07       		.uleb128 0x7
+ 555 00f5 00000000 		.4byte	.LASF22
+ 556 00f9 7C       		.sleb128 -4
+ 557 00fa 07       		.uleb128 0x7
+ 558 00fb 00000000 		.4byte	.LASF23
+ 559 00ff 7B       		.sleb128 -5
+ 560 0100 07       		.uleb128 0x7
+ 561 0101 00000000 		.4byte	.LASF24
+ 562 0105 7A       		.sleb128 -6
+ 563 0106 07       		.uleb128 0x7
+ 564 0107 00000000 		.4byte	.LASF25
+ 565 010b 79       		.sleb128 -7
+ 566 010c 07       		.uleb128 0x7
+ 567 010d 00000000 		.4byte	.LASF26
+ 568 0111 78       		.sleb128 -8
+ 569 0112 00       		.byte	0
+ 570 0113 03       		.uleb128 0x3
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 11
+
+
+ 571 0114 00000000 		.4byte	.LASF27
+ 572 0118 04       		.byte	0x4
+ 573 0119 64       		.byte	0x64
+ 574 011a 000000D4 		.4byte	0xd4
+ 575 011e 08       		.uleb128 0x8
+ 576 011f 01       		.byte	0x1
+ 577 0120 00000000 		.4byte	.LASF33
+ 578 0124 01       		.byte	0x1
+ 579 0125 28       		.byte	0x28
+ 580 0126 01       		.byte	0x1
+ 581 0127 00000113 		.4byte	0x113
+ 582 012b 00000000 		.4byte	.LFB2
+ 583 012f 00000000 		.4byte	.LFE2
+ 584 0133 00000000 		.4byte	.LLST0
+ 585 0137 01       		.byte	0x1
+ 586 0138 000001AB 		.4byte	0x1ab
+ 587 013c 09       		.uleb128 0x9
+ 588 013d 64657600 		.string	"dev"
+ 589 0141 01       		.byte	0x1
+ 590 0142 28       		.byte	0x28
+ 591 0143 0000009B 		.4byte	0x9b
+ 592 0147 02       		.byte	0x2
+ 593 0148 91       		.byte	0x91
+ 594 0149 78       		.sleb128 -8
+ 595 014a 0A       		.uleb128 0xa
+ 596 014b 00000000 		.4byte	.LASF28
+ 597 014f 01       		.byte	0x1
+ 598 0150 28       		.byte	0x28
+ 599 0151 000000B1 		.4byte	0xb1
+ 600 0155 02       		.byte	0x2
+ 601 0156 91       		.byte	0x91
+ 602 0157 7A       		.sleb128 -6
+ 603 0158 0A       		.uleb128 0xa
+ 604 0159 00000000 		.4byte	.LASF29
+ 605 015d 01       		.byte	0x1
+ 606 015e 28       		.byte	0x28
+ 607 015f 000001AB 		.4byte	0x1ab
+ 608 0163 02       		.byte	0x2
+ 609 0164 91       		.byte	0x91
+ 610 0165 7C       		.sleb128 -4
+ 611 0166 0B       		.uleb128 0xb
+ 612 0167 6900     		.string	"i"
+ 613 0169 01       		.byte	0x1
+ 614 016a 2A       		.byte	0x2a
+ 615 016b 0000009B 		.4byte	0x9b
+ 616 016f 02       		.byte	0x2
+ 617 0170 91       		.byte	0x91
+ 618 0171 68       		.sleb128 -24
+ 619 0172 0B       		.uleb128 0xb
+ 620 0173 746D7000 		.string	"tmp"
+ 621 0177 01       		.byte	0x1
+ 622 0178 2A       		.byte	0x2a
+ 623 0179 0000009B 		.4byte	0x9b
+ 624 017d 02       		.byte	0x2
+ 625 017e 91       		.byte	0x91
+ 626 017f 70       		.sleb128 -16
+ 627 0180 0C       		.uleb128 0xc
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 12
+
+
+ 628 0181 00000000 		.4byte	.LASF30
+ 629 0185 01       		.byte	0x1
+ 630 0186 2B       		.byte	0x2b
+ 631 0187 000000A6 		.4byte	0xa6
+ 632 018b 02       		.byte	0x2
+ 633 018c 91       		.byte	0x91
+ 634 018d 6A       		.sleb128 -22
+ 635 018e 0C       		.uleb128 0xc
+ 636 018f 00000000 		.4byte	.LASF31
+ 637 0193 01       		.byte	0x1
+ 638 0194 2C       		.byte	0x2c
+ 639 0195 000000B1 		.4byte	0xb1
+ 640 0199 02       		.byte	0x2
+ 641 019a 91       		.byte	0x91
+ 642 019b 72       		.sleb128 -14
+ 643 019c 0C       		.uleb128 0xc
+ 644 019d 00000000 		.4byte	.LASF32
+ 645 01a1 01       		.byte	0x1
+ 646 01a2 2D       		.byte	0x2d
+ 647 01a3 00000113 		.4byte	0x113
+ 648 01a7 02       		.byte	0x2
+ 649 01a8 91       		.byte	0x91
+ 650 01a9 6C       		.sleb128 -20
+ 651 01aa 00       		.byte	0
+ 652 01ab 05       		.uleb128 0x5
+ 653 01ac 04       		.byte	0x4
+ 654 01ad 000000A6 		.4byte	0xa6
+ 655 01b1 08       		.uleb128 0x8
+ 656 01b2 01       		.byte	0x1
+ 657 01b3 00000000 		.4byte	.LASF34
+ 658 01b7 01       		.byte	0x1
+ 659 01b8 50       		.byte	0x50
+ 660 01b9 01       		.byte	0x1
+ 661 01ba 00000113 		.4byte	0x113
+ 662 01be 00000000 		.4byte	.LFB3
+ 663 01c2 00000000 		.4byte	.LFE3
+ 664 01c6 00000000 		.4byte	.LLST1
+ 665 01ca 01       		.byte	0x1
+ 666 01cb 00000283 		.4byte	0x283
+ 667 01cf 09       		.uleb128 0x9
+ 668 01d0 64657600 		.string	"dev"
+ 669 01d4 01       		.byte	0x1
+ 670 01d5 50       		.byte	0x50
+ 671 01d6 0000009B 		.4byte	0x9b
+ 672 01da 02       		.byte	0x2
+ 673 01db 91       		.byte	0x91
+ 674 01dc 78       		.sleb128 -8
+ 675 01dd 0A       		.uleb128 0xa
+ 676 01de 00000000 		.4byte	.LASF28
+ 677 01e2 01       		.byte	0x1
+ 678 01e3 50       		.byte	0x50
+ 679 01e4 000000B1 		.4byte	0xb1
+ 680 01e8 02       		.byte	0x2
+ 681 01e9 91       		.byte	0x91
+ 682 01ea 7A       		.sleb128 -6
+ 683 01eb 0A       		.uleb128 0xa
+ 684 01ec 00000000 		.4byte	.LASF35
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 13
+
+
+ 685 01f0 01       		.byte	0x1
+ 686 01f1 50       		.byte	0x50
+ 687 01f2 000000CE 		.4byte	0xce
+ 688 01f6 02       		.byte	0x2
+ 689 01f7 91       		.byte	0x91
+ 690 01f8 7C       		.sleb128 -4
+ 691 01f9 0B       		.uleb128 0xb
+ 692 01fa 6900     		.string	"i"
+ 693 01fc 01       		.byte	0x1
+ 694 01fd 52       		.byte	0x52
+ 695 01fe 0000009B 		.4byte	0x9b
+ 696 0202 02       		.byte	0x2
+ 697 0203 91       		.byte	0x91
+ 698 0204 58       		.sleb128 -40
+ 699 0205 0B       		.uleb128 0xb
+ 700 0206 746D7000 		.string	"tmp"
+ 701 020a 01       		.byte	0x1
+ 702 020b 52       		.byte	0x52
+ 703 020c 0000009B 		.4byte	0x9b
+ 704 0210 02       		.byte	0x2
+ 705 0211 91       		.byte	0x91
+ 706 0212 70       		.sleb128 -16
+ 707 0213 0C       		.uleb128 0xc
+ 708 0214 00000000 		.4byte	.LASF36
+ 709 0218 01       		.byte	0x1
+ 710 0219 53       		.byte	0x53
+ 711 021a 00000283 		.4byte	0x283
+ 712 021e 02       		.byte	0x2
+ 713 021f 91       		.byte	0x91
+ 714 0220 5C       		.sleb128 -36
+ 715 0221 0C       		.uleb128 0xc
+ 716 0222 00000000 		.4byte	.LASF30
+ 717 0226 01       		.byte	0x1
+ 718 0227 54       		.byte	0x54
+ 719 0228 00000283 		.4byte	0x283
+ 720 022c 02       		.byte	0x2
+ 721 022d 91       		.byte	0x91
+ 722 022e 60       		.sleb128 -32
+ 723 022f 0C       		.uleb128 0xc
+ 724 0230 00000000 		.4byte	.LASF37
+ 725 0234 01       		.byte	0x1
+ 726 0235 55       		.byte	0x55
+ 727 0236 00000283 		.4byte	0x283
+ 728 023a 02       		.byte	0x2
+ 729 023b 91       		.byte	0x91
+ 730 023c 64       		.sleb128 -28
+ 731 023d 0C       		.uleb128 0xc
+ 732 023e 00000000 		.4byte	.LASF31
+ 733 0242 01       		.byte	0x1
+ 734 0243 56       		.byte	0x56
+ 735 0244 000000B1 		.4byte	0xb1
+ 736 0248 02       		.byte	0x2
+ 737 0249 91       		.byte	0x91
+ 738 024a 72       		.sleb128 -14
+ 739 024b 0C       		.uleb128 0xc
+ 740 024c 00000000 		.4byte	.LASF38
+ 741 0250 01       		.byte	0x1
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 14
+
+
+ 742 0251 56       		.byte	0x56
+ 743 0252 000000B1 		.4byte	0xb1
+ 744 0256 02       		.byte	0x2
+ 745 0257 91       		.byte	0x91
+ 746 0258 74       		.sleb128 -12
+ 747 0259 0B       		.uleb128 0xb
+ 748 025a 737200   		.string	"sr"
+ 749 025d 01       		.byte	0x1
+ 750 025e 57       		.byte	0x57
+ 751 025f 000000B1 		.4byte	0xb1
+ 752 0263 02       		.byte	0x2
+ 753 0264 91       		.byte	0x91
+ 754 0265 76       		.sleb128 -10
+ 755 0266 0C       		.uleb128 0xc
+ 756 0267 00000000 		.4byte	.LASF32
+ 757 026b 01       		.byte	0x1
+ 758 026c 58       		.byte	0x58
+ 759 026d 00000113 		.4byte	0x113
+ 760 0271 02       		.byte	0x2
+ 761 0272 91       		.byte	0x91
+ 762 0273 68       		.sleb128 -24
+ 763 0274 0C       		.uleb128 0xc
+ 764 0275 00000000 		.4byte	.LASF39
+ 765 0279 01       		.byte	0x1
+ 766 027a 59       		.byte	0x59
+ 767 027b 000000BC 		.4byte	0xbc
+ 768 027f 02       		.byte	0x2
+ 769 0280 91       		.byte	0x91
+ 770 0281 6C       		.sleb128 -20
+ 771 0282 00       		.byte	0
+ 772 0283 02       		.uleb128 0x2
+ 773 0284 04       		.byte	0x4
+ 774 0285 04       		.byte	0x4
+ 775 0286 00000000 		.4byte	.LASF40
+ 776 028a 00       		.byte	0
+ 777              		.section	.debug_abbrev,"",@progbits
+ 778              	.Ldebug_abbrev0:
+ 779 0000 01       		.uleb128 0x1
+ 780 0001 11       		.uleb128 0x11
+ 781 0002 01       		.byte	0x1
+ 782 0003 25       		.uleb128 0x25
+ 783 0004 0E       		.uleb128 0xe
+ 784 0005 13       		.uleb128 0x13
+ 785 0006 0B       		.uleb128 0xb
+ 786 0007 03       		.uleb128 0x3
+ 787 0008 0E       		.uleb128 0xe
+ 788 0009 1B       		.uleb128 0x1b
+ 789 000a 0E       		.uleb128 0xe
+ 790 000b 55       		.uleb128 0x55
+ 791 000c 06       		.uleb128 0x6
+ 792 000d 11       		.uleb128 0x11
+ 793 000e 01       		.uleb128 0x1
+ 794 000f 52       		.uleb128 0x52
+ 795 0010 01       		.uleb128 0x1
+ 796 0011 10       		.uleb128 0x10
+ 797 0012 06       		.uleb128 0x6
+ 798 0013 00       		.byte	0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 15
+
+
+ 799 0014 00       		.byte	0
+ 800 0015 02       		.uleb128 0x2
+ 801 0016 24       		.uleb128 0x24
+ 802 0017 00       		.byte	0
+ 803 0018 0B       		.uleb128 0xb
+ 804 0019 0B       		.uleb128 0xb
+ 805 001a 3E       		.uleb128 0x3e
+ 806 001b 0B       		.uleb128 0xb
+ 807 001c 03       		.uleb128 0x3
+ 808 001d 0E       		.uleb128 0xe
+ 809 001e 00       		.byte	0
+ 810 001f 00       		.byte	0
+ 811 0020 03       		.uleb128 0x3
+ 812 0021 16       		.uleb128 0x16
+ 813 0022 00       		.byte	0
+ 814 0023 03       		.uleb128 0x3
+ 815 0024 0E       		.uleb128 0xe
+ 816 0025 3A       		.uleb128 0x3a
+ 817 0026 0B       		.uleb128 0xb
+ 818 0027 3B       		.uleb128 0x3b
+ 819 0028 0B       		.uleb128 0xb
+ 820 0029 49       		.uleb128 0x49
+ 821 002a 13       		.uleb128 0x13
+ 822 002b 00       		.byte	0
+ 823 002c 00       		.byte	0
+ 824 002d 04       		.uleb128 0x4
+ 825 002e 24       		.uleb128 0x24
+ 826 002f 00       		.byte	0
+ 827 0030 0B       		.uleb128 0xb
+ 828 0031 0B       		.uleb128 0xb
+ 829 0032 3E       		.uleb128 0x3e
+ 830 0033 0B       		.uleb128 0xb
+ 831 0034 03       		.uleb128 0x3
+ 832 0035 08       		.uleb128 0x8
+ 833 0036 00       		.byte	0
+ 834 0037 00       		.byte	0
+ 835 0038 05       		.uleb128 0x5
+ 836 0039 0F       		.uleb128 0xf
+ 837 003a 00       		.byte	0
+ 838 003b 0B       		.uleb128 0xb
+ 839 003c 0B       		.uleb128 0xb
+ 840 003d 49       		.uleb128 0x49
+ 841 003e 13       		.uleb128 0x13
+ 842 003f 00       		.byte	0
+ 843 0040 00       		.byte	0
+ 844 0041 06       		.uleb128 0x6
+ 845 0042 04       		.uleb128 0x4
+ 846 0043 01       		.byte	0x1
+ 847 0044 0B       		.uleb128 0xb
+ 848 0045 0B       		.uleb128 0xb
+ 849 0046 3A       		.uleb128 0x3a
+ 850 0047 0B       		.uleb128 0xb
+ 851 0048 3B       		.uleb128 0x3b
+ 852 0049 0B       		.uleb128 0xb
+ 853 004a 01       		.uleb128 0x1
+ 854 004b 13       		.uleb128 0x13
+ 855 004c 00       		.byte	0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 16
+
+
+ 856 004d 00       		.byte	0
+ 857 004e 07       		.uleb128 0x7
+ 858 004f 28       		.uleb128 0x28
+ 859 0050 00       		.byte	0
+ 860 0051 03       		.uleb128 0x3
+ 861 0052 0E       		.uleb128 0xe
+ 862 0053 1C       		.uleb128 0x1c
+ 863 0054 0D       		.uleb128 0xd
+ 864 0055 00       		.byte	0
+ 865 0056 00       		.byte	0
+ 866 0057 08       		.uleb128 0x8
+ 867 0058 2E       		.uleb128 0x2e
+ 868 0059 01       		.byte	0x1
+ 869 005a 3F       		.uleb128 0x3f
+ 870 005b 0C       		.uleb128 0xc
+ 871 005c 03       		.uleb128 0x3
+ 872 005d 0E       		.uleb128 0xe
+ 873 005e 3A       		.uleb128 0x3a
+ 874 005f 0B       		.uleb128 0xb
+ 875 0060 3B       		.uleb128 0x3b
+ 876 0061 0B       		.uleb128 0xb
+ 877 0062 27       		.uleb128 0x27
+ 878 0063 0C       		.uleb128 0xc
+ 879 0064 49       		.uleb128 0x49
+ 880 0065 13       		.uleb128 0x13
+ 881 0066 11       		.uleb128 0x11
+ 882 0067 01       		.uleb128 0x1
+ 883 0068 12       		.uleb128 0x12
+ 884 0069 01       		.uleb128 0x1
+ 885 006a 40       		.uleb128 0x40
+ 886 006b 06       		.uleb128 0x6
+ 887 006c 9642     		.uleb128 0x2116
+ 888 006e 0C       		.uleb128 0xc
+ 889 006f 01       		.uleb128 0x1
+ 890 0070 13       		.uleb128 0x13
+ 891 0071 00       		.byte	0
+ 892 0072 00       		.byte	0
+ 893 0073 09       		.uleb128 0x9
+ 894 0074 05       		.uleb128 0x5
+ 895 0075 00       		.byte	0
+ 896 0076 03       		.uleb128 0x3
+ 897 0077 08       		.uleb128 0x8
+ 898 0078 3A       		.uleb128 0x3a
+ 899 0079 0B       		.uleb128 0xb
+ 900 007a 3B       		.uleb128 0x3b
+ 901 007b 0B       		.uleb128 0xb
+ 902 007c 49       		.uleb128 0x49
+ 903 007d 13       		.uleb128 0x13
+ 904 007e 02       		.uleb128 0x2
+ 905 007f 0A       		.uleb128 0xa
+ 906 0080 00       		.byte	0
+ 907 0081 00       		.byte	0
+ 908 0082 0A       		.uleb128 0xa
+ 909 0083 05       		.uleb128 0x5
+ 910 0084 00       		.byte	0
+ 911 0085 03       		.uleb128 0x3
+ 912 0086 0E       		.uleb128 0xe
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 17
+
+
+ 913 0087 3A       		.uleb128 0x3a
+ 914 0088 0B       		.uleb128 0xb
+ 915 0089 3B       		.uleb128 0x3b
+ 916 008a 0B       		.uleb128 0xb
+ 917 008b 49       		.uleb128 0x49
+ 918 008c 13       		.uleb128 0x13
+ 919 008d 02       		.uleb128 0x2
+ 920 008e 0A       		.uleb128 0xa
+ 921 008f 00       		.byte	0
+ 922 0090 00       		.byte	0
+ 923 0091 0B       		.uleb128 0xb
+ 924 0092 34       		.uleb128 0x34
+ 925 0093 00       		.byte	0
+ 926 0094 03       		.uleb128 0x3
+ 927 0095 08       		.uleb128 0x8
+ 928 0096 3A       		.uleb128 0x3a
+ 929 0097 0B       		.uleb128 0xb
+ 930 0098 3B       		.uleb128 0x3b
+ 931 0099 0B       		.uleb128 0xb
+ 932 009a 49       		.uleb128 0x49
+ 933 009b 13       		.uleb128 0x13
+ 934 009c 02       		.uleb128 0x2
+ 935 009d 0A       		.uleb128 0xa
+ 936 009e 00       		.byte	0
+ 937 009f 00       		.byte	0
+ 938 00a0 0C       		.uleb128 0xc
+ 939 00a1 34       		.uleb128 0x34
+ 940 00a2 00       		.byte	0
+ 941 00a3 03       		.uleb128 0x3
+ 942 00a4 0E       		.uleb128 0xe
+ 943 00a5 3A       		.uleb128 0x3a
+ 944 00a6 0B       		.uleb128 0xb
+ 945 00a7 3B       		.uleb128 0x3b
+ 946 00a8 0B       		.uleb128 0xb
+ 947 00a9 49       		.uleb128 0x49
+ 948 00aa 13       		.uleb128 0x13
+ 949 00ab 02       		.uleb128 0x2
+ 950 00ac 0A       		.uleb128 0xa
+ 951 00ad 00       		.byte	0
+ 952 00ae 00       		.byte	0
+ 953 00af 00       		.byte	0
+ 954              		.section	.debug_loc,"",@progbits
+ 955              	.Ldebug_loc0:
+ 956              	.LLST0:
+ 957 0000 00000000 		.4byte	.LFB2
+ 958 0004 00000000 		.4byte	.LCFI0
+ 959 0008 0002     		.2byte	0x2
+ 960 000a 71       		.byte	0x71
+ 961 000b 00       		.sleb128 0
+ 962 000c 00000000 		.4byte	.LCFI0
+ 963 0010 00000000 		.4byte	.LCFI1
+ 964 0014 0002     		.2byte	0x2
+ 965 0016 71       		.byte	0x71
+ 966 0017 20       		.sleb128 32
+ 967 0018 00000000 		.4byte	.LCFI1
+ 968 001c 00000000 		.4byte	.LFE2
+ 969 0020 0002     		.2byte	0x2
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 18
+
+
+ 970 0022 71       		.byte	0x71
+ 971 0023 00       		.sleb128 0
+ 972 0024 00000000 		.4byte	0
+ 973 0028 00000000 		.4byte	0
+ 974              	.LLST1:
+ 975 002c 00000000 		.4byte	.LFB3
+ 976 0030 00000000 		.4byte	.LCFI2
+ 977 0034 0002     		.2byte	0x2
+ 978 0036 71       		.byte	0x71
+ 979 0037 00       		.sleb128 0
+ 980 0038 00000000 		.4byte	.LCFI2
+ 981 003c 00000000 		.4byte	.LCFI3
+ 982 0040 0002     		.2byte	0x2
+ 983 0042 71       		.byte	0x71
+ 984 0043 30       		.sleb128 48
+ 985 0044 00000000 		.4byte	.LCFI3
+ 986 0048 00000000 		.4byte	.LFE3
+ 987 004c 0002     		.2byte	0x2
+ 988 004e 71       		.byte	0x71
+ 989 004f 00       		.sleb128 0
+ 990 0050 00000000 		.4byte	0
+ 991 0054 00000000 		.4byte	0
+ 992              		.section	.debug_aranges,"",@progbits
+ 993 0000 00000024 		.4byte	0x24
+ 994 0004 0002     		.2byte	0x2
+ 995 0006 00000000 		.4byte	.Ldebug_info0
+ 996 000a 04       		.byte	0x4
+ 997 000b 00       		.byte	0
+ 998 000c 0000     		.2byte	0
+ 999 000e 0000     		.2byte	0
+ 1000 0010 00000000 		.4byte	.LFB2
+ 1001 0014 00000160 		.4byte	.LFE2-.LFB2
+ 1002 0018 00000000 		.4byte	.LFB3
+ 1003 001c 00000236 		.4byte	.LFE3-.LFB3
+ 1004 0020 00000000 		.4byte	0
+ 1005 0024 00000000 		.4byte	0
+ 1006              		.section	.debug_ranges,"",@progbits
+ 1007              	.Ldebug_ranges0:
+ 1008 0000 00000000 		.4byte	.LFB2
+ 1009 0004 00000000 		.4byte	.LFE2
+ 1010 0008 00000000 		.4byte	.LFB3
+ 1011 000c 00000000 		.4byte	.LFE3
+ 1012 0010 00000000 		.4byte	0
+ 1013 0014 00000000 		.4byte	0
+ 1014              		.section	.debug_line,"",@progbits
+ 1015              	.Ldebug_line0:
+ 1016 0000 0000029C 		.section	.debug_str,"MS",@progbits,1
+ 1016      00020000 
+ 1016      01F80201 
+ 1016      FB0E0D00 
+ 1016      01010101 
+ 1017              	.LASF2:
+ 1018 0000 5F5F7569 		.string	"__uint8_t"
+ 1018      6E74385F 
+ 1018      7400
+ 1019              	.LASF25:
+ 1020 000a 4932435F 		.string	"I2C_ERROR_TIMEOUT"
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 19
+
+
+ 1020      4552524F 
+ 1020      525F5449 
+ 1020      4D454F55 
+ 1020      5400
+ 1021              	.LASF43:
+ 1022 001c 433A5C55 		.string	"C:\\Users\\cerru\\Desktop\\ferrari_st\\AutoDevKitCarV1UnictTestMotori"
+ 1022      73657273 
+ 1022      5C636572 
+ 1022      72755C44 
+ 1022      65736B74 
+ 1023              	.LASF3:
+ 1024 005d 5F5F696E 		.string	"__int16_t"
+ 1024      7431365F 
+ 1024      7400
+ 1025              	.LASF39:
+ 1026 0067 63616C58 		.string	"calXtalk"
+ 1026      74616C6B 
+ 1026      00
+ 1027              	.LASF36:
+ 1028 0070 41766572 		.string	"AverageSignalRate"
+ 1028      61676553 
+ 1028      69676E61 
+ 1028      6C526174 
+ 1028      6500
+ 1029              	.LASF22:
+ 1030 0082 4932435F 		.string	"I2C_ERROR_ARBITRATION_LOST"
+ 1030      4552524F 
+ 1030      525F4152 
+ 1030      42495452 
+ 1030      4154494F 
+ 1031              	.LASF35:
+ 1032 009d 7874616C 		.string	"xtalk"
+ 1032      6B00
+ 1033              	.LASF7:
+ 1034 00a3 6C6F6E67 		.string	"long int"
+ 1034      20696E74 
+ 1034      00
+ 1035              	.LASF6:
+ 1036 00ac 73686F72 		.string	"short unsigned int"
+ 1036      7420756E 
+ 1036      7369676E 
+ 1036      65642069 
+ 1036      6E7400
+ 1037              	.LASF33:
+ 1038 00bf 564C3533 		.string	"VL53L1X_CalibrateOffset"
+ 1038      4C31585F 
+ 1038      43616C69 
+ 1038      62726174 
+ 1038      654F6666 
+ 1039              	.LASF32:
+ 1040 00d7 73746174 		.string	"status"
+ 1040      757300
+ 1041              	.LASF41:
+ 1042 00de 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 1042      4320342E 
+ 1042      392E3420 
+ 1042      32303136 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 20
+
+
+ 1042      30373236 
+ 1043 011a 75696C64 		.ascii	"uild.sh"
+ 1043      2E7368
+ 1044 0121 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 1044      3D676438 
+ 1044      62366332 
+ 1044      3020733D 
+ 1044      46343934 
+ 1045              	.LASF38:
+ 1046 0222 73706164 		.string	"spadNum"
+ 1046      4E756D00 
+ 1047              	.LASF31:
+ 1048 022a 64697374 		.string	"distance"
+ 1048      616E6365 
+ 1048      00
+ 1049              	.LASF1:
+ 1050 0233 756E7369 		.string	"unsigned char"
+ 1050      676E6564 
+ 1050      20636861 
+ 1050      7200
+ 1051              	.LASF34:
+ 1052 0241 564C3533 		.string	"VL53L1X_CalibrateXtalk"
+ 1052      4C31585F 
+ 1052      43616C69 
+ 1052      62726174 
+ 1052      65587461 
+ 1053              	.LASF21:
+ 1054 0258 4932435F 		.string	"I2C_ERROR_BUS_BUSY"
+ 1054      4552524F 
+ 1054      525F4255 
+ 1054      535F4255 
+ 1054      535900
+ 1055              	.LASF9:
+ 1056 026b 6C6F6E67 		.string	"long unsigned int"
+ 1056      20756E73 
+ 1056      69676E65 
+ 1056      6420696E 
+ 1056      7400
+ 1057              	.LASF5:
+ 1058 027d 5F5F7569 		.string	"__uint16_t"
+ 1058      6E743136 
+ 1058      5F7400
+ 1059              	.LASF8:
+ 1060 0288 5F5F7569 		.string	"__uint32_t"
+ 1060      6E743332 
+ 1060      5F7400
+ 1061              	.LASF28:
+ 1062 0293 54617267 		.string	"TargetDistInMm"
+ 1062      65744469 
+ 1062      7374496E 
+ 1062      4D6D00
+ 1063              	.LASF12:
+ 1064 02a2 756E7369 		.string	"unsigned int"
+ 1064      676E6564 
+ 1064      20696E74 
+ 1064      00
+ 1065              	.LASF11:
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 21
+
+
+ 1066 02af 6C6F6E67 		.string	"long long unsigned int"
+ 1066      206C6F6E 
+ 1066      6720756E 
+ 1066      7369676E 
+ 1066      65642069 
+ 1067              	.LASF13:
+ 1068 02c6 75696E74 		.string	"uint8_t"
+ 1068      385F7400 
+ 1069              	.LASF26:
+ 1070 02ce 4932435F 		.string	"I2C_ERROR_BUFFER_OVERFLOW"
+ 1070      4552524F 
+ 1070      525F4255 
+ 1070      46464552 
+ 1070      5F4F5645 
+ 1071              	.LASF14:
+ 1072 02e8 696E7431 		.string	"int16_t"
+ 1072      365F7400 
+ 1073              	.LASF19:
+ 1074 02f0 4932435F 		.string	"I2C_ERROR_TRANSFER_IN_PROGRESS"
+ 1074      4552524F 
+ 1074      525F5452 
+ 1074      414E5346 
+ 1074      45525F49 
+ 1075              	.LASF17:
+ 1076 030f 73697A65 		.string	"sizetype"
+ 1076      74797065 
+ 1076      00
+ 1077              	.LASF27:
+ 1078 0318 6932635F 		.string	"i2c_result_t"
+ 1078      72657375 
+ 1078      6C745F74 
+ 1078      00
+ 1079              	.LASF23:
+ 1080 0325 4932435F 		.string	"I2C_ERROR_INVALID_ADDRESS"
+ 1080      4552524F 
+ 1080      525F494E 
+ 1080      56414C49 
+ 1080      445F4144 
+ 1081              	.LASF10:
+ 1082 033f 6C6F6E67 		.string	"long long int"
+ 1082      206C6F6E 
+ 1082      6720696E 
+ 1082      7400
+ 1083              	.LASF37:
+ 1084 034d 41766572 		.string	"AverageSpadNb"
+ 1084      61676553 
+ 1084      7061644E 
+ 1084      6200
+ 1085              	.LASF42:
+ 1086 035b 2E2F636F 		.string	"./components/aek_sns_vl53l1x1_component_rla/lib/src/uld_src/VL53L1X_calibration.c"
+ 1086      6D706F6E 
+ 1086      656E7473 
+ 1086      2F61656B 
+ 1086      5F736E73 
+ 1087              	.LASF20:
+ 1088 03ad 4932435F 		.string	"I2C_ERROR_NO_ACK"
+ 1088      4552524F 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 22
+
+
+ 1088      525F4E4F 
+ 1088      5F41434B 
+ 1088      00
+ 1089              	.LASF30:
+ 1090 03be 41766572 		.string	"AverageDistance"
+ 1090      61676544 
+ 1090      69737461 
+ 1090      6E636500 
+ 1091              	.LASF29:
+ 1092 03ce 6F666673 		.string	"offset"
+ 1092      657400
+ 1093              	.LASF4:
+ 1094 03d5 73686F72 		.string	"short int"
+ 1094      7420696E 
+ 1094      7400
+ 1095              	.LASF15:
+ 1096 03df 75696E74 		.string	"uint16_t"
+ 1096      31365F74 
+ 1096      00
+ 1097              	.LASF18:
+ 1098 03e8 4932435F 		.string	"I2C_NO_ERROR"
+ 1098      4E4F5F45 
+ 1098      52524F52 
+ 1098      00
+ 1099              	.LASF16:
+ 1100 03f5 75696E74 		.string	"uint32_t"
+ 1100      33325F74 
+ 1100      00
+ 1101              	.LASF24:
+ 1102 03fe 4932435F 		.string	"I2C_ERROR_INVALID_ARGUMENT"
+ 1102      4552524F 
+ 1102      525F494E 
+ 1102      56414C49 
+ 1102      445F4152 
+ 1103              	.LASF40:
+ 1104 0419 666C6F61 		.string	"float"
+ 1104      7400
+ 1105              	.LASF0:
+ 1106 041f 7369676E 		.string	"signed char"
+ 1106      65642063 
+ 1106      68617200 
+ 1107              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+ 1108              		.gnu_attribute 4, 2
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s 			page 23
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 VL53L1X_calibration.c
+C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s:10     .text.VL53L1X_CalibrateOffset:00000000 VL53L1X_CalibrateOffset
+C:\Users\cerru\AppData\Local\Temp\ccGdSeSW.s:191    .text.VL53L1X_CalibrateXtalk:00000000 VL53L1X_CalibrateXtalk
+
+UNDEFINED SYMBOLS
+VL53L1X_WrWord
+VL53L1X_StartRanging
+VL53L1X_CheckForDataReady
+VL53L1X_GetDistance
+VL53L1X_ClearInterrupt
+VL53L1X_StopRanging
+__floatsisf
+__addsf3
+__divsf3
+__subsf3
+__mulsf3
+__fixunssfsi
+VL53L1X_GetSignalRate
+VL53L1X_GetSpadNb

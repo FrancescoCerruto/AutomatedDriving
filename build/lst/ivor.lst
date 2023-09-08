@@ -1,0 +1,456 @@
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 1
+
+
+   1              	# 1 "./components/spc582bxx_osal_component_rla/lib/src/ivor.s"
+   1              	/****************************************************************************
+   0              	
+   0              	
+   2              	*
+   3              	* Copyright © 2017-2019 STMicroelectronics - All Rights Reserved
+   4              	*
+   5              	* This software is licensed under SLA0098 terms that can be found in the
+   6              	* DM00779817_1_0.pdf file in the licenses directory of this software product.
+   7              	* 
+   8              	* THIS SOFTWARE IS DISTRIBUTED "AS IS," AND ALL WARRANTIES ARE DISCLAIMED, 
+   9              	* INCLUDING MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  10              	*
+  11              	*****************************************************************************/
+  12              	/**
+  13              	 * @file    ivor.s
+  14              	 * @brief   Kernel ISRs.
+  15              	 *
+  16              	 * @addtogroup PPC_CORE
+  17              	 * @{
+  18              	 */
+  19              	
+  20              	/*
+  21              	 * Imports the configuration headers.
+  22              	 */
+  23              	#define _FROM_ASM_
+  24              	#include "platform.h"
+   1              	/****************************************************************************
+   2              	*
+   3              	* Copyright © 2015-2019 STMicroelectronics - All Rights Reserved
+   4              	*
+   5              	* This software is licensed under SLA0098 terms that can be found in the
+   6              	* DM00779817_1_0.pdf file in the licenses directory of this software product.
+   7              	* 
+   8              	* THIS SOFTWARE IS DISTRIBUTED "AS IS," AND ALL WARRANTIES ARE DISCLAIMED, 
+   9              	* INCLUDING MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  10              	*
+  11              	*****************************************************************************/
+  12              	
+  13              	/**
+  14              	 * @file    platform.h
+  15              	 * @brief   platform file.
+  16              	 */
+  17              	
+  18              	#ifndef _PLATFORM_H_
+  19              	#define _PLATFORM_H_
+  20              	
+  21              	#include "core.h"
+   1              	/****************************************************************************
+  22              	#include "toolchain.h"
+   1              	/****************************************************************************
+  23              	#include "intc.h"
+   1              	/****************************************************************************
+  24              	#if !defined(_FROM_ASM_)
+  25              	#include "irq_cfg.h"
+   1              	/****************************************************************************
+  26              	#include "osal_cfg.h"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 2
+
+
+   1              	/****************************************************************************
+  27              	#include "ivor_cfg.h"
+   1              	/****************************************************************************
+   2              	*
+   3              	* Copyright © 2017-2019 STMicroelectronics - All Rights Reserved
+   4              	*
+   5              	* This software is licensed under SLA0098 terms that can be found in the
+   6              	* DM00779817_1_0.pdf file in the licenses directory of this software product.
+   7              	* 
+   8              	* THIS SOFTWARE IS DISTRIBUTED "AS IS," AND ALL WARRANTIES ARE DISCLAIMED, 
+   9              	* INCLUDING MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  10              	*
+  11              	*****************************************************************************/
+  12              	/**
+  13              	 * @file    ivor_cfg.h
+  14              	 * @brief   IVOR Handling configuration.
+  15              	 *
+  16              	 * @addtogroup IVOR
+  17              	 * @{
+  18              	 */
+  19              	
+  20              	#ifndef _IVOR_CFG_H_
+  21              	#define _IVOR_CFG_H_
+  22              	
+  23              	#include "osal_cfg.h"
+  24              	
+  28              	#include "boot.h"
+   1              	/****************************************************************************
+  29              	#include "ivor.h"
+   1              	/****************************************************************************
+   2              	*
+   3              	* Copyright © 2018-2019 STMicroelectronics - All Rights Reserved
+   4              	*
+   5              	* This software is licensed under SLA0098 terms that can be found in the
+   6              	* DM00779817_1_0.pdf file in the licenses directory of this software product.
+   7              	* 
+   8              	* THIS SOFTWARE IS DISTRIBUTED "AS IS," AND ALL WARRANTIES ARE DISCLAIMED, 
+   9              	* INCLUDING MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE.
+  10              	*
+  11              	*****************************************************************************/
+  12              	/**
+  13              	 * @file    ivor.h
+  14              	 * @brief   Interrupt Handler Macros.
+  15              	 *
+  16              	 * @addtogroup PPC_CORE
+  17              	 * @{
+  18              	 */
+  19              	
+  20              	#define _FROM_ASM_
+  21              	#include "core.h"
+  22              	
+  23              	#if !defined(__DOXYGEN__)
+  24              	
+  25              	 /* Context save.*/
+  26              	.macro SAVE_CONTEXT
+  27              	        e_stwu      sp, -80(sp)             /* Size of the extctx structure.*/
+  28              	        e_stmvsrrw  8(sp)                   /* Saves PC, MSR (SRR0, SRR1).  */
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 3
+
+
+  29              	        e_stmvsprw  16(sp)                  /* Saves CR, LR, CTR, XER.      */
+  30              	        e_stmvgprw  32(sp)                  /* Saves GPR0, GPR3...GPR12.    */
+  31              	.endm
+  32              	
+  33              	/* Context restore.*/
+  34              	.macro RESTORE_CONTEXT
+  35              	        e_lmvgprw   32(sp)                  /* Restores GPR0, GPR3...GPR12.  */
+  36              	        e_lmvsprw   16(sp)                  /* Restores CR, LR, CTR, XER.    */
+  37              	        e_lmvsrrw   8(sp)                   /* Restores PC, MSR (SRR0, SRR1).*/
+  38              	        e_addi      sp, sp, 80              /* Back to the previous frame.   */
+  39              	.endm
+  40              	
+  41              	/* Context save for critical class interrupt.*/
+  42              	.macro SAVE_CONTEXT_CRITICAL
+  43              	        e_stwu      sp, -80(sp)             /* Size of the extctx structure.*/
+  44              	        e_stmvcsrrw  8(sp)                  /* Saves PC, MSR (CSRR0, CSRR1).*/
+  45              	        e_stmvsprw  16(sp)                  /* Saves CR, LR, CTR, XER.      */
+  46              	        e_stmvgprw  32(sp)                  /* Saves GPR0, GPR3...GPR12.    */
+  47              	.endm
+  48              	
+  49              	/* Context restore for critical class interrupt.*/
+  50              	.macro RESTORE_CONTEXT_CRITICAL
+  51              	        e_lmvgprw   32(sp)                  /* Restores GPR0, GPR3...GPR12.    */
+  52              	        e_lmvsprw   16(sp)                  /* Restores CR, LR, CTR, XER.      */
+  53              	        e_lmvcsrrw   8(sp)                  /* Restores PC, MSR (CSRR0, CSRR1).*/
+  54              	        e_addi      sp, sp, 80              /* Back to the previous frame.     */
+  55              	.endm
+  56              	
+  57              	/* Context save for Machine Check class interrupt (not used for z0 cores).*/
+  58              	.macro SAVE_CONTEXT_MACHINE_CHECK
+  59              	        e_stwu			sp, -80(sp)			/* Size of the extctx structure.*/
+  60              	        e_stmvmcsrrw	8(sp)				/* Saves PC, MSR (MCSRR0, MCSRR1).*/
+  61              	        e_stmvsprw		16(sp)				/* Saves CR, LR, CTR, XER.      */
+  62              	        e_stmvgprw		32(sp)				/* Saves GPR0, GPR3...GPR12.    */
+  63              	.endm
+  64              	
+  65              	/* Context restore for Machine Check class interrupt (not used for z0 cores).*/
+  66              	.macro RESTORE_CONTEXT_MACHINE_CHECK
+  67              	        e_lmvgprw		32(sp)				/* Restores GPR0, GPR3...GPR12.    */
+  68              	        e_lmvsprw		16(sp)				/* Restores CR, LR, CTR, XER.      */
+  69              	        e_lmvmcsrrw		8(sp)				/* Restores PC, MSR (MCSRR0, MCSRR1).*/
+  70              	        e_addi			sp, sp, 80			/* Back to the previous frame.     */
+  71              	.endm
+  72              	
+  73              	/*
+  74              	 * Prepare SRR0 and SRR1 registers as callback's parameters, moreover do some stuff
+  75              	 * to calculate the returning address after handling IVOR exceptions, to avoid the
+  76              	 * exception is raised again. The returning address is the next instruction of SRR0.
+  77              	 */
+  78              	.macro LOAD_SSR0_SSR1_PLUS
+  79              			mfspr 		%r5,26				/* Load SRR0 -> r5 */
+  80              			se_mr		%r3,%r5				/* Prepare 1st parameter (SRR0) for the callback. */
+  81              			mfspr		%r4,27				/* Prepare 2nd parameter (SRR1) for the callback. */
+  82              	        se_lhz 		%r6,0(%r5)			/* Determine opcode @ SRR0 */
+  83              	        e_andi. 	%r7,%r6,0x9000
+  84              	        e_cmpli 	0x0,%r7,0x1000		/* Check bit 31,28 only */
+  85              	
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 4
+
+
+  86              			se_bc		0x1,0x0,0x4			/* Skip next instruction if CR is true. */
+  87              	        se_addi 	%r5,2				/* 0xx1 => 32 bit */
+  88              	
+  89              	        se_addi 	%r5,2				/* All others just 16 bit long */
+  90              	
+  91              	        e_stw       %r5, 8(sp)			/* Override the SRR0 previously saved in stack with the new one */
+  92              	.endm
+  93              	
+  94              	/*
+  95              	 * Prepare SRR0 and SRR1 registers as callback's parameters.
+  96              	 */
+  97              	.macro LOAD_SSR0_SSR1
+  98              			mfspr 		%r3,26				/* Prepare 1st parameter (SRR0) for the callback. */
+  99              			mfspr		%r4,27				/* Prepare 2nd parameter (SRR1) for the callback. */
+ 100              	.endm
+ 101              	
+ 102              	 /*
+ 103              	 * Prepare CSRR0 and CSRR1 registers as callback's parameters.
+ 104              	 */
+ 105              	.macro LOAD_CSSR0_CSSR1
+ 106              			mfspr 		%r3,58				/* Prepare 1st parameter (CSRR0) for the callback. */
+ 107              			mfspr		%r4,59				/* Prepare 2nd parameter (CSRR1) for the callback. */
+ 108              	.endm
+ 109              	
+ 110              	/*
+ 111              	 * Prepare MCSRR0 and MCSRR1 registers as callback's parameters, moreover do some stuff
+ 112              	 * to calculate the returning address after handling IVOR1 exception, to avoid the
+ 113              	 * exception is raised again. The returning address is the next instruction of MCSRR0.
+ 114              	 */
+ 115              	/* 
+ 116              	 * Currently not used because the return address should be addressed by the application 
+ 117              	 * callback and not in the IVOR1 handler. LOAD_MCSRR0_MCSR is used instead
+ 118              	 */
+ 119              	
+ 120              	.macro LOAD_MCSSR0_MCSSR1
+ 121              			mfspr 		%r5,570				/* Load MCSRR0 -> r5 */
+ 122              			se_mr		%r3,%r5				/* Prepare 1st parameter (MCSRR0) for the callback. */
+ 123              			mfspr		%r4,571				/* Prepare 2nd parameter (MCSRR1) for the callback. */
+ 124              	        se_lhz 		%r6,0(%r5)			/* Determine opcode @ MCSRR0 */
+ 125              	        e_andi. 	%r7,%r6,0x9000
+ 126              	        e_cmpli 	0x0,%r7,0x1000		/* Check bit 31,28 only */
+ 127              	
+ 128              			se_bc		0x1,0x0,0x4			/* Skip next instruction if CR is true. */
+ 129              	        se_addi 	%r5,2				/* 0xx1 => 32 bit */
+ 130              	
+ 131              	        se_addi 	%r5,2				/* All others just 16 bit long */
+ 132              	
+ 133              	        e_stw       %r5, 8(sp)			/* Override the MCSRR0 previously saved in stack with the new one 
+ 134              	.endm
+ 135              	
+ 136              	/*
+ 137              	 * Just prepare MCSRR0 and MCSR registers as callback's parameters and clean MCSR
+ 138              	 */
+ 139              	.macro LOAD_MCSSR0_MCSR
+ 140              	        mfspr     %r3,570           /* Prepare 1st parameter (MCSRR0) for the callback. */
+ 141              	        mfspr     %r4,572           /* Prepare 2nd parameter (MCSR) for the callback. */
+ 142              	
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 5
+
+
+ 143              	        mtspr     572,%r4           /* Clear MCSR. */
+ 144              	.endm
+ 145              	
+ 146              	
+ 147              	/*
+ 148              	 * Prepare DSRR0 and DSRR1 registers as callback's parameters, moreover do some stuff
+ 149              	 * to calculate the returning address after handling IVOR9 exception, to avoid the
+ 150              	 * exception is raised again. The returning address is the next instruction of MCSRR0.
+ 151              	 */
+ 152              	.macro LOAD_DSSR0_DSSR1
+ 153              			mfspr 		%r5,574				/* Load DSRR0 -> r5 */
+ 154              			se_mr		%r3,%r5				/* Prepare 1st parameter (DSRR0) for the callback. */
+ 155              			mfspr		%r4,575				/* Prepare 2nd parameter (DSRR1) for the callback. */
+ 156              	        se_lhz 		%r6,0(%r5)			/* Determine opcode @ DSRR0 */
+ 157              	        e_andi. 	%r7,%r6,0x9000
+ 158              	        e_cmpli 	0x0,%r7,0x1000		/* Check bit 31,28 only */
+ 159              	
+ 160              			se_bc		0x1,0x0,0x4			/* Skip next instruction if CR is true. */
+ 161              	        se_addi 	%r5,2				/* 0xx1 => 32 bit */
+ 162              	
+ 163              	        se_addi 	%r5,2				/* All others just 16 bit long */
+ 164              	
+ 165              	        e_stw       %r5, 8(sp)			/* Override the DSRR0 previously saved in stack with the new one *
+ 166              	.endm
+ 167              	
+ 168              	
+ 169              	
+ 170              	#endif /* !defined(__DOXYGEN__) */
+ 171              	
+ 172              	#if (CORE_VARIANT == 0)
+ 173              	#include "ivor_z0.h"
+ 174              	#endif
+ 175              	
+ 176              	#if (CORE_VARIANT == 2)
+ 177              	#include "ivor_z2.h"
+   1              	/****************************************************************************
+ 178              	#endif
+  30              	
+  31              	#if !defined(__DOXYGEN__)
+  32              	
+  33              	#if (OSAL_OS_ENABLE == FALSE)
+  34              	
+  35              	        .section    .handlers, "axv"
+  36              	_VLE
+  37              	
+  38              	        /*
+  39              	         * _IVOR0 handler (Critical input Interrupt).
+  40              	         */
+  41              	#if IVOR0_HANDLER
+  42              	        .align      4
+  43              	        .globl      _IVOR0
+  44              	        .type       _IVOR0, @function
+  45              	_IVOR0:
+  46              	        SAVE_CONTEXT_CRITICAL
+  47              	
+  48              	        LOAD_CSSR0_CSSR1
+  49              	
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 6
+
+
+  50              	        e_bl        _ivor0_callback     /* Branch to the proper callback*/
+  51              	
+  52              	        RESTORE_CONTEXT_CRITICAL
+  53              	        se_rfci
+  54              	#endif
+  55              	
+  56              	        /*
+  57              	         * _IVOR1 handler (Machine Check Interrupt).
+  58              	         */
+  59              	#if IVOR1_HANDLER
+  60              	        .align      4
+  61              	        .globl      _IVOR1
+  62              	        .type       _IVOR1, @function
+  63              	_IVOR1:
+  64              	        SAVE_CONTEXT_CRITICAL
+  65              	        
+  66              	        LOAD_IVOR1_EXC_REG
+  67              	
+  68              	        e_bl _ivor1_callback        /* Branch to the proper callback */
+  69              	        
+  70              	        RESTORE_CONTEXT_CRITICAL
+  71              	        
+  72              	        RET_IVOR1
+  73              	#endif
+  74              	
+  75              	        /*
+  76              	         * _IVOR2 handler (Data Storage Interrupt).
+  77              	         */
+  78              	#if IVOR2_HANDLER
+  79              	        .align      4
+  80              	        .globl      _IVOR2
+  81              	        .type       _IVOR2, @function
+  82              	_IVOR2:
+  83              	        SAVE_CONTEXT
+  84              	
+  85              	        LOAD_SSR0_SSR1_PLUS
+  86              	
+  87              	        e_bl        _ivor2_callback     /* Branch to the proper callback*/
+  88              	
+  89              	        RESTORE_CONTEXT
+  90              	        se_rfi
+  91              	#endif
+  92              	
+  93              	        /*
+  94              	         * _IVOR3 handler (Instruction Storage Interrupt).
+  95              	         */
+  96              	#if IVOR3_HANDLER
+  97              	        .align      4
+  98              	        .globl      _IVOR3
+  99              	        .type       _IVOR3, @function
+ 100              	_IVOR3:
+ 101              	        SAVE_CONTEXT
+ 102              	
+ 103              	        LOAD_SSR0_SSR1_PLUS
+ 104              	
+ 105              	        e_bl        _ivor3_callback     /* Branch to the proper callback*/
+ 106              	
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 7
+
+
+ 107              	        RESTORE_CONTEXT
+ 108              	        se_rfi
+ 109              	#endif
+ 110              	
+ 111              	#if (CORE_SUPPORTS_DECREMENTER == 1)
+ 112              	        /*
+ 113              	         * _IVOR10 handler (Book-E decrementer).
+ 114              	         */
+ 115              	        .align      4
+ 116              	        .globl      _IVOR10
+ 117              	        .type       _IVOR10, @function
+ 118              	_IVOR10:
+ 119              	#if (BOOT_CORE0 == 1)
+ 120              	_C0_IVOR10:
+ 121              	#endif
+ 122              	        SAVE_CONTEXT
+ 123              	
+ 124              	        /* Reset DIE bit in TSR register.*/
+ 125              	        e_lis       %r3, 0x0800             /* DIS bit mask.                */
+ 126              	        mtspr       336, %r3                /* TSR register.                */
+ 127              	
+ 128              	        /* Restoring pre-IRQ MSR register value.*/
+ 129              	        mfSRR1      %r0
+ 130              	
+ 131              	        /* No preemption, keeping EE disabled.*/
+ 132              	        se_bclri    %r0, 16                 /* EE = bit 16.                 */
+ 133              	        mtMSR       %r0
+ 134              	
+ 135              	        RESTORE_CONTEXT
+ 136              	        se_rfi
+ 137              	#endif /* CORE_SUPPORTS_DECREMENTER */
+ 138              	
+ 139              	        /*
+ 140              	         * _IVOR4 handler (Book-E external interrupt).
+ 141              	         */
+ 142              	        .align      4
+ 143              	        .globl      _IVOR4
+ 144              	        .type       _IVOR4, @function
+ 145              	_IVOR4:
+ 146              	        SAVE_CONTEXT
+ 146 0000 182106B0 	>  e_stwu sp,-80(sp)
+ 146 0004 18811108 	>  e_stmvsrrw 8(sp)
+ 146 0008 18211110 	>  e_stmvsprw 16(sp)
+ 146 000c 18011120 	>  e_stmvgprw 32(sp)
+ 147              	
+ 148              	        /* Software vector address from the INTC register.*/
+ 149 0010 707EE404 	        e_lis       %r3, HI(INTC_IACKR_BASE) /*IACKR register address.      */
+ 150 0014 7068C020 	        e_or2i      %r3, LO(INTC_IACKR_BASE)
+ 151 0018 C033     	        se_lwz      %r3, 0(%r3)             /* IACKR register value.        */
+ 152 001a C033     	        se_lwz      %r3, 0(%r3)
+ 153 001c 00B3     	        se_mtCTR    %r3                     /* Software handler address.    */
+ 154              	
+ 155              	        /* Restoring pre-IRQ MSR register value.*/
+ 156 001e 7C1B02A6 	        mfSRR1      %r0
+ 157              	        /* No preemption, keeping EE disabled.*/
+ 158 0022 6100     	        se_bclri    %r0, 16                 /* EE = bit 16.                 */
+ 159 0024 7C000124 	        mtMSR       %r0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 8
+
+
+ 160              	
+ 161              	#if (OSAL_ENABLE_IRQ_PREEMPTION == TRUE)
+ 162              	        /* Allows preemption while executing the software handler.*/
+ 163 0028 7C008146 	        wrteei      1
+ 164              	#endif /* OSAL_ENABLE_IRQ_PREEMPTION */
+ 165              	
+ 166              	        /* Executes the software handler.*/
+ 167 002c 0007     	        se_bctrl
+ 168              	
+ 169              	#if (OSAL_ENABLE_IRQ_PREEMPTION == TRUE)
+ 170              	        /* Prevents preemption again.*/
+ 171 002e 7C000146 	        wrteei      0
+ 172              	#endif /* OSAL_ENABLE_IRQ_PREEMPTION */
+ 173              	
+ 174              	        /* Informs the INTC that the interrupt has been served.*/
+ 175 0032 7C0006AC 	        mbar        0
+ 176 0036 707EE404 	        e_lis       %r3, HI(INTC_EOIR_BASE)
+ 177 003a 7068C030 	        e_or2i      %r3, LO(INTC_EOIR_BASE)
+ 178 003e D033     	        se_stw      %r3, 0(%r3)             /* Writing any value should do. */
+ 179              	
+ 180              	        RESTORE_CONTEXT
+ 180 0040 18011020 	>  e_lmvgprw 32(sp)
+ 180 0044 18211010 	>  e_lmvsprw 16(sp)
+ 180 0048 18811008 	>  e_lmvsrrw 8(sp)
+ 180 004c 18218050 	>  e_addi sp,sp,80
+ 181 0050 0008     	        se_rfi
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccumsZPq.s 			page 9
+
+
+DEFINED SYMBOLS
+./components/spc582bxx_osal_component_rla/lib/src/ivor.s:145    .handlers:00000000 _IVOR4
+
+NO UNDEFINED SYMBOLS

@@ -1,0 +1,336 @@
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s 			page 1
+
+
+   1              		.file	"spc5_lld.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.section	.text.spc5LLDInit,"axv",@progbits
+   6              		.align 1
+   7              		.p2align 4,,15
+   8              		.globl spc5LLDInit
+   9              		.type	spc5LLDInit, @function
+  10              	spc5LLDInit:
+  11              	.LFB2:
+  12              		.file 1 "./components/spc582bxx_low_level_drivers_component_rla/lib/src/spc5_lld.c"
+  13              		.loc 1 43 0
+  14              		.cfi_startproc
+  15 0000 182106F8 		e_stwu %r1,-8(%r1)
+  16              	.LCFI0:
+  17              		.cfi_def_cfa_offset 8
+  18 0004 0080     		se_mflr %r0
+  19 0006 D301     		se_stw %r0,12(%r1)
+  20              		.cfi_offset 65, 4
+  21              		.loc 1 46 0
+  22 0008 78000001 		e_bl edmaInit
+  23              		.loc 1 55 0
+  24 000c 78000001 		e_bl sd_lld_init
+  25              		.loc 1 64 0
+  26 0010 78000001 		e_bl pwm_lld_init
+  27              		.loc 1 73 0
+  28 0014 78000001 		e_bl spi_lld_init
+  29              		.loc 1 82 0
+  30 0018 78000001 		e_bl i2c_lld_init
+  31              		.loc 1 120 0
+  32 001c C301     		se_lwz %r0,12(%r1)
+  33 001e 0090     		se_mtlr %r0
+  34 0020 2071     		se_addi %r1,8
+  35              	.LCFI1:
+  36              		.cfi_def_cfa_offset 0
+  37 0022 0004     		se_blr
+  38              		.cfi_endproc
+  39              	.LFE2:
+  40              		.size	spc5LLDInit, .-spc5LLDInit
+  41              		.section	".text","axv"
+  42              	.Letext0:
+  43              		.section	.debug_info,"",@progbits
+  44              	.Ldebug_info0:
+  45 0000 00000089 		.4byte	0x89
+  46 0004 0002     		.2byte	0x2
+  47 0006 00000000 		.4byte	.Ldebug_abbrev0
+  48 000a 04       		.byte	0x4
+  49 000b 01       		.uleb128 0x1
+  50 000c 00000000 		.4byte	.LASF10
+  51 0010 01       		.byte	0x1
+  52 0011 00000000 		.4byte	.LASF11
+  53 0015 00000000 		.4byte	.LASF12
+  54 0019 00000000 		.4byte	.Ldebug_ranges0+0
+  55 001d 00000000 		.4byte	0
+  56 0021 00000000 		.4byte	0
+  57 0025 00000000 		.4byte	.Ldebug_line0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s 			page 2
+
+
+  58 0029 02       		.uleb128 0x2
+  59 002a 01       		.byte	0x1
+  60 002b 06       		.byte	0x6
+  61 002c 00000000 		.4byte	.LASF0
+  62 0030 02       		.uleb128 0x2
+  63 0031 01       		.byte	0x1
+  64 0032 08       		.byte	0x8
+  65 0033 00000000 		.4byte	.LASF1
+  66 0037 02       		.uleb128 0x2
+  67 0038 02       		.byte	0x2
+  68 0039 05       		.byte	0x5
+  69 003a 00000000 		.4byte	.LASF2
+  70 003e 02       		.uleb128 0x2
+  71 003f 02       		.byte	0x2
+  72 0040 07       		.byte	0x7
+  73 0041 00000000 		.4byte	.LASF3
+  74 0045 02       		.uleb128 0x2
+  75 0046 04       		.byte	0x4
+  76 0047 05       		.byte	0x5
+  77 0048 00000000 		.4byte	.LASF4
+  78 004c 02       		.uleb128 0x2
+  79 004d 04       		.byte	0x4
+  80 004e 07       		.byte	0x7
+  81 004f 00000000 		.4byte	.LASF5
+  82 0053 02       		.uleb128 0x2
+  83 0054 08       		.byte	0x8
+  84 0055 05       		.byte	0x5
+  85 0056 00000000 		.4byte	.LASF6
+  86 005a 02       		.uleb128 0x2
+  87 005b 08       		.byte	0x8
+  88 005c 07       		.byte	0x7
+  89 005d 00000000 		.4byte	.LASF7
+  90 0061 03       		.uleb128 0x3
+  91 0062 04       		.byte	0x4
+  92 0063 05       		.byte	0x5
+  93 0064 696E7400 		.string	"int"
+  94 0068 02       		.uleb128 0x2
+  95 0069 04       		.byte	0x4
+  96 006a 07       		.byte	0x7
+  97 006b 00000000 		.4byte	.LASF8
+  98 006f 02       		.uleb128 0x2
+  99 0070 04       		.byte	0x4
+ 100 0071 07       		.byte	0x7
+ 101 0072 00000000 		.4byte	.LASF9
+ 102 0076 04       		.uleb128 0x4
+ 103 0077 01       		.byte	0x1
+ 104 0078 00000000 		.4byte	.LASF13
+ 105 007c 01       		.byte	0x1
+ 106 007d 2B       		.byte	0x2b
+ 107 007e 01       		.byte	0x1
+ 108 007f 00000000 		.4byte	.LFB2
+ 109 0083 00000000 		.4byte	.LFE2
+ 110 0087 00000000 		.4byte	.LLST0
+ 111 008b 01       		.byte	0x1
+ 112 008c 00       		.byte	0
+ 113              		.section	.debug_abbrev,"",@progbits
+ 114              	.Ldebug_abbrev0:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s 			page 3
+
+
+ 115 0000 01       		.uleb128 0x1
+ 116 0001 11       		.uleb128 0x11
+ 117 0002 01       		.byte	0x1
+ 118 0003 25       		.uleb128 0x25
+ 119 0004 0E       		.uleb128 0xe
+ 120 0005 13       		.uleb128 0x13
+ 121 0006 0B       		.uleb128 0xb
+ 122 0007 03       		.uleb128 0x3
+ 123 0008 0E       		.uleb128 0xe
+ 124 0009 1B       		.uleb128 0x1b
+ 125 000a 0E       		.uleb128 0xe
+ 126 000b 55       		.uleb128 0x55
+ 127 000c 06       		.uleb128 0x6
+ 128 000d 11       		.uleb128 0x11
+ 129 000e 01       		.uleb128 0x1
+ 130 000f 52       		.uleb128 0x52
+ 131 0010 01       		.uleb128 0x1
+ 132 0011 10       		.uleb128 0x10
+ 133 0012 06       		.uleb128 0x6
+ 134 0013 00       		.byte	0
+ 135 0014 00       		.byte	0
+ 136 0015 02       		.uleb128 0x2
+ 137 0016 24       		.uleb128 0x24
+ 138 0017 00       		.byte	0
+ 139 0018 0B       		.uleb128 0xb
+ 140 0019 0B       		.uleb128 0xb
+ 141 001a 3E       		.uleb128 0x3e
+ 142 001b 0B       		.uleb128 0xb
+ 143 001c 03       		.uleb128 0x3
+ 144 001d 0E       		.uleb128 0xe
+ 145 001e 00       		.byte	0
+ 146 001f 00       		.byte	0
+ 147 0020 03       		.uleb128 0x3
+ 148 0021 24       		.uleb128 0x24
+ 149 0022 00       		.byte	0
+ 150 0023 0B       		.uleb128 0xb
+ 151 0024 0B       		.uleb128 0xb
+ 152 0025 3E       		.uleb128 0x3e
+ 153 0026 0B       		.uleb128 0xb
+ 154 0027 03       		.uleb128 0x3
+ 155 0028 08       		.uleb128 0x8
+ 156 0029 00       		.byte	0
+ 157 002a 00       		.byte	0
+ 158 002b 04       		.uleb128 0x4
+ 159 002c 2E       		.uleb128 0x2e
+ 160 002d 00       		.byte	0
+ 161 002e 3F       		.uleb128 0x3f
+ 162 002f 0C       		.uleb128 0xc
+ 163 0030 03       		.uleb128 0x3
+ 164 0031 0E       		.uleb128 0xe
+ 165 0032 3A       		.uleb128 0x3a
+ 166 0033 0B       		.uleb128 0xb
+ 167 0034 3B       		.uleb128 0x3b
+ 168 0035 0B       		.uleb128 0xb
+ 169 0036 27       		.uleb128 0x27
+ 170 0037 0C       		.uleb128 0xc
+ 171 0038 11       		.uleb128 0x11
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s 			page 4
+
+
+ 172 0039 01       		.uleb128 0x1
+ 173 003a 12       		.uleb128 0x12
+ 174 003b 01       		.uleb128 0x1
+ 175 003c 40       		.uleb128 0x40
+ 176 003d 06       		.uleb128 0x6
+ 177 003e 9642     		.uleb128 0x2116
+ 178 0040 0C       		.uleb128 0xc
+ 179 0041 00       		.byte	0
+ 180 0042 00       		.byte	0
+ 181 0043 00       		.byte	0
+ 182              		.section	.debug_loc,"",@progbits
+ 183              	.Ldebug_loc0:
+ 184              	.LLST0:
+ 185 0000 00000000 		.4byte	.LFB2
+ 186 0004 00000000 		.4byte	.LCFI0
+ 187 0008 0002     		.2byte	0x2
+ 188 000a 71       		.byte	0x71
+ 189 000b 00       		.sleb128 0
+ 190 000c 00000000 		.4byte	.LCFI0
+ 191 0010 00000000 		.4byte	.LCFI1
+ 192 0014 0002     		.2byte	0x2
+ 193 0016 71       		.byte	0x71
+ 194 0017 08       		.sleb128 8
+ 195 0018 00000000 		.4byte	.LCFI1
+ 196 001c 00000000 		.4byte	.LFE2
+ 197 0020 0002     		.2byte	0x2
+ 198 0022 71       		.byte	0x71
+ 199 0023 00       		.sleb128 0
+ 200 0024 00000000 		.4byte	0
+ 201 0028 00000000 		.4byte	0
+ 202              		.section	.debug_aranges,"",@progbits
+ 203 0000 0000001C 		.4byte	0x1c
+ 204 0004 0002     		.2byte	0x2
+ 205 0006 00000000 		.4byte	.Ldebug_info0
+ 206 000a 04       		.byte	0x4
+ 207 000b 00       		.byte	0
+ 208 000c 0000     		.2byte	0
+ 209 000e 0000     		.2byte	0
+ 210 0010 00000000 		.4byte	.LFB2
+ 211 0014 00000024 		.4byte	.LFE2-.LFB2
+ 212 0018 00000000 		.4byte	0
+ 213 001c 00000000 		.4byte	0
+ 214              		.section	.debug_ranges,"",@progbits
+ 215              	.Ldebug_ranges0:
+ 216 0000 00000000 		.4byte	.LFB2
+ 217 0004 00000000 		.4byte	.LFE2
+ 218 0008 00000000 		.4byte	0
+ 219 000c 00000000 		.4byte	0
+ 220              		.section	.debug_line,"",@progbits
+ 221              	.Ldebug_line0:
+ 222 0000 00000085 		.section	.debug_str,"MS",@progbits,1
+ 222      00020000 
+ 222      00600201 
+ 222      FB0E0D00 
+ 222      01010101 
+ 223              	.LASF8:
+ 224 0000 756E7369 		.string	"unsigned int"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s 			page 5
+
+
+ 224      676E6564 
+ 224      20696E74 
+ 224      00
+ 225              	.LASF5:
+ 226 000d 6C6F6E67 		.string	"long unsigned int"
+ 226      20756E73 
+ 226      69676E65 
+ 226      6420696E 
+ 226      7400
+ 227              	.LASF12:
+ 228 001f 433A5C41 		.string	"C:\\AutoDevKitStudio-2.1\\workspace\\AutoDevKitCarV1"
+ 228      75746F44 
+ 228      65764B69 
+ 228      74537475 
+ 228      64696F2D 
+ 229              	.LASF3:
+ 230 0051 73686F72 		.string	"short unsigned int"
+ 230      7420756E 
+ 230      7369676E 
+ 230      65642069 
+ 230      6E7400
+ 231              	.LASF11:
+ 232 0064 2E2F636F 		.string	"./components/spc582bxx_low_level_drivers_component_rla/lib/src/spc5_lld.c"
+ 232      6D706F6E 
+ 232      656E7473 
+ 232      2F737063 
+ 232      35383262 
+ 233              	.LASF2:
+ 234 00ae 73686F72 		.string	"short int"
+ 234      7420696E 
+ 234      7400
+ 235              	.LASF0:
+ 236 00b8 7369676E 		.string	"signed char"
+ 236      65642063 
+ 236      68617200 
+ 237              	.LASF7:
+ 238 00c4 6C6F6E67 		.string	"long long unsigned int"
+ 238      206C6F6E 
+ 238      6720756E 
+ 238      7369676E 
+ 238      65642069 
+ 239              	.LASF13:
+ 240 00db 73706335 		.string	"spc5LLDInit"
+ 240      4C4C4449 
+ 240      6E697400 
+ 241              	.LASF1:
+ 242 00e7 756E7369 		.string	"unsigned char"
+ 242      676E6564 
+ 242      20636861 
+ 242      7200
+ 243              	.LASF4:
+ 244 00f5 6C6F6E67 		.string	"long int"
+ 244      20696E74 
+ 244      00
+ 245              	.LASF9:
+ 246 00fe 73697A65 		.string	"sizetype"
+ 246      74797065 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s 			page 6
+
+
+ 246      00
+ 247              	.LASF10:
+ 248 0107 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 248      4320342E 
+ 248      392E3420 
+ 248      32303136 
+ 248      30373236 
+ 249 0143 75696C64 		.ascii	"uild.sh"
+ 249      2E7368
+ 250 014a 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 250      3D676438 
+ 250      62366332 
+ 250      3020733D 
+ 250      46343934 
+ 251              	.LASF6:
+ 252 024b 6C6F6E67 		.string	"long long int"
+ 252      206C6F6E 
+ 252      6720696E 
+ 252      7400
+ 253              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 spc5_lld.c
+C:\Users\nascapro\AppData\Local\Temp\ccCWIdwz.s:10     .text.spc5LLDInit:00000000 spc5LLDInit
+
+UNDEFINED SYMBOLS
+edmaInit
+sd_lld_init
+pwm_lld_init
+spi_lld_init
+i2c_lld_init

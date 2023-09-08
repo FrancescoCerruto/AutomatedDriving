@@ -1,0 +1,572 @@
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 1
+
+
+   1              		.file	"i2c_lld_cfg.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.globl i2c_hw_config_AEK_SNS_VL53L1X1Board0
+   6              		.section	.data.i2c_hw_config_AEK_SNS_VL53L1X1Board0,"aw",@progbits
+   7              		.align 2
+   8              		.type	i2c_hw_config_AEK_SNS_VL53L1X1Board0, @object
+   9              		.size	i2c_hw_config_AEK_SNS_VL53L1X1Board0, 24
+  10              	i2c_hw_config_AEK_SNS_VL53L1X1Board0:
+  11 0000 00000000 		.long	0
+  12 0004 00000001 		.long	1
+  13 0008 DA       		.byte	-38
+  14 0009 000000   		.zero	3
+  15 000c 00000001 		.long	1
+  16 0010 00000320 		.long	800
+  17 0014 91       		.byte	-111
+  18 0015 000000   		.zero	3
+  19              		.section	".text","axv"
+  20              	.Letext0:
+  21              		.file 1 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+  22              		.file 2 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+  23              		.file 3 "./components/spc582bxx_low_level_drivers_component_rla/lib/include/i2c_lld.h"
+  24              		.file 4 "./components/spc582bxx_low_level_drivers_component_rla/cfg/i2c_lld_cfg.c"
+  25              		.section	.debug_info,"",@progbits
+  26              	.Ldebug_info0:
+  27 0000 0000016D 		.4byte	0x16d
+  28 0004 0002     		.2byte	0x2
+  29 0006 00000000 		.4byte	.Ldebug_abbrev0
+  30 000a 04       		.byte	0x4
+  31 000b 01       		.uleb128 0x1
+  32 000c 00000000 		.4byte	.LASF29
+  33 0010 01       		.byte	0x1
+  34 0011 00000000 		.4byte	.LASF30
+  35 0015 00000000 		.4byte	.LASF31
+  36 0019 00000000 		.4byte	.Ldebug_line0
+  37 001d 02       		.uleb128 0x2
+  38 001e 01       		.byte	0x1
+  39 001f 06       		.byte	0x6
+  40 0020 00000000 		.4byte	.LASF0
+  41 0024 03       		.uleb128 0x3
+  42 0025 00000000 		.4byte	.LASF5
+  43 0029 01       		.byte	0x1
+  44 002a 1D       		.byte	0x1d
+  45 002b 0000002F 		.4byte	0x2f
+  46 002f 02       		.uleb128 0x2
+  47 0030 01       		.byte	0x1
+  48 0031 08       		.byte	0x8
+  49 0032 00000000 		.4byte	.LASF1
+  50 0036 02       		.uleb128 0x2
+  51 0037 02       		.byte	0x2
+  52 0038 05       		.byte	0x5
+  53 0039 00000000 		.4byte	.LASF2
+  54 003d 02       		.uleb128 0x2
+  55 003e 02       		.byte	0x2
+  56 003f 07       		.byte	0x7
+  57 0040 00000000 		.4byte	.LASF3
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 2
+
+
+  58 0044 02       		.uleb128 0x2
+  59 0045 04       		.byte	0x4
+  60 0046 05       		.byte	0x5
+  61 0047 00000000 		.4byte	.LASF4
+  62 004b 03       		.uleb128 0x3
+  63 004c 00000000 		.4byte	.LASF6
+  64 0050 01       		.byte	0x1
+  65 0051 41       		.byte	0x41
+  66 0052 00000056 		.4byte	0x56
+  67 0056 02       		.uleb128 0x2
+  68 0057 04       		.byte	0x4
+  69 0058 07       		.byte	0x7
+  70 0059 00000000 		.4byte	.LASF7
+  71 005d 02       		.uleb128 0x2
+  72 005e 08       		.byte	0x8
+  73 005f 05       		.byte	0x5
+  74 0060 00000000 		.4byte	.LASF8
+  75 0064 02       		.uleb128 0x2
+  76 0065 08       		.byte	0x8
+  77 0066 07       		.byte	0x7
+  78 0067 00000000 		.4byte	.LASF9
+  79 006b 04       		.uleb128 0x4
+  80 006c 04       		.byte	0x4
+  81 006d 05       		.byte	0x5
+  82 006e 696E7400 		.string	"int"
+  83 0072 02       		.uleb128 0x2
+  84 0073 04       		.byte	0x4
+  85 0074 07       		.byte	0x7
+  86 0075 00000000 		.4byte	.LASF10
+  87 0079 03       		.uleb128 0x3
+  88 007a 00000000 		.4byte	.LASF11
+  89 007e 02       		.byte	0x2
+  90 007f 15       		.byte	0x15
+  91 0080 00000024 		.4byte	0x24
+  92 0084 03       		.uleb128 0x3
+  93 0085 00000000 		.4byte	.LASF12
+  94 0089 02       		.byte	0x2
+  95 008a 2D       		.byte	0x2d
+  96 008b 0000004B 		.4byte	0x4b
+  97 008f 02       		.uleb128 0x2
+  98 0090 04       		.byte	0x4
+  99 0091 07       		.byte	0x7
+ 100 0092 00000000 		.4byte	.LASF13
+ 101 0096 05       		.uleb128 0x5
+ 102 0097 04       		.byte	0x4
+ 103 0098 03       		.byte	0x3
+ 104 0099 38       		.byte	0x38
+ 105 009a 000000AB 		.4byte	0xab
+ 106 009e 06       		.uleb128 0x6
+ 107 009f 00000000 		.4byte	.LASF14
+ 108 00a3 00       		.sleb128 0
+ 109 00a4 06       		.uleb128 0x6
+ 110 00a5 00000000 		.4byte	.LASF15
+ 111 00a9 01       		.sleb128 1
+ 112 00aa 00       		.byte	0
+ 113 00ab 03       		.uleb128 0x3
+ 114 00ac 00000000 		.4byte	.LASF16
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 3
+
+
+ 115 00b0 03       		.byte	0x3
+ 116 00b1 3B       		.byte	0x3b
+ 117 00b2 00000096 		.4byte	0x96
+ 118 00b6 05       		.uleb128 0x5
+ 119 00b7 04       		.byte	0x4
+ 120 00b8 03       		.byte	0x3
+ 121 00b9 40       		.byte	0x40
+ 122 00ba 000000CB 		.4byte	0xcb
+ 123 00be 06       		.uleb128 0x6
+ 124 00bf 00000000 		.4byte	.LASF17
+ 125 00c3 00       		.sleb128 0
+ 126 00c4 06       		.uleb128 0x6
+ 127 00c5 00000000 		.4byte	.LASF18
+ 128 00c9 01       		.sleb128 1
+ 129 00ca 00       		.byte	0
+ 130 00cb 03       		.uleb128 0x3
+ 131 00cc 00000000 		.4byte	.LASF19
+ 132 00d0 03       		.byte	0x3
+ 133 00d1 43       		.byte	0x43
+ 134 00d2 000000B6 		.4byte	0xb6
+ 135 00d6 05       		.uleb128 0x5
+ 136 00d7 04       		.byte	0x4
+ 137 00d8 03       		.byte	0x3
+ 138 00d9 52       		.byte	0x52
+ 139 00da 000000EB 		.4byte	0xeb
+ 140 00de 06       		.uleb128 0x6
+ 141 00df 00000000 		.4byte	.LASF20
+ 142 00e3 00       		.sleb128 0
+ 143 00e4 06       		.uleb128 0x6
+ 144 00e5 00000000 		.4byte	.LASF21
+ 145 00e9 01       		.sleb128 1
+ 146 00ea 00       		.byte	0
+ 147 00eb 03       		.uleb128 0x3
+ 148 00ec 00000000 		.4byte	.LASF22
+ 149 00f0 03       		.byte	0x3
+ 150 00f1 55       		.byte	0x55
+ 151 00f2 000000D6 		.4byte	0xd6
+ 152 00f6 07       		.uleb128 0x7
+ 153 00f7 18       		.byte	0x18
+ 154 00f8 03       		.byte	0x3
+ 155 00f9 6C       		.byte	0x6c
+ 156 00fa 00000153 		.4byte	0x153
+ 157 00fe 08       		.uleb128 0x8
+ 158 00ff 00000000 		.4byte	.LASF23
+ 159 0103 03       		.byte	0x3
+ 160 0104 70       		.byte	0x70
+ 161 0105 000000AB 		.4byte	0xab
+ 162 0109 02       		.byte	0x2
+ 163 010a 23       		.byte	0x23
+ 164 010b 00       		.uleb128 0
+ 165 010c 08       		.uleb128 0x8
+ 166 010d 00000000 		.4byte	.LASF24
+ 167 0111 03       		.byte	0x3
+ 168 0112 74       		.byte	0x74
+ 169 0113 000000CB 		.4byte	0xcb
+ 170 0117 02       		.byte	0x2
+ 171 0118 23       		.byte	0x23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 4
+
+
+ 172 0119 04       		.uleb128 0x4
+ 173 011a 08       		.uleb128 0x8
+ 174 011b 00000000 		.4byte	.LASF25
+ 175 011f 03       		.byte	0x3
+ 176 0120 78       		.byte	0x78
+ 177 0121 00000079 		.4byte	0x79
+ 178 0125 02       		.byte	0x2
+ 179 0126 23       		.byte	0x23
+ 180 0127 08       		.uleb128 0x8
+ 181 0128 08       		.uleb128 0x8
+ 182 0129 00000000 		.4byte	.LASF26
+ 183 012d 03       		.byte	0x3
+ 184 012e 7C       		.byte	0x7c
+ 185 012f 000000EB 		.4byte	0xeb
+ 186 0133 02       		.byte	0x2
+ 187 0134 23       		.byte	0x23
+ 188 0135 0C       		.uleb128 0xc
+ 189 0136 08       		.uleb128 0x8
+ 190 0137 00000000 		.4byte	.LASF27
+ 191 013b 03       		.byte	0x3
+ 192 013c 80       		.byte	0x80
+ 193 013d 00000084 		.4byte	0x84
+ 194 0141 02       		.byte	0x2
+ 195 0142 23       		.byte	0x23
+ 196 0143 10       		.uleb128 0x10
+ 197 0144 09       		.uleb128 0x9
+ 198 0145 69626300 		.string	"ibc"
+ 199 0149 03       		.byte	0x3
+ 200 014a 84       		.byte	0x84
+ 201 014b 00000079 		.4byte	0x79
+ 202 014f 02       		.byte	0x2
+ 203 0150 23       		.byte	0x23
+ 204 0151 14       		.uleb128 0x14
+ 205 0152 00       		.byte	0
+ 206 0153 03       		.uleb128 0x3
+ 207 0154 00000000 		.4byte	.LASF28
+ 208 0158 03       		.byte	0x3
+ 209 0159 85       		.byte	0x85
+ 210 015a 000000F6 		.4byte	0xf6
+ 211 015e 0A       		.uleb128 0xa
+ 212 015f 00000000 		.4byte	.LASF32
+ 213 0163 04       		.byte	0x4
+ 214 0164 23       		.byte	0x23
+ 215 0165 00000153 		.4byte	0x153
+ 216 0169 01       		.byte	0x1
+ 217 016a 05       		.byte	0x5
+ 218 016b 03       		.byte	0x3
+ 219 016c 00000000 		.4byte	i2c_hw_config_AEK_SNS_VL53L1X1Board0
+ 220 0170 00       		.byte	0
+ 221              		.section	.debug_abbrev,"",@progbits
+ 222              	.Ldebug_abbrev0:
+ 223 0000 01       		.uleb128 0x1
+ 224 0001 11       		.uleb128 0x11
+ 225 0002 01       		.byte	0x1
+ 226 0003 25       		.uleb128 0x25
+ 227 0004 0E       		.uleb128 0xe
+ 228 0005 13       		.uleb128 0x13
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 5
+
+
+ 229 0006 0B       		.uleb128 0xb
+ 230 0007 03       		.uleb128 0x3
+ 231 0008 0E       		.uleb128 0xe
+ 232 0009 1B       		.uleb128 0x1b
+ 233 000a 0E       		.uleb128 0xe
+ 234 000b 10       		.uleb128 0x10
+ 235 000c 06       		.uleb128 0x6
+ 236 000d 00       		.byte	0
+ 237 000e 00       		.byte	0
+ 238 000f 02       		.uleb128 0x2
+ 239 0010 24       		.uleb128 0x24
+ 240 0011 00       		.byte	0
+ 241 0012 0B       		.uleb128 0xb
+ 242 0013 0B       		.uleb128 0xb
+ 243 0014 3E       		.uleb128 0x3e
+ 244 0015 0B       		.uleb128 0xb
+ 245 0016 03       		.uleb128 0x3
+ 246 0017 0E       		.uleb128 0xe
+ 247 0018 00       		.byte	0
+ 248 0019 00       		.byte	0
+ 249 001a 03       		.uleb128 0x3
+ 250 001b 16       		.uleb128 0x16
+ 251 001c 00       		.byte	0
+ 252 001d 03       		.uleb128 0x3
+ 253 001e 0E       		.uleb128 0xe
+ 254 001f 3A       		.uleb128 0x3a
+ 255 0020 0B       		.uleb128 0xb
+ 256 0021 3B       		.uleb128 0x3b
+ 257 0022 0B       		.uleb128 0xb
+ 258 0023 49       		.uleb128 0x49
+ 259 0024 13       		.uleb128 0x13
+ 260 0025 00       		.byte	0
+ 261 0026 00       		.byte	0
+ 262 0027 04       		.uleb128 0x4
+ 263 0028 24       		.uleb128 0x24
+ 264 0029 00       		.byte	0
+ 265 002a 0B       		.uleb128 0xb
+ 266 002b 0B       		.uleb128 0xb
+ 267 002c 3E       		.uleb128 0x3e
+ 268 002d 0B       		.uleb128 0xb
+ 269 002e 03       		.uleb128 0x3
+ 270 002f 08       		.uleb128 0x8
+ 271 0030 00       		.byte	0
+ 272 0031 00       		.byte	0
+ 273 0032 05       		.uleb128 0x5
+ 274 0033 04       		.uleb128 0x4
+ 275 0034 01       		.byte	0x1
+ 276 0035 0B       		.uleb128 0xb
+ 277 0036 0B       		.uleb128 0xb
+ 278 0037 3A       		.uleb128 0x3a
+ 279 0038 0B       		.uleb128 0xb
+ 280 0039 3B       		.uleb128 0x3b
+ 281 003a 0B       		.uleb128 0xb
+ 282 003b 01       		.uleb128 0x1
+ 283 003c 13       		.uleb128 0x13
+ 284 003d 00       		.byte	0
+ 285 003e 00       		.byte	0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 6
+
+
+ 286 003f 06       		.uleb128 0x6
+ 287 0040 28       		.uleb128 0x28
+ 288 0041 00       		.byte	0
+ 289 0042 03       		.uleb128 0x3
+ 290 0043 0E       		.uleb128 0xe
+ 291 0044 1C       		.uleb128 0x1c
+ 292 0045 0D       		.uleb128 0xd
+ 293 0046 00       		.byte	0
+ 294 0047 00       		.byte	0
+ 295 0048 07       		.uleb128 0x7
+ 296 0049 13       		.uleb128 0x13
+ 297 004a 01       		.byte	0x1
+ 298 004b 0B       		.uleb128 0xb
+ 299 004c 0B       		.uleb128 0xb
+ 300 004d 3A       		.uleb128 0x3a
+ 301 004e 0B       		.uleb128 0xb
+ 302 004f 3B       		.uleb128 0x3b
+ 303 0050 0B       		.uleb128 0xb
+ 304 0051 01       		.uleb128 0x1
+ 305 0052 13       		.uleb128 0x13
+ 306 0053 00       		.byte	0
+ 307 0054 00       		.byte	0
+ 308 0055 08       		.uleb128 0x8
+ 309 0056 0D       		.uleb128 0xd
+ 310 0057 00       		.byte	0
+ 311 0058 03       		.uleb128 0x3
+ 312 0059 0E       		.uleb128 0xe
+ 313 005a 3A       		.uleb128 0x3a
+ 314 005b 0B       		.uleb128 0xb
+ 315 005c 3B       		.uleb128 0x3b
+ 316 005d 0B       		.uleb128 0xb
+ 317 005e 49       		.uleb128 0x49
+ 318 005f 13       		.uleb128 0x13
+ 319 0060 38       		.uleb128 0x38
+ 320 0061 0A       		.uleb128 0xa
+ 321 0062 00       		.byte	0
+ 322 0063 00       		.byte	0
+ 323 0064 09       		.uleb128 0x9
+ 324 0065 0D       		.uleb128 0xd
+ 325 0066 00       		.byte	0
+ 326 0067 03       		.uleb128 0x3
+ 327 0068 08       		.uleb128 0x8
+ 328 0069 3A       		.uleb128 0x3a
+ 329 006a 0B       		.uleb128 0xb
+ 330 006b 3B       		.uleb128 0x3b
+ 331 006c 0B       		.uleb128 0xb
+ 332 006d 49       		.uleb128 0x49
+ 333 006e 13       		.uleb128 0x13
+ 334 006f 38       		.uleb128 0x38
+ 335 0070 0A       		.uleb128 0xa
+ 336 0071 00       		.byte	0
+ 337 0072 00       		.byte	0
+ 338 0073 0A       		.uleb128 0xa
+ 339 0074 34       		.uleb128 0x34
+ 340 0075 00       		.byte	0
+ 341 0076 03       		.uleb128 0x3
+ 342 0077 0E       		.uleb128 0xe
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 7
+
+
+ 343 0078 3A       		.uleb128 0x3a
+ 344 0079 0B       		.uleb128 0xb
+ 345 007a 3B       		.uleb128 0x3b
+ 346 007b 0B       		.uleb128 0xb
+ 347 007c 49       		.uleb128 0x49
+ 348 007d 13       		.uleb128 0x13
+ 349 007e 3F       		.uleb128 0x3f
+ 350 007f 0C       		.uleb128 0xc
+ 351 0080 02       		.uleb128 0x2
+ 352 0081 0A       		.uleb128 0xa
+ 353 0082 00       		.byte	0
+ 354 0083 00       		.byte	0
+ 355 0084 00       		.byte	0
+ 356              		.section	.debug_aranges,"",@progbits
+ 357 0000 00000014 		.4byte	0x14
+ 358 0004 0002     		.2byte	0x2
+ 359 0006 00000000 		.4byte	.Ldebug_info0
+ 360 000a 04       		.byte	0x4
+ 361 000b 00       		.byte	0
+ 362 000c 0000     		.2byte	0
+ 363 000e 0000     		.2byte	0
+ 364 0010 00000000 		.4byte	0
+ 365 0014 00000000 		.4byte	0
+ 366              		.section	.debug_line,"",@progbits
+ 367              	.Ldebug_line0:
+ 368 0000 000001F5 		.section	.debug_str,"MS",@progbits,1
+ 368      00020000 
+ 368      01EF0201 
+ 368      FB0E0D00 
+ 368      01010101 
+ 369              	.LASF28:
+ 370 0000 49324348 		.string	"I2CHWConfig"
+ 370      57436F6E 
+ 370      66696700 
+ 371              	.LASF5:
+ 372 000c 5F5F7569 		.string	"__uint8_t"
+ 372      6E74385F 
+ 372      7400
+ 373              	.LASF16:
+ 374 0016 6932635F 		.string	"i2c_type_t"
+ 374      74797065 
+ 374      5F7400
+ 375              	.LASF26:
+ 376 0021 7472616E 		.string	"transfer_mode"
+ 376      73666572 
+ 376      5F6D6F64 
+ 376      6500
+ 377              	.LASF22:
+ 378 002f 6932635F 		.string	"i2c_transfer_mode_t"
+ 378      7472616E 
+ 378      73666572 
+ 378      5F6D6F64 
+ 378      655F7400 
+ 379              	.LASF14:
+ 380 0043 4932435F 		.string	"I2C_HARDWARE"
+ 380      48415244 
+ 380      57415245 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 8
+
+
+ 380      00
+ 381              	.LASF3:
+ 382 0050 73686F72 		.string	"short unsigned int"
+ 382      7420756E 
+ 382      7369676E 
+ 382      65642069 
+ 382      6E7400
+ 383              	.LASF29:
+ 384 0063 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 384      4320342E 
+ 384      392E3420 
+ 384      32303136 
+ 384      30373236 
+ 385 009f 75696C64 		.ascii	"uild.sh"
+ 385      2E7368
+ 386 00a6 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 386      3D676438 
+ 386      62366332 
+ 386      3020733D 
+ 386      46343934 
+ 387              	.LASF1:
+ 388 01a7 756E7369 		.string	"unsigned char"
+ 388      676E6564 
+ 388      20636861 
+ 388      7200
+ 389              	.LASF15:
+ 390 01b5 4932435F 		.string	"I2C_SOFTWARE"
+ 390      534F4654 
+ 390      57415245 
+ 390      00
+ 391              	.LASF7:
+ 392 01c2 6C6F6E67 		.string	"long unsigned int"
+ 392      20756E73 
+ 392      69676E65 
+ 392      6420696E 
+ 392      7400
+ 393              	.LASF25:
+ 394 01d4 736C6176 		.string	"slave_addr"
+ 394      655F6164 
+ 394      647200
+ 395              	.LASF32:
+ 396 01df 6932635F 		.string	"i2c_hw_config_AEK_SNS_VL53L1X1Board0"
+ 396      68775F63 
+ 396      6F6E6669 
+ 396      675F4145 
+ 396      4B5F534E 
+ 397              	.LASF6:
+ 398 0204 5F5F7569 		.string	"__uint32_t"
+ 398      6E743332 
+ 398      5F7400
+ 399              	.LASF18:
+ 400 020f 4932435F 		.string	"I2C_MASTER"
+ 400      4D415354 
+ 400      455200
+ 401              	.LASF17:
+ 402 021a 4932435F 		.string	"I2C_SLAVE"
+ 402      534C4156 
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 9
+
+
+ 402      4500
+ 403              	.LASF20:
+ 404 0224 4932435F 		.string	"I2C_DRIVEN_BY_POLLING"
+ 404      44524956 
+ 404      454E5F42 
+ 404      595F504F 
+ 404      4C4C494E 
+ 405              	.LASF21:
+ 406 023a 4932435F 		.string	"I2C_DRIVEN_BY_INTERRUPT"
+ 406      44524956 
+ 406      454E5F42 
+ 406      595F494E 
+ 406      54455252 
+ 407              	.LASF10:
+ 408 0252 756E7369 		.string	"unsigned int"
+ 408      676E6564 
+ 408      20696E74 
+ 408      00
+ 409              	.LASF31:
+ 410 025f 433A5C41 		.string	"C:\\AutoDevKitStudio-2.1\\workspace\\AutoDevKitCarV1"
+ 410      75746F44 
+ 410      65764B69 
+ 410      74537475 
+ 410      64696F2D 
+ 411              	.LASF9:
+ 412 0291 6C6F6E67 		.string	"long long unsigned int"
+ 412      206C6F6E 
+ 412      6720756E 
+ 412      7369676E 
+ 412      65642069 
+ 413              	.LASF11:
+ 414 02a8 75696E74 		.string	"uint8_t"
+ 414      385F7400 
+ 415              	.LASF24:
+ 416 02b0 6D6F6465 		.string	"mode"
+ 416      00
+ 417              	.LASF13:
+ 418 02b5 73697A65 		.string	"sizetype"
+ 418      74797065 
+ 418      00
+ 419              	.LASF8:
+ 420 02be 6C6F6E67 		.string	"long long int"
+ 420      206C6F6E 
+ 420      6720696E 
+ 420      7400
+ 421              	.LASF27:
+ 422 02cc 74696D65 		.string	"timeout"
+ 422      6F757400 
+ 423              	.LASF23:
+ 424 02d4 74797065 		.string	"type"
+ 424      00
+ 425              	.LASF2:
+ 426 02d9 73686F72 		.string	"short int"
+ 426      7420696E 
+ 426      7400
+ 427              	.LASF19:
+ 428 02e3 6932635F 		.string	"i2c_mode_t"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 10
+
+
+ 428      6D6F6465 
+ 428      5F7400
+ 429              	.LASF12:
+ 430 02ee 75696E74 		.string	"uint32_t"
+ 430      33325F74 
+ 430      00
+ 431              	.LASF4:
+ 432 02f7 6C6F6E67 		.string	"long int"
+ 432      20696E74 
+ 432      00
+ 433              	.LASF0:
+ 434 0300 7369676E 		.string	"signed char"
+ 434      65642063 
+ 434      68617200 
+ 435              	.LASF30:
+ 436 030c 2E2F636F 		.string	"./components/spc582bxx_low_level_drivers_component_rla/cfg/i2c_lld_cfg.c"
+ 436      6D706F6E 
+ 436      656E7473 
+ 436      2F737063 
+ 436      35383262 
+ 437              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s 			page 11
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 i2c_lld_cfg.c
+C:\Users\nascapro\AppData\Local\Temp\ccqdIFIg.s:10     .data.i2c_hw_config_AEK_SNS_VL53L1X1Board0:00000000 i2c_hw_config_AEK_SNS_VL53L1X1Board0
+
+NO UNDEFINED SYMBOLS

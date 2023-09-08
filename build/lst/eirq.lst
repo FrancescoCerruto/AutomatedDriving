@@ -1,0 +1,4735 @@
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 1
+
+
+   1              		.file	"eirq.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.section	.text.manage_eirq_interrupt,"axv",@progbits
+   6              		.align 1
+   7              		.p2align 4,,15
+   8              		.globl manage_eirq_interrupt
+   9              		.type	manage_eirq_interrupt, @function
+  10              	manage_eirq_interrupt:
+  11              	.LFB2:
+  12              		.file 1 "./components/spc582bxx_irq_component_rla/lib/src/eirq.c"
+  13              		.loc 1 41 0
+  14              		.cfi_startproc
+  15 0000 182106E0 		e_stwu %r1,-32(%r1)
+  16              	.LCFI0:
+  17              		.cfi_def_cfa_offset 32
+  18 0004 0080     		se_mflr %r0
+  19 0006 D901     		se_stw %r0,36(%r1)
+  20              		.cfi_offset 65, 4
+  21 0008 0137     		se_mr %r7,%r3
+  22 000a 34E10018 		e_stb %r7,24(%r1)
+  23              		.loc 1 43 0
+  24 000e 4807     		se_li %r7,0
+  25 0010 9871     		se_stb %r7,8(%r1)
+  26              		.loc 1 44 0
+  27 0012 78000080 		e_b .L2
+  28              	.L4:
+  29              		.loc 1 45 0
+  30 0016 8871     		se_lbz %r7,8(%r1)
+  31 0018 00C7     		se_extzb %r7
+  32 001a 70C0E000 		e_lis %r6,eirqconf@ha
+  33 001e 1CC60000 		e_la %r6,eirqconf@l(%r6)
+  34 0022 6C37     		se_slwi %r7, 3
+  35 0024 7CE63A14 		add %r7,%r6,%r7
+  36 0028 8077     		se_lbz %r7,0(%r7)
+  37 002a 00D7     		se_extsb %r7
+  38 002c 00C7     		se_extzb %r7
+  39 002e 30C10018 		e_lbz %r6,24(%r1)
+  40 0032 00C6     		se_extzb %r6
+  41 0034 7F863800 		cmp %cr7,%r6,%r7
+  42 0038 7CE00026 		mfcr %r7
+  43 003c 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+  44 0040 7CE80120 		mtcrf 128,%r7
+  45 0044 7A020046 		e_bne %cr0,.L3
+  46              		.loc 1 47 0
+  47 0048 8871     		se_lbz %r7,8(%r1)
+  48 004a 00C7     		se_extzb %r7
+  49 004c 70C0E000 		e_lis %r6,eirqconf@ha
+  50 0050 1CC60000 		e_la %r6,eirqconf@l(%r6)
+  51 0054 6C37     		se_slwi %r7, 3
+  52 0056 7CE63A14 		add %r7,%r6,%r7
+  53 005a C177     		se_lwz %r7,4(%r7)
+  54 005c 2A07     		se_cmpi %r7,0
+  55 005e 7F800020 		e_mcrf %cr7,%cr0
+  56 0062 7CE00026 		mfcr %r7
+  57 0066 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 2
+
+
+  58 006a 7CE80120 		mtcrf 128,%r7
+  59 006e 7A12001C 		e_beq %cr0,.L3
+  60              		.loc 1 48 0
+  61 0072 8871     		se_lbz %r7,8(%r1)
+  62 0074 00C7     		se_extzb %r7
+  63 0076 70C0E000 		e_lis %r6,eirqconf@ha
+  64 007a 1CC60000 		e_la %r6,eirqconf@l(%r6)
+  65 007e 6C37     		se_slwi %r7, 3
+  66 0080 7CE63A14 		add %r7,%r6,%r7
+  67 0084 C177     		se_lwz %r7,4(%r7)
+  68 0086 00B7     		se_mtctr %r7
+  69 0088 0007     		se_bctrl
+  70              	.L3:
+  71              		.loc 1 51 0
+  72 008a 8871     		se_lbz %r7,8(%r1)
+  73 008c 00C7     		se_extzb %r7
+  74 008e 2007     		se_addi %r7,1
+  75 0090 9871     		se_stb %r7,8(%r1)
+  76              	.L2:
+  77              		.loc 1 44 0
+  78 0092 8871     		se_lbz %r7,8(%r1)
+  79 0094 00C7     		se_extzb %r7
+  80 0096 70C0E000 		e_lis %r6,eirqconf@ha
+  81 009a 1CC60000 		e_la %r6,eirqconf@l(%r6)
+  82 009e 6C37     		se_slwi %r7, 3
+  83 00a0 7CE63A14 		add %r7,%r6,%r7
+  84 00a4 8077     		se_lbz %r7,0(%r7)
+  85 00a6 7CE60774 		extsb %r6,%r7
+  86 00aa 2C07     		se_bmaski %r7,0
+  87 00ac 7F863800 		cmp %cr7,%r6,%r7
+  88 00b0 7CE00026 		mfcr %r7
+  89 00b4 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+  90 00b8 7CE80120 		mtcrf 128,%r7
+  91 00bc 7A02FF5A 		e_bne %cr0,.L4
+  92              		.loc 1 53 0
+  93 00c0 C901     		se_lwz %r0,36(%r1)
+  94 00c2 0090     		se_mtlr %r0
+  95 00c4 21F1     		se_addi %r1,32
+  96              	.LCFI1:
+  97              		.cfi_def_cfa_offset 0
+  98 00c6 0004     		se_blr
+  99              		.cfi_endproc
+ 100              	.LFE2:
+ 101              		.size	manage_eirq_interrupt, .-manage_eirq_interrupt
+ 102              		.section	.text.vector243,"axv",@progbits
+ 103              		.align 1
+ 104              		.p2align 4,,15
+ 105              		.globl vector243
+ 106              		.type	vector243, @function
+ 107              	vector243:
+ 108              	.LFB3:
+ 109              		.loc 1 65 0
+ 110              		.cfi_startproc
+ 111 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 112              	.LCFI2:
+ 113              		.cfi_def_cfa_offset 24
+ 114 0004 0080     		se_mflr %r0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 3
+
+
+ 115 0006 D701     		se_stw %r0,28(%r1)
+ 116              		.cfi_offset 65, 4
+ 117              		.loc 1 70 0
+ 118 0008 4807     		se_li %r7,0
+ 119 000a 9871     		se_stb %r7,8(%r1)
+ 120 000c 7800004C 		e_b .L6
+ 121              	.L8:
+ 122              		.loc 1 72 0
+ 123 0010 70FEE7FC 		e_lis %r7,0xf7fc
+ 124 0014 C467     		se_lwz %r6,16(%r7)
+ 125 0016 8871     		se_lbz %r7,8(%r1)
+ 126 0018 00C7     		se_extzb %r7
+ 127 001a 7CC73C30 		srw %r7,%r6,%r7
+ 128 001e 2E17     		se_andi %r7,1
+ 129 0020 2A07     		se_cmpi %r7,0
+ 130 0022 7F800020 		e_mcrf %cr7,%cr0
+ 131 0026 7CE00026 		mfcr %r7
+ 132 002a 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 133 002e 7CE80120 		mtcrf 128,%r7
+ 134 0032 7A12001E 		e_beq %cr0,.L7
+ 135              		.loc 1 74 0
+ 136 0036 8871     		se_lbz %r7,8(%r1)
+ 137 0038 00C7     		se_extzb %r7
+ 138 003a 0173     		se_mr %r3,%r7
+ 139 003c 78000001 		e_bl manage_eirq_interrupt
+ 140              		.loc 1 76 0
+ 141 0040 70FEE7FC 		e_lis %r7,0xf7fc
+ 142 0044 8861     		se_lbz %r6,8(%r1)
+ 143 0046 00C6     		se_extzb %r6
+ 144 0048 4815     		se_li %r5,1
+ 145 004a 7CA63030 		slw %r6,%r5,%r6
+ 146 004e D467     		se_stw %r6,16(%r7)
+ 147              	.L7:
+ 148              		.loc 1 70 0 discriminator 2
+ 149 0050 8871     		se_lbz %r7,8(%r1)
+ 150 0052 00C7     		se_extzb %r7
+ 151 0054 2007     		se_addi %r7,1
+ 152 0056 9871     		se_stb %r7,8(%r1)
+ 153              	.L6:
+ 154              		.loc 1 70 0 is_stmt 0 discriminator 1
+ 155 0058 8871     		se_lbz %r7,8(%r1)
+ 156 005a 00C7     		se_extzb %r7
+ 157 005c 2227     		se_cmpli %r7,3
+ 158 005e 7F800020 		e_mcrf %cr7,%cr0
+ 159 0062 7CE00026 		mfcr %r7
+ 160 0066 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 161 006a 7CE80120 		mtcrf 128,%r7
+ 162 006e 7A01FFA2 		e_ble %cr0,.L8
+ 163              		.loc 1 81 0 is_stmt 1
+ 164 0072 C701     		se_lwz %r0,28(%r1)
+ 165 0074 0090     		se_mtlr %r0
+ 166 0076 2171     		se_addi %r1,24
+ 167              	.LCFI3:
+ 168              		.cfi_def_cfa_offset 0
+ 169 0078 0004     		se_blr
+ 170              		.cfi_endproc
+ 171              	.LFE3:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 4
+
+
+ 172              		.size	vector243, .-vector243
+ 173              		.section	.text.vector244,"axv",@progbits
+ 174              		.align 1
+ 175              		.p2align 4,,15
+ 176              		.globl vector244
+ 177              		.type	vector244, @function
+ 178              	vector244:
+ 179              	.LFB4:
+ 180              		.loc 1 90 0
+ 181              		.cfi_startproc
+ 182 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 183              	.LCFI4:
+ 184              		.cfi_def_cfa_offset 24
+ 185 0004 0080     		se_mflr %r0
+ 186 0006 D701     		se_stw %r0,28(%r1)
+ 187              		.cfi_offset 65, 4
+ 188              		.loc 1 95 0
+ 189 0008 4847     		se_li %r7,4
+ 190 000a 9871     		se_stb %r7,8(%r1)
+ 191 000c 7800004C 		e_b .L10
+ 192              	.L12:
+ 193              		.loc 1 97 0
+ 194 0010 70FEE7FC 		e_lis %r7,0xf7fc
+ 195 0014 C467     		se_lwz %r6,16(%r7)
+ 196 0016 8871     		se_lbz %r7,8(%r1)
+ 197 0018 00C7     		se_extzb %r7
+ 198 001a 7CC73C30 		srw %r7,%r6,%r7
+ 199 001e 2E17     		se_andi %r7,1
+ 200 0020 2A07     		se_cmpi %r7,0
+ 201 0022 7F800020 		e_mcrf %cr7,%cr0
+ 202 0026 7CE00026 		mfcr %r7
+ 203 002a 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 204 002e 7CE80120 		mtcrf 128,%r7
+ 205 0032 7A12001E 		e_beq %cr0,.L11
+ 206              		.loc 1 99 0
+ 207 0036 8871     		se_lbz %r7,8(%r1)
+ 208 0038 00C7     		se_extzb %r7
+ 209 003a 0173     		se_mr %r3,%r7
+ 210 003c 78000001 		e_bl manage_eirq_interrupt
+ 211              		.loc 1 101 0
+ 212 0040 70FEE7FC 		e_lis %r7,0xf7fc
+ 213 0044 8861     		se_lbz %r6,8(%r1)
+ 214 0046 00C6     		se_extzb %r6
+ 215 0048 4815     		se_li %r5,1
+ 216 004a 7CA63030 		slw %r6,%r5,%r6
+ 217 004e D467     		se_stw %r6,16(%r7)
+ 218              	.L11:
+ 219              		.loc 1 95 0 discriminator 2
+ 220 0050 8871     		se_lbz %r7,8(%r1)
+ 221 0052 00C7     		se_extzb %r7
+ 222 0054 2007     		se_addi %r7,1
+ 223 0056 9871     		se_stb %r7,8(%r1)
+ 224              	.L10:
+ 225              		.loc 1 95 0 is_stmt 0 discriminator 1
+ 226 0058 8871     		se_lbz %r7,8(%r1)
+ 227 005a 00C7     		se_extzb %r7
+ 228 005c 2267     		se_cmpli %r7,7
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 5
+
+
+ 229 005e 7F800020 		e_mcrf %cr7,%cr0
+ 230 0062 7CE00026 		mfcr %r7
+ 231 0066 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 232 006a 7CE80120 		mtcrf 128,%r7
+ 233 006e 7A01FFA2 		e_ble %cr0,.L12
+ 234              		.loc 1 106 0 is_stmt 1
+ 235 0072 C701     		se_lwz %r0,28(%r1)
+ 236 0074 0090     		se_mtlr %r0
+ 237 0076 2171     		se_addi %r1,24
+ 238              	.LCFI5:
+ 239              		.cfi_def_cfa_offset 0
+ 240 0078 0004     		se_blr
+ 241              		.cfi_endproc
+ 242              	.LFE4:
+ 243              		.size	vector244, .-vector244
+ 244              		.section	.text.vector245,"axv",@progbits
+ 245              		.align 1
+ 246              		.p2align 4,,15
+ 247              		.globl vector245
+ 248              		.type	vector245, @function
+ 249              	vector245:
+ 250              	.LFB5:
+ 251              		.loc 1 115 0
+ 252              		.cfi_startproc
+ 253 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 254              	.LCFI6:
+ 255              		.cfi_def_cfa_offset 24
+ 256 0004 0080     		se_mflr %r0
+ 257 0006 D701     		se_stw %r0,28(%r1)
+ 258              		.cfi_offset 65, 4
+ 259              		.loc 1 120 0
+ 260 0008 4887     		se_li %r7,8
+ 261 000a 9871     		se_stb %r7,8(%r1)
+ 262 000c 7800004C 		e_b .L14
+ 263              	.L16:
+ 264              		.loc 1 122 0
+ 265 0010 70FEE7FC 		e_lis %r7,0xf7fc
+ 266 0014 C467     		se_lwz %r6,16(%r7)
+ 267 0016 8871     		se_lbz %r7,8(%r1)
+ 268 0018 00C7     		se_extzb %r7
+ 269 001a 7CC73C30 		srw %r7,%r6,%r7
+ 270 001e 2E17     		se_andi %r7,1
+ 271 0020 2A07     		se_cmpi %r7,0
+ 272 0022 7F800020 		e_mcrf %cr7,%cr0
+ 273 0026 7CE00026 		mfcr %r7
+ 274 002a 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 275 002e 7CE80120 		mtcrf 128,%r7
+ 276 0032 7A12001E 		e_beq %cr0,.L15
+ 277              		.loc 1 124 0
+ 278 0036 8871     		se_lbz %r7,8(%r1)
+ 279 0038 00C7     		se_extzb %r7
+ 280 003a 0173     		se_mr %r3,%r7
+ 281 003c 78000001 		e_bl manage_eirq_interrupt
+ 282              		.loc 1 126 0
+ 283 0040 70FEE7FC 		e_lis %r7,0xf7fc
+ 284 0044 8861     		se_lbz %r6,8(%r1)
+ 285 0046 00C6     		se_extzb %r6
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 6
+
+
+ 286 0048 4815     		se_li %r5,1
+ 287 004a 7CA63030 		slw %r6,%r5,%r6
+ 288 004e D467     		se_stw %r6,16(%r7)
+ 289              	.L15:
+ 290              		.loc 1 120 0 discriminator 2
+ 291 0050 8871     		se_lbz %r7,8(%r1)
+ 292 0052 00C7     		se_extzb %r7
+ 293 0054 2007     		se_addi %r7,1
+ 294 0056 9871     		se_stb %r7,8(%r1)
+ 295              	.L14:
+ 296              		.loc 1 120 0 is_stmt 0 discriminator 1
+ 297 0058 8871     		se_lbz %r7,8(%r1)
+ 298 005a 00C7     		se_extzb %r7
+ 299 005c 22A7     		se_cmpli %r7,11
+ 300 005e 7F800020 		e_mcrf %cr7,%cr0
+ 301 0062 7CE00026 		mfcr %r7
+ 302 0066 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 303 006a 7CE80120 		mtcrf 128,%r7
+ 304 006e 7A01FFA2 		e_ble %cr0,.L16
+ 305              		.loc 1 131 0 is_stmt 1
+ 306 0072 C701     		se_lwz %r0,28(%r1)
+ 307 0074 0090     		se_mtlr %r0
+ 308 0076 2171     		se_addi %r1,24
+ 309              	.LCFI7:
+ 310              		.cfi_def_cfa_offset 0
+ 311 0078 0004     		se_blr
+ 312              		.cfi_endproc
+ 313              	.LFE5:
+ 314              		.size	vector245, .-vector245
+ 315              		.section	.text.vector246,"axv",@progbits
+ 316              		.align 1
+ 317              		.p2align 4,,15
+ 318              		.globl vector246
+ 319              		.type	vector246, @function
+ 320              	vector246:
+ 321              	.LFB6:
+ 322              		.loc 1 140 0
+ 323              		.cfi_startproc
+ 324 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 325              	.LCFI8:
+ 326              		.cfi_def_cfa_offset 24
+ 327 0004 0080     		se_mflr %r0
+ 328 0006 D701     		se_stw %r0,28(%r1)
+ 329              		.cfi_offset 65, 4
+ 330              		.loc 1 145 0
+ 331 0008 48C7     		se_li %r7,12
+ 332 000a 9871     		se_stb %r7,8(%r1)
+ 333 000c 7800004C 		e_b .L18
+ 334              	.L20:
+ 335              		.loc 1 147 0
+ 336 0010 70FEE7FC 		e_lis %r7,0xf7fc
+ 337 0014 C467     		se_lwz %r6,16(%r7)
+ 338 0016 8871     		se_lbz %r7,8(%r1)
+ 339 0018 00C7     		se_extzb %r7
+ 340 001a 7CC73C30 		srw %r7,%r6,%r7
+ 341 001e 2E17     		se_andi %r7,1
+ 342 0020 2A07     		se_cmpi %r7,0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 7
+
+
+ 343 0022 7F800020 		e_mcrf %cr7,%cr0
+ 344 0026 7CE00026 		mfcr %r7
+ 345 002a 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 346 002e 7CE80120 		mtcrf 128,%r7
+ 347 0032 7A12001E 		e_beq %cr0,.L19
+ 348              		.loc 1 149 0
+ 349 0036 8871     		se_lbz %r7,8(%r1)
+ 350 0038 00C7     		se_extzb %r7
+ 351 003a 0173     		se_mr %r3,%r7
+ 352 003c 78000001 		e_bl manage_eirq_interrupt
+ 353              		.loc 1 151 0
+ 354 0040 70FEE7FC 		e_lis %r7,0xf7fc
+ 355 0044 8861     		se_lbz %r6,8(%r1)
+ 356 0046 00C6     		se_extzb %r6
+ 357 0048 4815     		se_li %r5,1
+ 358 004a 7CA63030 		slw %r6,%r5,%r6
+ 359 004e D467     		se_stw %r6,16(%r7)
+ 360              	.L19:
+ 361              		.loc 1 145 0 discriminator 2
+ 362 0050 8871     		se_lbz %r7,8(%r1)
+ 363 0052 00C7     		se_extzb %r7
+ 364 0054 2007     		se_addi %r7,1
+ 365 0056 9871     		se_stb %r7,8(%r1)
+ 366              	.L18:
+ 367              		.loc 1 145 0 is_stmt 0 discriminator 1
+ 368 0058 8871     		se_lbz %r7,8(%r1)
+ 369 005a 00C7     		se_extzb %r7
+ 370 005c 22E7     		se_cmpli %r7,15
+ 371 005e 7F800020 		e_mcrf %cr7,%cr0
+ 372 0062 7CE00026 		mfcr %r7
+ 373 0066 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 374 006a 7CE80120 		mtcrf 128,%r7
+ 375 006e 7A01FFA2 		e_ble %cr0,.L20
+ 376              		.loc 1 156 0 is_stmt 1
+ 377 0072 C701     		se_lwz %r0,28(%r1)
+ 378 0074 0090     		se_mtlr %r0
+ 379 0076 2171     		se_addi %r1,24
+ 380              	.LCFI9:
+ 381              		.cfi_def_cfa_offset 0
+ 382 0078 0004     		se_blr
+ 383              		.cfi_endproc
+ 384              	.LFE6:
+ 385              		.size	vector246, .-vector246
+ 386              		.section	.text.eirqInit,"axv",@progbits
+ 387              		.align 1
+ 388              		.p2align 4,,15
+ 389              		.globl eirqInit
+ 390              		.type	eirqInit, @function
+ 391              	eirqInit:
+ 392              	.LFB7:
+ 393              		.loc 1 168 0
+ 394              		.cfi_startproc
+ 395 0000 182106E8 		e_stwu %r1,-24(%r1)
+ 396              	.LCFI10:
+ 397              		.cfi_def_cfa_offset 24
+ 398              		.loc 1 173 0
+ 399 0004 70FEE404 		e_lis %r7,0xf404
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 8
+
+
+ 400 0008 70E8C246 		e_or2i %r7,16966
+ 401 000c 70D07806 		e_li %r6,-32762
+ 402 0010 B067     		se_sth %r6,0(%r7)
+ 403              		.loc 1 174 0
+ 404 0012 70FEE404 		e_lis %r7,0xf404
+ 405 0016 70E8C248 		e_or2i %r7,16968
+ 406 001a 70D07806 		e_li %r6,-32762
+ 407 001e B067     		se_sth %r6,0(%r7)
+ 408              		.loc 1 175 0
+ 409 0020 70FEE404 		e_lis %r7,0xf404
+ 410 0024 70E8C24A 		e_or2i %r7,16970
+ 411 0028 70D07806 		e_li %r6,-32762
+ 412 002c B067     		se_sth %r6,0(%r7)
+ 413              		.loc 1 176 0
+ 414 002e 70FEE404 		e_lis %r7,0xf404
+ 415 0032 70E8C24C 		e_or2i %r7,16972
+ 416 0036 70D07806 		e_li %r6,-32762
+ 417 003a B067     		se_sth %r6,0(%r7)
+ 418              		.loc 1 179 0
+ 419 003c 4807     		se_li %r7,0
+ 420 003e 9871     		se_stb %r7,8(%r1)
+ 421              		.loc 1 180 0
+ 422 0040 78000108 		e_b .L22
+ 423              	.L26:
+ 424              		.loc 1 181 0
+ 425 0044 8871     		se_lbz %r7,8(%r1)
+ 426 0046 00C7     		se_extzb %r7
+ 427 0048 70C0E000 		e_lis %r6,eirqconf@ha
+ 428 004c 1CC60000 		e_la %r6,eirqconf@l(%r6)
+ 429 0050 6C37     		se_slwi %r7, 3
+ 430 0052 7CE63A14 		add %r7,%r6,%r7
+ 431 0056 8077     		se_lbz %r7,0(%r7)
+ 432 0058 00D7     		se_extsb %r7
+ 433 005a 9971     		se_stb %r7,9(%r1)
+ 434              		.loc 1 183 0
+ 435 005c 8871     		se_lbz %r7,8(%r1)
+ 436 005e 00C7     		se_extzb %r7
+ 437 0060 70C0E000 		e_lis %r6,eirqconf@ha
+ 438 0064 1CC60000 		e_la %r6,eirqconf@l(%r6)
+ 439 0068 6C37     		se_slwi %r7, 3
+ 440 006a 7CE63A14 		add %r7,%r6,%r7
+ 441 006e 8177     		se_lbz %r7,1(%r7)
+ 442 0070 00C7     		se_extzb %r7
+ 443 0072 2207     		se_cmpli %r7,1
+ 444 0074 7F800020 		e_mcrf %cr7,%cr0
+ 445 0078 7CE00026 		mfcr %r7
+ 446 007c 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 447 0080 7CE80120 		mtcrf 128,%r7
+ 448 0084 7A02001C 		e_bne %cr0,.L23
+ 449              		.loc 1 184 0
+ 450 0088 70FEE7FC 		e_lis %r7,0xf7fc
+ 451 008c 70DEE7FC 		e_lis %r6,0xf7fc
+ 452 0090 CA56     		se_lwz %r5,40(%r6)
+ 453 0092 8961     		se_lbz %r6,9(%r1)
+ 454 0094 00C6     		se_extzb %r6
+ 455 0096 4814     		se_li %r4,1
+ 456 0098 7C863030 		slw %r6,%r4,%r6
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 9
+
+
+ 457 009c 4456     		se_or %r6,%r5
+ 458 009e DA67     		se_stw %r6,40(%r7)
+ 459              	.L23:
+ 460              		.loc 1 187 0
+ 461 00a0 8871     		se_lbz %r7,8(%r1)
+ 462 00a2 00C7     		se_extzb %r7
+ 463 00a4 70C0E000 		e_lis %r6,eirqconf@ha
+ 464 00a8 1CC60000 		e_la %r6,eirqconf@l(%r6)
+ 465 00ac 6C37     		se_slwi %r7, 3
+ 466 00ae 7CE63A14 		add %r7,%r6,%r7
+ 467 00b2 8277     		se_lbz %r7,2(%r7)
+ 468 00b4 00C7     		se_extzb %r7
+ 469 00b6 2207     		se_cmpli %r7,1
+ 470 00b8 7F800020 		e_mcrf %cr7,%cr0
+ 471 00bc 7CE00026 		mfcr %r7
+ 472 00c0 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 473 00c4 7CE80120 		mtcrf 128,%r7
+ 474 00c8 7A02001C 		e_bne %cr0,.L24
+ 475              		.loc 1 188 0
+ 476 00cc 70FEE7FC 		e_lis %r7,0xf7fc
+ 477 00d0 70DEE7FC 		e_lis %r6,0xf7fc
+ 478 00d4 CC56     		se_lwz %r5,48(%r6)
+ 479 00d6 8961     		se_lbz %r6,9(%r1)
+ 480 00d8 00C6     		se_extzb %r6
+ 481 00da 4814     		se_li %r4,1
+ 482 00dc 7C863030 		slw %r6,%r4,%r6
+ 483 00e0 4456     		se_or %r6,%r5
+ 484 00e2 DC67     		se_stw %r6,48(%r7)
+ 485              	.L24:
+ 486              		.loc 1 191 0
+ 487 00e4 8871     		se_lbz %r7,8(%r1)
+ 488 00e6 00C7     		se_extzb %r7
+ 489 00e8 70C0E000 		e_lis %r6,eirqconf@ha
+ 490 00ec 1CC60000 		e_la %r6,eirqconf@l(%r6)
+ 491 00f0 6C37     		se_slwi %r7, 3
+ 492 00f2 7CE63A14 		add %r7,%r6,%r7
+ 493 00f6 8377     		se_lbz %r7,3(%r7)
+ 494 00f8 00C7     		se_extzb %r7
+ 495 00fa 2207     		se_cmpli %r7,1
+ 496 00fc 7F800020 		e_mcrf %cr7,%cr0
+ 497 0100 7CE00026 		mfcr %r7
+ 498 0104 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 499 0108 7CE80120 		mtcrf 128,%r7
+ 500 010c 7A02001C 		e_bne %cr0,.L25
+ 501              		.loc 1 192 0
+ 502 0110 70FEE7FC 		e_lis %r7,0xf7fc
+ 503 0114 70DEE7FC 		e_lis %r6,0xf7fc
+ 504 0118 CE56     		se_lwz %r5,56(%r6)
+ 505 011a 8961     		se_lbz %r6,9(%r1)
+ 506 011c 00C6     		se_extzb %r6
+ 507 011e 4814     		se_li %r4,1
+ 508 0120 7C863030 		slw %r6,%r4,%r6
+ 509 0124 4456     		se_or %r6,%r5
+ 510 0126 DE67     		se_stw %r6,56(%r7)
+ 511              	.L25:
+ 512              		.loc 1 195 0
+ 513 0128 70FEE7FC 		e_lis %r7,0xf7fc
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 10
+
+
+ 514 012c 70DEE7FC 		e_lis %r6,0xf7fc
+ 515 0130 C656     		se_lwz %r5,24(%r6)
+ 516 0132 8961     		se_lbz %r6,9(%r1)
+ 517 0134 00C6     		se_extzb %r6
+ 518 0136 4814     		se_li %r4,1
+ 519 0138 7C863030 		slw %r6,%r4,%r6
+ 520 013c 4456     		se_or %r6,%r5
+ 521 013e D667     		se_stw %r6,24(%r7)
+ 522              		.loc 1 196 0
+ 523 0140 8871     		se_lbz %r7,8(%r1)
+ 524 0142 00C7     		se_extzb %r7
+ 525 0144 2007     		se_addi %r7,1
+ 526 0146 9871     		se_stb %r7,8(%r1)
+ 527              	.L22:
+ 528              		.loc 1 180 0
+ 529 0148 8871     		se_lbz %r7,8(%r1)
+ 530 014a 00C7     		se_extzb %r7
+ 531 014c 70C0E000 		e_lis %r6,eirqconf@ha
+ 532 0150 1CC60000 		e_la %r6,eirqconf@l(%r6)
+ 533 0154 6C37     		se_slwi %r7, 3
+ 534 0156 7CE63A14 		add %r7,%r6,%r7
+ 535 015a 8077     		se_lbz %r7,0(%r7)
+ 536 015c 7CE60774 		extsb %r6,%r7
+ 537 0160 2C07     		se_bmaski %r7,0
+ 538 0162 7F863800 		cmp %cr7,%r6,%r7
+ 539 0166 7CE00026 		mfcr %r7
+ 540 016a 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 541 016e 7CE80120 		mtcrf 128,%r7
+ 542 0172 7A02FED2 		e_bne %cr0,.L26
+ 543              		.loc 1 198 0
+ 544 0176 2171     		se_addi %r1,24
+ 545              	.LCFI11:
+ 546              		.cfi_def_cfa_offset 0
+ 547 0178 0004     		se_blr
+ 548              		.cfi_endproc
+ 549              	.LFE7:
+ 550              		.size	eirqInit, .-eirqInit
+ 551              		.section	".text","axv"
+ 552              	.Letext0:
+ 553              		.file 2 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 554              		.file 3 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 555              		.file 4 "./components/spc582bxx_platform_component_rla/lib/include/typedefs.h"
+ 556              		.file 5 "./components/spc582bxx_platform_component_rla/lib/include/spc582b.h"
+ 557              		.file 6 "./components/spc582bxx_irq_component_rla/lib/include/eirq.h"
+ 558              		.section	.debug_info,"",@progbits
+ 559              	.Ldebug_info0:
+ 560 0000 000012D3 		.4byte	0x12d3
+ 561 0004 0002     		.2byte	0x2
+ 562 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 563 000a 04       		.byte	0x4
+ 564 000b 01       		.uleb128 0x1
+ 565 000c 00000000 		.4byte	.LASF184
+ 566 0010 01       		.byte	0x1
+ 567 0011 00000000 		.4byte	.LASF185
+ 568 0015 00000000 		.4byte	.LASF186
+ 569 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 570 001d 00000000 		.4byte	0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 11
+
+
+ 571 0021 00000000 		.4byte	0
+ 572 0025 00000000 		.4byte	.Ldebug_line0
+ 573 0029 02       		.uleb128 0x2
+ 574 002a 04       		.byte	0x4
+ 575 002b 05       		.byte	0x5
+ 576 002c 696E7400 		.string	"int"
+ 577 0030 03       		.uleb128 0x3
+ 578 0031 04       		.byte	0x4
+ 579 0032 07       		.byte	0x7
+ 580 0033 00000000 		.4byte	.LASF0
+ 581 0037 03       		.uleb128 0x3
+ 582 0038 04       		.byte	0x4
+ 583 0039 05       		.byte	0x5
+ 584 003a 00000000 		.4byte	.LASF1
+ 585 003e 04       		.uleb128 0x4
+ 586 003f 00000000 		.4byte	.LASF3
+ 587 0043 02       		.byte	0x2
+ 588 0044 1B       		.byte	0x1b
+ 589 0045 00000049 		.4byte	0x49
+ 590 0049 03       		.uleb128 0x3
+ 591 004a 01       		.byte	0x1
+ 592 004b 06       		.byte	0x6
+ 593 004c 00000000 		.4byte	.LASF2
+ 594 0050 04       		.uleb128 0x4
+ 595 0051 00000000 		.4byte	.LASF4
+ 596 0055 02       		.byte	0x2
+ 597 0056 1D       		.byte	0x1d
+ 598 0057 0000005B 		.4byte	0x5b
+ 599 005b 03       		.uleb128 0x3
+ 600 005c 01       		.byte	0x1
+ 601 005d 08       		.byte	0x8
+ 602 005e 00000000 		.4byte	.LASF5
+ 603 0062 03       		.uleb128 0x3
+ 604 0063 02       		.byte	0x2
+ 605 0064 05       		.byte	0x5
+ 606 0065 00000000 		.4byte	.LASF6
+ 607 0069 04       		.uleb128 0x4
+ 608 006a 00000000 		.4byte	.LASF7
+ 609 006e 02       		.byte	0x2
+ 610 006f 2B       		.byte	0x2b
+ 611 0070 00000074 		.4byte	0x74
+ 612 0074 03       		.uleb128 0x3
+ 613 0075 02       		.byte	0x2
+ 614 0076 07       		.byte	0x7
+ 615 0077 00000000 		.4byte	.LASF8
+ 616 007b 04       		.uleb128 0x4
+ 617 007c 00000000 		.4byte	.LASF9
+ 618 0080 02       		.byte	0x2
+ 619 0081 41       		.byte	0x41
+ 620 0082 00000086 		.4byte	0x86
+ 621 0086 03       		.uleb128 0x3
+ 622 0087 04       		.byte	0x4
+ 623 0088 07       		.byte	0x7
+ 624 0089 00000000 		.4byte	.LASF10
+ 625 008d 03       		.uleb128 0x3
+ 626 008e 08       		.byte	0x8
+ 627 008f 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 12
+
+
+ 628 0090 00000000 		.4byte	.LASF11
+ 629 0094 03       		.uleb128 0x3
+ 630 0095 08       		.byte	0x8
+ 631 0096 07       		.byte	0x7
+ 632 0097 00000000 		.4byte	.LASF12
+ 633 009b 04       		.uleb128 0x4
+ 634 009c 00000000 		.4byte	.LASF13
+ 635 00a0 03       		.byte	0x3
+ 636 00a1 14       		.byte	0x14
+ 637 00a2 0000003E 		.4byte	0x3e
+ 638 00a6 04       		.uleb128 0x4
+ 639 00a7 00000000 		.4byte	.LASF14
+ 640 00ab 03       		.byte	0x3
+ 641 00ac 15       		.byte	0x15
+ 642 00ad 00000050 		.4byte	0x50
+ 643 00b1 04       		.uleb128 0x4
+ 644 00b2 00000000 		.4byte	.LASF15
+ 645 00b6 03       		.byte	0x3
+ 646 00b7 21       		.byte	0x21
+ 647 00b8 00000069 		.4byte	0x69
+ 648 00bc 04       		.uleb128 0x4
+ 649 00bd 00000000 		.4byte	.LASF16
+ 650 00c1 03       		.byte	0x3
+ 651 00c2 2D       		.byte	0x2d
+ 652 00c3 0000007B 		.4byte	0x7b
+ 653 00c7 04       		.uleb128 0x4
+ 654 00c8 00000000 		.4byte	.LASF17
+ 655 00cc 04       		.byte	0x4
+ 656 00cd 1C       		.byte	0x1c
+ 657 00ce 000000D2 		.4byte	0xd2
+ 658 00d2 05       		.uleb128 0x5
+ 659 00d3 000000A6 		.4byte	0xa6
+ 660 00d7 04       		.uleb128 0x4
+ 661 00d8 00000000 		.4byte	.LASF18
+ 662 00dc 04       		.byte	0x4
+ 663 00dd 1E       		.byte	0x1e
+ 664 00de 000000E2 		.4byte	0xe2
+ 665 00e2 05       		.uleb128 0x5
+ 666 00e3 000000B1 		.4byte	0xb1
+ 667 00e7 04       		.uleb128 0x4
+ 668 00e8 00000000 		.4byte	.LASF19
+ 669 00ec 04       		.byte	0x4
+ 670 00ed 20       		.byte	0x20
+ 671 00ee 000000F2 		.4byte	0xf2
+ 672 00f2 05       		.uleb128 0x5
+ 673 00f3 000000BC 		.4byte	0xbc
+ 674 00f7 03       		.uleb128 0x3
+ 675 00f8 04       		.byte	0x4
+ 676 00f9 07       		.byte	0x7
+ 677 00fa 00000000 		.4byte	.LASF20
+ 678 00fe 06       		.uleb128 0x6
+ 679 00ff 000000C7 		.4byte	0xc7
+ 680 0103 0000010E 		.4byte	0x10e
+ 681 0107 07       		.uleb128 0x7
+ 682 0108 000000F7 		.4byte	0xf7
+ 683 010c 03       		.byte	0x3
+ 684 010d 00       		.byte	0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 13
+
+
+ 685 010e 06       		.uleb128 0x6
+ 686 010f 000000C7 		.4byte	0xc7
+ 687 0113 0000011E 		.4byte	0x11e
+ 688 0117 07       		.uleb128 0x7
+ 689 0118 000000F7 		.4byte	0xf7
+ 690 011c BF       		.byte	0xbf
+ 691 011d 00       		.byte	0
+ 692 011e 08       		.uleb128 0x8
+ 693 011f 04       		.byte	0x4
+ 694 0120 05       		.byte	0x5
+ 695 0121 24E9     		.2byte	0x24e9
+ 696 0123 00000194 		.4byte	0x194
+ 697 0127 09       		.uleb128 0x9
+ 698 0128 00000000 		.4byte	.LASF21
+ 699 012c 05       		.byte	0x5
+ 700 012d 24EA     		.2byte	0x24ea
+ 701 012f 000000E7 		.4byte	0xe7
+ 702 0133 04       		.byte	0x4
+ 703 0134 10       		.byte	0x10
+ 704 0135 00       		.byte	0
+ 705 0136 02       		.byte	0x2
+ 706 0137 23       		.byte	0x23
+ 707 0138 00       		.uleb128 0
+ 708 0139 09       		.uleb128 0x9
+ 709 013a 00000000 		.4byte	.LASF22
+ 710 013e 05       		.byte	0x5
+ 711 013f 24EB     		.2byte	0x24eb
+ 712 0141 000000E7 		.4byte	0xe7
+ 713 0145 04       		.byte	0x4
+ 714 0146 01       		.byte	0x1
+ 715 0147 10       		.byte	0x10
+ 716 0148 02       		.byte	0x2
+ 717 0149 23       		.byte	0x23
+ 718 014a 00       		.uleb128 0
+ 719 014b 0A       		.uleb128 0xa
+ 720 014c 504B4700 		.string	"PKG"
+ 721 0150 05       		.byte	0x5
+ 722 0151 24EC     		.2byte	0x24ec
+ 723 0153 000000E7 		.4byte	0xe7
+ 724 0157 04       		.byte	0x4
+ 725 0158 05       		.byte	0x5
+ 726 0159 11       		.byte	0x11
+ 727 015a 02       		.byte	0x2
+ 728 015b 23       		.byte	0x23
+ 729 015c 00       		.uleb128 0
+ 730 015d 09       		.uleb128 0x9
+ 731 015e 00000000 		.4byte	.LASF23
+ 732 0162 05       		.byte	0x5
+ 733 0163 24ED     		.2byte	0x24ed
+ 734 0165 000000E7 		.4byte	0xe7
+ 735 0169 04       		.byte	0x4
+ 736 016a 02       		.byte	0x2
+ 737 016b 16       		.byte	0x16
+ 738 016c 02       		.byte	0x2
+ 739 016d 23       		.byte	0x23
+ 740 016e 00       		.uleb128 0
+ 741 016f 09       		.uleb128 0x9
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 14
+
+
+ 742 0170 00000000 		.4byte	.LASF24
+ 743 0174 05       		.byte	0x5
+ 744 0175 24EE     		.2byte	0x24ee
+ 745 0177 000000E7 		.4byte	0xe7
+ 746 017b 04       		.byte	0x4
+ 747 017c 04       		.byte	0x4
+ 748 017d 18       		.byte	0x18
+ 749 017e 02       		.byte	0x2
+ 750 017f 23       		.byte	0x23
+ 751 0180 00       		.uleb128 0
+ 752 0181 09       		.uleb128 0x9
+ 753 0182 00000000 		.4byte	.LASF25
+ 754 0186 05       		.byte	0x5
+ 755 0187 24EF     		.2byte	0x24ef
+ 756 0189 000000E7 		.4byte	0xe7
+ 757 018d 04       		.byte	0x4
+ 758 018e 04       		.byte	0x4
+ 759 018f 1C       		.byte	0x1c
+ 760 0190 02       		.byte	0x2
+ 761 0191 23       		.byte	0x23
+ 762 0192 00       		.uleb128 0
+ 763 0193 00       		.byte	0
+ 764 0194 0B       		.uleb128 0xb
+ 765 0195 04       		.byte	0x4
+ 766 0196 05       		.byte	0x5
+ 767 0197 24E7     		.2byte	0x24e7
+ 768 0199 000001B2 		.4byte	0x1b2
+ 769 019d 0C       		.uleb128 0xc
+ 770 019e 5200     		.string	"R"
+ 771 01a0 05       		.byte	0x5
+ 772 01a1 24E8     		.2byte	0x24e8
+ 773 01a3 000000E7 		.4byte	0xe7
+ 774 01a7 0C       		.uleb128 0xc
+ 775 01a8 4200     		.string	"B"
+ 776 01aa 05       		.byte	0x5
+ 777 01ab 24F0     		.2byte	0x24f0
+ 778 01ad 0000011E 		.4byte	0x11e
+ 779 01b1 00       		.byte	0
+ 780 01b2 08       		.uleb128 0x8
+ 781 01b3 04       		.byte	0x4
+ 782 01b4 05       		.byte	0x5
+ 783 01b5 24F5     		.2byte	0x24f5
+ 784 01b7 00000227 		.4byte	0x227
+ 785 01bb 0A       		.uleb128 0xa
+ 786 01bc 534600   		.string	"SF"
+ 787 01bf 05       		.byte	0x5
+ 788 01c0 24F6     		.2byte	0x24f6
+ 789 01c2 000000E7 		.4byte	0xe7
+ 790 01c6 04       		.byte	0x4
+ 791 01c7 01       		.byte	0x1
+ 792 01c8 00       		.byte	0
+ 793 01c9 02       		.byte	0x2
+ 794 01ca 23       		.byte	0x23
+ 795 01cb 00       		.uleb128 0
+ 796 01cc 09       		.uleb128 0x9
+ 797 01cd 00000000 		.4byte	.LASF26
+ 798 01d1 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 15
+
+
+ 799 01d2 24F7     		.2byte	0x24f7
+ 800 01d4 000000E7 		.4byte	0xe7
+ 801 01d8 04       		.byte	0x4
+ 802 01d9 04       		.byte	0x4
+ 803 01da 01       		.byte	0x1
+ 804 01db 02       		.byte	0x2
+ 805 01dc 23       		.byte	0x23
+ 806 01dd 00       		.uleb128 0
+ 807 01de 09       		.uleb128 0x9
+ 808 01df 00000000 		.4byte	.LASF27
+ 809 01e3 05       		.byte	0x5
+ 810 01e4 24F8     		.2byte	0x24f8
+ 811 01e6 000000E7 		.4byte	0xe7
+ 812 01ea 04       		.byte	0x4
+ 813 01eb 04       		.byte	0x4
+ 814 01ec 05       		.byte	0x5
+ 815 01ed 02       		.byte	0x2
+ 816 01ee 23       		.byte	0x23
+ 817 01ef 00       		.uleb128 0
+ 818 01f0 09       		.uleb128 0x9
+ 819 01f1 00000000 		.4byte	.LASF22
+ 820 01f5 05       		.byte	0x5
+ 821 01f6 24F9     		.2byte	0x24f9
+ 822 01f8 000000E7 		.4byte	0xe7
+ 823 01fc 04       		.byte	0x4
+ 824 01fd 07       		.byte	0x7
+ 825 01fe 09       		.byte	0x9
+ 826 01ff 02       		.byte	0x2
+ 827 0200 23       		.byte	0x23
+ 828 0201 00       		.uleb128 0
+ 829 0202 09       		.uleb128 0x9
+ 830 0203 00000000 		.4byte	.LASF28
+ 831 0207 05       		.byte	0x5
+ 832 0208 24FA     		.2byte	0x24fa
+ 833 020a 000000E7 		.4byte	0xe7
+ 834 020e 04       		.byte	0x4
+ 835 020f 08       		.byte	0x8
+ 836 0210 10       		.byte	0x10
+ 837 0211 02       		.byte	0x2
+ 838 0212 23       		.byte	0x23
+ 839 0213 00       		.uleb128 0
+ 840 0214 09       		.uleb128 0x9
+ 841 0215 00000000 		.4byte	.LASF23
+ 842 0219 05       		.byte	0x5
+ 843 021a 24FB     		.2byte	0x24fb
+ 844 021c 000000E7 		.4byte	0xe7
+ 845 0220 04       		.byte	0x4
+ 846 0221 08       		.byte	0x8
+ 847 0222 18       		.byte	0x18
+ 848 0223 02       		.byte	0x2
+ 849 0224 23       		.byte	0x23
+ 850 0225 00       		.uleb128 0
+ 851 0226 00       		.byte	0
+ 852 0227 0B       		.uleb128 0xb
+ 853 0228 04       		.byte	0x4
+ 854 0229 05       		.byte	0x5
+ 855 022a 24F3     		.2byte	0x24f3
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 16
+
+
+ 856 022c 00000245 		.4byte	0x245
+ 857 0230 0C       		.uleb128 0xc
+ 858 0231 5200     		.string	"R"
+ 859 0233 05       		.byte	0x5
+ 860 0234 24F4     		.2byte	0x24f4
+ 861 0236 000000E7 		.4byte	0xe7
+ 862 023a 0C       		.uleb128 0xc
+ 863 023b 4200     		.string	"B"
+ 864 023d 05       		.byte	0x5
+ 865 023e 24FC     		.2byte	0x24fc
+ 866 0240 000001B2 		.4byte	0x1b2
+ 867 0244 00       		.byte	0
+ 868 0245 08       		.uleb128 0x8
+ 869 0246 04       		.byte	0x4
+ 870 0247 05       		.byte	0x5
+ 871 0248 2503     		.2byte	0x2503
+ 872 024a 00000381 		.4byte	0x381
+ 873 024e 09       		.uleb128 0x9
+ 874 024f 00000000 		.4byte	.LASF23
+ 875 0253 05       		.byte	0x5
+ 876 0254 2504     		.2byte	0x2504
+ 877 0256 000000E7 		.4byte	0xe7
+ 878 025a 04       		.byte	0x4
+ 879 025b 10       		.byte	0x10
+ 880 025c 00       		.byte	0
+ 881 025d 02       		.byte	0x2
+ 882 025e 23       		.byte	0x23
+ 883 025f 00       		.uleb128 0
+ 884 0260 09       		.uleb128 0x9
+ 885 0261 00000000 		.4byte	.LASF29
+ 886 0265 05       		.byte	0x5
+ 887 0266 2505     		.2byte	0x2505
+ 888 0268 000000E7 		.4byte	0xe7
+ 889 026c 04       		.byte	0x4
+ 890 026d 01       		.byte	0x1
+ 891 026e 10       		.byte	0x10
+ 892 026f 02       		.byte	0x2
+ 893 0270 23       		.byte	0x23
+ 894 0271 00       		.uleb128 0
+ 895 0272 09       		.uleb128 0x9
+ 896 0273 00000000 		.4byte	.LASF30
+ 897 0277 05       		.byte	0x5
+ 898 0278 2506     		.2byte	0x2506
+ 899 027a 000000E7 		.4byte	0xe7
+ 900 027e 04       		.byte	0x4
+ 901 027f 01       		.byte	0x1
+ 902 0280 11       		.byte	0x11
+ 903 0281 02       		.byte	0x2
+ 904 0282 23       		.byte	0x23
+ 905 0283 00       		.uleb128 0
+ 906 0284 09       		.uleb128 0x9
+ 907 0285 00000000 		.4byte	.LASF31
+ 908 0289 05       		.byte	0x5
+ 909 028a 2507     		.2byte	0x2507
+ 910 028c 000000E7 		.4byte	0xe7
+ 911 0290 04       		.byte	0x4
+ 912 0291 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 17
+
+
+ 913 0292 12       		.byte	0x12
+ 914 0293 02       		.byte	0x2
+ 915 0294 23       		.byte	0x23
+ 916 0295 00       		.uleb128 0
+ 917 0296 09       		.uleb128 0x9
+ 918 0297 00000000 		.4byte	.LASF32
+ 919 029b 05       		.byte	0x5
+ 920 029c 2508     		.2byte	0x2508
+ 921 029e 000000E7 		.4byte	0xe7
+ 922 02a2 04       		.byte	0x4
+ 923 02a3 01       		.byte	0x1
+ 924 02a4 13       		.byte	0x13
+ 925 02a5 02       		.byte	0x2
+ 926 02a6 23       		.byte	0x23
+ 927 02a7 00       		.uleb128 0
+ 928 02a8 09       		.uleb128 0x9
+ 929 02a9 00000000 		.4byte	.LASF33
+ 930 02ad 05       		.byte	0x5
+ 931 02ae 2509     		.2byte	0x2509
+ 932 02b0 000000E7 		.4byte	0xe7
+ 933 02b4 04       		.byte	0x4
+ 934 02b5 01       		.byte	0x1
+ 935 02b6 14       		.byte	0x14
+ 936 02b7 02       		.byte	0x2
+ 937 02b8 23       		.byte	0x23
+ 938 02b9 00       		.uleb128 0
+ 939 02ba 09       		.uleb128 0x9
+ 940 02bb 00000000 		.4byte	.LASF34
+ 941 02bf 05       		.byte	0x5
+ 942 02c0 250A     		.2byte	0x250a
+ 943 02c2 000000E7 		.4byte	0xe7
+ 944 02c6 04       		.byte	0x4
+ 945 02c7 01       		.byte	0x1
+ 946 02c8 15       		.byte	0x15
+ 947 02c9 02       		.byte	0x2
+ 948 02ca 23       		.byte	0x23
+ 949 02cb 00       		.uleb128 0
+ 950 02cc 09       		.uleb128 0x9
+ 951 02cd 00000000 		.4byte	.LASF35
+ 952 02d1 05       		.byte	0x5
+ 953 02d2 250B     		.2byte	0x250b
+ 954 02d4 000000E7 		.4byte	0xe7
+ 955 02d8 04       		.byte	0x4
+ 956 02d9 01       		.byte	0x1
+ 957 02da 16       		.byte	0x16
+ 958 02db 02       		.byte	0x2
+ 959 02dc 23       		.byte	0x23
+ 960 02dd 00       		.uleb128 0
+ 961 02de 09       		.uleb128 0x9
+ 962 02df 00000000 		.4byte	.LASF36
+ 963 02e3 05       		.byte	0x5
+ 964 02e4 250C     		.2byte	0x250c
+ 965 02e6 000000E7 		.4byte	0xe7
+ 966 02ea 04       		.byte	0x4
+ 967 02eb 01       		.byte	0x1
+ 968 02ec 17       		.byte	0x17
+ 969 02ed 02       		.byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 18
+
+
+ 970 02ee 23       		.byte	0x23
+ 971 02ef 00       		.uleb128 0
+ 972 02f0 09       		.uleb128 0x9
+ 973 02f1 00000000 		.4byte	.LASF37
+ 974 02f5 05       		.byte	0x5
+ 975 02f6 250D     		.2byte	0x250d
+ 976 02f8 000000E7 		.4byte	0xe7
+ 977 02fc 04       		.byte	0x4
+ 978 02fd 01       		.byte	0x1
+ 979 02fe 18       		.byte	0x18
+ 980 02ff 02       		.byte	0x2
+ 981 0300 23       		.byte	0x23
+ 982 0301 00       		.uleb128 0
+ 983 0302 09       		.uleb128 0x9
+ 984 0303 00000000 		.4byte	.LASF38
+ 985 0307 05       		.byte	0x5
+ 986 0308 250E     		.2byte	0x250e
+ 987 030a 000000E7 		.4byte	0xe7
+ 988 030e 04       		.byte	0x4
+ 989 030f 01       		.byte	0x1
+ 990 0310 19       		.byte	0x19
+ 991 0311 02       		.byte	0x2
+ 992 0312 23       		.byte	0x23
+ 993 0313 00       		.uleb128 0
+ 994 0314 09       		.uleb128 0x9
+ 995 0315 00000000 		.4byte	.LASF39
+ 996 0319 05       		.byte	0x5
+ 997 031a 250F     		.2byte	0x250f
+ 998 031c 000000E7 		.4byte	0xe7
+ 999 0320 04       		.byte	0x4
+ 1000 0321 01       		.byte	0x1
+ 1001 0322 1A       		.byte	0x1a
+ 1002 0323 02       		.byte	0x2
+ 1003 0324 23       		.byte	0x23
+ 1004 0325 00       		.uleb128 0
+ 1005 0326 09       		.uleb128 0x9
+ 1006 0327 00000000 		.4byte	.LASF40
+ 1007 032b 05       		.byte	0x5
+ 1008 032c 2510     		.2byte	0x2510
+ 1009 032e 000000E7 		.4byte	0xe7
+ 1010 0332 04       		.byte	0x4
+ 1011 0333 01       		.byte	0x1
+ 1012 0334 1B       		.byte	0x1b
+ 1013 0335 02       		.byte	0x2
+ 1014 0336 23       		.byte	0x23
+ 1015 0337 00       		.uleb128 0
+ 1016 0338 09       		.uleb128 0x9
+ 1017 0339 00000000 		.4byte	.LASF41
+ 1018 033d 05       		.byte	0x5
+ 1019 033e 2511     		.2byte	0x2511
+ 1020 0340 000000E7 		.4byte	0xe7
+ 1021 0344 04       		.byte	0x4
+ 1022 0345 01       		.byte	0x1
+ 1023 0346 1C       		.byte	0x1c
+ 1024 0347 02       		.byte	0x2
+ 1025 0348 23       		.byte	0x23
+ 1026 0349 00       		.uleb128 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 19
+
+
+ 1027 034a 09       		.uleb128 0x9
+ 1028 034b 00000000 		.4byte	.LASF42
+ 1029 034f 05       		.byte	0x5
+ 1030 0350 2512     		.2byte	0x2512
+ 1031 0352 000000E7 		.4byte	0xe7
+ 1032 0356 04       		.byte	0x4
+ 1033 0357 01       		.byte	0x1
+ 1034 0358 1D       		.byte	0x1d
+ 1035 0359 02       		.byte	0x2
+ 1036 035a 23       		.byte	0x23
+ 1037 035b 00       		.uleb128 0
+ 1038 035c 09       		.uleb128 0x9
+ 1039 035d 00000000 		.4byte	.LASF43
+ 1040 0361 05       		.byte	0x5
+ 1041 0362 2513     		.2byte	0x2513
+ 1042 0364 000000E7 		.4byte	0xe7
+ 1043 0368 04       		.byte	0x4
+ 1044 0369 01       		.byte	0x1
+ 1045 036a 1E       		.byte	0x1e
+ 1046 036b 02       		.byte	0x2
+ 1047 036c 23       		.byte	0x23
+ 1048 036d 00       		.uleb128 0
+ 1049 036e 09       		.uleb128 0x9
+ 1050 036f 00000000 		.4byte	.LASF44
+ 1051 0373 05       		.byte	0x5
+ 1052 0374 2514     		.2byte	0x2514
+ 1053 0376 000000E7 		.4byte	0xe7
+ 1054 037a 04       		.byte	0x4
+ 1055 037b 01       		.byte	0x1
+ 1056 037c 1F       		.byte	0x1f
+ 1057 037d 02       		.byte	0x2
+ 1058 037e 23       		.byte	0x23
+ 1059 037f 00       		.uleb128 0
+ 1060 0380 00       		.byte	0
+ 1061 0381 0B       		.uleb128 0xb
+ 1062 0382 04       		.byte	0x4
+ 1063 0383 05       		.byte	0x5
+ 1064 0384 2501     		.2byte	0x2501
+ 1065 0386 0000039F 		.4byte	0x39f
+ 1066 038a 0C       		.uleb128 0xc
+ 1067 038b 5200     		.string	"R"
+ 1068 038d 05       		.byte	0x5
+ 1069 038e 2502     		.2byte	0x2502
+ 1070 0390 000000E7 		.4byte	0xe7
+ 1071 0394 0C       		.uleb128 0xc
+ 1072 0395 4200     		.string	"B"
+ 1073 0397 05       		.byte	0x5
+ 1074 0398 2515     		.2byte	0x2515
+ 1075 039a 00000245 		.4byte	0x245
+ 1076 039e 00       		.byte	0
+ 1077 039f 08       		.uleb128 0x8
+ 1078 03a0 04       		.byte	0x4
+ 1079 03a1 05       		.byte	0x5
+ 1080 03a2 251C     		.2byte	0x251c
+ 1081 03a4 000004DB 		.4byte	0x4db
+ 1082 03a8 09       		.uleb128 0x9
+ 1083 03a9 00000000 		.4byte	.LASF23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 20
+
+
+ 1084 03ad 05       		.byte	0x5
+ 1085 03ae 251D     		.2byte	0x251d
+ 1086 03b0 000000E7 		.4byte	0xe7
+ 1087 03b4 04       		.byte	0x4
+ 1088 03b5 10       		.byte	0x10
+ 1089 03b6 00       		.byte	0
+ 1090 03b7 02       		.byte	0x2
+ 1091 03b8 23       		.byte	0x23
+ 1092 03b9 00       		.uleb128 0
+ 1093 03ba 09       		.uleb128 0x9
+ 1094 03bb 00000000 		.4byte	.LASF45
+ 1095 03bf 05       		.byte	0x5
+ 1096 03c0 251E     		.2byte	0x251e
+ 1097 03c2 000000E7 		.4byte	0xe7
+ 1098 03c6 04       		.byte	0x4
+ 1099 03c7 01       		.byte	0x1
+ 1100 03c8 10       		.byte	0x10
+ 1101 03c9 02       		.byte	0x2
+ 1102 03ca 23       		.byte	0x23
+ 1103 03cb 00       		.uleb128 0
+ 1104 03cc 09       		.uleb128 0x9
+ 1105 03cd 00000000 		.4byte	.LASF46
+ 1106 03d1 05       		.byte	0x5
+ 1107 03d2 251F     		.2byte	0x251f
+ 1108 03d4 000000E7 		.4byte	0xe7
+ 1109 03d8 04       		.byte	0x4
+ 1110 03d9 01       		.byte	0x1
+ 1111 03da 11       		.byte	0x11
+ 1112 03db 02       		.byte	0x2
+ 1113 03dc 23       		.byte	0x23
+ 1114 03dd 00       		.uleb128 0
+ 1115 03de 09       		.uleb128 0x9
+ 1116 03df 00000000 		.4byte	.LASF47
+ 1117 03e3 05       		.byte	0x5
+ 1118 03e4 2520     		.2byte	0x2520
+ 1119 03e6 000000E7 		.4byte	0xe7
+ 1120 03ea 04       		.byte	0x4
+ 1121 03eb 01       		.byte	0x1
+ 1122 03ec 12       		.byte	0x12
+ 1123 03ed 02       		.byte	0x2
+ 1124 03ee 23       		.byte	0x23
+ 1125 03ef 00       		.uleb128 0
+ 1126 03f0 09       		.uleb128 0x9
+ 1127 03f1 00000000 		.4byte	.LASF48
+ 1128 03f5 05       		.byte	0x5
+ 1129 03f6 2521     		.2byte	0x2521
+ 1130 03f8 000000E7 		.4byte	0xe7
+ 1131 03fc 04       		.byte	0x4
+ 1132 03fd 01       		.byte	0x1
+ 1133 03fe 13       		.byte	0x13
+ 1134 03ff 02       		.byte	0x2
+ 1135 0400 23       		.byte	0x23
+ 1136 0401 00       		.uleb128 0
+ 1137 0402 09       		.uleb128 0x9
+ 1138 0403 00000000 		.4byte	.LASF49
+ 1139 0407 05       		.byte	0x5
+ 1140 0408 2522     		.2byte	0x2522
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 21
+
+
+ 1141 040a 000000E7 		.4byte	0xe7
+ 1142 040e 04       		.byte	0x4
+ 1143 040f 01       		.byte	0x1
+ 1144 0410 14       		.byte	0x14
+ 1145 0411 02       		.byte	0x2
+ 1146 0412 23       		.byte	0x23
+ 1147 0413 00       		.uleb128 0
+ 1148 0414 09       		.uleb128 0x9
+ 1149 0415 00000000 		.4byte	.LASF50
+ 1150 0419 05       		.byte	0x5
+ 1151 041a 2523     		.2byte	0x2523
+ 1152 041c 000000E7 		.4byte	0xe7
+ 1153 0420 04       		.byte	0x4
+ 1154 0421 01       		.byte	0x1
+ 1155 0422 15       		.byte	0x15
+ 1156 0423 02       		.byte	0x2
+ 1157 0424 23       		.byte	0x23
+ 1158 0425 00       		.uleb128 0
+ 1159 0426 09       		.uleb128 0x9
+ 1160 0427 00000000 		.4byte	.LASF51
+ 1161 042b 05       		.byte	0x5
+ 1162 042c 2524     		.2byte	0x2524
+ 1163 042e 000000E7 		.4byte	0xe7
+ 1164 0432 04       		.byte	0x4
+ 1165 0433 01       		.byte	0x1
+ 1166 0434 16       		.byte	0x16
+ 1167 0435 02       		.byte	0x2
+ 1168 0436 23       		.byte	0x23
+ 1169 0437 00       		.uleb128 0
+ 1170 0438 09       		.uleb128 0x9
+ 1171 0439 00000000 		.4byte	.LASF52
+ 1172 043d 05       		.byte	0x5
+ 1173 043e 2525     		.2byte	0x2525
+ 1174 0440 000000E7 		.4byte	0xe7
+ 1175 0444 04       		.byte	0x4
+ 1176 0445 01       		.byte	0x1
+ 1177 0446 17       		.byte	0x17
+ 1178 0447 02       		.byte	0x2
+ 1179 0448 23       		.byte	0x23
+ 1180 0449 00       		.uleb128 0
+ 1181 044a 09       		.uleb128 0x9
+ 1182 044b 00000000 		.4byte	.LASF53
+ 1183 044f 05       		.byte	0x5
+ 1184 0450 2526     		.2byte	0x2526
+ 1185 0452 000000E7 		.4byte	0xe7
+ 1186 0456 04       		.byte	0x4
+ 1187 0457 01       		.byte	0x1
+ 1188 0458 18       		.byte	0x18
+ 1189 0459 02       		.byte	0x2
+ 1190 045a 23       		.byte	0x23
+ 1191 045b 00       		.uleb128 0
+ 1192 045c 09       		.uleb128 0x9
+ 1193 045d 00000000 		.4byte	.LASF54
+ 1194 0461 05       		.byte	0x5
+ 1195 0462 2527     		.2byte	0x2527
+ 1196 0464 000000E7 		.4byte	0xe7
+ 1197 0468 04       		.byte	0x4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 22
+
+
+ 1198 0469 01       		.byte	0x1
+ 1199 046a 19       		.byte	0x19
+ 1200 046b 02       		.byte	0x2
+ 1201 046c 23       		.byte	0x23
+ 1202 046d 00       		.uleb128 0
+ 1203 046e 09       		.uleb128 0x9
+ 1204 046f 00000000 		.4byte	.LASF55
+ 1205 0473 05       		.byte	0x5
+ 1206 0474 2528     		.2byte	0x2528
+ 1207 0476 000000E7 		.4byte	0xe7
+ 1208 047a 04       		.byte	0x4
+ 1209 047b 01       		.byte	0x1
+ 1210 047c 1A       		.byte	0x1a
+ 1211 047d 02       		.byte	0x2
+ 1212 047e 23       		.byte	0x23
+ 1213 047f 00       		.uleb128 0
+ 1214 0480 09       		.uleb128 0x9
+ 1215 0481 00000000 		.4byte	.LASF56
+ 1216 0485 05       		.byte	0x5
+ 1217 0486 2529     		.2byte	0x2529
+ 1218 0488 000000E7 		.4byte	0xe7
+ 1219 048c 04       		.byte	0x4
+ 1220 048d 01       		.byte	0x1
+ 1221 048e 1B       		.byte	0x1b
+ 1222 048f 02       		.byte	0x2
+ 1223 0490 23       		.byte	0x23
+ 1224 0491 00       		.uleb128 0
+ 1225 0492 09       		.uleb128 0x9
+ 1226 0493 00000000 		.4byte	.LASF57
+ 1227 0497 05       		.byte	0x5
+ 1228 0498 252A     		.2byte	0x252a
+ 1229 049a 000000E7 		.4byte	0xe7
+ 1230 049e 04       		.byte	0x4
+ 1231 049f 01       		.byte	0x1
+ 1232 04a0 1C       		.byte	0x1c
+ 1233 04a1 02       		.byte	0x2
+ 1234 04a2 23       		.byte	0x23
+ 1235 04a3 00       		.uleb128 0
+ 1236 04a4 09       		.uleb128 0x9
+ 1237 04a5 00000000 		.4byte	.LASF58
+ 1238 04a9 05       		.byte	0x5
+ 1239 04aa 252B     		.2byte	0x252b
+ 1240 04ac 000000E7 		.4byte	0xe7
+ 1241 04b0 04       		.byte	0x4
+ 1242 04b1 01       		.byte	0x1
+ 1243 04b2 1D       		.byte	0x1d
+ 1244 04b3 02       		.byte	0x2
+ 1245 04b4 23       		.byte	0x23
+ 1246 04b5 00       		.uleb128 0
+ 1247 04b6 09       		.uleb128 0x9
+ 1248 04b7 00000000 		.4byte	.LASF59
+ 1249 04bb 05       		.byte	0x5
+ 1250 04bc 252C     		.2byte	0x252c
+ 1251 04be 000000E7 		.4byte	0xe7
+ 1252 04c2 04       		.byte	0x4
+ 1253 04c3 01       		.byte	0x1
+ 1254 04c4 1E       		.byte	0x1e
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 23
+
+
+ 1255 04c5 02       		.byte	0x2
+ 1256 04c6 23       		.byte	0x23
+ 1257 04c7 00       		.uleb128 0
+ 1258 04c8 09       		.uleb128 0x9
+ 1259 04c9 00000000 		.4byte	.LASF60
+ 1260 04cd 05       		.byte	0x5
+ 1261 04ce 252D     		.2byte	0x252d
+ 1262 04d0 000000E7 		.4byte	0xe7
+ 1263 04d4 04       		.byte	0x4
+ 1264 04d5 01       		.byte	0x1
+ 1265 04d6 1F       		.byte	0x1f
+ 1266 04d7 02       		.byte	0x2
+ 1267 04d8 23       		.byte	0x23
+ 1268 04d9 00       		.uleb128 0
+ 1269 04da 00       		.byte	0
+ 1270 04db 0B       		.uleb128 0xb
+ 1271 04dc 04       		.byte	0x4
+ 1272 04dd 05       		.byte	0x5
+ 1273 04de 251A     		.2byte	0x251a
+ 1274 04e0 000004F9 		.4byte	0x4f9
+ 1275 04e4 0C       		.uleb128 0xc
+ 1276 04e5 5200     		.string	"R"
+ 1277 04e7 05       		.byte	0x5
+ 1278 04e8 251B     		.2byte	0x251b
+ 1279 04ea 000000E7 		.4byte	0xe7
+ 1280 04ee 0C       		.uleb128 0xc
+ 1281 04ef 4200     		.string	"B"
+ 1282 04f1 05       		.byte	0x5
+ 1283 04f2 252E     		.2byte	0x252e
+ 1284 04f4 0000039F 		.4byte	0x39f
+ 1285 04f8 00       		.byte	0
+ 1286 04f9 08       		.uleb128 0x8
+ 1287 04fa 04       		.byte	0x4
+ 1288 04fb 05       		.byte	0x5
+ 1289 04fc 2535     		.2byte	0x2535
+ 1290 04fe 00000635 		.4byte	0x635
+ 1291 0502 09       		.uleb128 0x9
+ 1292 0503 00000000 		.4byte	.LASF23
+ 1293 0507 05       		.byte	0x5
+ 1294 0508 2536     		.2byte	0x2536
+ 1295 050a 000000E7 		.4byte	0xe7
+ 1296 050e 04       		.byte	0x4
+ 1297 050f 10       		.byte	0x10
+ 1298 0510 00       		.byte	0
+ 1299 0511 02       		.byte	0x2
+ 1300 0512 23       		.byte	0x23
+ 1301 0513 00       		.uleb128 0
+ 1302 0514 09       		.uleb128 0x9
+ 1303 0515 00000000 		.4byte	.LASF61
+ 1304 0519 05       		.byte	0x5
+ 1305 051a 2537     		.2byte	0x2537
+ 1306 051c 000000E7 		.4byte	0xe7
+ 1307 0520 04       		.byte	0x4
+ 1308 0521 01       		.byte	0x1
+ 1309 0522 10       		.byte	0x10
+ 1310 0523 02       		.byte	0x2
+ 1311 0524 23       		.byte	0x23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 24
+
+
+ 1312 0525 00       		.uleb128 0
+ 1313 0526 09       		.uleb128 0x9
+ 1314 0527 00000000 		.4byte	.LASF62
+ 1315 052b 05       		.byte	0x5
+ 1316 052c 2538     		.2byte	0x2538
+ 1317 052e 000000E7 		.4byte	0xe7
+ 1318 0532 04       		.byte	0x4
+ 1319 0533 01       		.byte	0x1
+ 1320 0534 11       		.byte	0x11
+ 1321 0535 02       		.byte	0x2
+ 1322 0536 23       		.byte	0x23
+ 1323 0537 00       		.uleb128 0
+ 1324 0538 09       		.uleb128 0x9
+ 1325 0539 00000000 		.4byte	.LASF63
+ 1326 053d 05       		.byte	0x5
+ 1327 053e 2539     		.2byte	0x2539
+ 1328 0540 000000E7 		.4byte	0xe7
+ 1329 0544 04       		.byte	0x4
+ 1330 0545 01       		.byte	0x1
+ 1331 0546 12       		.byte	0x12
+ 1332 0547 02       		.byte	0x2
+ 1333 0548 23       		.byte	0x23
+ 1334 0549 00       		.uleb128 0
+ 1335 054a 09       		.uleb128 0x9
+ 1336 054b 00000000 		.4byte	.LASF64
+ 1337 054f 05       		.byte	0x5
+ 1338 0550 253A     		.2byte	0x253a
+ 1339 0552 000000E7 		.4byte	0xe7
+ 1340 0556 04       		.byte	0x4
+ 1341 0557 01       		.byte	0x1
+ 1342 0558 13       		.byte	0x13
+ 1343 0559 02       		.byte	0x2
+ 1344 055a 23       		.byte	0x23
+ 1345 055b 00       		.uleb128 0
+ 1346 055c 09       		.uleb128 0x9
+ 1347 055d 00000000 		.4byte	.LASF65
+ 1348 0561 05       		.byte	0x5
+ 1349 0562 253B     		.2byte	0x253b
+ 1350 0564 000000E7 		.4byte	0xe7
+ 1351 0568 04       		.byte	0x4
+ 1352 0569 01       		.byte	0x1
+ 1353 056a 14       		.byte	0x14
+ 1354 056b 02       		.byte	0x2
+ 1355 056c 23       		.byte	0x23
+ 1356 056d 00       		.uleb128 0
+ 1357 056e 09       		.uleb128 0x9
+ 1358 056f 00000000 		.4byte	.LASF66
+ 1359 0573 05       		.byte	0x5
+ 1360 0574 253C     		.2byte	0x253c
+ 1361 0576 000000E7 		.4byte	0xe7
+ 1362 057a 04       		.byte	0x4
+ 1363 057b 01       		.byte	0x1
+ 1364 057c 15       		.byte	0x15
+ 1365 057d 02       		.byte	0x2
+ 1366 057e 23       		.byte	0x23
+ 1367 057f 00       		.uleb128 0
+ 1368 0580 09       		.uleb128 0x9
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 25
+
+
+ 1369 0581 00000000 		.4byte	.LASF67
+ 1370 0585 05       		.byte	0x5
+ 1371 0586 253D     		.2byte	0x253d
+ 1372 0588 000000E7 		.4byte	0xe7
+ 1373 058c 04       		.byte	0x4
+ 1374 058d 01       		.byte	0x1
+ 1375 058e 16       		.byte	0x16
+ 1376 058f 02       		.byte	0x2
+ 1377 0590 23       		.byte	0x23
+ 1378 0591 00       		.uleb128 0
+ 1379 0592 09       		.uleb128 0x9
+ 1380 0593 00000000 		.4byte	.LASF68
+ 1381 0597 05       		.byte	0x5
+ 1382 0598 253E     		.2byte	0x253e
+ 1383 059a 000000E7 		.4byte	0xe7
+ 1384 059e 04       		.byte	0x4
+ 1385 059f 01       		.byte	0x1
+ 1386 05a0 17       		.byte	0x17
+ 1387 05a1 02       		.byte	0x2
+ 1388 05a2 23       		.byte	0x23
+ 1389 05a3 00       		.uleb128 0
+ 1390 05a4 09       		.uleb128 0x9
+ 1391 05a5 00000000 		.4byte	.LASF69
+ 1392 05a9 05       		.byte	0x5
+ 1393 05aa 253F     		.2byte	0x253f
+ 1394 05ac 000000E7 		.4byte	0xe7
+ 1395 05b0 04       		.byte	0x4
+ 1396 05b1 01       		.byte	0x1
+ 1397 05b2 18       		.byte	0x18
+ 1398 05b3 02       		.byte	0x2
+ 1399 05b4 23       		.byte	0x23
+ 1400 05b5 00       		.uleb128 0
+ 1401 05b6 09       		.uleb128 0x9
+ 1402 05b7 00000000 		.4byte	.LASF70
+ 1403 05bb 05       		.byte	0x5
+ 1404 05bc 2540     		.2byte	0x2540
+ 1405 05be 000000E7 		.4byte	0xe7
+ 1406 05c2 04       		.byte	0x4
+ 1407 05c3 01       		.byte	0x1
+ 1408 05c4 19       		.byte	0x19
+ 1409 05c5 02       		.byte	0x2
+ 1410 05c6 23       		.byte	0x23
+ 1411 05c7 00       		.uleb128 0
+ 1412 05c8 09       		.uleb128 0x9
+ 1413 05c9 00000000 		.4byte	.LASF71
+ 1414 05cd 05       		.byte	0x5
+ 1415 05ce 2541     		.2byte	0x2541
+ 1416 05d0 000000E7 		.4byte	0xe7
+ 1417 05d4 04       		.byte	0x4
+ 1418 05d5 01       		.byte	0x1
+ 1419 05d6 1A       		.byte	0x1a
+ 1420 05d7 02       		.byte	0x2
+ 1421 05d8 23       		.byte	0x23
+ 1422 05d9 00       		.uleb128 0
+ 1423 05da 09       		.uleb128 0x9
+ 1424 05db 00000000 		.4byte	.LASF72
+ 1425 05df 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 26
+
+
+ 1426 05e0 2542     		.2byte	0x2542
+ 1427 05e2 000000E7 		.4byte	0xe7
+ 1428 05e6 04       		.byte	0x4
+ 1429 05e7 01       		.byte	0x1
+ 1430 05e8 1B       		.byte	0x1b
+ 1431 05e9 02       		.byte	0x2
+ 1432 05ea 23       		.byte	0x23
+ 1433 05eb 00       		.uleb128 0
+ 1434 05ec 09       		.uleb128 0x9
+ 1435 05ed 00000000 		.4byte	.LASF73
+ 1436 05f1 05       		.byte	0x5
+ 1437 05f2 2543     		.2byte	0x2543
+ 1438 05f4 000000E7 		.4byte	0xe7
+ 1439 05f8 04       		.byte	0x4
+ 1440 05f9 01       		.byte	0x1
+ 1441 05fa 1C       		.byte	0x1c
+ 1442 05fb 02       		.byte	0x2
+ 1443 05fc 23       		.byte	0x23
+ 1444 05fd 00       		.uleb128 0
+ 1445 05fe 09       		.uleb128 0x9
+ 1446 05ff 00000000 		.4byte	.LASF74
+ 1447 0603 05       		.byte	0x5
+ 1448 0604 2544     		.2byte	0x2544
+ 1449 0606 000000E7 		.4byte	0xe7
+ 1450 060a 04       		.byte	0x4
+ 1451 060b 01       		.byte	0x1
+ 1452 060c 1D       		.byte	0x1d
+ 1453 060d 02       		.byte	0x2
+ 1454 060e 23       		.byte	0x23
+ 1455 060f 00       		.uleb128 0
+ 1456 0610 09       		.uleb128 0x9
+ 1457 0611 00000000 		.4byte	.LASF75
+ 1458 0615 05       		.byte	0x5
+ 1459 0616 2545     		.2byte	0x2545
+ 1460 0618 000000E7 		.4byte	0xe7
+ 1461 061c 04       		.byte	0x4
+ 1462 061d 01       		.byte	0x1
+ 1463 061e 1E       		.byte	0x1e
+ 1464 061f 02       		.byte	0x2
+ 1465 0620 23       		.byte	0x23
+ 1466 0621 00       		.uleb128 0
+ 1467 0622 09       		.uleb128 0x9
+ 1468 0623 00000000 		.4byte	.LASF76
+ 1469 0627 05       		.byte	0x5
+ 1470 0628 2546     		.2byte	0x2546
+ 1471 062a 000000E7 		.4byte	0xe7
+ 1472 062e 04       		.byte	0x4
+ 1473 062f 01       		.byte	0x1
+ 1474 0630 1F       		.byte	0x1f
+ 1475 0631 02       		.byte	0x2
+ 1476 0632 23       		.byte	0x23
+ 1477 0633 00       		.uleb128 0
+ 1478 0634 00       		.byte	0
+ 1479 0635 0B       		.uleb128 0xb
+ 1480 0636 04       		.byte	0x4
+ 1481 0637 05       		.byte	0x5
+ 1482 0638 2533     		.2byte	0x2533
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 27
+
+
+ 1483 063a 00000653 		.4byte	0x653
+ 1484 063e 0C       		.uleb128 0xc
+ 1485 063f 5200     		.string	"R"
+ 1486 0641 05       		.byte	0x5
+ 1487 0642 2534     		.2byte	0x2534
+ 1488 0644 000000E7 		.4byte	0xe7
+ 1489 0648 0C       		.uleb128 0xc
+ 1490 0649 4200     		.string	"B"
+ 1491 064b 05       		.byte	0x5
+ 1492 064c 2547     		.2byte	0x2547
+ 1493 064e 000004F9 		.4byte	0x4f9
+ 1494 0652 00       		.byte	0
+ 1495 0653 08       		.uleb128 0x8
+ 1496 0654 04       		.byte	0x4
+ 1497 0655 05       		.byte	0x5
+ 1498 0656 254E     		.2byte	0x254e
+ 1499 0658 0000078F 		.4byte	0x78f
+ 1500 065c 09       		.uleb128 0x9
+ 1501 065d 00000000 		.4byte	.LASF23
+ 1502 0661 05       		.byte	0x5
+ 1503 0662 254F     		.2byte	0x254f
+ 1504 0664 000000E7 		.4byte	0xe7
+ 1505 0668 04       		.byte	0x4
+ 1506 0669 10       		.byte	0x10
+ 1507 066a 00       		.byte	0
+ 1508 066b 02       		.byte	0x2
+ 1509 066c 23       		.byte	0x23
+ 1510 066d 00       		.uleb128 0
+ 1511 066e 09       		.uleb128 0x9
+ 1512 066f 00000000 		.4byte	.LASF77
+ 1513 0673 05       		.byte	0x5
+ 1514 0674 2550     		.2byte	0x2550
+ 1515 0676 000000E7 		.4byte	0xe7
+ 1516 067a 04       		.byte	0x4
+ 1517 067b 01       		.byte	0x1
+ 1518 067c 10       		.byte	0x10
+ 1519 067d 02       		.byte	0x2
+ 1520 067e 23       		.byte	0x23
+ 1521 067f 00       		.uleb128 0
+ 1522 0680 09       		.uleb128 0x9
+ 1523 0681 00000000 		.4byte	.LASF78
+ 1524 0685 05       		.byte	0x5
+ 1525 0686 2551     		.2byte	0x2551
+ 1526 0688 000000E7 		.4byte	0xe7
+ 1527 068c 04       		.byte	0x4
+ 1528 068d 01       		.byte	0x1
+ 1529 068e 11       		.byte	0x11
+ 1530 068f 02       		.byte	0x2
+ 1531 0690 23       		.byte	0x23
+ 1532 0691 00       		.uleb128 0
+ 1533 0692 09       		.uleb128 0x9
+ 1534 0693 00000000 		.4byte	.LASF79
+ 1535 0697 05       		.byte	0x5
+ 1536 0698 2552     		.2byte	0x2552
+ 1537 069a 000000E7 		.4byte	0xe7
+ 1538 069e 04       		.byte	0x4
+ 1539 069f 01       		.byte	0x1
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 28
+
+
+ 1540 06a0 12       		.byte	0x12
+ 1541 06a1 02       		.byte	0x2
+ 1542 06a2 23       		.byte	0x23
+ 1543 06a3 00       		.uleb128 0
+ 1544 06a4 09       		.uleb128 0x9
+ 1545 06a5 00000000 		.4byte	.LASF80
+ 1546 06a9 05       		.byte	0x5
+ 1547 06aa 2553     		.2byte	0x2553
+ 1548 06ac 000000E7 		.4byte	0xe7
+ 1549 06b0 04       		.byte	0x4
+ 1550 06b1 01       		.byte	0x1
+ 1551 06b2 13       		.byte	0x13
+ 1552 06b3 02       		.byte	0x2
+ 1553 06b4 23       		.byte	0x23
+ 1554 06b5 00       		.uleb128 0
+ 1555 06b6 09       		.uleb128 0x9
+ 1556 06b7 00000000 		.4byte	.LASF81
+ 1557 06bb 05       		.byte	0x5
+ 1558 06bc 2554     		.2byte	0x2554
+ 1559 06be 000000E7 		.4byte	0xe7
+ 1560 06c2 04       		.byte	0x4
+ 1561 06c3 01       		.byte	0x1
+ 1562 06c4 14       		.byte	0x14
+ 1563 06c5 02       		.byte	0x2
+ 1564 06c6 23       		.byte	0x23
+ 1565 06c7 00       		.uleb128 0
+ 1566 06c8 09       		.uleb128 0x9
+ 1567 06c9 00000000 		.4byte	.LASF82
+ 1568 06cd 05       		.byte	0x5
+ 1569 06ce 2555     		.2byte	0x2555
+ 1570 06d0 000000E7 		.4byte	0xe7
+ 1571 06d4 04       		.byte	0x4
+ 1572 06d5 01       		.byte	0x1
+ 1573 06d6 15       		.byte	0x15
+ 1574 06d7 02       		.byte	0x2
+ 1575 06d8 23       		.byte	0x23
+ 1576 06d9 00       		.uleb128 0
+ 1577 06da 09       		.uleb128 0x9
+ 1578 06db 00000000 		.4byte	.LASF83
+ 1579 06df 05       		.byte	0x5
+ 1580 06e0 2556     		.2byte	0x2556
+ 1581 06e2 000000E7 		.4byte	0xe7
+ 1582 06e6 04       		.byte	0x4
+ 1583 06e7 01       		.byte	0x1
+ 1584 06e8 16       		.byte	0x16
+ 1585 06e9 02       		.byte	0x2
+ 1586 06ea 23       		.byte	0x23
+ 1587 06eb 00       		.uleb128 0
+ 1588 06ec 09       		.uleb128 0x9
+ 1589 06ed 00000000 		.4byte	.LASF84
+ 1590 06f1 05       		.byte	0x5
+ 1591 06f2 2557     		.2byte	0x2557
+ 1592 06f4 000000E7 		.4byte	0xe7
+ 1593 06f8 04       		.byte	0x4
+ 1594 06f9 01       		.byte	0x1
+ 1595 06fa 17       		.byte	0x17
+ 1596 06fb 02       		.byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 29
+
+
+ 1597 06fc 23       		.byte	0x23
+ 1598 06fd 00       		.uleb128 0
+ 1599 06fe 09       		.uleb128 0x9
+ 1600 06ff 00000000 		.4byte	.LASF85
+ 1601 0703 05       		.byte	0x5
+ 1602 0704 2558     		.2byte	0x2558
+ 1603 0706 000000E7 		.4byte	0xe7
+ 1604 070a 04       		.byte	0x4
+ 1605 070b 01       		.byte	0x1
+ 1606 070c 18       		.byte	0x18
+ 1607 070d 02       		.byte	0x2
+ 1608 070e 23       		.byte	0x23
+ 1609 070f 00       		.uleb128 0
+ 1610 0710 09       		.uleb128 0x9
+ 1611 0711 00000000 		.4byte	.LASF86
+ 1612 0715 05       		.byte	0x5
+ 1613 0716 2559     		.2byte	0x2559
+ 1614 0718 000000E7 		.4byte	0xe7
+ 1615 071c 04       		.byte	0x4
+ 1616 071d 01       		.byte	0x1
+ 1617 071e 19       		.byte	0x19
+ 1618 071f 02       		.byte	0x2
+ 1619 0720 23       		.byte	0x23
+ 1620 0721 00       		.uleb128 0
+ 1621 0722 09       		.uleb128 0x9
+ 1622 0723 00000000 		.4byte	.LASF87
+ 1623 0727 05       		.byte	0x5
+ 1624 0728 255A     		.2byte	0x255a
+ 1625 072a 000000E7 		.4byte	0xe7
+ 1626 072e 04       		.byte	0x4
+ 1627 072f 01       		.byte	0x1
+ 1628 0730 1A       		.byte	0x1a
+ 1629 0731 02       		.byte	0x2
+ 1630 0732 23       		.byte	0x23
+ 1631 0733 00       		.uleb128 0
+ 1632 0734 09       		.uleb128 0x9
+ 1633 0735 00000000 		.4byte	.LASF88
+ 1634 0739 05       		.byte	0x5
+ 1635 073a 255B     		.2byte	0x255b
+ 1636 073c 000000E7 		.4byte	0xe7
+ 1637 0740 04       		.byte	0x4
+ 1638 0741 01       		.byte	0x1
+ 1639 0742 1B       		.byte	0x1b
+ 1640 0743 02       		.byte	0x2
+ 1641 0744 23       		.byte	0x23
+ 1642 0745 00       		.uleb128 0
+ 1643 0746 09       		.uleb128 0x9
+ 1644 0747 00000000 		.4byte	.LASF89
+ 1645 074b 05       		.byte	0x5
+ 1646 074c 255C     		.2byte	0x255c
+ 1647 074e 000000E7 		.4byte	0xe7
+ 1648 0752 04       		.byte	0x4
+ 1649 0753 01       		.byte	0x1
+ 1650 0754 1C       		.byte	0x1c
+ 1651 0755 02       		.byte	0x2
+ 1652 0756 23       		.byte	0x23
+ 1653 0757 00       		.uleb128 0
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 30
+
+
+ 1654 0758 09       		.uleb128 0x9
+ 1655 0759 00000000 		.4byte	.LASF90
+ 1656 075d 05       		.byte	0x5
+ 1657 075e 255D     		.2byte	0x255d
+ 1658 0760 000000E7 		.4byte	0xe7
+ 1659 0764 04       		.byte	0x4
+ 1660 0765 01       		.byte	0x1
+ 1661 0766 1D       		.byte	0x1d
+ 1662 0767 02       		.byte	0x2
+ 1663 0768 23       		.byte	0x23
+ 1664 0769 00       		.uleb128 0
+ 1665 076a 09       		.uleb128 0x9
+ 1666 076b 00000000 		.4byte	.LASF91
+ 1667 076f 05       		.byte	0x5
+ 1668 0770 255E     		.2byte	0x255e
+ 1669 0772 000000E7 		.4byte	0xe7
+ 1670 0776 04       		.byte	0x4
+ 1671 0777 01       		.byte	0x1
+ 1672 0778 1E       		.byte	0x1e
+ 1673 0779 02       		.byte	0x2
+ 1674 077a 23       		.byte	0x23
+ 1675 077b 00       		.uleb128 0
+ 1676 077c 09       		.uleb128 0x9
+ 1677 077d 00000000 		.4byte	.LASF92
+ 1678 0781 05       		.byte	0x5
+ 1679 0782 255F     		.2byte	0x255f
+ 1680 0784 000000E7 		.4byte	0xe7
+ 1681 0788 04       		.byte	0x4
+ 1682 0789 01       		.byte	0x1
+ 1683 078a 1F       		.byte	0x1f
+ 1684 078b 02       		.byte	0x2
+ 1685 078c 23       		.byte	0x23
+ 1686 078d 00       		.uleb128 0
+ 1687 078e 00       		.byte	0
+ 1688 078f 0B       		.uleb128 0xb
+ 1689 0790 04       		.byte	0x4
+ 1690 0791 05       		.byte	0x5
+ 1691 0792 254C     		.2byte	0x254c
+ 1692 0794 000007AD 		.4byte	0x7ad
+ 1693 0798 0C       		.uleb128 0xc
+ 1694 0799 5200     		.string	"R"
+ 1695 079b 05       		.byte	0x5
+ 1696 079c 254D     		.2byte	0x254d
+ 1697 079e 000000E7 		.4byte	0xe7
+ 1698 07a2 0C       		.uleb128 0xc
+ 1699 07a3 4200     		.string	"B"
+ 1700 07a5 05       		.byte	0x5
+ 1701 07a6 2560     		.2byte	0x2560
+ 1702 07a8 00000653 		.4byte	0x653
+ 1703 07ac 00       		.byte	0
+ 1704 07ad 08       		.uleb128 0x8
+ 1705 07ae 04       		.byte	0x4
+ 1706 07af 05       		.byte	0x5
+ 1707 07b0 2567     		.2byte	0x2567
+ 1708 07b2 000008E9 		.4byte	0x8e9
+ 1709 07b6 09       		.uleb128 0x9
+ 1710 07b7 00000000 		.4byte	.LASF23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 31
+
+
+ 1711 07bb 05       		.byte	0x5
+ 1712 07bc 2568     		.2byte	0x2568
+ 1713 07be 000000E7 		.4byte	0xe7
+ 1714 07c2 04       		.byte	0x4
+ 1715 07c3 10       		.byte	0x10
+ 1716 07c4 00       		.byte	0
+ 1717 07c5 02       		.byte	0x2
+ 1718 07c6 23       		.byte	0x23
+ 1719 07c7 00       		.uleb128 0
+ 1720 07c8 09       		.uleb128 0x9
+ 1721 07c9 00000000 		.4byte	.LASF93
+ 1722 07cd 05       		.byte	0x5
+ 1723 07ce 2569     		.2byte	0x2569
+ 1724 07d0 000000E7 		.4byte	0xe7
+ 1725 07d4 04       		.byte	0x4
+ 1726 07d5 01       		.byte	0x1
+ 1727 07d6 10       		.byte	0x10
+ 1728 07d7 02       		.byte	0x2
+ 1729 07d8 23       		.byte	0x23
+ 1730 07d9 00       		.uleb128 0
+ 1731 07da 09       		.uleb128 0x9
+ 1732 07db 00000000 		.4byte	.LASF94
+ 1733 07df 05       		.byte	0x5
+ 1734 07e0 256A     		.2byte	0x256a
+ 1735 07e2 000000E7 		.4byte	0xe7
+ 1736 07e6 04       		.byte	0x4
+ 1737 07e7 01       		.byte	0x1
+ 1738 07e8 11       		.byte	0x11
+ 1739 07e9 02       		.byte	0x2
+ 1740 07ea 23       		.byte	0x23
+ 1741 07eb 00       		.uleb128 0
+ 1742 07ec 09       		.uleb128 0x9
+ 1743 07ed 00000000 		.4byte	.LASF95
+ 1744 07f1 05       		.byte	0x5
+ 1745 07f2 256B     		.2byte	0x256b
+ 1746 07f4 000000E7 		.4byte	0xe7
+ 1747 07f8 04       		.byte	0x4
+ 1748 07f9 01       		.byte	0x1
+ 1749 07fa 12       		.byte	0x12
+ 1750 07fb 02       		.byte	0x2
+ 1751 07fc 23       		.byte	0x23
+ 1752 07fd 00       		.uleb128 0
+ 1753 07fe 09       		.uleb128 0x9
+ 1754 07ff 00000000 		.4byte	.LASF96
+ 1755 0803 05       		.byte	0x5
+ 1756 0804 256C     		.2byte	0x256c
+ 1757 0806 000000E7 		.4byte	0xe7
+ 1758 080a 04       		.byte	0x4
+ 1759 080b 01       		.byte	0x1
+ 1760 080c 13       		.byte	0x13
+ 1761 080d 02       		.byte	0x2
+ 1762 080e 23       		.byte	0x23
+ 1763 080f 00       		.uleb128 0
+ 1764 0810 09       		.uleb128 0x9
+ 1765 0811 00000000 		.4byte	.LASF97
+ 1766 0815 05       		.byte	0x5
+ 1767 0816 256D     		.2byte	0x256d
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 32
+
+
+ 1768 0818 000000E7 		.4byte	0xe7
+ 1769 081c 04       		.byte	0x4
+ 1770 081d 01       		.byte	0x1
+ 1771 081e 14       		.byte	0x14
+ 1772 081f 02       		.byte	0x2
+ 1773 0820 23       		.byte	0x23
+ 1774 0821 00       		.uleb128 0
+ 1775 0822 09       		.uleb128 0x9
+ 1776 0823 00000000 		.4byte	.LASF98
+ 1777 0827 05       		.byte	0x5
+ 1778 0828 256E     		.2byte	0x256e
+ 1779 082a 000000E7 		.4byte	0xe7
+ 1780 082e 04       		.byte	0x4
+ 1781 082f 01       		.byte	0x1
+ 1782 0830 15       		.byte	0x15
+ 1783 0831 02       		.byte	0x2
+ 1784 0832 23       		.byte	0x23
+ 1785 0833 00       		.uleb128 0
+ 1786 0834 09       		.uleb128 0x9
+ 1787 0835 00000000 		.4byte	.LASF99
+ 1788 0839 05       		.byte	0x5
+ 1789 083a 256F     		.2byte	0x256f
+ 1790 083c 000000E7 		.4byte	0xe7
+ 1791 0840 04       		.byte	0x4
+ 1792 0841 01       		.byte	0x1
+ 1793 0842 16       		.byte	0x16
+ 1794 0843 02       		.byte	0x2
+ 1795 0844 23       		.byte	0x23
+ 1796 0845 00       		.uleb128 0
+ 1797 0846 09       		.uleb128 0x9
+ 1798 0847 00000000 		.4byte	.LASF100
+ 1799 084b 05       		.byte	0x5
+ 1800 084c 2570     		.2byte	0x2570
+ 1801 084e 000000E7 		.4byte	0xe7
+ 1802 0852 04       		.byte	0x4
+ 1803 0853 01       		.byte	0x1
+ 1804 0854 17       		.byte	0x17
+ 1805 0855 02       		.byte	0x2
+ 1806 0856 23       		.byte	0x23
+ 1807 0857 00       		.uleb128 0
+ 1808 0858 09       		.uleb128 0x9
+ 1809 0859 00000000 		.4byte	.LASF101
+ 1810 085d 05       		.byte	0x5
+ 1811 085e 2571     		.2byte	0x2571
+ 1812 0860 000000E7 		.4byte	0xe7
+ 1813 0864 04       		.byte	0x4
+ 1814 0865 01       		.byte	0x1
+ 1815 0866 18       		.byte	0x18
+ 1816 0867 02       		.byte	0x2
+ 1817 0868 23       		.byte	0x23
+ 1818 0869 00       		.uleb128 0
+ 1819 086a 09       		.uleb128 0x9
+ 1820 086b 00000000 		.4byte	.LASF102
+ 1821 086f 05       		.byte	0x5
+ 1822 0870 2572     		.2byte	0x2572
+ 1823 0872 000000E7 		.4byte	0xe7
+ 1824 0876 04       		.byte	0x4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 33
+
+
+ 1825 0877 01       		.byte	0x1
+ 1826 0878 19       		.byte	0x19
+ 1827 0879 02       		.byte	0x2
+ 1828 087a 23       		.byte	0x23
+ 1829 087b 00       		.uleb128 0
+ 1830 087c 09       		.uleb128 0x9
+ 1831 087d 00000000 		.4byte	.LASF103
+ 1832 0881 05       		.byte	0x5
+ 1833 0882 2573     		.2byte	0x2573
+ 1834 0884 000000E7 		.4byte	0xe7
+ 1835 0888 04       		.byte	0x4
+ 1836 0889 01       		.byte	0x1
+ 1837 088a 1A       		.byte	0x1a
+ 1838 088b 02       		.byte	0x2
+ 1839 088c 23       		.byte	0x23
+ 1840 088d 00       		.uleb128 0
+ 1841 088e 09       		.uleb128 0x9
+ 1842 088f 00000000 		.4byte	.LASF104
+ 1843 0893 05       		.byte	0x5
+ 1844 0894 2574     		.2byte	0x2574
+ 1845 0896 000000E7 		.4byte	0xe7
+ 1846 089a 04       		.byte	0x4
+ 1847 089b 01       		.byte	0x1
+ 1848 089c 1B       		.byte	0x1b
+ 1849 089d 02       		.byte	0x2
+ 1850 089e 23       		.byte	0x23
+ 1851 089f 00       		.uleb128 0
+ 1852 08a0 09       		.uleb128 0x9
+ 1853 08a1 00000000 		.4byte	.LASF105
+ 1854 08a5 05       		.byte	0x5
+ 1855 08a6 2575     		.2byte	0x2575
+ 1856 08a8 000000E7 		.4byte	0xe7
+ 1857 08ac 04       		.byte	0x4
+ 1858 08ad 01       		.byte	0x1
+ 1859 08ae 1C       		.byte	0x1c
+ 1860 08af 02       		.byte	0x2
+ 1861 08b0 23       		.byte	0x23
+ 1862 08b1 00       		.uleb128 0
+ 1863 08b2 09       		.uleb128 0x9
+ 1864 08b3 00000000 		.4byte	.LASF106
+ 1865 08b7 05       		.byte	0x5
+ 1866 08b8 2576     		.2byte	0x2576
+ 1867 08ba 000000E7 		.4byte	0xe7
+ 1868 08be 04       		.byte	0x4
+ 1869 08bf 01       		.byte	0x1
+ 1870 08c0 1D       		.byte	0x1d
+ 1871 08c1 02       		.byte	0x2
+ 1872 08c2 23       		.byte	0x23
+ 1873 08c3 00       		.uleb128 0
+ 1874 08c4 09       		.uleb128 0x9
+ 1875 08c5 00000000 		.4byte	.LASF107
+ 1876 08c9 05       		.byte	0x5
+ 1877 08ca 2577     		.2byte	0x2577
+ 1878 08cc 000000E7 		.4byte	0xe7
+ 1879 08d0 04       		.byte	0x4
+ 1880 08d1 01       		.byte	0x1
+ 1881 08d2 1E       		.byte	0x1e
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 34
+
+
+ 1882 08d3 02       		.byte	0x2
+ 1883 08d4 23       		.byte	0x23
+ 1884 08d5 00       		.uleb128 0
+ 1885 08d6 09       		.uleb128 0x9
+ 1886 08d7 00000000 		.4byte	.LASF108
+ 1887 08db 05       		.byte	0x5
+ 1888 08dc 2578     		.2byte	0x2578
+ 1889 08de 000000E7 		.4byte	0xe7
+ 1890 08e2 04       		.byte	0x4
+ 1891 08e3 01       		.byte	0x1
+ 1892 08e4 1F       		.byte	0x1f
+ 1893 08e5 02       		.byte	0x2
+ 1894 08e6 23       		.byte	0x23
+ 1895 08e7 00       		.uleb128 0
+ 1896 08e8 00       		.byte	0
+ 1897 08e9 0B       		.uleb128 0xb
+ 1898 08ea 04       		.byte	0x4
+ 1899 08eb 05       		.byte	0x5
+ 1900 08ec 2565     		.2byte	0x2565
+ 1901 08ee 00000907 		.4byte	0x907
+ 1902 08f2 0C       		.uleb128 0xc
+ 1903 08f3 5200     		.string	"R"
+ 1904 08f5 05       		.byte	0x5
+ 1905 08f6 2566     		.2byte	0x2566
+ 1906 08f8 000000E7 		.4byte	0xe7
+ 1907 08fc 0C       		.uleb128 0xc
+ 1908 08fd 4200     		.string	"B"
+ 1909 08ff 05       		.byte	0x5
+ 1910 0900 2579     		.2byte	0x2579
+ 1911 0902 000007AD 		.4byte	0x7ad
+ 1912 0906 00       		.byte	0
+ 1913 0907 08       		.uleb128 0x8
+ 1914 0908 04       		.byte	0x4
+ 1915 0909 05       		.byte	0x5
+ 1916 090a 2580     		.2byte	0x2580
+ 1917 090c 00000A43 		.4byte	0xa43
+ 1918 0910 09       		.uleb128 0x9
+ 1919 0911 00000000 		.4byte	.LASF23
+ 1920 0915 05       		.byte	0x5
+ 1921 0916 2581     		.2byte	0x2581
+ 1922 0918 000000E7 		.4byte	0xe7
+ 1923 091c 04       		.byte	0x4
+ 1924 091d 10       		.byte	0x10
+ 1925 091e 00       		.byte	0
+ 1926 091f 02       		.byte	0x2
+ 1927 0920 23       		.byte	0x23
+ 1928 0921 00       		.uleb128 0
+ 1929 0922 09       		.uleb128 0x9
+ 1930 0923 00000000 		.4byte	.LASF109
+ 1931 0927 05       		.byte	0x5
+ 1932 0928 2582     		.2byte	0x2582
+ 1933 092a 000000E7 		.4byte	0xe7
+ 1934 092e 04       		.byte	0x4
+ 1935 092f 01       		.byte	0x1
+ 1936 0930 10       		.byte	0x10
+ 1937 0931 02       		.byte	0x2
+ 1938 0932 23       		.byte	0x23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 35
+
+
+ 1939 0933 00       		.uleb128 0
+ 1940 0934 09       		.uleb128 0x9
+ 1941 0935 00000000 		.4byte	.LASF110
+ 1942 0939 05       		.byte	0x5
+ 1943 093a 2583     		.2byte	0x2583
+ 1944 093c 000000E7 		.4byte	0xe7
+ 1945 0940 04       		.byte	0x4
+ 1946 0941 01       		.byte	0x1
+ 1947 0942 11       		.byte	0x11
+ 1948 0943 02       		.byte	0x2
+ 1949 0944 23       		.byte	0x23
+ 1950 0945 00       		.uleb128 0
+ 1951 0946 09       		.uleb128 0x9
+ 1952 0947 00000000 		.4byte	.LASF111
+ 1953 094b 05       		.byte	0x5
+ 1954 094c 2584     		.2byte	0x2584
+ 1955 094e 000000E7 		.4byte	0xe7
+ 1956 0952 04       		.byte	0x4
+ 1957 0953 01       		.byte	0x1
+ 1958 0954 12       		.byte	0x12
+ 1959 0955 02       		.byte	0x2
+ 1960 0956 23       		.byte	0x23
+ 1961 0957 00       		.uleb128 0
+ 1962 0958 09       		.uleb128 0x9
+ 1963 0959 00000000 		.4byte	.LASF112
+ 1964 095d 05       		.byte	0x5
+ 1965 095e 2585     		.2byte	0x2585
+ 1966 0960 000000E7 		.4byte	0xe7
+ 1967 0964 04       		.byte	0x4
+ 1968 0965 01       		.byte	0x1
+ 1969 0966 13       		.byte	0x13
+ 1970 0967 02       		.byte	0x2
+ 1971 0968 23       		.byte	0x23
+ 1972 0969 00       		.uleb128 0
+ 1973 096a 09       		.uleb128 0x9
+ 1974 096b 00000000 		.4byte	.LASF113
+ 1975 096f 05       		.byte	0x5
+ 1976 0970 2586     		.2byte	0x2586
+ 1977 0972 000000E7 		.4byte	0xe7
+ 1978 0976 04       		.byte	0x4
+ 1979 0977 01       		.byte	0x1
+ 1980 0978 14       		.byte	0x14
+ 1981 0979 02       		.byte	0x2
+ 1982 097a 23       		.byte	0x23
+ 1983 097b 00       		.uleb128 0
+ 1984 097c 09       		.uleb128 0x9
+ 1985 097d 00000000 		.4byte	.LASF114
+ 1986 0981 05       		.byte	0x5
+ 1987 0982 2587     		.2byte	0x2587
+ 1988 0984 000000E7 		.4byte	0xe7
+ 1989 0988 04       		.byte	0x4
+ 1990 0989 01       		.byte	0x1
+ 1991 098a 15       		.byte	0x15
+ 1992 098b 02       		.byte	0x2
+ 1993 098c 23       		.byte	0x23
+ 1994 098d 00       		.uleb128 0
+ 1995 098e 09       		.uleb128 0x9
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 36
+
+
+ 1996 098f 00000000 		.4byte	.LASF115
+ 1997 0993 05       		.byte	0x5
+ 1998 0994 2588     		.2byte	0x2588
+ 1999 0996 000000E7 		.4byte	0xe7
+ 2000 099a 04       		.byte	0x4
+ 2001 099b 01       		.byte	0x1
+ 2002 099c 16       		.byte	0x16
+ 2003 099d 02       		.byte	0x2
+ 2004 099e 23       		.byte	0x23
+ 2005 099f 00       		.uleb128 0
+ 2006 09a0 09       		.uleb128 0x9
+ 2007 09a1 00000000 		.4byte	.LASF116
+ 2008 09a5 05       		.byte	0x5
+ 2009 09a6 2589     		.2byte	0x2589
+ 2010 09a8 000000E7 		.4byte	0xe7
+ 2011 09ac 04       		.byte	0x4
+ 2012 09ad 01       		.byte	0x1
+ 2013 09ae 17       		.byte	0x17
+ 2014 09af 02       		.byte	0x2
+ 2015 09b0 23       		.byte	0x23
+ 2016 09b1 00       		.uleb128 0
+ 2017 09b2 09       		.uleb128 0x9
+ 2018 09b3 00000000 		.4byte	.LASF117
+ 2019 09b7 05       		.byte	0x5
+ 2020 09b8 258A     		.2byte	0x258a
+ 2021 09ba 000000E7 		.4byte	0xe7
+ 2022 09be 04       		.byte	0x4
+ 2023 09bf 01       		.byte	0x1
+ 2024 09c0 18       		.byte	0x18
+ 2025 09c1 02       		.byte	0x2
+ 2026 09c2 23       		.byte	0x23
+ 2027 09c3 00       		.uleb128 0
+ 2028 09c4 09       		.uleb128 0x9
+ 2029 09c5 00000000 		.4byte	.LASF118
+ 2030 09c9 05       		.byte	0x5
+ 2031 09ca 258B     		.2byte	0x258b
+ 2032 09cc 000000E7 		.4byte	0xe7
+ 2033 09d0 04       		.byte	0x4
+ 2034 09d1 01       		.byte	0x1
+ 2035 09d2 19       		.byte	0x19
+ 2036 09d3 02       		.byte	0x2
+ 2037 09d4 23       		.byte	0x23
+ 2038 09d5 00       		.uleb128 0
+ 2039 09d6 09       		.uleb128 0x9
+ 2040 09d7 00000000 		.4byte	.LASF119
+ 2041 09db 05       		.byte	0x5
+ 2042 09dc 258C     		.2byte	0x258c
+ 2043 09de 000000E7 		.4byte	0xe7
+ 2044 09e2 04       		.byte	0x4
+ 2045 09e3 01       		.byte	0x1
+ 2046 09e4 1A       		.byte	0x1a
+ 2047 09e5 02       		.byte	0x2
+ 2048 09e6 23       		.byte	0x23
+ 2049 09e7 00       		.uleb128 0
+ 2050 09e8 09       		.uleb128 0x9
+ 2051 09e9 00000000 		.4byte	.LASF120
+ 2052 09ed 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 37
+
+
+ 2053 09ee 258D     		.2byte	0x258d
+ 2054 09f0 000000E7 		.4byte	0xe7
+ 2055 09f4 04       		.byte	0x4
+ 2056 09f5 01       		.byte	0x1
+ 2057 09f6 1B       		.byte	0x1b
+ 2058 09f7 02       		.byte	0x2
+ 2059 09f8 23       		.byte	0x23
+ 2060 09f9 00       		.uleb128 0
+ 2061 09fa 09       		.uleb128 0x9
+ 2062 09fb 00000000 		.4byte	.LASF121
+ 2063 09ff 05       		.byte	0x5
+ 2064 0a00 258E     		.2byte	0x258e
+ 2065 0a02 000000E7 		.4byte	0xe7
+ 2066 0a06 04       		.byte	0x4
+ 2067 0a07 01       		.byte	0x1
+ 2068 0a08 1C       		.byte	0x1c
+ 2069 0a09 02       		.byte	0x2
+ 2070 0a0a 23       		.byte	0x23
+ 2071 0a0b 00       		.uleb128 0
+ 2072 0a0c 09       		.uleb128 0x9
+ 2073 0a0d 00000000 		.4byte	.LASF122
+ 2074 0a11 05       		.byte	0x5
+ 2075 0a12 258F     		.2byte	0x258f
+ 2076 0a14 000000E7 		.4byte	0xe7
+ 2077 0a18 04       		.byte	0x4
+ 2078 0a19 01       		.byte	0x1
+ 2079 0a1a 1D       		.byte	0x1d
+ 2080 0a1b 02       		.byte	0x2
+ 2081 0a1c 23       		.byte	0x23
+ 2082 0a1d 00       		.uleb128 0
+ 2083 0a1e 09       		.uleb128 0x9
+ 2084 0a1f 00000000 		.4byte	.LASF123
+ 2085 0a23 05       		.byte	0x5
+ 2086 0a24 2590     		.2byte	0x2590
+ 2087 0a26 000000E7 		.4byte	0xe7
+ 2088 0a2a 04       		.byte	0x4
+ 2089 0a2b 01       		.byte	0x1
+ 2090 0a2c 1E       		.byte	0x1e
+ 2091 0a2d 02       		.byte	0x2
+ 2092 0a2e 23       		.byte	0x23
+ 2093 0a2f 00       		.uleb128 0
+ 2094 0a30 09       		.uleb128 0x9
+ 2095 0a31 00000000 		.4byte	.LASF124
+ 2096 0a35 05       		.byte	0x5
+ 2097 0a36 2591     		.2byte	0x2591
+ 2098 0a38 000000E7 		.4byte	0xe7
+ 2099 0a3c 04       		.byte	0x4
+ 2100 0a3d 01       		.byte	0x1
+ 2101 0a3e 1F       		.byte	0x1f
+ 2102 0a3f 02       		.byte	0x2
+ 2103 0a40 23       		.byte	0x23
+ 2104 0a41 00       		.uleb128 0
+ 2105 0a42 00       		.byte	0
+ 2106 0a43 0B       		.uleb128 0xb
+ 2107 0a44 04       		.byte	0x4
+ 2108 0a45 05       		.byte	0x5
+ 2109 0a46 257E     		.2byte	0x257e
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 38
+
+
+ 2110 0a48 00000A61 		.4byte	0xa61
+ 2111 0a4c 0C       		.uleb128 0xc
+ 2112 0a4d 5200     		.string	"R"
+ 2113 0a4f 05       		.byte	0x5
+ 2114 0a50 257F     		.2byte	0x257f
+ 2115 0a52 000000E7 		.4byte	0xe7
+ 2116 0a56 0C       		.uleb128 0xc
+ 2117 0a57 4200     		.string	"B"
+ 2118 0a59 05       		.byte	0x5
+ 2119 0a5a 2592     		.2byte	0x2592
+ 2120 0a5c 00000907 		.4byte	0x907
+ 2121 0a60 00       		.byte	0
+ 2122 0a61 08       		.uleb128 0x8
+ 2123 0a62 04       		.byte	0x4
+ 2124 0a63 05       		.byte	0x5
+ 2125 0a64 2599     		.2byte	0x2599
+ 2126 0a66 00000A8F 		.4byte	0xa8f
+ 2127 0a6a 09       		.uleb128 0x9
+ 2128 0a6b 00000000 		.4byte	.LASF23
+ 2129 0a6f 05       		.byte	0x5
+ 2130 0a70 259A     		.2byte	0x259a
+ 2131 0a72 000000E7 		.4byte	0xe7
+ 2132 0a76 04       		.byte	0x4
+ 2133 0a77 1C       		.byte	0x1c
+ 2134 0a78 00       		.byte	0
+ 2135 0a79 02       		.byte	0x2
+ 2136 0a7a 23       		.byte	0x23
+ 2137 0a7b 00       		.uleb128 0
+ 2138 0a7c 09       		.uleb128 0x9
+ 2139 0a7d 00000000 		.4byte	.LASF125
+ 2140 0a81 05       		.byte	0x5
+ 2141 0a82 259B     		.2byte	0x259b
+ 2142 0a84 000000E7 		.4byte	0xe7
+ 2143 0a88 04       		.byte	0x4
+ 2144 0a89 04       		.byte	0x4
+ 2145 0a8a 1C       		.byte	0x1c
+ 2146 0a8b 02       		.byte	0x2
+ 2147 0a8c 23       		.byte	0x23
+ 2148 0a8d 00       		.uleb128 0
+ 2149 0a8e 00       		.byte	0
+ 2150 0a8f 0B       		.uleb128 0xb
+ 2151 0a90 04       		.byte	0x4
+ 2152 0a91 05       		.byte	0x5
+ 2153 0a92 2597     		.2byte	0x2597
+ 2154 0a94 00000AAD 		.4byte	0xaad
+ 2155 0a98 0C       		.uleb128 0xc
+ 2156 0a99 5200     		.string	"R"
+ 2157 0a9b 05       		.byte	0x5
+ 2158 0a9c 2598     		.2byte	0x2598
+ 2159 0a9e 000000E7 		.4byte	0xe7
+ 2160 0aa2 0C       		.uleb128 0xc
+ 2161 0aa3 4200     		.string	"B"
+ 2162 0aa5 05       		.byte	0x5
+ 2163 0aa6 259C     		.2byte	0x259c
+ 2164 0aa8 00000A61 		.4byte	0xa61
+ 2165 0aac 00       		.byte	0
+ 2166 0aad 08       		.uleb128 0x8
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 39
+
+
+ 2167 0aae 04       		.byte	0x4
+ 2168 0aaf 05       		.byte	0x5
+ 2169 0ab0 25A1     		.2byte	0x25a1
+ 2170 0ab2 00000ADB 		.4byte	0xadb
+ 2171 0ab6 09       		.uleb128 0x9
+ 2172 0ab7 00000000 		.4byte	.LASF23
+ 2173 0abb 05       		.byte	0x5
+ 2174 0abc 25A2     		.2byte	0x25a2
+ 2175 0abe 000000E7 		.4byte	0xe7
+ 2176 0ac2 04       		.byte	0x4
+ 2177 0ac3 1C       		.byte	0x1c
+ 2178 0ac4 00       		.byte	0
+ 2179 0ac5 02       		.byte	0x2
+ 2180 0ac6 23       		.byte	0x23
+ 2181 0ac7 00       		.uleb128 0
+ 2182 0ac8 09       		.uleb128 0x9
+ 2183 0ac9 00000000 		.4byte	.LASF126
+ 2184 0acd 05       		.byte	0x5
+ 2185 0ace 25A3     		.2byte	0x25a3
+ 2186 0ad0 000000E7 		.4byte	0xe7
+ 2187 0ad4 04       		.byte	0x4
+ 2188 0ad5 04       		.byte	0x4
+ 2189 0ad6 1C       		.byte	0x1c
+ 2190 0ad7 02       		.byte	0x2
+ 2191 0ad8 23       		.byte	0x23
+ 2192 0ad9 00       		.uleb128 0
+ 2193 0ada 00       		.byte	0
+ 2194 0adb 0B       		.uleb128 0xb
+ 2195 0adc 04       		.byte	0x4
+ 2196 0add 05       		.byte	0x5
+ 2197 0ade 259F     		.2byte	0x259f
+ 2198 0ae0 00000AF9 		.4byte	0xaf9
+ 2199 0ae4 0C       		.uleb128 0xc
+ 2200 0ae5 5200     		.string	"R"
+ 2201 0ae7 05       		.byte	0x5
+ 2202 0ae8 25A0     		.2byte	0x25a0
+ 2203 0aea 000000E7 		.4byte	0xe7
+ 2204 0aee 0C       		.uleb128 0xc
+ 2205 0aef 4200     		.string	"B"
+ 2206 0af1 05       		.byte	0x5
+ 2207 0af2 25A4     		.2byte	0x25a4
+ 2208 0af4 00000AAD 		.4byte	0xaad
+ 2209 0af8 00       		.byte	0
+ 2210 0af9 08       		.uleb128 0x8
+ 2211 0afa 04       		.byte	0x4
+ 2212 0afb 05       		.byte	0x5
+ 2213 0afc 25AB     		.2byte	0x25ab
+ 2214 0afe 00000B5D 		.4byte	0xb5d
+ 2215 0b02 09       		.uleb128 0x9
+ 2216 0b03 00000000 		.4byte	.LASF127
+ 2217 0b07 05       		.byte	0x5
+ 2218 0b08 25AC     		.2byte	0x25ac
+ 2219 0b0a 000000E7 		.4byte	0xe7
+ 2220 0b0e 04       		.byte	0x4
+ 2221 0b0f 1C       		.byte	0x1c
+ 2222 0b10 00       		.byte	0
+ 2223 0b11 02       		.byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 40
+
+
+ 2224 0b12 23       		.byte	0x23
+ 2225 0b13 00       		.uleb128 0
+ 2226 0b14 09       		.uleb128 0x9
+ 2227 0b15 00000000 		.4byte	.LASF128
+ 2228 0b19 05       		.byte	0x5
+ 2229 0b1a 25AD     		.2byte	0x25ad
+ 2230 0b1c 000000E7 		.4byte	0xe7
+ 2231 0b20 04       		.byte	0x4
+ 2232 0b21 01       		.byte	0x1
+ 2233 0b22 1C       		.byte	0x1c
+ 2234 0b23 02       		.byte	0x2
+ 2235 0b24 23       		.byte	0x23
+ 2236 0b25 00       		.uleb128 0
+ 2237 0b26 09       		.uleb128 0x9
+ 2238 0b27 00000000 		.4byte	.LASF22
+ 2239 0b2b 05       		.byte	0x5
+ 2240 0b2c 25AE     		.2byte	0x25ae
+ 2241 0b2e 000000E7 		.4byte	0xe7
+ 2242 0b32 04       		.byte	0x4
+ 2243 0b33 01       		.byte	0x1
+ 2244 0b34 1D       		.byte	0x1d
+ 2245 0b35 02       		.byte	0x2
+ 2246 0b36 23       		.byte	0x23
+ 2247 0b37 00       		.uleb128 0
+ 2248 0b38 09       		.uleb128 0x9
+ 2249 0b39 00000000 		.4byte	.LASF129
+ 2250 0b3d 05       		.byte	0x5
+ 2251 0b3e 25AF     		.2byte	0x25af
+ 2252 0b40 000000E7 		.4byte	0xe7
+ 2253 0b44 04       		.byte	0x4
+ 2254 0b45 01       		.byte	0x1
+ 2255 0b46 1E       		.byte	0x1e
+ 2256 0b47 02       		.byte	0x2
+ 2257 0b48 23       		.byte	0x23
+ 2258 0b49 00       		.uleb128 0
+ 2259 0b4a 09       		.uleb128 0x9
+ 2260 0b4b 00000000 		.4byte	.LASF23
+ 2261 0b4f 05       		.byte	0x5
+ 2262 0b50 25B0     		.2byte	0x25b0
+ 2263 0b52 000000E7 		.4byte	0xe7
+ 2264 0b56 04       		.byte	0x4
+ 2265 0b57 01       		.byte	0x1
+ 2266 0b58 1F       		.byte	0x1f
+ 2267 0b59 02       		.byte	0x2
+ 2268 0b5a 23       		.byte	0x23
+ 2269 0b5b 00       		.uleb128 0
+ 2270 0b5c 00       		.byte	0
+ 2271 0b5d 0B       		.uleb128 0xb
+ 2272 0b5e 04       		.byte	0x4
+ 2273 0b5f 05       		.byte	0x5
+ 2274 0b60 25A9     		.2byte	0x25a9
+ 2275 0b62 00000B7B 		.4byte	0xb7b
+ 2276 0b66 0C       		.uleb128 0xc
+ 2277 0b67 5200     		.string	"R"
+ 2278 0b69 05       		.byte	0x5
+ 2279 0b6a 25AA     		.2byte	0x25aa
+ 2280 0b6c 000000E7 		.4byte	0xe7
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 41
+
+
+ 2281 0b70 0C       		.uleb128 0xc
+ 2282 0b71 4200     		.string	"B"
+ 2283 0b73 05       		.byte	0x5
+ 2284 0b74 25B1     		.2byte	0x25b1
+ 2285 0b76 00000AF9 		.4byte	0xaf9
+ 2286 0b7a 00       		.byte	0
+ 2287 0b7b 08       		.uleb128 0x8
+ 2288 0b7c 04       		.byte	0x4
+ 2289 0b7d 05       		.byte	0x5
+ 2290 0b7e 25B8     		.2byte	0x25b8
+ 2291 0b80 00000C81 		.4byte	0xc81
+ 2292 0b84 09       		.uleb128 0x9
+ 2293 0b85 00000000 		.4byte	.LASF130
+ 2294 0b89 05       		.byte	0x5
+ 2295 0b8a 25B9     		.2byte	0x25b9
+ 2296 0b8c 000000E7 		.4byte	0xe7
+ 2297 0b90 04       		.byte	0x4
+ 2298 0b91 02       		.byte	0x2
+ 2299 0b92 00       		.byte	0
+ 2300 0b93 02       		.byte	0x2
+ 2301 0b94 23       		.byte	0x23
+ 2302 0b95 00       		.uleb128 0
+ 2303 0b96 09       		.uleb128 0x9
+ 2304 0b97 00000000 		.4byte	.LASF131
+ 2305 0b9b 05       		.byte	0x5
+ 2306 0b9c 25BA     		.2byte	0x25ba
+ 2307 0b9e 000000E7 		.4byte	0xe7
+ 2308 0ba2 04       		.byte	0x4
+ 2309 0ba3 02       		.byte	0x2
+ 2310 0ba4 02       		.byte	0x2
+ 2311 0ba5 02       		.byte	0x2
+ 2312 0ba6 23       		.byte	0x23
+ 2313 0ba7 00       		.uleb128 0
+ 2314 0ba8 09       		.uleb128 0x9
+ 2315 0ba9 00000000 		.4byte	.LASF132
+ 2316 0bad 05       		.byte	0x5
+ 2317 0bae 25BB     		.2byte	0x25bb
+ 2318 0bb0 000000E7 		.4byte	0xe7
+ 2319 0bb4 04       		.byte	0x4
+ 2320 0bb5 01       		.byte	0x1
+ 2321 0bb6 04       		.byte	0x4
+ 2322 0bb7 02       		.byte	0x2
+ 2323 0bb8 23       		.byte	0x23
+ 2324 0bb9 00       		.uleb128 0
+ 2325 0bba 0A       		.uleb128 0xa
+ 2326 0bbb 4F444300 		.string	"ODC"
+ 2327 0bbf 05       		.byte	0x5
+ 2328 0bc0 25BC     		.2byte	0x25bc
+ 2329 0bc2 000000E7 		.4byte	0xe7
+ 2330 0bc6 04       		.byte	0x4
+ 2331 0bc7 03       		.byte	0x3
+ 2332 0bc8 05       		.byte	0x5
+ 2333 0bc9 02       		.byte	0x2
+ 2334 0bca 23       		.byte	0x23
+ 2335 0bcb 00       		.uleb128 0
+ 2336 0bcc 0A       		.uleb128 0xa
+ 2337 0bcd 534D4300 		.string	"SMC"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 42
+
+
+ 2338 0bd1 05       		.byte	0x5
+ 2339 0bd2 25BD     		.2byte	0x25bd
+ 2340 0bd4 000000E7 		.4byte	0xe7
+ 2341 0bd8 04       		.byte	0x4
+ 2342 0bd9 01       		.byte	0x1
+ 2343 0bda 08       		.byte	0x8
+ 2344 0bdb 02       		.byte	0x2
+ 2345 0bdc 23       		.byte	0x23
+ 2346 0bdd 00       		.uleb128 0
+ 2347 0bde 09       		.uleb128 0x9
+ 2348 0bdf 00000000 		.4byte	.LASF127
+ 2349 0be3 05       		.byte	0x5
+ 2350 0be4 25BE     		.2byte	0x25be
+ 2351 0be6 000000E7 		.4byte	0xe7
+ 2352 0bea 04       		.byte	0x4
+ 2353 0beb 01       		.byte	0x1
+ 2354 0bec 09       		.byte	0x9
+ 2355 0bed 02       		.byte	0x2
+ 2356 0bee 23       		.byte	0x23
+ 2357 0bef 00       		.uleb128 0
+ 2358 0bf0 0A       		.uleb128 0xa
+ 2359 0bf1 494C5300 		.string	"ILS"
+ 2360 0bf5 05       		.byte	0x5
+ 2361 0bf6 25BF     		.2byte	0x25bf
+ 2362 0bf8 000000E7 		.4byte	0xe7
+ 2363 0bfc 04       		.byte	0x4
+ 2364 0bfd 02       		.byte	0x2
+ 2365 0bfe 0A       		.byte	0xa
+ 2366 0bff 02       		.byte	0x2
+ 2367 0c00 23       		.byte	0x23
+ 2368 0c01 00       		.uleb128 0
+ 2369 0c02 0A       		.uleb128 0xa
+ 2370 0c03 49424500 		.string	"IBE"
+ 2371 0c07 05       		.byte	0x5
+ 2372 0c08 25C0     		.2byte	0x25c0
+ 2373 0c0a 000000E7 		.4byte	0xe7
+ 2374 0c0e 04       		.byte	0x4
+ 2375 0c0f 01       		.byte	0x1
+ 2376 0c10 0C       		.byte	0xc
+ 2377 0c11 02       		.byte	0x2
+ 2378 0c12 23       		.byte	0x23
+ 2379 0c13 00       		.uleb128 0
+ 2380 0c14 09       		.uleb128 0x9
+ 2381 0c15 00000000 		.4byte	.LASF22
+ 2382 0c19 05       		.byte	0x5
+ 2383 0c1a 25C1     		.2byte	0x25c1
+ 2384 0c1c 000000E7 		.4byte	0xe7
+ 2385 0c20 04       		.byte	0x4
+ 2386 0c21 01       		.byte	0x1
+ 2387 0c22 0D       		.byte	0xd
+ 2388 0c23 02       		.byte	0x2
+ 2389 0c24 23       		.byte	0x23
+ 2390 0c25 00       		.uleb128 0
+ 2391 0c26 09       		.uleb128 0x9
+ 2392 0c27 00000000 		.4byte	.LASF133
+ 2393 0c2b 05       		.byte	0x5
+ 2394 0c2c 25C2     		.2byte	0x25c2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 43
+
+
+ 2395 0c2e 000000E7 		.4byte	0xe7
+ 2396 0c32 04       		.byte	0x4
+ 2397 0c33 01       		.byte	0x1
+ 2398 0c34 0E       		.byte	0xe
+ 2399 0c35 02       		.byte	0x2
+ 2400 0c36 23       		.byte	0x23
+ 2401 0c37 00       		.uleb128 0
+ 2402 0c38 09       		.uleb128 0x9
+ 2403 0c39 00000000 		.4byte	.LASF134
+ 2404 0c3d 05       		.byte	0x5
+ 2405 0c3e 25C3     		.2byte	0x25c3
+ 2406 0c40 000000E7 		.4byte	0xe7
+ 2407 0c44 04       		.byte	0x4
+ 2408 0c45 01       		.byte	0x1
+ 2409 0c46 0F       		.byte	0xf
+ 2410 0c47 02       		.byte	0x2
+ 2411 0c48 23       		.byte	0x23
+ 2412 0c49 00       		.uleb128 0
+ 2413 0c4a 0A       		.uleb128 0xa
+ 2414 0c4b 494E5600 		.string	"INV"
+ 2415 0c4f 05       		.byte	0x5
+ 2416 0c50 25C4     		.2byte	0x25c4
+ 2417 0c52 000000E7 		.4byte	0xe7
+ 2418 0c56 04       		.byte	0x4
+ 2419 0c57 01       		.byte	0x1
+ 2420 0c58 10       		.byte	0x10
+ 2421 0c59 02       		.byte	0x2
+ 2422 0c5a 23       		.byte	0x23
+ 2423 0c5b 00       		.uleb128 0
+ 2424 0c5c 09       		.uleb128 0x9
+ 2425 0c5d 00000000 		.4byte	.LASF23
+ 2426 0c61 05       		.byte	0x5
+ 2427 0c62 25C5     		.2byte	0x25c5
+ 2428 0c64 000000E7 		.4byte	0xe7
+ 2429 0c68 04       		.byte	0x4
+ 2430 0c69 07       		.byte	0x7
+ 2431 0c6a 11       		.byte	0x11
+ 2432 0c6b 02       		.byte	0x2
+ 2433 0c6c 23       		.byte	0x23
+ 2434 0c6d 00       		.uleb128 0
+ 2435 0c6e 0A       		.uleb128 0xa
+ 2436 0c6f 53535300 		.string	"SSS"
+ 2437 0c73 05       		.byte	0x5
+ 2438 0c74 25C6     		.2byte	0x25c6
+ 2439 0c76 000000E7 		.4byte	0xe7
+ 2440 0c7a 04       		.byte	0x4
+ 2441 0c7b 08       		.byte	0x8
+ 2442 0c7c 18       		.byte	0x18
+ 2443 0c7d 02       		.byte	0x2
+ 2444 0c7e 23       		.byte	0x23
+ 2445 0c7f 00       		.uleb128 0
+ 2446 0c80 00       		.byte	0
+ 2447 0c81 0B       		.uleb128 0xb
+ 2448 0c82 04       		.byte	0x4
+ 2449 0c83 05       		.byte	0x5
+ 2450 0c84 25B6     		.2byte	0x25b6
+ 2451 0c86 00000C9F 		.4byte	0xc9f
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 44
+
+
+ 2452 0c8a 0C       		.uleb128 0xc
+ 2453 0c8b 5200     		.string	"R"
+ 2454 0c8d 05       		.byte	0x5
+ 2455 0c8e 25B7     		.2byte	0x25b7
+ 2456 0c90 000000E7 		.4byte	0xe7
+ 2457 0c94 0C       		.uleb128 0xc
+ 2458 0c95 4200     		.string	"B"
+ 2459 0c97 05       		.byte	0x5
+ 2460 0c98 25C7     		.2byte	0x25c7
+ 2461 0c9a 00000B7B 		.4byte	0xb7b
+ 2462 0c9e 00       		.byte	0
+ 2463 0c9f 08       		.uleb128 0x8
+ 2464 0ca0 04       		.byte	0x4
+ 2465 0ca1 05       		.byte	0x5
+ 2466 0ca2 25CB     		.2byte	0x25cb
+ 2467 0ca4 00000CF1 		.4byte	0xcf1
+ 2468 0ca8 09       		.uleb128 0x9
+ 2469 0ca9 00000000 		.4byte	.LASF22
+ 2470 0cad 05       		.byte	0x5
+ 2471 0cae 25CC     		.2byte	0x25cc
+ 2472 0cb0 000000E7 		.4byte	0xe7
+ 2473 0cb4 04       		.byte	0x4
+ 2474 0cb5 10       		.byte	0x10
+ 2475 0cb6 00       		.byte	0
+ 2476 0cb7 02       		.byte	0x2
+ 2477 0cb8 23       		.byte	0x23
+ 2478 0cb9 00       		.uleb128 0
+ 2479 0cba 0A       		.uleb128 0xa
+ 2480 0cbb 494E5600 		.string	"INV"
+ 2481 0cbf 05       		.byte	0x5
+ 2482 0cc0 25CD     		.2byte	0x25cd
+ 2483 0cc2 000000E7 		.4byte	0xe7
+ 2484 0cc6 04       		.byte	0x4
+ 2485 0cc7 01       		.byte	0x1
+ 2486 0cc8 10       		.byte	0x10
+ 2487 0cc9 02       		.byte	0x2
+ 2488 0cca 23       		.byte	0x23
+ 2489 0ccb 00       		.uleb128 0
+ 2490 0ccc 09       		.uleb128 0x9
+ 2491 0ccd 00000000 		.4byte	.LASF23
+ 2492 0cd1 05       		.byte	0x5
+ 2493 0cd2 25CE     		.2byte	0x25ce
+ 2494 0cd4 000000E7 		.4byte	0xe7
+ 2495 0cd8 04       		.byte	0x4
+ 2496 0cd9 07       		.byte	0x7
+ 2497 0cda 11       		.byte	0x11
+ 2498 0cdb 02       		.byte	0x2
+ 2499 0cdc 23       		.byte	0x23
+ 2500 0cdd 00       		.uleb128 0
+ 2501 0cde 0A       		.uleb128 0xa
+ 2502 0cdf 53535300 		.string	"SSS"
+ 2503 0ce3 05       		.byte	0x5
+ 2504 0ce4 25CF     		.2byte	0x25cf
+ 2505 0ce6 000000E7 		.4byte	0xe7
+ 2506 0cea 04       		.byte	0x4
+ 2507 0ceb 08       		.byte	0x8
+ 2508 0cec 18       		.byte	0x18
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 45
+
+
+ 2509 0ced 02       		.byte	0x2
+ 2510 0cee 23       		.byte	0x23
+ 2511 0cef 00       		.uleb128 0
+ 2512 0cf0 00       		.byte	0
+ 2513 0cf1 0B       		.uleb128 0xb
+ 2514 0cf2 04       		.byte	0x4
+ 2515 0cf3 05       		.byte	0x5
+ 2516 0cf4 25C9     		.2byte	0x25c9
+ 2517 0cf6 00000D0F 		.4byte	0xd0f
+ 2518 0cfa 0C       		.uleb128 0xc
+ 2519 0cfb 5200     		.string	"R"
+ 2520 0cfd 05       		.byte	0x5
+ 2521 0cfe 25CA     		.2byte	0x25ca
+ 2522 0d00 000000E7 		.4byte	0xe7
+ 2523 0d04 0C       		.uleb128 0xc
+ 2524 0d05 4200     		.string	"B"
+ 2525 0d07 05       		.byte	0x5
+ 2526 0d08 25D0     		.2byte	0x25d0
+ 2527 0d0a 00000C9F 		.4byte	0xc9f
+ 2528 0d0e 00       		.byte	0
+ 2529 0d0f 08       		.uleb128 0x8
+ 2530 0d10 01       		.byte	0x1
+ 2531 0d11 05       		.byte	0x5
+ 2532 0d12 25D7     		.2byte	0x25d7
+ 2533 0d14 00000D3D 		.4byte	0xd3d
+ 2534 0d18 09       		.uleb128 0x9
+ 2535 0d19 00000000 		.4byte	.LASF23
+ 2536 0d1d 05       		.byte	0x5
+ 2537 0d1e 25D8     		.2byte	0x25d8
+ 2538 0d20 000000C7 		.4byte	0xc7
+ 2539 0d24 01       		.byte	0x1
+ 2540 0d25 07       		.byte	0x7
+ 2541 0d26 00       		.byte	0
+ 2542 0d27 02       		.byte	0x2
+ 2543 0d28 23       		.byte	0x23
+ 2544 0d29 00       		.uleb128 0
+ 2545 0d2a 0A       		.uleb128 0xa
+ 2546 0d2b 50444F00 		.string	"PDO"
+ 2547 0d2f 05       		.byte	0x5
+ 2548 0d30 25D9     		.2byte	0x25d9
+ 2549 0d32 000000C7 		.4byte	0xc7
+ 2550 0d36 01       		.byte	0x1
+ 2551 0d37 01       		.byte	0x1
+ 2552 0d38 07       		.byte	0x7
+ 2553 0d39 02       		.byte	0x2
+ 2554 0d3a 23       		.byte	0x23
+ 2555 0d3b 00       		.uleb128 0
+ 2556 0d3c 00       		.byte	0
+ 2557 0d3d 0B       		.uleb128 0xb
+ 2558 0d3e 01       		.byte	0x1
+ 2559 0d3f 05       		.byte	0x5
+ 2560 0d40 25D5     		.2byte	0x25d5
+ 2561 0d42 00000D5B 		.4byte	0xd5b
+ 2562 0d46 0C       		.uleb128 0xc
+ 2563 0d47 5200     		.string	"R"
+ 2564 0d49 05       		.byte	0x5
+ 2565 0d4a 25D6     		.2byte	0x25d6
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 46
+
+
+ 2566 0d4c 000000C7 		.4byte	0xc7
+ 2567 0d50 0C       		.uleb128 0xc
+ 2568 0d51 4200     		.string	"B"
+ 2569 0d53 05       		.byte	0x5
+ 2570 0d54 25DA     		.2byte	0x25da
+ 2571 0d56 00000D0F 		.4byte	0xd0f
+ 2572 0d5a 00       		.byte	0
+ 2573 0d5b 08       		.uleb128 0x8
+ 2574 0d5c 01       		.byte	0x1
+ 2575 0d5d 05       		.byte	0x5
+ 2576 0d5e 25DF     		.2byte	0x25df
+ 2577 0d60 00000D89 		.4byte	0xd89
+ 2578 0d64 09       		.uleb128 0x9
+ 2579 0d65 00000000 		.4byte	.LASF23
+ 2580 0d69 05       		.byte	0x5
+ 2581 0d6a 25E0     		.2byte	0x25e0
+ 2582 0d6c 000000C7 		.4byte	0xc7
+ 2583 0d70 01       		.byte	0x1
+ 2584 0d71 07       		.byte	0x7
+ 2585 0d72 00       		.byte	0
+ 2586 0d73 02       		.byte	0x2
+ 2587 0d74 23       		.byte	0x23
+ 2588 0d75 00       		.uleb128 0
+ 2589 0d76 0A       		.uleb128 0xa
+ 2590 0d77 50444900 		.string	"PDI"
+ 2591 0d7b 05       		.byte	0x5
+ 2592 0d7c 25E1     		.2byte	0x25e1
+ 2593 0d7e 000000C7 		.4byte	0xc7
+ 2594 0d82 01       		.byte	0x1
+ 2595 0d83 01       		.byte	0x1
+ 2596 0d84 07       		.byte	0x7
+ 2597 0d85 02       		.byte	0x2
+ 2598 0d86 23       		.byte	0x23
+ 2599 0d87 00       		.uleb128 0
+ 2600 0d88 00       		.byte	0
+ 2601 0d89 0B       		.uleb128 0xb
+ 2602 0d8a 01       		.byte	0x1
+ 2603 0d8b 05       		.byte	0x5
+ 2604 0d8c 25DD     		.2byte	0x25dd
+ 2605 0d8e 00000DA7 		.4byte	0xda7
+ 2606 0d92 0C       		.uleb128 0xc
+ 2607 0d93 5200     		.string	"R"
+ 2608 0d95 05       		.byte	0x5
+ 2609 0d96 25DE     		.2byte	0x25de
+ 2610 0d98 000000C7 		.4byte	0xc7
+ 2611 0d9c 0C       		.uleb128 0xc
+ 2612 0d9d 4200     		.string	"B"
+ 2613 0d9f 05       		.byte	0x5
+ 2614 0da0 25E2     		.2byte	0x25e2
+ 2615 0da2 00000D5B 		.4byte	0xd5b
+ 2616 0da6 00       		.byte	0
+ 2617 0da7 08       		.uleb128 0x8
+ 2618 0da8 02       		.byte	0x2
+ 2619 0da9 05       		.byte	0x5
+ 2620 0daa 25E7     		.2byte	0x25e7
+ 2621 0dac 00000DC3 		.4byte	0xdc3
+ 2622 0db0 09       		.uleb128 0x9
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 47
+
+
+ 2623 0db1 00000000 		.4byte	.LASF135
+ 2624 0db5 05       		.byte	0x5
+ 2625 0db6 25E8     		.2byte	0x25e8
+ 2626 0db8 000000D7 		.4byte	0xd7
+ 2627 0dbc 02       		.byte	0x2
+ 2628 0dbd 10       		.byte	0x10
+ 2629 0dbe 00       		.byte	0
+ 2630 0dbf 02       		.byte	0x2
+ 2631 0dc0 23       		.byte	0x23
+ 2632 0dc1 00       		.uleb128 0
+ 2633 0dc2 00       		.byte	0
+ 2634 0dc3 0B       		.uleb128 0xb
+ 2635 0dc4 02       		.byte	0x2
+ 2636 0dc5 05       		.byte	0x5
+ 2637 0dc6 25E5     		.2byte	0x25e5
+ 2638 0dc8 00000DE1 		.4byte	0xde1
+ 2639 0dcc 0C       		.uleb128 0xc
+ 2640 0dcd 5200     		.string	"R"
+ 2641 0dcf 05       		.byte	0x5
+ 2642 0dd0 25E6     		.2byte	0x25e6
+ 2643 0dd2 000000D7 		.4byte	0xd7
+ 2644 0dd6 0C       		.uleb128 0xc
+ 2645 0dd7 4200     		.string	"B"
+ 2646 0dd9 05       		.byte	0x5
+ 2647 0dda 25E9     		.2byte	0x25e9
+ 2648 0ddc 00000DA7 		.4byte	0xda7
+ 2649 0de0 00       		.byte	0
+ 2650 0de1 08       		.uleb128 0x8
+ 2651 0de2 02       		.byte	0x2
+ 2652 0de3 05       		.byte	0x5
+ 2653 0de4 25F0     		.2byte	0x25f0
+ 2654 0de6 00000DFD 		.4byte	0xdfd
+ 2655 0dea 09       		.uleb128 0x9
+ 2656 0deb 00000000 		.4byte	.LASF136
+ 2657 0def 05       		.byte	0x5
+ 2658 0df0 25F1     		.2byte	0x25f1
+ 2659 0df2 000000D7 		.4byte	0xd7
+ 2660 0df6 02       		.byte	0x2
+ 2661 0df7 10       		.byte	0x10
+ 2662 0df8 00       		.byte	0
+ 2663 0df9 02       		.byte	0x2
+ 2664 0dfa 23       		.byte	0x23
+ 2665 0dfb 00       		.uleb128 0
+ 2666 0dfc 00       		.byte	0
+ 2667 0dfd 0B       		.uleb128 0xb
+ 2668 0dfe 02       		.byte	0x2
+ 2669 0dff 05       		.byte	0x5
+ 2670 0e00 25EE     		.2byte	0x25ee
+ 2671 0e02 00000E1B 		.4byte	0xe1b
+ 2672 0e06 0C       		.uleb128 0xc
+ 2673 0e07 5200     		.string	"R"
+ 2674 0e09 05       		.byte	0x5
+ 2675 0e0a 25EF     		.2byte	0x25ef
+ 2676 0e0c 000000D7 		.4byte	0xd7
+ 2677 0e10 0C       		.uleb128 0xc
+ 2678 0e11 4200     		.string	"B"
+ 2679 0e13 05       		.byte	0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 48
+
+
+ 2680 0e14 25F2     		.2byte	0x25f2
+ 2681 0e16 00000DE1 		.4byte	0xde1
+ 2682 0e1a 00       		.byte	0
+ 2683 0e1b 08       		.uleb128 0x8
+ 2684 0e1c 04       		.byte	0x4
+ 2685 0e1d 05       		.byte	0x5
+ 2686 0e1e 25F9     		.2byte	0x25f9
+ 2687 0e20 00000E49 		.4byte	0xe49
+ 2688 0e24 09       		.uleb128 0x9
+ 2689 0e25 00000000 		.4byte	.LASF137
+ 2690 0e29 05       		.byte	0x5
+ 2691 0e2a 25FA     		.2byte	0x25fa
+ 2692 0e2c 000000E7 		.4byte	0xe7
+ 2693 0e30 04       		.byte	0x4
+ 2694 0e31 10       		.byte	0x10
+ 2695 0e32 00       		.byte	0
+ 2696 0e33 02       		.byte	0x2
+ 2697 0e34 23       		.byte	0x23
+ 2698 0e35 00       		.uleb128 0
+ 2699 0e36 09       		.uleb128 0x9
+ 2700 0e37 00000000 		.4byte	.LASF138
+ 2701 0e3b 05       		.byte	0x5
+ 2702 0e3c 25FB     		.2byte	0x25fb
+ 2703 0e3e 000000E7 		.4byte	0xe7
+ 2704 0e42 04       		.byte	0x4
+ 2705 0e43 10       		.byte	0x10
+ 2706 0e44 10       		.byte	0x10
+ 2707 0e45 02       		.byte	0x2
+ 2708 0e46 23       		.byte	0x23
+ 2709 0e47 00       		.uleb128 0
+ 2710 0e48 00       		.byte	0
+ 2711 0e49 0B       		.uleb128 0xb
+ 2712 0e4a 04       		.byte	0x4
+ 2713 0e4b 05       		.byte	0x5
+ 2714 0e4c 25F7     		.2byte	0x25f7
+ 2715 0e4e 00000E67 		.4byte	0xe67
+ 2716 0e52 0C       		.uleb128 0xc
+ 2717 0e53 5200     		.string	"R"
+ 2718 0e55 05       		.byte	0x5
+ 2719 0e56 25F8     		.2byte	0x25f8
+ 2720 0e58 000000E7 		.4byte	0xe7
+ 2721 0e5c 0C       		.uleb128 0xc
+ 2722 0e5d 4200     		.string	"B"
+ 2723 0e5f 05       		.byte	0x5
+ 2724 0e60 25FC     		.2byte	0x25fc
+ 2725 0e62 00000E1B 		.4byte	0xe1b
+ 2726 0e66 00       		.byte	0
+ 2727 0e67 0D       		.uleb128 0xd
+ 2728 0e68 00000000 		.4byte	.LASF187
+ 2729 0e6c 17B4     		.2byte	0x17b4
+ 2730 0e6e 05       		.byte	0x5
+ 2731 0e6f 24E4     		.2byte	0x24e4
+ 2732 0e71 00001055 		.4byte	0x1055
+ 2733 0e75 0E       		.uleb128 0xe
+ 2734 0e76 00000000 		.4byte	.LASF139
+ 2735 0e7a 05       		.byte	0x5
+ 2736 0e7b 24E5     		.2byte	0x24e5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 49
+
+
+ 2737 0e7d 00001055 		.4byte	0x1055
+ 2738 0e81 02       		.byte	0x2
+ 2739 0e82 23       		.byte	0x23
+ 2740 0e83 00       		.uleb128 0
+ 2741 0e84 0E       		.uleb128 0xe
+ 2742 0e85 00000000 		.4byte	.LASF140
+ 2743 0e89 05       		.byte	0x5
+ 2744 0e8a 24F1     		.2byte	0x24f1
+ 2745 0e8c 00000194 		.4byte	0x194
+ 2746 0e90 02       		.byte	0x2
+ 2747 0e91 23       		.byte	0x23
+ 2748 0e92 04       		.uleb128 0x4
+ 2749 0e93 0E       		.uleb128 0xe
+ 2750 0e94 00000000 		.4byte	.LASF141
+ 2751 0e98 05       		.byte	0x5
+ 2752 0e99 24FD     		.2byte	0x24fd
+ 2753 0e9b 00000227 		.4byte	0x227
+ 2754 0e9f 02       		.byte	0x2
+ 2755 0ea0 23       		.byte	0x23
+ 2756 0ea1 08       		.uleb128 0x8
+ 2757 0ea2 0E       		.uleb128 0xe
+ 2758 0ea3 00000000 		.4byte	.LASF142
+ 2759 0ea7 05       		.byte	0x5
+ 2760 0ea8 24FF     		.2byte	0x24ff
+ 2761 0eaa 0000105A 		.4byte	0x105a
+ 2762 0eae 02       		.byte	0x2
+ 2763 0eaf 23       		.byte	0x23
+ 2764 0eb0 0C       		.uleb128 0xc
+ 2765 0eb1 0E       		.uleb128 0xe
+ 2766 0eb2 00000000 		.4byte	.LASF143
+ 2767 0eb6 05       		.byte	0x5
+ 2768 0eb7 2516     		.2byte	0x2516
+ 2769 0eb9 00000381 		.4byte	0x381
+ 2770 0ebd 02       		.byte	0x2
+ 2771 0ebe 23       		.byte	0x23
+ 2772 0ebf 10       		.uleb128 0x10
+ 2773 0ec0 0E       		.uleb128 0xe
+ 2774 0ec1 00000000 		.4byte	.LASF144
+ 2775 0ec5 05       		.byte	0x5
+ 2776 0ec6 2518     		.2byte	0x2518
+ 2777 0ec8 0000105F 		.4byte	0x105f
+ 2778 0ecc 02       		.byte	0x2
+ 2779 0ecd 23       		.byte	0x23
+ 2780 0ece 14       		.uleb128 0x14
+ 2781 0ecf 0E       		.uleb128 0xe
+ 2782 0ed0 00000000 		.4byte	.LASF145
+ 2783 0ed4 05       		.byte	0x5
+ 2784 0ed5 252F     		.2byte	0x252f
+ 2785 0ed7 000004DB 		.4byte	0x4db
+ 2786 0edb 02       		.byte	0x2
+ 2787 0edc 23       		.byte	0x23
+ 2788 0edd 18       		.uleb128 0x18
+ 2789 0ede 0E       		.uleb128 0xe
+ 2790 0edf 00000000 		.4byte	.LASF146
+ 2791 0ee3 05       		.byte	0x5
+ 2792 0ee4 2531     		.2byte	0x2531
+ 2793 0ee6 00001064 		.4byte	0x1064
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 50
+
+
+ 2794 0eea 02       		.byte	0x2
+ 2795 0eeb 23       		.byte	0x23
+ 2796 0eec 1C       		.uleb128 0x1c
+ 2797 0eed 0E       		.uleb128 0xe
+ 2798 0eee 00000000 		.4byte	.LASF147
+ 2799 0ef2 05       		.byte	0x5
+ 2800 0ef3 2548     		.2byte	0x2548
+ 2801 0ef5 00000635 		.4byte	0x635
+ 2802 0ef9 02       		.byte	0x2
+ 2803 0efa 23       		.byte	0x23
+ 2804 0efb 20       		.uleb128 0x20
+ 2805 0efc 0E       		.uleb128 0xe
+ 2806 0efd 00000000 		.4byte	.LASF148
+ 2807 0f01 05       		.byte	0x5
+ 2808 0f02 254A     		.2byte	0x254a
+ 2809 0f04 00001069 		.4byte	0x1069
+ 2810 0f08 02       		.byte	0x2
+ 2811 0f09 23       		.byte	0x23
+ 2812 0f0a 24       		.uleb128 0x24
+ 2813 0f0b 0E       		.uleb128 0xe
+ 2814 0f0c 00000000 		.4byte	.LASF149
+ 2815 0f10 05       		.byte	0x5
+ 2816 0f11 2561     		.2byte	0x2561
+ 2817 0f13 0000078F 		.4byte	0x78f
+ 2818 0f17 02       		.byte	0x2
+ 2819 0f18 23       		.byte	0x23
+ 2820 0f19 28       		.uleb128 0x28
+ 2821 0f1a 0E       		.uleb128 0xe
+ 2822 0f1b 00000000 		.4byte	.LASF150
+ 2823 0f1f 05       		.byte	0x5
+ 2824 0f20 2563     		.2byte	0x2563
+ 2825 0f22 0000106E 		.4byte	0x106e
+ 2826 0f26 02       		.byte	0x2
+ 2827 0f27 23       		.byte	0x23
+ 2828 0f28 2C       		.uleb128 0x2c
+ 2829 0f29 0E       		.uleb128 0xe
+ 2830 0f2a 00000000 		.4byte	.LASF151
+ 2831 0f2e 05       		.byte	0x5
+ 2832 0f2f 257A     		.2byte	0x257a
+ 2833 0f31 000008E9 		.4byte	0x8e9
+ 2834 0f35 02       		.byte	0x2
+ 2835 0f36 23       		.byte	0x23
+ 2836 0f37 30       		.uleb128 0x30
+ 2837 0f38 0E       		.uleb128 0xe
+ 2838 0f39 00000000 		.4byte	.LASF152
+ 2839 0f3d 05       		.byte	0x5
+ 2840 0f3e 257C     		.2byte	0x257c
+ 2841 0f40 00001073 		.4byte	0x1073
+ 2842 0f44 02       		.byte	0x2
+ 2843 0f45 23       		.byte	0x23
+ 2844 0f46 34       		.uleb128 0x34
+ 2845 0f47 0E       		.uleb128 0xe
+ 2846 0f48 00000000 		.4byte	.LASF153
+ 2847 0f4c 05       		.byte	0x5
+ 2848 0f4d 2593     		.2byte	0x2593
+ 2849 0f4f 00000A43 		.4byte	0xa43
+ 2850 0f53 02       		.byte	0x2
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 51
+
+
+ 2851 0f54 23       		.byte	0x23
+ 2852 0f55 38       		.uleb128 0x38
+ 2853 0f56 0E       		.uleb128 0xe
+ 2854 0f57 00000000 		.4byte	.LASF154
+ 2855 0f5b 05       		.byte	0x5
+ 2856 0f5c 2595     		.2byte	0x2595
+ 2857 0f5e 00001078 		.4byte	0x1078
+ 2858 0f62 02       		.byte	0x2
+ 2859 0f63 23       		.byte	0x23
+ 2860 0f64 3C       		.uleb128 0x3c
+ 2861 0f65 0E       		.uleb128 0xe
+ 2862 0f66 00000000 		.4byte	.LASF155
+ 2863 0f6a 05       		.byte	0x5
+ 2864 0f6b 259D     		.2byte	0x259d
+ 2865 0f6d 0000107D 		.4byte	0x107d
+ 2866 0f71 02       		.byte	0x2
+ 2867 0f72 23       		.byte	0x23
+ 2868 0f73 40       		.uleb128 0x40
+ 2869 0f74 0E       		.uleb128 0xe
+ 2870 0f75 00000000 		.4byte	.LASF156
+ 2871 0f79 05       		.byte	0x5
+ 2872 0f7a 25A5     		.2byte	0x25a5
+ 2873 0f7c 00000ADB 		.4byte	0xadb
+ 2874 0f80 03       		.byte	0x3
+ 2875 0f81 23       		.byte	0x23
+ 2876 0f82 C001     		.uleb128 0xc0
+ 2877 0f84 0E       		.uleb128 0xe
+ 2878 0f85 00000000 		.4byte	.LASF157
+ 2879 0f89 05       		.byte	0x5
+ 2880 0f8a 25A7     		.2byte	0x25a7
+ 2881 0f8c 0000109D 		.4byte	0x109d
+ 2882 0f90 03       		.byte	0x3
+ 2883 0f91 23       		.byte	0x23
+ 2884 0f92 C401     		.uleb128 0xc4
+ 2885 0f94 0E       		.uleb128 0xe
+ 2886 0f95 00000000 		.4byte	.LASF158
+ 2887 0f99 05       		.byte	0x5
+ 2888 0f9a 25B2     		.2byte	0x25b2
+ 2889 0f9c 00000B5D 		.4byte	0xb5d
+ 2890 0fa0 03       		.byte	0x3
+ 2891 0fa1 23       		.byte	0x23
+ 2892 0fa2 8002     		.uleb128 0x100
+ 2893 0fa4 0E       		.uleb128 0xe
+ 2894 0fa5 00000000 		.4byte	.LASF159
+ 2895 0fa9 05       		.byte	0x5
+ 2896 0faa 25B4     		.2byte	0x25b4
+ 2897 0fac 000010B3 		.4byte	0x10b3
+ 2898 0fb0 03       		.byte	0x3
+ 2899 0fb1 23       		.byte	0x23
+ 2900 0fb2 8402     		.uleb128 0x104
+ 2901 0fb4 0E       		.uleb128 0xe
+ 2902 0fb5 00000000 		.4byte	.LASF160
+ 2903 0fb9 05       		.byte	0x5
+ 2904 0fba 25C8     		.2byte	0x25c8
+ 2905 0fbc 000010B8 		.4byte	0x10b8
+ 2906 0fc0 03       		.byte	0x3
+ 2907 0fc1 23       		.byte	0x23
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 52
+
+
+ 2908 0fc2 C004     		.uleb128 0x240
+ 2909 0fc4 0E       		.uleb128 0xe
+ 2910 0fc5 00000000 		.4byte	.LASF161
+ 2911 0fc9 05       		.byte	0x5
+ 2912 0fca 25D1     		.2byte	0x25d1
+ 2913 0fcc 000010C9 		.4byte	0x10c9
+ 2914 0fd0 03       		.byte	0x3
+ 2915 0fd1 23       		.byte	0x23
+ 2916 0fd2 C014     		.uleb128 0xa40
+ 2917 0fd4 0E       		.uleb128 0xe
+ 2918 0fd5 00000000 		.4byte	.LASF162
+ 2919 0fd9 05       		.byte	0x5
+ 2920 0fda 25D3     		.2byte	0x25d3
+ 2921 0fdc 000010DA 		.4byte	0x10da
+ 2922 0fe0 03       		.byte	0x3
+ 2923 0fe1 23       		.byte	0x23
+ 2924 0fe2 C024     		.uleb128 0x1240
+ 2925 0fe4 0E       		.uleb128 0xe
+ 2926 0fe5 00000000 		.4byte	.LASF163
+ 2927 0fe9 05       		.byte	0x5
+ 2928 0fea 25DB     		.2byte	0x25db
+ 2929 0fec 000010DF 		.4byte	0x10df
+ 2930 0ff0 03       		.byte	0x3
+ 2931 0ff1 23       		.byte	0x23
+ 2932 0ff2 8026     		.uleb128 0x1300
+ 2933 0ff4 0E       		.uleb128 0xe
+ 2934 0ff5 00000000 		.4byte	.LASF164
+ 2935 0ff9 05       		.byte	0x5
+ 2936 0ffa 25E3     		.2byte	0x25e3
+ 2937 0ffc 000010F0 		.4byte	0x10f0
+ 2938 1000 03       		.byte	0x3
+ 2939 1001 23       		.byte	0x23
+ 2940 1002 802A     		.uleb128 0x1500
+ 2941 1004 0E       		.uleb128 0xe
+ 2942 1005 00000000 		.4byte	.LASF165
+ 2943 1009 05       		.byte	0x5
+ 2944 100a 25EA     		.2byte	0x25ea
+ 2945 100c 00001101 		.4byte	0x1101
+ 2946 1010 03       		.byte	0x3
+ 2947 1011 23       		.byte	0x23
+ 2948 1012 802E     		.uleb128 0x1700
+ 2949 1014 0E       		.uleb128 0xe
+ 2950 1015 00000000 		.4byte	.LASF166
+ 2951 1019 05       		.byte	0x5
+ 2952 101a 25EC     		.2byte	0x25ec
+ 2953 101c 00001121 		.4byte	0x1121
+ 2954 1020 03       		.byte	0x3
+ 2955 1021 23       		.byte	0x23
+ 2956 1022 9A2E     		.uleb128 0x171a
+ 2957 1024 0E       		.uleb128 0xe
+ 2958 1025 00000000 		.4byte	.LASF167
+ 2959 1029 05       		.byte	0x5
+ 2960 102a 25F3     		.2byte	0x25f3
+ 2961 102c 00001126 		.4byte	0x1126
+ 2962 1030 03       		.byte	0x3
+ 2963 1031 23       		.byte	0x23
+ 2964 1032 C02E     		.uleb128 0x1740
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 53
+
+
+ 2965 1034 0E       		.uleb128 0xe
+ 2966 1035 00000000 		.4byte	.LASF168
+ 2967 1039 05       		.byte	0x5
+ 2968 103a 25F5     		.2byte	0x25f5
+ 2969 103c 00001136 		.4byte	0x1136
+ 2970 1040 03       		.byte	0x3
+ 2971 1041 23       		.byte	0x23
+ 2972 1042 DA2E     		.uleb128 0x175a
+ 2973 1044 0E       		.uleb128 0xe
+ 2974 1045 00000000 		.4byte	.LASF169
+ 2975 1049 05       		.byte	0x5
+ 2976 104a 25FD     		.2byte	0x25fd
+ 2977 104c 0000113B 		.4byte	0x113b
+ 2978 1050 03       		.byte	0x3
+ 2979 1051 23       		.byte	0x23
+ 2980 1052 802F     		.uleb128 0x1780
+ 2981 1054 00       		.byte	0
+ 2982 1055 05       		.uleb128 0x5
+ 2983 1056 000000FE 		.4byte	0xfe
+ 2984 105a 05       		.uleb128 0x5
+ 2985 105b 000000FE 		.4byte	0xfe
+ 2986 105f 05       		.uleb128 0x5
+ 2987 1060 000000FE 		.4byte	0xfe
+ 2988 1064 05       		.uleb128 0x5
+ 2989 1065 000000FE 		.4byte	0xfe
+ 2990 1069 05       		.uleb128 0x5
+ 2991 106a 000000FE 		.4byte	0xfe
+ 2992 106e 05       		.uleb128 0x5
+ 2993 106f 000000FE 		.4byte	0xfe
+ 2994 1073 05       		.uleb128 0x5
+ 2995 1074 000000FE 		.4byte	0xfe
+ 2996 1078 05       		.uleb128 0x5
+ 2997 1079 000000FE 		.4byte	0xfe
+ 2998 107d 06       		.uleb128 0x6
+ 2999 107e 00000A8F 		.4byte	0xa8f
+ 3000 1082 0000108D 		.4byte	0x108d
+ 3001 1086 07       		.uleb128 0x7
+ 3002 1087 000000F7 		.4byte	0xf7
+ 3003 108b 1F       		.byte	0x1f
+ 3004 108c 00       		.byte	0
+ 3005 108d 06       		.uleb128 0x6
+ 3006 108e 000000C7 		.4byte	0xc7
+ 3007 1092 0000109D 		.4byte	0x109d
+ 3008 1096 07       		.uleb128 0x7
+ 3009 1097 000000F7 		.4byte	0xf7
+ 3010 109b 3B       		.byte	0x3b
+ 3011 109c 00       		.byte	0
+ 3012 109d 05       		.uleb128 0x5
+ 3013 109e 0000108D 		.4byte	0x108d
+ 3014 10a2 06       		.uleb128 0x6
+ 3015 10a3 000000C7 		.4byte	0xc7
+ 3016 10a7 000010B3 		.4byte	0x10b3
+ 3017 10ab 0F       		.uleb128 0xf
+ 3018 10ac 000000F7 		.4byte	0xf7
+ 3019 10b0 013B     		.2byte	0x13b
+ 3020 10b2 00       		.byte	0
+ 3021 10b3 05       		.uleb128 0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 54
+
+
+ 3022 10b4 000010A2 		.4byte	0x10a2
+ 3023 10b8 06       		.uleb128 0x6
+ 3024 10b9 00000C81 		.4byte	0xc81
+ 3025 10bd 000010C9 		.4byte	0x10c9
+ 3026 10c1 0F       		.uleb128 0xf
+ 3027 10c2 000000F7 		.4byte	0xf7
+ 3028 10c6 01FF     		.2byte	0x1ff
+ 3029 10c8 00       		.byte	0
+ 3030 10c9 06       		.uleb128 0x6
+ 3031 10ca 00000CF1 		.4byte	0xcf1
+ 3032 10ce 000010DA 		.4byte	0x10da
+ 3033 10d2 0F       		.uleb128 0xf
+ 3034 10d3 000000F7 		.4byte	0xf7
+ 3035 10d7 01FF     		.2byte	0x1ff
+ 3036 10d9 00       		.byte	0
+ 3037 10da 05       		.uleb128 0x5
+ 3038 10db 0000010E 		.4byte	0x10e
+ 3039 10df 06       		.uleb128 0x6
+ 3040 10e0 00000D3D 		.4byte	0xd3d
+ 3041 10e4 000010F0 		.4byte	0x10f0
+ 3042 10e8 0F       		.uleb128 0xf
+ 3043 10e9 000000F7 		.4byte	0xf7
+ 3044 10ed 01FF     		.2byte	0x1ff
+ 3045 10ef 00       		.byte	0
+ 3046 10f0 06       		.uleb128 0x6
+ 3047 10f1 00000D89 		.4byte	0xd89
+ 3048 10f5 00001101 		.4byte	0x1101
+ 3049 10f9 0F       		.uleb128 0xf
+ 3050 10fa 000000F7 		.4byte	0xf7
+ 3051 10fe 01FF     		.2byte	0x1ff
+ 3052 1100 00       		.byte	0
+ 3053 1101 06       		.uleb128 0x6
+ 3054 1102 00000DC3 		.4byte	0xdc3
+ 3055 1106 00001111 		.4byte	0x1111
+ 3056 110a 07       		.uleb128 0x7
+ 3057 110b 000000F7 		.4byte	0xf7
+ 3058 110f 0C       		.byte	0xc
+ 3059 1110 00       		.byte	0
+ 3060 1111 06       		.uleb128 0x6
+ 3061 1112 000000C7 		.4byte	0xc7
+ 3062 1116 00001121 		.4byte	0x1121
+ 3063 111a 07       		.uleb128 0x7
+ 3064 111b 000000F7 		.4byte	0xf7
+ 3065 111f 25       		.byte	0x25
+ 3066 1120 00       		.byte	0
+ 3067 1121 05       		.uleb128 0x5
+ 3068 1122 00001111 		.4byte	0x1111
+ 3069 1126 06       		.uleb128 0x6
+ 3070 1127 00000DFD 		.4byte	0xdfd
+ 3071 112b 00001136 		.4byte	0x1136
+ 3072 112f 07       		.uleb128 0x7
+ 3073 1130 000000F7 		.4byte	0xf7
+ 3074 1134 0C       		.byte	0xc
+ 3075 1135 00       		.byte	0
+ 3076 1136 05       		.uleb128 0x5
+ 3077 1137 00001111 		.4byte	0x1111
+ 3078 113b 06       		.uleb128 0x6
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 55
+
+
+ 3079 113c 00000E49 		.4byte	0xe49
+ 3080 1140 0000114B 		.4byte	0x114b
+ 3081 1144 07       		.uleb128 0x7
+ 3082 1145 000000F7 		.4byte	0xf7
+ 3083 1149 0C       		.byte	0xc
+ 3084 114a 00       		.byte	0
+ 3085 114b 04       		.uleb128 0x4
+ 3086 114c 00000000 		.4byte	.LASF170
+ 3087 1150 06       		.byte	0x6
+ 3088 1151 32       		.byte	0x32
+ 3089 1152 00001156 		.4byte	0x1156
+ 3090 1156 10       		.uleb128 0x10
+ 3091 1157 04       		.byte	0x4
+ 3092 1158 0000115C 		.4byte	0x115c
+ 3093 115c 11       		.uleb128 0x11
+ 3094 115d 01       		.byte	0x1
+ 3095 115e 12       		.uleb128 0x12
+ 3096 115f 08       		.byte	0x8
+ 3097 1160 06       		.byte	0x6
+ 3098 1161 37       		.byte	0x37
+ 3099 1162 000011AD 		.4byte	0x11ad
+ 3100 1166 13       		.uleb128 0x13
+ 3101 1167 00000000 		.4byte	.LASF171
+ 3102 116b 06       		.byte	0x6
+ 3103 116c 3B       		.byte	0x3b
+ 3104 116d 0000009B 		.4byte	0x9b
+ 3105 1171 02       		.byte	0x2
+ 3106 1172 23       		.byte	0x23
+ 3107 1173 00       		.uleb128 0
+ 3108 1174 13       		.uleb128 0x13
+ 3109 1175 00000000 		.4byte	.LASF172
+ 3110 1179 06       		.byte	0x6
+ 3111 117a 3F       		.byte	0x3f
+ 3112 117b 000000A6 		.4byte	0xa6
+ 3113 117f 02       		.byte	0x2
+ 3114 1180 23       		.byte	0x23
+ 3115 1181 01       		.uleb128 0x1
+ 3116 1182 13       		.uleb128 0x13
+ 3117 1183 00000000 		.4byte	.LASF173
+ 3118 1187 06       		.byte	0x6
+ 3119 1188 43       		.byte	0x43
+ 3120 1189 000000A6 		.4byte	0xa6
+ 3121 118d 02       		.byte	0x2
+ 3122 118e 23       		.byte	0x23
+ 3123 118f 02       		.uleb128 0x2
+ 3124 1190 13       		.uleb128 0x13
+ 3125 1191 00000000 		.4byte	.LASF174
+ 3126 1195 06       		.byte	0x6
+ 3127 1196 47       		.byte	0x47
+ 3128 1197 000000A6 		.4byte	0xa6
+ 3129 119b 02       		.byte	0x2
+ 3130 119c 23       		.byte	0x23
+ 3131 119d 03       		.uleb128 0x3
+ 3132 119e 13       		.uleb128 0x13
+ 3133 119f 00000000 		.4byte	.LASF175
+ 3134 11a3 06       		.byte	0x6
+ 3135 11a4 4B       		.byte	0x4b
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 56
+
+
+ 3136 11a5 0000114B 		.4byte	0x114b
+ 3137 11a9 02       		.byte	0x2
+ 3138 11aa 23       		.byte	0x23
+ 3139 11ab 04       		.uleb128 0x4
+ 3140 11ac 00       		.byte	0
+ 3141 11ad 04       		.uleb128 0x4
+ 3142 11ae 00000000 		.4byte	.LASF176
+ 3143 11b2 06       		.byte	0x6
+ 3144 11b3 4C       		.byte	0x4c
+ 3145 11b4 0000115E 		.4byte	0x115e
+ 3146 11b8 14       		.uleb128 0x14
+ 3147 11b9 01       		.byte	0x1
+ 3148 11ba 00000000 		.4byte	.LASF177
+ 3149 11be 01       		.byte	0x1
+ 3150 11bf 29       		.byte	0x29
+ 3151 11c0 01       		.byte	0x1
+ 3152 11c1 00000000 		.4byte	.LFB2
+ 3153 11c5 00000000 		.4byte	.LFE2
+ 3154 11c9 00000000 		.4byte	.LLST0
+ 3155 11cd 01       		.byte	0x1
+ 3156 11ce 000011ED 		.4byte	0x11ed
+ 3157 11d2 15       		.uleb128 0x15
+ 3158 11d3 00000000 		.4byte	.LASF183
+ 3159 11d7 01       		.byte	0x1
+ 3160 11d8 29       		.byte	0x29
+ 3161 11d9 000000A6 		.4byte	0xa6
+ 3162 11dd 02       		.byte	0x2
+ 3163 11de 91       		.byte	0x91
+ 3164 11df 78       		.sleb128 -8
+ 3165 11e0 16       		.uleb128 0x16
+ 3166 11e1 6900     		.string	"i"
+ 3167 11e3 01       		.byte	0x1
+ 3168 11e4 2A       		.byte	0x2a
+ 3169 11e5 000000A6 		.4byte	0xa6
+ 3170 11e9 02       		.byte	0x2
+ 3171 11ea 91       		.byte	0x91
+ 3172 11eb 68       		.sleb128 -24
+ 3173 11ec 00       		.byte	0
+ 3174 11ed 14       		.uleb128 0x14
+ 3175 11ee 01       		.byte	0x1
+ 3176 11ef 00000000 		.4byte	.LASF178
+ 3177 11f3 01       		.byte	0x1
+ 3178 11f4 41       		.byte	0x41
+ 3179 11f5 01       		.byte	0x1
+ 3180 11f6 00000000 		.4byte	.LFB3
+ 3181 11fa 00000000 		.4byte	.LFE3
+ 3182 11fe 00000000 		.4byte	.LLST1
+ 3183 1202 01       		.byte	0x1
+ 3184 1203 00001214 		.4byte	0x1214
+ 3185 1207 16       		.uleb128 0x16
+ 3186 1208 6900     		.string	"i"
+ 3187 120a 01       		.byte	0x1
+ 3188 120b 42       		.byte	0x42
+ 3189 120c 000000A6 		.4byte	0xa6
+ 3190 1210 02       		.byte	0x2
+ 3191 1211 91       		.byte	0x91
+ 3192 1212 70       		.sleb128 -16
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 57
+
+
+ 3193 1213 00       		.byte	0
+ 3194 1214 14       		.uleb128 0x14
+ 3195 1215 01       		.byte	0x1
+ 3196 1216 00000000 		.4byte	.LASF179
+ 3197 121a 01       		.byte	0x1
+ 3198 121b 5A       		.byte	0x5a
+ 3199 121c 01       		.byte	0x1
+ 3200 121d 00000000 		.4byte	.LFB4
+ 3201 1221 00000000 		.4byte	.LFE4
+ 3202 1225 00000000 		.4byte	.LLST2
+ 3203 1229 01       		.byte	0x1
+ 3204 122a 0000123B 		.4byte	0x123b
+ 3205 122e 16       		.uleb128 0x16
+ 3206 122f 6900     		.string	"i"
+ 3207 1231 01       		.byte	0x1
+ 3208 1232 5B       		.byte	0x5b
+ 3209 1233 000000A6 		.4byte	0xa6
+ 3210 1237 02       		.byte	0x2
+ 3211 1238 91       		.byte	0x91
+ 3212 1239 70       		.sleb128 -16
+ 3213 123a 00       		.byte	0
+ 3214 123b 14       		.uleb128 0x14
+ 3215 123c 01       		.byte	0x1
+ 3216 123d 00000000 		.4byte	.LASF180
+ 3217 1241 01       		.byte	0x1
+ 3218 1242 73       		.byte	0x73
+ 3219 1243 01       		.byte	0x1
+ 3220 1244 00000000 		.4byte	.LFB5
+ 3221 1248 00000000 		.4byte	.LFE5
+ 3222 124c 00000000 		.4byte	.LLST3
+ 3223 1250 01       		.byte	0x1
+ 3224 1251 00001262 		.4byte	0x1262
+ 3225 1255 16       		.uleb128 0x16
+ 3226 1256 6900     		.string	"i"
+ 3227 1258 01       		.byte	0x1
+ 3228 1259 74       		.byte	0x74
+ 3229 125a 000000A6 		.4byte	0xa6
+ 3230 125e 02       		.byte	0x2
+ 3231 125f 91       		.byte	0x91
+ 3232 1260 70       		.sleb128 -16
+ 3233 1261 00       		.byte	0
+ 3234 1262 14       		.uleb128 0x14
+ 3235 1263 01       		.byte	0x1
+ 3236 1264 00000000 		.4byte	.LASF181
+ 3237 1268 01       		.byte	0x1
+ 3238 1269 8C       		.byte	0x8c
+ 3239 126a 01       		.byte	0x1
+ 3240 126b 00000000 		.4byte	.LFB6
+ 3241 126f 00000000 		.4byte	.LFE6
+ 3242 1273 00000000 		.4byte	.LLST4
+ 3243 1277 01       		.byte	0x1
+ 3244 1278 00001289 		.4byte	0x1289
+ 3245 127c 16       		.uleb128 0x16
+ 3246 127d 6900     		.string	"i"
+ 3247 127f 01       		.byte	0x1
+ 3248 1280 8D       		.byte	0x8d
+ 3249 1281 000000A6 		.4byte	0xa6
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 58
+
+
+ 3250 1285 02       		.byte	0x2
+ 3251 1286 91       		.byte	0x91
+ 3252 1287 70       		.sleb128 -16
+ 3253 1288 00       		.byte	0
+ 3254 1289 17       		.uleb128 0x17
+ 3255 128a 01       		.byte	0x1
+ 3256 128b 00000000 		.4byte	.LASF182
+ 3257 128f 01       		.byte	0x1
+ 3258 1290 A8       		.byte	0xa8
+ 3259 1291 01       		.byte	0x1
+ 3260 1292 00000000 		.4byte	.LFB7
+ 3261 1296 00000000 		.4byte	.LFE7
+ 3262 129a 00000000 		.4byte	.LLST5
+ 3263 129e 01       		.byte	0x1
+ 3264 129f 000012BE 		.4byte	0x12be
+ 3265 12a3 16       		.uleb128 0x16
+ 3266 12a4 6900     		.string	"i"
+ 3267 12a6 01       		.byte	0x1
+ 3268 12a7 A9       		.byte	0xa9
+ 3269 12a8 000000A6 		.4byte	0xa6
+ 3270 12ac 02       		.byte	0x2
+ 3271 12ad 91       		.byte	0x91
+ 3272 12ae 70       		.sleb128 -16
+ 3273 12af 18       		.uleb128 0x18
+ 3274 12b0 00000000 		.4byte	.LASF183
+ 3275 12b4 01       		.byte	0x1
+ 3276 12b5 AA       		.byte	0xaa
+ 3277 12b6 000000A6 		.4byte	0xa6
+ 3278 12ba 02       		.byte	0x2
+ 3279 12bb 91       		.byte	0x91
+ 3280 12bc 71       		.sleb128 -15
+ 3281 12bd 00       		.byte	0
+ 3282 12be 06       		.uleb128 0x6
+ 3283 12bf 000011AD 		.4byte	0x11ad
+ 3284 12c3 000012C9 		.4byte	0x12c9
+ 3285 12c7 19       		.uleb128 0x19
+ 3286 12c8 00       		.byte	0
+ 3287 12c9 1A       		.uleb128 0x1a
+ 3288 12ca 00000000 		.4byte	.LASF188
+ 3289 12ce 06       		.byte	0x6
+ 3290 12cf 52       		.byte	0x52
+ 3291 12d0 000012BE 		.4byte	0x12be
+ 3292 12d4 01       		.byte	0x1
+ 3293 12d5 01       		.byte	0x1
+ 3294 12d6 00       		.byte	0
+ 3295              		.section	.debug_abbrev,"",@progbits
+ 3296              	.Ldebug_abbrev0:
+ 3297 0000 01       		.uleb128 0x1
+ 3298 0001 11       		.uleb128 0x11
+ 3299 0002 01       		.byte	0x1
+ 3300 0003 25       		.uleb128 0x25
+ 3301 0004 0E       		.uleb128 0xe
+ 3302 0005 13       		.uleb128 0x13
+ 3303 0006 0B       		.uleb128 0xb
+ 3304 0007 03       		.uleb128 0x3
+ 3305 0008 0E       		.uleb128 0xe
+ 3306 0009 1B       		.uleb128 0x1b
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 59
+
+
+ 3307 000a 0E       		.uleb128 0xe
+ 3308 000b 55       		.uleb128 0x55
+ 3309 000c 06       		.uleb128 0x6
+ 3310 000d 11       		.uleb128 0x11
+ 3311 000e 01       		.uleb128 0x1
+ 3312 000f 52       		.uleb128 0x52
+ 3313 0010 01       		.uleb128 0x1
+ 3314 0011 10       		.uleb128 0x10
+ 3315 0012 06       		.uleb128 0x6
+ 3316 0013 00       		.byte	0
+ 3317 0014 00       		.byte	0
+ 3318 0015 02       		.uleb128 0x2
+ 3319 0016 24       		.uleb128 0x24
+ 3320 0017 00       		.byte	0
+ 3321 0018 0B       		.uleb128 0xb
+ 3322 0019 0B       		.uleb128 0xb
+ 3323 001a 3E       		.uleb128 0x3e
+ 3324 001b 0B       		.uleb128 0xb
+ 3325 001c 03       		.uleb128 0x3
+ 3326 001d 08       		.uleb128 0x8
+ 3327 001e 00       		.byte	0
+ 3328 001f 00       		.byte	0
+ 3329 0020 03       		.uleb128 0x3
+ 3330 0021 24       		.uleb128 0x24
+ 3331 0022 00       		.byte	0
+ 3332 0023 0B       		.uleb128 0xb
+ 3333 0024 0B       		.uleb128 0xb
+ 3334 0025 3E       		.uleb128 0x3e
+ 3335 0026 0B       		.uleb128 0xb
+ 3336 0027 03       		.uleb128 0x3
+ 3337 0028 0E       		.uleb128 0xe
+ 3338 0029 00       		.byte	0
+ 3339 002a 00       		.byte	0
+ 3340 002b 04       		.uleb128 0x4
+ 3341 002c 16       		.uleb128 0x16
+ 3342 002d 00       		.byte	0
+ 3343 002e 03       		.uleb128 0x3
+ 3344 002f 0E       		.uleb128 0xe
+ 3345 0030 3A       		.uleb128 0x3a
+ 3346 0031 0B       		.uleb128 0xb
+ 3347 0032 3B       		.uleb128 0x3b
+ 3348 0033 0B       		.uleb128 0xb
+ 3349 0034 49       		.uleb128 0x49
+ 3350 0035 13       		.uleb128 0x13
+ 3351 0036 00       		.byte	0
+ 3352 0037 00       		.byte	0
+ 3353 0038 05       		.uleb128 0x5
+ 3354 0039 35       		.uleb128 0x35
+ 3355 003a 00       		.byte	0
+ 3356 003b 49       		.uleb128 0x49
+ 3357 003c 13       		.uleb128 0x13
+ 3358 003d 00       		.byte	0
+ 3359 003e 00       		.byte	0
+ 3360 003f 06       		.uleb128 0x6
+ 3361 0040 01       		.uleb128 0x1
+ 3362 0041 01       		.byte	0x1
+ 3363 0042 49       		.uleb128 0x49
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 60
+
+
+ 3364 0043 13       		.uleb128 0x13
+ 3365 0044 01       		.uleb128 0x1
+ 3366 0045 13       		.uleb128 0x13
+ 3367 0046 00       		.byte	0
+ 3368 0047 00       		.byte	0
+ 3369 0048 07       		.uleb128 0x7
+ 3370 0049 21       		.uleb128 0x21
+ 3371 004a 00       		.byte	0
+ 3372 004b 49       		.uleb128 0x49
+ 3373 004c 13       		.uleb128 0x13
+ 3374 004d 2F       		.uleb128 0x2f
+ 3375 004e 0B       		.uleb128 0xb
+ 3376 004f 00       		.byte	0
+ 3377 0050 00       		.byte	0
+ 3378 0051 08       		.uleb128 0x8
+ 3379 0052 13       		.uleb128 0x13
+ 3380 0053 01       		.byte	0x1
+ 3381 0054 0B       		.uleb128 0xb
+ 3382 0055 0B       		.uleb128 0xb
+ 3383 0056 3A       		.uleb128 0x3a
+ 3384 0057 0B       		.uleb128 0xb
+ 3385 0058 3B       		.uleb128 0x3b
+ 3386 0059 05       		.uleb128 0x5
+ 3387 005a 01       		.uleb128 0x1
+ 3388 005b 13       		.uleb128 0x13
+ 3389 005c 00       		.byte	0
+ 3390 005d 00       		.byte	0
+ 3391 005e 09       		.uleb128 0x9
+ 3392 005f 0D       		.uleb128 0xd
+ 3393 0060 00       		.byte	0
+ 3394 0061 03       		.uleb128 0x3
+ 3395 0062 0E       		.uleb128 0xe
+ 3396 0063 3A       		.uleb128 0x3a
+ 3397 0064 0B       		.uleb128 0xb
+ 3398 0065 3B       		.uleb128 0x3b
+ 3399 0066 05       		.uleb128 0x5
+ 3400 0067 49       		.uleb128 0x49
+ 3401 0068 13       		.uleb128 0x13
+ 3402 0069 0B       		.uleb128 0xb
+ 3403 006a 0B       		.uleb128 0xb
+ 3404 006b 0D       		.uleb128 0xd
+ 3405 006c 0B       		.uleb128 0xb
+ 3406 006d 0C       		.uleb128 0xc
+ 3407 006e 0B       		.uleb128 0xb
+ 3408 006f 38       		.uleb128 0x38
+ 3409 0070 0A       		.uleb128 0xa
+ 3410 0071 00       		.byte	0
+ 3411 0072 00       		.byte	0
+ 3412 0073 0A       		.uleb128 0xa
+ 3413 0074 0D       		.uleb128 0xd
+ 3414 0075 00       		.byte	0
+ 3415 0076 03       		.uleb128 0x3
+ 3416 0077 08       		.uleb128 0x8
+ 3417 0078 3A       		.uleb128 0x3a
+ 3418 0079 0B       		.uleb128 0xb
+ 3419 007a 3B       		.uleb128 0x3b
+ 3420 007b 05       		.uleb128 0x5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 61
+
+
+ 3421 007c 49       		.uleb128 0x49
+ 3422 007d 13       		.uleb128 0x13
+ 3423 007e 0B       		.uleb128 0xb
+ 3424 007f 0B       		.uleb128 0xb
+ 3425 0080 0D       		.uleb128 0xd
+ 3426 0081 0B       		.uleb128 0xb
+ 3427 0082 0C       		.uleb128 0xc
+ 3428 0083 0B       		.uleb128 0xb
+ 3429 0084 38       		.uleb128 0x38
+ 3430 0085 0A       		.uleb128 0xa
+ 3431 0086 00       		.byte	0
+ 3432 0087 00       		.byte	0
+ 3433 0088 0B       		.uleb128 0xb
+ 3434 0089 17       		.uleb128 0x17
+ 3435 008a 01       		.byte	0x1
+ 3436 008b 0B       		.uleb128 0xb
+ 3437 008c 0B       		.uleb128 0xb
+ 3438 008d 3A       		.uleb128 0x3a
+ 3439 008e 0B       		.uleb128 0xb
+ 3440 008f 3B       		.uleb128 0x3b
+ 3441 0090 05       		.uleb128 0x5
+ 3442 0091 01       		.uleb128 0x1
+ 3443 0092 13       		.uleb128 0x13
+ 3444 0093 00       		.byte	0
+ 3445 0094 00       		.byte	0
+ 3446 0095 0C       		.uleb128 0xc
+ 3447 0096 0D       		.uleb128 0xd
+ 3448 0097 00       		.byte	0
+ 3449 0098 03       		.uleb128 0x3
+ 3450 0099 08       		.uleb128 0x8
+ 3451 009a 3A       		.uleb128 0x3a
+ 3452 009b 0B       		.uleb128 0xb
+ 3453 009c 3B       		.uleb128 0x3b
+ 3454 009d 05       		.uleb128 0x5
+ 3455 009e 49       		.uleb128 0x49
+ 3456 009f 13       		.uleb128 0x13
+ 3457 00a0 00       		.byte	0
+ 3458 00a1 00       		.byte	0
+ 3459 00a2 0D       		.uleb128 0xd
+ 3460 00a3 13       		.uleb128 0x13
+ 3461 00a4 01       		.byte	0x1
+ 3462 00a5 03       		.uleb128 0x3
+ 3463 00a6 0E       		.uleb128 0xe
+ 3464 00a7 0B       		.uleb128 0xb
+ 3465 00a8 05       		.uleb128 0x5
+ 3466 00a9 3A       		.uleb128 0x3a
+ 3467 00aa 0B       		.uleb128 0xb
+ 3468 00ab 3B       		.uleb128 0x3b
+ 3469 00ac 05       		.uleb128 0x5
+ 3470 00ad 01       		.uleb128 0x1
+ 3471 00ae 13       		.uleb128 0x13
+ 3472 00af 00       		.byte	0
+ 3473 00b0 00       		.byte	0
+ 3474 00b1 0E       		.uleb128 0xe
+ 3475 00b2 0D       		.uleb128 0xd
+ 3476 00b3 00       		.byte	0
+ 3477 00b4 03       		.uleb128 0x3
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 62
+
+
+ 3478 00b5 0E       		.uleb128 0xe
+ 3479 00b6 3A       		.uleb128 0x3a
+ 3480 00b7 0B       		.uleb128 0xb
+ 3481 00b8 3B       		.uleb128 0x3b
+ 3482 00b9 05       		.uleb128 0x5
+ 3483 00ba 49       		.uleb128 0x49
+ 3484 00bb 13       		.uleb128 0x13
+ 3485 00bc 38       		.uleb128 0x38
+ 3486 00bd 0A       		.uleb128 0xa
+ 3487 00be 00       		.byte	0
+ 3488 00bf 00       		.byte	0
+ 3489 00c0 0F       		.uleb128 0xf
+ 3490 00c1 21       		.uleb128 0x21
+ 3491 00c2 00       		.byte	0
+ 3492 00c3 49       		.uleb128 0x49
+ 3493 00c4 13       		.uleb128 0x13
+ 3494 00c5 2F       		.uleb128 0x2f
+ 3495 00c6 05       		.uleb128 0x5
+ 3496 00c7 00       		.byte	0
+ 3497 00c8 00       		.byte	0
+ 3498 00c9 10       		.uleb128 0x10
+ 3499 00ca 0F       		.uleb128 0xf
+ 3500 00cb 00       		.byte	0
+ 3501 00cc 0B       		.uleb128 0xb
+ 3502 00cd 0B       		.uleb128 0xb
+ 3503 00ce 49       		.uleb128 0x49
+ 3504 00cf 13       		.uleb128 0x13
+ 3505 00d0 00       		.byte	0
+ 3506 00d1 00       		.byte	0
+ 3507 00d2 11       		.uleb128 0x11
+ 3508 00d3 15       		.uleb128 0x15
+ 3509 00d4 00       		.byte	0
+ 3510 00d5 27       		.uleb128 0x27
+ 3511 00d6 0C       		.uleb128 0xc
+ 3512 00d7 00       		.byte	0
+ 3513 00d8 00       		.byte	0
+ 3514 00d9 12       		.uleb128 0x12
+ 3515 00da 13       		.uleb128 0x13
+ 3516 00db 01       		.byte	0x1
+ 3517 00dc 0B       		.uleb128 0xb
+ 3518 00dd 0B       		.uleb128 0xb
+ 3519 00de 3A       		.uleb128 0x3a
+ 3520 00df 0B       		.uleb128 0xb
+ 3521 00e0 3B       		.uleb128 0x3b
+ 3522 00e1 0B       		.uleb128 0xb
+ 3523 00e2 01       		.uleb128 0x1
+ 3524 00e3 13       		.uleb128 0x13
+ 3525 00e4 00       		.byte	0
+ 3526 00e5 00       		.byte	0
+ 3527 00e6 13       		.uleb128 0x13
+ 3528 00e7 0D       		.uleb128 0xd
+ 3529 00e8 00       		.byte	0
+ 3530 00e9 03       		.uleb128 0x3
+ 3531 00ea 0E       		.uleb128 0xe
+ 3532 00eb 3A       		.uleb128 0x3a
+ 3533 00ec 0B       		.uleb128 0xb
+ 3534 00ed 3B       		.uleb128 0x3b
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 63
+
+
+ 3535 00ee 0B       		.uleb128 0xb
+ 3536 00ef 49       		.uleb128 0x49
+ 3537 00f0 13       		.uleb128 0x13
+ 3538 00f1 38       		.uleb128 0x38
+ 3539 00f2 0A       		.uleb128 0xa
+ 3540 00f3 00       		.byte	0
+ 3541 00f4 00       		.byte	0
+ 3542 00f5 14       		.uleb128 0x14
+ 3543 00f6 2E       		.uleb128 0x2e
+ 3544 00f7 01       		.byte	0x1
+ 3545 00f8 3F       		.uleb128 0x3f
+ 3546 00f9 0C       		.uleb128 0xc
+ 3547 00fa 03       		.uleb128 0x3
+ 3548 00fb 0E       		.uleb128 0xe
+ 3549 00fc 3A       		.uleb128 0x3a
+ 3550 00fd 0B       		.uleb128 0xb
+ 3551 00fe 3B       		.uleb128 0x3b
+ 3552 00ff 0B       		.uleb128 0xb
+ 3553 0100 27       		.uleb128 0x27
+ 3554 0101 0C       		.uleb128 0xc
+ 3555 0102 11       		.uleb128 0x11
+ 3556 0103 01       		.uleb128 0x1
+ 3557 0104 12       		.uleb128 0x12
+ 3558 0105 01       		.uleb128 0x1
+ 3559 0106 40       		.uleb128 0x40
+ 3560 0107 06       		.uleb128 0x6
+ 3561 0108 9642     		.uleb128 0x2116
+ 3562 010a 0C       		.uleb128 0xc
+ 3563 010b 01       		.uleb128 0x1
+ 3564 010c 13       		.uleb128 0x13
+ 3565 010d 00       		.byte	0
+ 3566 010e 00       		.byte	0
+ 3567 010f 15       		.uleb128 0x15
+ 3568 0110 05       		.uleb128 0x5
+ 3569 0111 00       		.byte	0
+ 3570 0112 03       		.uleb128 0x3
+ 3571 0113 0E       		.uleb128 0xe
+ 3572 0114 3A       		.uleb128 0x3a
+ 3573 0115 0B       		.uleb128 0xb
+ 3574 0116 3B       		.uleb128 0x3b
+ 3575 0117 0B       		.uleb128 0xb
+ 3576 0118 49       		.uleb128 0x49
+ 3577 0119 13       		.uleb128 0x13
+ 3578 011a 02       		.uleb128 0x2
+ 3579 011b 0A       		.uleb128 0xa
+ 3580 011c 00       		.byte	0
+ 3581 011d 00       		.byte	0
+ 3582 011e 16       		.uleb128 0x16
+ 3583 011f 34       		.uleb128 0x34
+ 3584 0120 00       		.byte	0
+ 3585 0121 03       		.uleb128 0x3
+ 3586 0122 08       		.uleb128 0x8
+ 3587 0123 3A       		.uleb128 0x3a
+ 3588 0124 0B       		.uleb128 0xb
+ 3589 0125 3B       		.uleb128 0x3b
+ 3590 0126 0B       		.uleb128 0xb
+ 3591 0127 49       		.uleb128 0x49
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 64
+
+
+ 3592 0128 13       		.uleb128 0x13
+ 3593 0129 02       		.uleb128 0x2
+ 3594 012a 0A       		.uleb128 0xa
+ 3595 012b 00       		.byte	0
+ 3596 012c 00       		.byte	0
+ 3597 012d 17       		.uleb128 0x17
+ 3598 012e 2E       		.uleb128 0x2e
+ 3599 012f 01       		.byte	0x1
+ 3600 0130 3F       		.uleb128 0x3f
+ 3601 0131 0C       		.uleb128 0xc
+ 3602 0132 03       		.uleb128 0x3
+ 3603 0133 0E       		.uleb128 0xe
+ 3604 0134 3A       		.uleb128 0x3a
+ 3605 0135 0B       		.uleb128 0xb
+ 3606 0136 3B       		.uleb128 0x3b
+ 3607 0137 0B       		.uleb128 0xb
+ 3608 0138 27       		.uleb128 0x27
+ 3609 0139 0C       		.uleb128 0xc
+ 3610 013a 11       		.uleb128 0x11
+ 3611 013b 01       		.uleb128 0x1
+ 3612 013c 12       		.uleb128 0x12
+ 3613 013d 01       		.uleb128 0x1
+ 3614 013e 40       		.uleb128 0x40
+ 3615 013f 06       		.uleb128 0x6
+ 3616 0140 9742     		.uleb128 0x2117
+ 3617 0142 0C       		.uleb128 0xc
+ 3618 0143 01       		.uleb128 0x1
+ 3619 0144 13       		.uleb128 0x13
+ 3620 0145 00       		.byte	0
+ 3621 0146 00       		.byte	0
+ 3622 0147 18       		.uleb128 0x18
+ 3623 0148 34       		.uleb128 0x34
+ 3624 0149 00       		.byte	0
+ 3625 014a 03       		.uleb128 0x3
+ 3626 014b 0E       		.uleb128 0xe
+ 3627 014c 3A       		.uleb128 0x3a
+ 3628 014d 0B       		.uleb128 0xb
+ 3629 014e 3B       		.uleb128 0x3b
+ 3630 014f 0B       		.uleb128 0xb
+ 3631 0150 49       		.uleb128 0x49
+ 3632 0151 13       		.uleb128 0x13
+ 3633 0152 02       		.uleb128 0x2
+ 3634 0153 0A       		.uleb128 0xa
+ 3635 0154 00       		.byte	0
+ 3636 0155 00       		.byte	0
+ 3637 0156 19       		.uleb128 0x19
+ 3638 0157 21       		.uleb128 0x21
+ 3639 0158 00       		.byte	0
+ 3640 0159 00       		.byte	0
+ 3641 015a 00       		.byte	0
+ 3642 015b 1A       		.uleb128 0x1a
+ 3643 015c 34       		.uleb128 0x34
+ 3644 015d 00       		.byte	0
+ 3645 015e 03       		.uleb128 0x3
+ 3646 015f 0E       		.uleb128 0xe
+ 3647 0160 3A       		.uleb128 0x3a
+ 3648 0161 0B       		.uleb128 0xb
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 65
+
+
+ 3649 0162 3B       		.uleb128 0x3b
+ 3650 0163 0B       		.uleb128 0xb
+ 3651 0164 49       		.uleb128 0x49
+ 3652 0165 13       		.uleb128 0x13
+ 3653 0166 3F       		.uleb128 0x3f
+ 3654 0167 0C       		.uleb128 0xc
+ 3655 0168 3C       		.uleb128 0x3c
+ 3656 0169 0C       		.uleb128 0xc
+ 3657 016a 00       		.byte	0
+ 3658 016b 00       		.byte	0
+ 3659 016c 00       		.byte	0
+ 3660              		.section	.debug_loc,"",@progbits
+ 3661              	.Ldebug_loc0:
+ 3662              	.LLST0:
+ 3663 0000 00000000 		.4byte	.LFB2
+ 3664 0004 00000000 		.4byte	.LCFI0
+ 3665 0008 0002     		.2byte	0x2
+ 3666 000a 71       		.byte	0x71
+ 3667 000b 00       		.sleb128 0
+ 3668 000c 00000000 		.4byte	.LCFI0
+ 3669 0010 00000000 		.4byte	.LCFI1
+ 3670 0014 0002     		.2byte	0x2
+ 3671 0016 71       		.byte	0x71
+ 3672 0017 20       		.sleb128 32
+ 3673 0018 00000000 		.4byte	.LCFI1
+ 3674 001c 00000000 		.4byte	.LFE2
+ 3675 0020 0002     		.2byte	0x2
+ 3676 0022 71       		.byte	0x71
+ 3677 0023 00       		.sleb128 0
+ 3678 0024 00000000 		.4byte	0
+ 3679 0028 00000000 		.4byte	0
+ 3680              	.LLST1:
+ 3681 002c 00000000 		.4byte	.LFB3
+ 3682 0030 00000000 		.4byte	.LCFI2
+ 3683 0034 0002     		.2byte	0x2
+ 3684 0036 71       		.byte	0x71
+ 3685 0037 00       		.sleb128 0
+ 3686 0038 00000000 		.4byte	.LCFI2
+ 3687 003c 00000000 		.4byte	.LCFI3
+ 3688 0040 0002     		.2byte	0x2
+ 3689 0042 71       		.byte	0x71
+ 3690 0043 18       		.sleb128 24
+ 3691 0044 00000000 		.4byte	.LCFI3
+ 3692 0048 00000000 		.4byte	.LFE3
+ 3693 004c 0002     		.2byte	0x2
+ 3694 004e 71       		.byte	0x71
+ 3695 004f 00       		.sleb128 0
+ 3696 0050 00000000 		.4byte	0
+ 3697 0054 00000000 		.4byte	0
+ 3698              	.LLST2:
+ 3699 0058 00000000 		.4byte	.LFB4
+ 3700 005c 00000000 		.4byte	.LCFI4
+ 3701 0060 0002     		.2byte	0x2
+ 3702 0062 71       		.byte	0x71
+ 3703 0063 00       		.sleb128 0
+ 3704 0064 00000000 		.4byte	.LCFI4
+ 3705 0068 00000000 		.4byte	.LCFI5
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 66
+
+
+ 3706 006c 0002     		.2byte	0x2
+ 3707 006e 71       		.byte	0x71
+ 3708 006f 18       		.sleb128 24
+ 3709 0070 00000000 		.4byte	.LCFI5
+ 3710 0074 00000000 		.4byte	.LFE4
+ 3711 0078 0002     		.2byte	0x2
+ 3712 007a 71       		.byte	0x71
+ 3713 007b 00       		.sleb128 0
+ 3714 007c 00000000 		.4byte	0
+ 3715 0080 00000000 		.4byte	0
+ 3716              	.LLST3:
+ 3717 0084 00000000 		.4byte	.LFB5
+ 3718 0088 00000000 		.4byte	.LCFI6
+ 3719 008c 0002     		.2byte	0x2
+ 3720 008e 71       		.byte	0x71
+ 3721 008f 00       		.sleb128 0
+ 3722 0090 00000000 		.4byte	.LCFI6
+ 3723 0094 00000000 		.4byte	.LCFI7
+ 3724 0098 0002     		.2byte	0x2
+ 3725 009a 71       		.byte	0x71
+ 3726 009b 18       		.sleb128 24
+ 3727 009c 00000000 		.4byte	.LCFI7
+ 3728 00a0 00000000 		.4byte	.LFE5
+ 3729 00a4 0002     		.2byte	0x2
+ 3730 00a6 71       		.byte	0x71
+ 3731 00a7 00       		.sleb128 0
+ 3732 00a8 00000000 		.4byte	0
+ 3733 00ac 00000000 		.4byte	0
+ 3734              	.LLST4:
+ 3735 00b0 00000000 		.4byte	.LFB6
+ 3736 00b4 00000000 		.4byte	.LCFI8
+ 3737 00b8 0002     		.2byte	0x2
+ 3738 00ba 71       		.byte	0x71
+ 3739 00bb 00       		.sleb128 0
+ 3740 00bc 00000000 		.4byte	.LCFI8
+ 3741 00c0 00000000 		.4byte	.LCFI9
+ 3742 00c4 0002     		.2byte	0x2
+ 3743 00c6 71       		.byte	0x71
+ 3744 00c7 18       		.sleb128 24
+ 3745 00c8 00000000 		.4byte	.LCFI9
+ 3746 00cc 00000000 		.4byte	.LFE6
+ 3747 00d0 0002     		.2byte	0x2
+ 3748 00d2 71       		.byte	0x71
+ 3749 00d3 00       		.sleb128 0
+ 3750 00d4 00000000 		.4byte	0
+ 3751 00d8 00000000 		.4byte	0
+ 3752              	.LLST5:
+ 3753 00dc 00000000 		.4byte	.LFB7
+ 3754 00e0 00000000 		.4byte	.LCFI10
+ 3755 00e4 0002     		.2byte	0x2
+ 3756 00e6 71       		.byte	0x71
+ 3757 00e7 00       		.sleb128 0
+ 3758 00e8 00000000 		.4byte	.LCFI10
+ 3759 00ec 00000000 		.4byte	.LCFI11
+ 3760 00f0 0002     		.2byte	0x2
+ 3761 00f2 71       		.byte	0x71
+ 3762 00f3 18       		.sleb128 24
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 67
+
+
+ 3763 00f4 00000000 		.4byte	.LCFI11
+ 3764 00f8 00000000 		.4byte	.LFE7
+ 3765 00fc 0002     		.2byte	0x2
+ 3766 00fe 71       		.byte	0x71
+ 3767 00ff 00       		.sleb128 0
+ 3768 0100 00000000 		.4byte	0
+ 3769 0104 00000000 		.4byte	0
+ 3770              		.section	.debug_aranges,"",@progbits
+ 3771 0000 00000044 		.4byte	0x44
+ 3772 0004 0002     		.2byte	0x2
+ 3773 0006 00000000 		.4byte	.Ldebug_info0
+ 3774 000a 04       		.byte	0x4
+ 3775 000b 00       		.byte	0
+ 3776 000c 0000     		.2byte	0
+ 3777 000e 0000     		.2byte	0
+ 3778 0010 00000000 		.4byte	.LFB2
+ 3779 0014 000000C8 		.4byte	.LFE2-.LFB2
+ 3780 0018 00000000 		.4byte	.LFB3
+ 3781 001c 0000007A 		.4byte	.LFE3-.LFB3
+ 3782 0020 00000000 		.4byte	.LFB4
+ 3783 0024 0000007A 		.4byte	.LFE4-.LFB4
+ 3784 0028 00000000 		.4byte	.LFB5
+ 3785 002c 0000007A 		.4byte	.LFE5-.LFB5
+ 3786 0030 00000000 		.4byte	.LFB6
+ 3787 0034 0000007A 		.4byte	.LFE6-.LFB6
+ 3788 0038 00000000 		.4byte	.LFB7
+ 3789 003c 0000017A 		.4byte	.LFE7-.LFB7
+ 3790 0040 00000000 		.4byte	0
+ 3791 0044 00000000 		.4byte	0
+ 3792              		.section	.debug_ranges,"",@progbits
+ 3793              	.Ldebug_ranges0:
+ 3794 0000 00000000 		.4byte	.LFB2
+ 3795 0004 00000000 		.4byte	.LFE2
+ 3796 0008 00000000 		.4byte	.LFB3
+ 3797 000c 00000000 		.4byte	.LFE3
+ 3798 0010 00000000 		.4byte	.LFB4
+ 3799 0014 00000000 		.4byte	.LFE4
+ 3800 0018 00000000 		.4byte	.LFB5
+ 3801 001c 00000000 		.4byte	.LFE5
+ 3802 0020 00000000 		.4byte	.LFB6
+ 3803 0024 00000000 		.4byte	.LFE6
+ 3804 0028 00000000 		.4byte	.LFB7
+ 3805 002c 00000000 		.4byte	.LFE7
+ 3806 0030 00000000 		.4byte	0
+ 3807 0034 00000000 		.4byte	0
+ 3808              		.section	.debug_line,"",@progbits
+ 3809              	.Ldebug_line0:
+ 3810 0000 00000307 		.section	.debug_str,"MS",@progbits,1
+ 3810      00020000 
+ 3810      02220201 
+ 3810      FB0E0D00 
+ 3810      01010101 
+ 3811              	.LASF89:
+ 3812 0000 49524545 		.string	"IREE3"
+ 3812      3300
+ 3813              	.LASF88:
+ 3814 0006 49524545 		.string	"IREE4"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 68
+
+
+ 3814      3400
+ 3815              	.LASF87:
+ 3816 000c 49524545 		.string	"IREE5"
+ 3816      3500
+ 3817              	.LASF86:
+ 3818 0012 49524545 		.string	"IREE6"
+ 3818      3600
+ 3819              	.LASF85:
+ 3820 0018 49524545 		.string	"IREE7"
+ 3820      3700
+ 3821              	.LASF84:
+ 3822 001e 49524545 		.string	"IREE8"
+ 3822      3800
+ 3823              	.LASF83:
+ 3824 0024 49524545 		.string	"IREE9"
+ 3824      3900
+ 3825              	.LASF143:
+ 3826 002a 44495352 		.string	"DISR0"
+ 3826      3000
+ 3827              	.LASF153:
+ 3828 0030 49464552 		.string	"IFER0"
+ 3828      3000
+ 3829              	.LASF170:
+ 3830 0036 65697271 		.string	"eirqcallback_t"
+ 3830      63616C6C 
+ 3830      6261636B 
+ 3830      5F7400
+ 3831              	.LASF176:
+ 3832 0045 65697271 		.string	"eirq_config"
+ 3832      5F636F6E 
+ 3832      66696700 
+ 3833              	.LASF183:
+ 3834 0051 65697271 		.string	"eirqnum"
+ 3834      6E756D00 
+ 3835              	.LASF4:
+ 3836 0059 5F5F7569 		.string	"__uint8_t"
+ 3836      6E74385F 
+ 3836      7400
+ 3837              	.LASF185:
+ 3838 0063 2E2F636F 		.string	"./components/spc582bxx_irq_component_rla/lib/src/eirq.c"
+ 3838      6D706F6E 
+ 3838      656E7473 
+ 3838      2F737063 
+ 3838      35383262 
+ 3839              	.LASF17:
+ 3840 009b 7675696E 		.string	"vuint8_t"
+ 3840      74385F74 
+ 3840      00
+ 3841              	.LASF12:
+ 3842 00a4 6C6F6E67 		.string	"long long unsigned int"
+ 3842      206C6F6E 
+ 3842      6720756E 
+ 3842      7369676E 
+ 3842      65642069 
+ 3843              	.LASF128:
+ 3844 00bb 5041445F 		.string	"PAD_53"
+ 3844      353300
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 69
+
+
+ 3845              	.LASF158:
+ 3846 00c2 53435230 		.string	"SCR0"
+ 3846      00
+ 3847              	.LASF3:
+ 3848 00c7 5F5F696E 		.string	"__int8_t"
+ 3848      74385F74 
+ 3848      00
+ 3849              	.LASF65:
+ 3850 00d0 44495253 		.string	"DIRS11"
+ 3850      313100
+ 3851              	.LASF64:
+ 3852 00d7 44495253 		.string	"DIRS12"
+ 3852      313200
+ 3853              	.LASF60:
+ 3854 00de 45495245 		.string	"EIRE0"
+ 3854      3000
+ 3855              	.LASF59:
+ 3856 00e4 45495245 		.string	"EIRE1"
+ 3856      3100
+ 3857              	.LASF58:
+ 3858 00ea 45495245 		.string	"EIRE2"
+ 3858      3200
+ 3859              	.LASF57:
+ 3860 00f0 45495245 		.string	"EIRE3"
+ 3860      3300
+ 3861              	.LASF56:
+ 3862 00f6 45495245 		.string	"EIRE4"
+ 3862      3400
+ 3863              	.LASF55:
+ 3864 00fc 45495245 		.string	"EIRE5"
+ 3864      3500
+ 3865              	.LASF54:
+ 3866 0102 45495245 		.string	"EIRE6"
+ 3866      3600
+ 3867              	.LASF53:
+ 3868 0108 45495245 		.string	"EIRE7"
+ 3868      3700
+ 3869              	.LASF52:
+ 3870 010e 45495245 		.string	"EIRE8"
+ 3870      3800
+ 3871              	.LASF51:
+ 3872 0114 45495245 		.string	"EIRE9"
+ 3872      3900
+ 3873              	.LASF173:
+ 3874 011a 66616C6C 		.string	"fallingEdge"
+ 3874      696E6745 
+ 3874      64676500 
+ 3875              	.LASF11:
+ 3876 0126 6C6F6E67 		.string	"long long int"
+ 3876      206C6F6E 
+ 3876      6720696E 
+ 3876      7400
+ 3877              	.LASF2:
+ 3878 0134 7369676E 		.string	"signed char"
+ 3878      65642063 
+ 3878      68617200 
+ 3879              	.LASF32:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 70
+
+
+ 3880 0140 45494631 		.string	"EIF12"
+ 3880      3200
+ 3881              	.LASF102:
+ 3882 0146 49464545 		.string	"IFEE6"
+ 3882      3600
+ 3883              	.LASF184:
+ 3884 014c 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 3884      4320342E 
+ 3884      392E3420 
+ 3884      32303136 
+ 3884      30373236 
+ 3885 0188 75696C64 		.ascii	"uild.sh"
+ 3885      2E7368
+ 3886 018f 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 3886      3D676438 
+ 3886      62366332 
+ 3886      3020733D 
+ 3886      46343934 
+ 3887              	.LASF29:
+ 3888 0290 45494631 		.string	"EIF15"
+ 3888      3500
+ 3889              	.LASF156:
+ 3890 0296 49464350 		.string	"IFCPR"
+ 3890      5200
+ 3891              	.LASF1:
+ 3892 029c 6C6F6E67 		.string	"long int"
+ 3892      20696E74 
+ 3892      00
+ 3893              	.LASF186:
+ 3894 02a5 433A5C41 		.string	"C:\\AutoDevKitStudio-2.1\\workspace\\AutoDevKitCarV1"
+ 3894      75746F44 
+ 3894      65764B69 
+ 3894      74537475 
+ 3894      64696F2D 
+ 3895              	.LASF125:
+ 3896 02d7 4D415843 		.string	"MAXCNT"
+ 3896      4E5400
+ 3897              	.LASF36:
+ 3898 02de 45494638 		.string	"EIF8"
+ 3898      00
+ 3899              	.LASF131:
+ 3900 02e3 4F455243 		.string	"OERC"
+ 3900      00
+ 3901              	.LASF15:
+ 3902 02e8 75696E74 		.string	"uint16_t"
+ 3902      31365F74 
+ 3902      00
+ 3903              	.LASF171:
+ 3904 02f1 65697271 		.string	"eirqNumber"
+ 3904      4E756D62 
+ 3904      657200
+ 3905              	.LASF129:
+ 3906 02fc 5041445F 		.string	"PAD_25"
+ 3906      323500
+ 3907              	.LASF145:
+ 3908 0303 44495245 		.string	"DIRER0"
+ 3908      523000
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 71
+
+
+ 3909              	.LASF24:
+ 3910 030a 4D414A4F 		.string	"MAJOR_MASK"
+ 3910      525F4D41 
+ 3910      534B00
+ 3911              	.LASF9:
+ 3912 0315 5F5F7569 		.string	"__uint32_t"
+ 3912      6E743332 
+ 3912      5F7400
+ 3913              	.LASF164:
+ 3914 0320 47504449 		.string	"GPDI"
+ 3914      00
+ 3915              	.LASF25:
+ 3916 0325 4D494E4F 		.string	"MINOR_MASK"
+ 3916      525F4D41 
+ 3916      534B00
+ 3917              	.LASF149:
+ 3918 0330 49524545 		.string	"IREER0"
+ 3918      523000
+ 3919              	.LASF163:
+ 3920 0337 4750444F 		.string	"GPDO"
+ 3920      00
+ 3921              	.LASF28:
+ 3922 033c 46414D49 		.string	"FAMILYNUM"
+ 3922      4C594E55 
+ 3922      4D00
+ 3923              	.LASF135:
+ 3924 0346 5050444F 		.string	"PPDO"
+ 3924      00
+ 3925              	.LASF137:
+ 3926 034b 4D41534B 		.string	"MASK"
+ 3926      00
+ 3927              	.LASF108:
+ 3928 0350 49464545 		.string	"IFEE0"
+ 3928      3000
+ 3929              	.LASF107:
+ 3930 0356 49464545 		.string	"IFEE1"
+ 3930      3100
+ 3931              	.LASF106:
+ 3932 035c 49464545 		.string	"IFEE2"
+ 3932      3200
+ 3933              	.LASF105:
+ 3934 0362 49464545 		.string	"IFEE3"
+ 3934      3300
+ 3935              	.LASF104:
+ 3936 0368 49464545 		.string	"IFEE4"
+ 3936      3400
+ 3937              	.LASF103:
+ 3938 036e 49464545 		.string	"IFEE5"
+ 3938      3500
+ 3939              	.LASF0:
+ 3940 0374 756E7369 		.string	"unsigned int"
+ 3940      676E6564 
+ 3940      20696E74 
+ 3940      00
+ 3941              	.LASF101:
+ 3942 0381 49464545 		.string	"IFEE7"
+ 3942      3700
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 72
+
+
+ 3943              	.LASF100:
+ 3944 0387 49464545 		.string	"IFEE8"
+ 3944      3800
+ 3945              	.LASF99:
+ 3946 038d 49464545 		.string	"IFEE9"
+ 3946      3900
+ 3947              	.LASF76:
+ 3948 0393 44495253 		.string	"DIRS0"
+ 3948      3000
+ 3949              	.LASF75:
+ 3950 0399 44495253 		.string	"DIRS1"
+ 3950      3100
+ 3951              	.LASF74:
+ 3952 039f 44495253 		.string	"DIRS2"
+ 3952      3200
+ 3953              	.LASF73:
+ 3954 03a5 44495253 		.string	"DIRS3"
+ 3954      3300
+ 3955              	.LASF72:
+ 3956 03ab 44495253 		.string	"DIRS4"
+ 3956      3400
+ 3957              	.LASF71:
+ 3958 03b1 44495253 		.string	"DIRS5"
+ 3958      3500
+ 3959              	.LASF70:
+ 3960 03b7 44495253 		.string	"DIRS6"
+ 3960      3600
+ 3961              	.LASF69:
+ 3962 03bd 44495253 		.string	"DIRS7"
+ 3962      3700
+ 3963              	.LASF68:
+ 3964 03c3 44495253 		.string	"DIRS8"
+ 3964      3800
+ 3965              	.LASF67:
+ 3966 03c9 44495253 		.string	"DIRS9"
+ 3966      3900
+ 3967              	.LASF169:
+ 3968 03cf 4D504750 		.string	"MPGPDO"
+ 3968      444F00
+ 3969              	.LASF8:
+ 3970 03d6 73686F72 		.string	"short unsigned int"
+ 3970      7420756E 
+ 3970      7369676E 
+ 3970      65642069 
+ 3970      6E7400
+ 3971              	.LASF140:
+ 3972 03e9 4D494452 		.string	"MIDR1"
+ 3972      3100
+ 3973              	.LASF141:
+ 3974 03ef 4D494452 		.string	"MIDR2"
+ 3974      3200
+ 3975              	.LASF98:
+ 3976 03f5 49464545 		.string	"IFEE10"
+ 3976      313000
+ 3977              	.LASF97:
+ 3978 03fc 49464545 		.string	"IFEE11"
+ 3978      313100
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 73
+
+
+ 3979              	.LASF96:
+ 3980 0403 49464545 		.string	"IFEE12"
+ 3980      313200
+ 3981              	.LASF95:
+ 3982 040a 49464545 		.string	"IFEE13"
+ 3982      313300
+ 3983              	.LASF94:
+ 3984 0411 49464545 		.string	"IFEE14"
+ 3984      313400
+ 3985              	.LASF93:
+ 3986 0418 49464545 		.string	"IFEE15"
+ 3986      313500
+ 3987              	.LASF175:
+ 3988 041f 63616C6C 		.string	"callback"
+ 3988      6261636B 
+ 3988      00
+ 3989              	.LASF147:
+ 3990 0428 44495253 		.string	"DIRSR0"
+ 3990      523000
+ 3991              	.LASF136:
+ 3992 042f 50504449 		.string	"PPDI"
+ 3992      00
+ 3993              	.LASF23:
+ 3994 0434 756E7573 		.string	"unused_0"
+ 3994      65645F30 
+ 3994      00
+ 3995              	.LASF22:
+ 3996 043d 756E7573 		.string	"unused_1"
+ 3996      65645F31 
+ 3996      00
+ 3997              	.LASF127:
+ 3998 0446 756E7573 		.string	"unused_2"
+ 3998      65645F32 
+ 3998      00
+ 3999              	.LASF132:
+ 4000 044f 756E7573 		.string	"unused_3"
+ 4000      65645F33 
+ 4000      00
+ 4001              	.LASF130:
+ 4002 0458 756E7573 		.string	"unused_4"
+ 4002      65645F34 
+ 4002      00
+ 4003              	.LASF19:
+ 4004 0461 7675696E 		.string	"vuint32_t"
+ 4004      7433325F 
+ 4004      7400
+ 4005              	.LASF92:
+ 4006 046b 49524545 		.string	"IREE0"
+ 4006      3000
+ 4007              	.LASF90:
+ 4008 0471 49524545 		.string	"IREE2"
+ 4008      3200
+ 4009              	.LASF20:
+ 4010 0477 73697A65 		.string	"sizetype"
+ 4010      74797065 
+ 4010      00
+ 4011              	.LASF133:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 74
+
+
+ 4012 0480 57504445 		.string	"WPDE"
+ 4012      00
+ 4013              	.LASF188:
+ 4014 0485 65697271 		.string	"eirqconf"
+ 4014      636F6E66 
+ 4014      00
+ 4015              	.LASF21:
+ 4016 048e 50415254 		.string	"PARTNUM"
+ 4016      4E554D00 
+ 4017              	.LASF167:
+ 4018 0496 50475044 		.string	"PGPDI"
+ 4018      4900
+ 4019              	.LASF165:
+ 4020 049c 50475044 		.string	"PGPDO"
+ 4020      4F00
+ 4021              	.LASF146:
+ 4022 04a2 4144525F 		.string	"ADR_reserved3"
+ 4022      72657365 
+ 4022      72766564 
+ 4022      3300
+ 4023              	.LASF148:
+ 4024 04b0 4144525F 		.string	"ADR_reserved4"
+ 4024      72657365 
+ 4024      72766564 
+ 4024      3400
+ 4025              	.LASF150:
+ 4026 04be 4144525F 		.string	"ADR_reserved5"
+ 4026      72657365 
+ 4026      72766564 
+ 4026      3500
+ 4027              	.LASF160:
+ 4028 04cc 4D534352 		.string	"MSCR_IO"
+ 4028      5F494F00 
+ 4029              	.LASF177:
+ 4030 04d4 6D616E61 		.string	"manage_eirq_interrupt"
+ 4030      67655F65 
+ 4030      6972715F 
+ 4030      696E7465 
+ 4030      72727570 
+ 4031              	.LASF5:
+ 4032 04ea 756E7369 		.string	"unsigned char"
+ 4032      676E6564 
+ 4032      20636861 
+ 4032      7200
+ 4033              	.LASF34:
+ 4034 04f8 45494631 		.string	"EIF10"
+ 4034      3000
+ 4035              	.LASF33:
+ 4036 04fe 45494631 		.string	"EIF11"
+ 4036      3100
+ 4037              	.LASF187:
+ 4038 0504 5349554C 		.string	"SIUL2_tag"
+ 4038      325F7461 
+ 4038      6700
+ 4039              	.LASF31:
+ 4040 050e 45494631 		.string	"EIF13"
+ 4040      3300
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 75
+
+
+ 4041              	.LASF30:
+ 4042 0514 45494631 		.string	"EIF14"
+ 4042      3400
+ 4043              	.LASF6:
+ 4044 051a 73686F72 		.string	"short int"
+ 4044      7420696E 
+ 4044      7400
+ 4045              	.LASF138:
+ 4046 0524 4D505044 		.string	"MPPDO"
+ 4046      4F00
+ 4047              	.LASF155:
+ 4048 052a 49464D43 		.string	"IFMCR"
+ 4048      5200
+ 4049              	.LASF174:
+ 4050 0530 66696C74 		.string	"filterEnable"
+ 4050      6572456E 
+ 4050      61626C65 
+ 4050      00
+ 4051              	.LASF172:
+ 4052 053d 72697369 		.string	"risingEdge"
+ 4052      6E674564 
+ 4052      676500
+ 4053              	.LASF113:
+ 4054 0548 49464531 		.string	"IFE11"
+ 4054      3100
+ 4055              	.LASF112:
+ 4056 054e 49464531 		.string	"IFE12"
+ 4056      3200
+ 4057              	.LASF111:
+ 4058 0554 49464531 		.string	"IFE13"
+ 4058      3300
+ 4059              	.LASF110:
+ 4060 055a 49464531 		.string	"IFE14"
+ 4060      3400
+ 4061              	.LASF109:
+ 4062 0560 49464531 		.string	"IFE15"
+ 4062      3500
+ 4063              	.LASF80:
+ 4064 0566 49524545 		.string	"IREE12"
+ 4064      313200
+ 4065              	.LASF79:
+ 4066 056d 49524545 		.string	"IREE13"
+ 4066      313300
+ 4067              	.LASF78:
+ 4068 0574 49524545 		.string	"IREE14"
+ 4068      313400
+ 4069              	.LASF77:
+ 4070 057b 49524545 		.string	"IREE15"
+ 4070      313500
+ 4071              	.LASF16:
+ 4072 0582 75696E74 		.string	"uint32_t"
+ 4072      33325F74 
+ 4072      00
+ 4073              	.LASF151:
+ 4074 058b 49464545 		.string	"IFEER0"
+ 4074      523000
+ 4075              	.LASF134:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 76
+
+
+ 4076 0592 57505545 		.string	"WPUE"
+ 4076      00
+ 4077              	.LASF10:
+ 4078 0597 6C6F6E67 		.string	"long unsigned int"
+ 4078      20756E73 
+ 4078      69676E65 
+ 4078      6420696E 
+ 4078      7400
+ 4079              	.LASF161:
+ 4080 05a9 4D534352 		.string	"MSCR_MUX"
+ 4080      5F4D5558 
+ 4080      00
+ 4081              	.LASF7:
+ 4082 05b2 5F5F7569 		.string	"__uint16_t"
+ 4082      6E743136 
+ 4082      5F7400
+ 4083              	.LASF50:
+ 4084 05bd 45495245 		.string	"EIRE10"
+ 4084      313000
+ 4085              	.LASF49:
+ 4086 05c4 45495245 		.string	"EIRE11"
+ 4086      313100
+ 4087              	.LASF48:
+ 4088 05cb 45495245 		.string	"EIRE12"
+ 4088      313200
+ 4089              	.LASF47:
+ 4090 05d2 45495245 		.string	"EIRE13"
+ 4090      313300
+ 4091              	.LASF46:
+ 4092 05d9 45495245 		.string	"EIRE14"
+ 4092      313400
+ 4093              	.LASF45:
+ 4094 05e0 45495245 		.string	"EIRE15"
+ 4094      313500
+ 4095              	.LASF178:
+ 4096 05e7 76656374 		.string	"vector243"
+ 4096      6F723234 
+ 4096      3300
+ 4097              	.LASF179:
+ 4098 05f1 76656374 		.string	"vector244"
+ 4098      6F723234 
+ 4098      3400
+ 4099              	.LASF180:
+ 4100 05fb 76656374 		.string	"vector245"
+ 4100      6F723234 
+ 4100      3500
+ 4101              	.LASF181:
+ 4102 0605 76656374 		.string	"vector246"
+ 4102      6F723234 
+ 4102      3600
+ 4103              	.LASF26:
+ 4104 060f 464C4153 		.string	"FLASH_SIZE_1"
+ 4104      485F5349 
+ 4104      5A455F31 
+ 4104      00
+ 4105              	.LASF27:
+ 4106 061c 464C4153 		.string	"FLASH_SIZE_2"
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 77
+
+
+ 4106      485F5349 
+ 4106      5A455F32 
+ 4106      00
+ 4107              	.LASF139:
+ 4108 0629 4144525F 		.string	"ADR_reserved0"
+ 4108      72657365 
+ 4108      72766564 
+ 4108      3000
+ 4109              	.LASF142:
+ 4110 0637 4144525F 		.string	"ADR_reserved1"
+ 4110      72657365 
+ 4110      72766564 
+ 4110      3100
+ 4111              	.LASF144:
+ 4112 0645 4144525F 		.string	"ADR_reserved2"
+ 4112      72657365 
+ 4112      72766564 
+ 4112      3200
+ 4113              	.LASF162:
+ 4114 0653 4144525F 		.string	"ADR_reserved10"
+ 4114      72657365 
+ 4114      72766564 
+ 4114      313000
+ 4115              	.LASF166:
+ 4116 0662 4144525F 		.string	"ADR_reserved11"
+ 4116      72657365 
+ 4116      72766564 
+ 4116      313100
+ 4117              	.LASF168:
+ 4118 0671 4144525F 		.string	"ADR_reserved12"
+ 4118      72657365 
+ 4118      72766564 
+ 4118      313200
+ 4119              	.LASF152:
+ 4120 0680 4144525F 		.string	"ADR_reserved6"
+ 4120      72657365 
+ 4120      72766564 
+ 4120      3600
+ 4121              	.LASF154:
+ 4122 068e 4144525F 		.string	"ADR_reserved7"
+ 4122      72657365 
+ 4122      72766564 
+ 4122      3700
+ 4123              	.LASF157:
+ 4124 069c 4144525F 		.string	"ADR_reserved8"
+ 4124      72657365 
+ 4124      72766564 
+ 4124      3800
+ 4125              	.LASF159:
+ 4126 06aa 4144525F 		.string	"ADR_reserved9"
+ 4126      72657365 
+ 4126      72766564 
+ 4126      3900
+ 4127              	.LASF13:
+ 4128 06b8 696E7438 		.string	"int8_t"
+ 4128      5F7400
+ 4129              	.LASF66:
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 78
+
+
+ 4130 06bf 44495253 		.string	"DIRS10"
+ 4130      313000
+ 4131              	.LASF114:
+ 4132 06c6 49464531 		.string	"IFE10"
+ 4132      3000
+ 4133              	.LASF63:
+ 4134 06cc 44495253 		.string	"DIRS13"
+ 4134      313300
+ 4135              	.LASF62:
+ 4136 06d3 44495253 		.string	"DIRS14"
+ 4136      313400
+ 4137              	.LASF61:
+ 4138 06da 44495253 		.string	"DIRS15"
+ 4138      313500
+ 4139              	.LASF14:
+ 4140 06e1 75696E74 		.string	"uint8_t"
+ 4140      385F7400 
+ 4141              	.LASF182:
+ 4142 06e9 65697271 		.string	"eirqInit"
+ 4142      496E6974 
+ 4142      00
+ 4143              	.LASF126:
+ 4144 06f2 49464350 		.string	"IFCP"
+ 4144      00
+ 4145              	.LASF82:
+ 4146 06f7 49524545 		.string	"IREE10"
+ 4146      313000
+ 4147              	.LASF81:
+ 4148 06fe 49524545 		.string	"IREE11"
+ 4148      313100
+ 4149              	.LASF124:
+ 4150 0705 49464530 		.string	"IFE0"
+ 4150      00
+ 4151              	.LASF123:
+ 4152 070a 49464531 		.string	"IFE1"
+ 4152      00
+ 4153              	.LASF122:
+ 4154 070f 49464532 		.string	"IFE2"
+ 4154      00
+ 4155              	.LASF121:
+ 4156 0714 49464533 		.string	"IFE3"
+ 4156      00
+ 4157              	.LASF120:
+ 4158 0719 49464534 		.string	"IFE4"
+ 4158      00
+ 4159              	.LASF119:
+ 4160 071e 49464535 		.string	"IFE5"
+ 4160      00
+ 4161              	.LASF118:
+ 4162 0723 49464536 		.string	"IFE6"
+ 4162      00
+ 4163              	.LASF117:
+ 4164 0728 49464537 		.string	"IFE7"
+ 4164      00
+ 4165              	.LASF116:
+ 4166 072d 49464538 		.string	"IFE8"
+ 4166      00
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 79
+
+
+ 4167              	.LASF115:
+ 4168 0732 49464539 		.string	"IFE9"
+ 4168      00
+ 4169              	.LASF18:
+ 4170 0737 7675696E 		.string	"vuint16_t"
+ 4170      7431365F 
+ 4170      7400
+ 4171              	.LASF44:
+ 4172 0741 45494630 		.string	"EIF0"
+ 4172      00
+ 4173              	.LASF43:
+ 4174 0746 45494631 		.string	"EIF1"
+ 4174      00
+ 4175              	.LASF42:
+ 4176 074b 45494632 		.string	"EIF2"
+ 4176      00
+ 4177              	.LASF41:
+ 4178 0750 45494633 		.string	"EIF3"
+ 4178      00
+ 4179              	.LASF40:
+ 4180 0755 45494634 		.string	"EIF4"
+ 4180      00
+ 4181              	.LASF39:
+ 4182 075a 45494635 		.string	"EIF5"
+ 4182      00
+ 4183              	.LASF38:
+ 4184 075f 45494636 		.string	"EIF6"
+ 4184      00
+ 4185              	.LASF37:
+ 4186 0764 45494637 		.string	"EIF7"
+ 4186      00
+ 4187              	.LASF91:
+ 4188 0769 49524545 		.string	"IREE1"
+ 4188      3100
+ 4189              	.LASF35:
+ 4190 076f 45494639 		.string	"EIF9"
+ 4190      00
+ 4191              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s 			page 80
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 eirq.c
+C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s:10     .text.manage_eirq_interrupt:00000000 manage_eirq_interrupt
+C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s:107    .text.vector243:00000000 vector243
+C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s:178    .text.vector244:00000000 vector244
+C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s:249    .text.vector245:00000000 vector245
+C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s:320    .text.vector246:00000000 vector246
+C:\Users\nascapro\AppData\Local\Temp\ccei20pb.s:391    .text.eirqInit:00000000 eirqInit
+
+UNDEFINED SYMBOLS
+eirqconf

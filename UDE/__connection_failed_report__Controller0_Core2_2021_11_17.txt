@@ -1,0 +1,4427 @@
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 15:48:34
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6357099 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0x99E9
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 15:48:40
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6357099 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xB281
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 15:48:41
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6357099 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xB62B
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 15:48:54
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6357099 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xE9ED
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 15:48:55
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6357099 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xEC9C
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 15:49:10
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6357099 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0x2792
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 15:49:11
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6357099 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0x2A61
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 16:11:45
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: No JTAG client found !
+Please check:
+- target power supply
+- JTAG cable connection
+- target configuration
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       2000 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    n
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xD2C5
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  FtdiCommDev V1.2.5
+  Serial Number:  19012
+
+Communication protocol handler:
+  LastCmd:      0x0410
+  LastResult:   0xC000
+  ExpBytes:     580 (0x0244)
+  RetBytes:     580 (0x0244)
+  LastTimeout:  120010
+
+Protocol diagnostic output:
+  LastJtagApiAddr:   0x00000000
+  LastJtagApiSpr:    0x00000000
+  LastJtagApiDcr:    0x00000000
+  LastJtagApiError:  0x00000000
+  LastJtagApiStatus: 0x00000000
+  JtagApiErrorLine:  1297
+  JtagApiAddInfo0:   0x00000000
+  JtagApiAddInfo1:   0x00000000
+  ProtErrorLine:     5117
+  LowLevelDiag0:     DEADBEEF (-559038737)
+  LowLevelDiag1:     DEADBEEF (-559038737)
+  LowLevelDiag2:     DEADBEEF (-559038737)
+  LowLevelDiag3:     DEADBEEF (-559038737)
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 16:11:48
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: No JTAG client found !
+Please check:
+- target power supply
+- JTAG cable connection
+- target configuration
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       2000 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    n
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xDF58
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  FtdiCommDev V1.2.5
+  Serial Number:  19012
+
+Communication protocol handler:
+  LastCmd:      0x0410
+  LastResult:   0xC000
+  ExpBytes:     580 (0x0244)
+  RetBytes:     580 (0x0244)
+  LastTimeout:  120010
+
+Protocol diagnostic output:
+  LastJtagApiAddr:   0x00000000
+  LastJtagApiSpr:    0x00000000
+  LastJtagApiDcr:    0x00000000
+  LastJtagApiError:  0x00000000
+  LastJtagApiStatus: 0x00000000
+  JtagApiErrorLine:  1297
+  JtagApiAddInfo0:   0x00000000
+  JtagApiAddInfo1:   0x00000000
+  ProtErrorLine:     5117
+  LowLevelDiag0:     DEADBEEF (-559038737)
+  LowLevelDiag1:     DEADBEEF (-559038737)
+  LowLevelDiag2:     DEADBEEF (-559038737)
+  LowLevelDiag3:     DEADBEEF (-559038737)
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 16:11:50
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: No JTAG client found !
+Please check:
+- target power supply
+- JTAG cable connection
+- target configuration
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       2000 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    n
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xE582
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  FtdiCommDev V1.2.5
+  Serial Number:  19012
+
+Communication protocol handler:
+  LastCmd:      0x0410
+  LastResult:   0xC000
+  ExpBytes:     580 (0x0244)
+  RetBytes:     580 (0x0244)
+  LastTimeout:  120010
+
+Protocol diagnostic output:
+  LastJtagApiAddr:   0x00000000
+  LastJtagApiSpr:    0x00000000
+  LastJtagApiDcr:    0x00000000
+  LastJtagApiError:  0x00000000
+  LastJtagApiStatus: 0x00000000
+  JtagApiErrorLine:  1297
+  JtagApiAddInfo0:   0x00000000
+  JtagApiAddInfo1:   0x00000000
+  ProtErrorLine:     5117
+  LowLevelDiag0:     DEADBEEF (-559038737)
+  LowLevelDiag1:     DEADBEEF (-559038737)
+  LowLevelDiag2:     DEADBEEF (-559038737)
+  LowLevelDiag3:     DEADBEEF (-559038737)
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 16:11:51
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: No JTAG client found !
+Please check:
+- target power supply
+- JTAG cable connection
+- target configuration
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       2000 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    n
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xEBBC
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  FtdiCommDev V1.2.5
+  Serial Number:  19012
+
+Communication protocol handler:
+  LastCmd:      0x0410
+  LastResult:   0xC000
+  ExpBytes:     580 (0x0244)
+  RetBytes:     580 (0x0244)
+  LastTimeout:  120010
+
+Protocol diagnostic output:
+  LastJtagApiAddr:   0x00000000
+  LastJtagApiSpr:    0x00000000
+  LastJtagApiDcr:    0x00000000
+  LastJtagApiError:  0x00000000
+  LastJtagApiStatus: 0x00000000
+  JtagApiErrorLine:  1297
+  JtagApiAddInfo0:   0x00000000
+  JtagApiAddInfo1:   0x00000000
+  ProtErrorLine:     5117
+  LowLevelDiag0:     DEADBEEF (-559038737)
+  LowLevelDiag1:     DEADBEEF (-559038737)
+  LowLevelDiag2:     DEADBEEF (-559038737)
+  LowLevelDiag3:     DEADBEEF (-559038737)
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 16:11:53
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: No JTAG client found !
+Please check:
+- target power supply
+- JTAG cable connection
+- target configuration
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       2000 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    n
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xF4C4
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  FtdiCommDev V1.2.5
+  Serial Number:  19012
+
+Communication protocol handler:
+  LastCmd:      0x0410
+  LastResult:   0xC000
+  ExpBytes:     580 (0x0244)
+  RetBytes:     580 (0x0244)
+  LastTimeout:  120010
+
+Protocol diagnostic output:
+  LastJtagApiAddr:   0x00000000
+  LastJtagApiSpr:    0x00000000
+  LastJtagApiDcr:    0x00000000
+  LastJtagApiError:  0x00000000
+  LastJtagApiStatus: 0x00000000
+  JtagApiErrorLine:  1297
+  JtagApiAddInfo0:   0x00000000
+  JtagApiAddInfo1:   0x00000000
+  ProtErrorLine:     5117
+  LowLevelDiag0:     DEADBEEF (-559038737)
+  LowLevelDiag1:     DEADBEEF (-559038737)
+  LowLevelDiag2:     DEADBEEF (-559038737)
+  LowLevelDiag3:     DEADBEEF (-559038737)
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 17:24:23
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6750305 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0x561D
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 17:24:26
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6750305 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0x609D
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 17:24:27
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6750305 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0x6408
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 17:24:53
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6750305 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xC949
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+
+----------------------------------------------------------
+
+  Connection Failed Report from
+  Basic UDE Target Interface, Version: 1.15.9
+  created: 11/17/21, 17:24:54
+
+----------------------------------------------------------
+
+Windows version:
+  Win8 ()
+  Admin: no
+
+UDE version:
+  Release:  4.10.04
+  Build:    8111
+  Path:     C:\Program Files (x86)\pls\UDE Starterkit 4.10
+
+Target configuration file:
+  C:\SPC5Studio-6.0\Macchinina\AutoDevKitCarV1\UDE\stm_spc582b60_chorus_discovery_starterkit_debug_jtag.cfg
+
+Error messages:
+  PpcJtagTargIntf: Can't connect target !
+  PpcJtagTargIntf: Failed to open communication channel !
+  FtdiCommDev: Failed to open FTDI device driver !
+
+Settings:
+  PortType:  CommDev
+  CommDevSel:  PortType=USB,Type=FTDI
+  JtagViaPod:  n
+  TargetPort:  Default
+  JtagTapNumber:  0
+  JtagNumOfTaps:  1
+  JtagNumIrBefore:  0
+  JtagNumIrAfter:  0
+  UseExtendedCanId:  n
+  JtagOverCanIdA:  0x00000001
+  JtagOverCanIdB:  0x00000002
+  JtagOverCanIdC:  0x00000003
+  JtagOverCanIdD:  0x00000004
+  JtagOverCanIdE:  0x00000005
+  JtagmTckSel:  3
+  JtagmInterFrameTimer:  0
+  MaxJtagClk:  2500
+  AdaptiveJtagPhaseShift:  y
+  JtagMuxPort:  0
+  JtagMuxWaitTime:  0
+  JtagIoType:  Jtag
+  EtksArbiterMode:  None
+  EtksMicroSecondTimeout:  100
+  CheckJtagId:  y
+  ConnOption:  Default
+  UseExtReset:  y
+  SetDebugEnableAb1DisablePin:  n
+  OpenDrainReset:  n
+  ResetWaitTime:  50
+  HaltAfterReset:  y
+  ChangeJtagClk:  -1
+  ExecInitCmds:  y
+  InvalidateCache:  y
+  ChangeMsr:  n
+  ChangeMsrValue:  0x00000000
+  ResetPulseLen:  5
+  InitScript Script:
+    // disable watchdog
+    SET 0xF4058010 0x0000C520
+    SET 0xF4058010 0x0000D928
+    SET 0xF4058000 0xFF00000A
+    
+    // setup IVOPR
+    // points to internal flash at 0x01000000
+    SETSPR 0x3F 0x01000000 0xFFFFFFFF
+    
+    // setup SSCM error cfg for debug
+    //SET16 SSCM_ERROR 0x3
+    
+    // disable reset escalation
+    SET8 RGM_FRET 0x00
+    SET8 RGM_DRET 0x00
+    
+  ExecOnConnectCmds:  n
+  OnConnectScript Script:
+    
+  SimioAddr:  g_JtagSimioAccess
+  FreezeTimers:  y
+  AllowMmuSetup:  n
+  ExecOnStartCmds:  n
+  OnStartScript Script:
+    
+  ExecOnHaltCmds:  n
+  ExecOnHaltCmdsWhileHalted:  n
+  OnHaltScript Script:
+    
+  EnableProgramTimeMeasurement:  y
+  TimerForPTM:  Default
+  DefUserStreamChannel:  0
+  DontUseCachedRegisters:  n
+  AllowBreakOnUpdateBreakpoints:  n
+  ClearDebugStatusOnHalt:  y
+  UseRestartWhileRunningHandling:  n
+  DoNotEnableSwBrk:  n
+  TargetAppHandshakeMode:  None
+  TargetAppHandshakeTimeout:  100
+  TargetAppHandshakeParameter0:  0x00000000
+  TargetAppHandshakeParameter1:  0x00000000
+  TargetAppHandshakeParameter2:  0x00000000
+  TargetAppHandshakeParameter3:  0x00000000
+  UseNexus:  y
+  DoSramInit:  y
+  ForceCacheFlush:  n
+  IgnoreLockedLines:  n
+  HandleWdtBug:  n
+  ForceEndOfReset:  n
+  UseHwResetMode:  n
+  HwResetMode:  Simulate
+  HandleNexusAccessBug:  y
+  UseMasterNexusIfResetState:  n
+  UseLocalAddressTranslation:  n
+  Use64BitNexus:  n
+  InitSramOnlyWhenNotInitialized:  n
+  AllowHarrForUpdateDebugRegs:  n
+  HaltOnDnh:  y
+  AlwaysHaltOnDni:  y
+  EnableLowPowerDebugHandshake:  n
+  EnableLockstepDebug:  n
+  AddBranchBeforeGo:  n
+  InvalidTlbOnReset:  n
+  DoNotEnableTrapSwBrp:  n
+  AllowResetOnCheck:  n
+  BootPasswd0:  0xFEEDFACE
+  BootPasswd1:  0xCAFEBEEF
+  BootPasswd2:  0xFEEDFACE
+  BootPasswd3:  0xCAFEBEEF
+  BootPasswd4:  0xFEEDFACE
+  BootPasswd5:  0xCAFEBEEF
+  BootPasswd6:  0xFEEDFACE
+  BootPasswd7:  0xCAFEBEEF
+  PasswordFile:  
+  UsePasswordForUnlockDevice:  y
+  DisableE2EECC:  n
+  UseCore0ForNexusMemoryAccessWhileRunning:  n
+  ForceDniForDebugger:  n
+  HandleOvRamInitViaNarWorkaround:  n
+  ApplySPC58NE84XoscWorkaround:  y
+  ApplyEigerEdJtagWorkaround:  n
+  IsUsedByTester:  n
+  Mpc57xxClearPeripheralDebugAtNextCheckUserAppWhenRunning:  n
+  SlaveHasHalted:  n
+
+JTAG target infos:
+  JTAG-ID:           0x00000000
+  UsedJtagClk:       6750305 kHz
+  ExtVoltage:        0.0 V
+  IntVoltageUsed:    y
+
+Target infos:
+  CoreName:  Core2
+  FullCoreName:  Controller0.Core2
+  ExtClock:  40000000
+  IntClock:  80000000
+  SysClock:  0
+  StmClock:  0
+  AccessToken:  0xCC57
+  HasNexus:  n
+  BigEndian:  n
+  CanSimio:  n
+  CanPhysicalAccess:  n
+  HasSpe:  n
+  NumOfSimioChannels:  0
+  JtagId:  0x00000000
+  IsEarlyStep:  n
+  IsMaster:  y
+  MasterCoreName:  
+  IsMasterEnabled:  y
+  IsSlave:  n
+  BuddyDeviceDetected:  n
+  EtkConnected:  n
+  Data TLB size on target:  0x00000000
+  Instruction TLB size on target:  0x00000000
+  Shared TLB size on target:  0x00000000
+  Number of data TLB entries:  0x00000000
+  Number of instruction TLB entries:  0x00000000
+  Number of shared TLB entries:  0x00000000
+  Extended E200 MMU:  n
+  E200 MPU:  n
+  Data cache size:  0x00000000
+  Data cache ways:  0x00000000
+  Data cache sets:  0x00000000
+  Data cache entry size:  0x00000000
+  Instruction cache size:  0x00000000
+  Instruction cache ways:  0x00000000
+  Instruction cache sets:  0x00000000
+  Instruction cache entry size:  0x00000000
+  Unified Cache:  n
+  MCM base address:  0xF4028000
+  SIU base address:  0xF7FC0000
+  Nexus On Slave:  n
+  Core Number:  2
+  Has Wdt bug:  n
+  Length of IR register:  0x00000006
+  Has Data Value comparators:  y
+  Reset Mode:  0x00000008
+  STM timer base address:  0xF4070000
+  MC_ME base address:  0xF7FB8000
+  Core in Lockstep mode:  n
+  Core in DPM mode:  n
+  Core is HSM:  n
+  Core is Master of HSM:  n
+  Name of other Master Core:  
+  HsmBootEnabled:  n
+  Target has Nexus access bug:  n
+  Target has unlock JTAG capability:  y
+  Unlock JTAG password len:  0x00000100
+  Has JTAG unlock enable bit:  n
+  ExecuteOpcodeAddr:  0x01000000
+  IMEMBaseAddr:  0x52000000
+  IMEMSize:  0x00000000
+  DMEMBaseAddr:  0x52800000
+  DMEMSize:  0x00000000
+  BootCodeStartAddr:  0x00404100
+  HasCJtag:  y
+  HasLfast:  n
+  HasJtagOverCan:  y
+  HasNpcLowPowerHandshake:  n
+  HasLockstepDebug:  n
+  TargetIsForSpc5UdeStk:  y
+  PllCalc:  UDE.SPC582BPllCalc
+  JtagIdWhiteList:  0x00140041,0x0FFFFFFF,0x01140041,0x0FFFFFFF
+  JtagIdBlackList:  
+  DciPinControl:  
+  DciControl:  
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000001
+  ChipJtagTapNumber:  0x00000000
+  ChipJtagTapNumber:  0x00000000
+  JtagChainType:  UNKNOWN
+  JtagChainNumber:  0x00000000
+  PowerPc system type:  MCKINLEY
+  PowerPc synchonized GO type:  NONE
+  InactiveAfterReset:  n
+  NumOfActiveCores:  1
+
+Communication device:
+  Type/Firmware:  
+  Serial Number:  0
+
+Communication protocol handler:
+  LastCmd:      0x0000
+  LastResult:   0x0000
+  ExpBytes:     0 (0x0000)
+  RetBytes:     0 (0x0000)
+  LastTimeout:  0
+
+Protocol diagnostic output:
+  Diagnostic output invalid !
+
+

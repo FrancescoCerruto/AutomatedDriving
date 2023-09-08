@@ -1,0 +1,1811 @@
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 1
+
+
+   1              		.file	"VL53L1X_support.c"
+   2              		.section	".text","axv"
+   3              	.Ltext0:
+   4              		.cfi_sections	.debug_frame
+   5              		.globl ULD_I2CBuffer
+   6              		.section	.bss.ULD_I2CBuffer,"aw",@nobits
+   7              		.align 2
+   8              		.type	ULD_I2CBuffer, @object
+   9              		.size	ULD_I2CBuffer, 256
+  10              	ULD_I2CBuffer:
+  11 0000 00000000 		.zero	256
+  11      00000000 
+  11      00000000 
+  11      00000000 
+  11      00000000 
+  12              		.section	.text.VL53L1X_WrByte,"axv",@progbits
+  13              		.align 1
+  14              		.p2align 4,,15
+  15              		.globl VL53L1X_WrByte
+  16              		.type	VL53L1X_WrByte, @function
+  17              	VL53L1X_WrByte:
+  18              	.LFB2:
+  19              		.file 1 "./components/aek_sns_vl53l1x1_component_rla/lib/src/uld_src/VL53L1X_support.c"
+  20              		.loc 1 47 0
+  21              		.cfi_startproc
+  22 0000 182106F0 		e_stwu %r1,-16(%r1)
+  23              	.LCFI0:
+  24              		.cfi_def_cfa_offset 16
+  25 0004 0080     		se_mflr %r0
+  26 0006 D501     		se_stw %r0,20(%r1)
+  27              		.cfi_offset 65, 4
+  28 0008 0146     		se_mr %r6,%r4
+  29 000a 0157     		se_mr %r7,%r5
+  30 000c 9831     		se_stb %r3,8(%r1)
+  31 000e B561     		se_sth %r6,10(%r1)
+  32 0010 9971     		se_stb %r7,9(%r1)
+  33              		.loc 1 48 0
+  34 0012 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@ha
+  35 0016 50870000 		e_lwz %r4,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@l(%r7)
+  36 001a 8871     		se_lbz %r7,8(%r1)
+  37 001c 74E5063F 		e_rlwinm %r5,%r7,0,0xff
+  38 0020 A571     		se_lhz %r7,10(%r1)
+  39 0022 74E6043F 		e_rlwinm %r6,%r7,0,0xffff
+  40 0026 18E18009 		e_addi %r7,%r1,9
+  41 002a 0143     		se_mr %r3,%r4
+  42 002c 0154     		se_mr %r4,%r5
+  43 002e 0165     		se_mr %r5,%r6
+  44 0030 0176     		se_mr %r6,%r7
+  45 0032 4817     		se_li %r7,1
+  46 0034 78000001 		e_bl i2c_lld_write16
+  47 0038 0136     		se_mr %r6,%r3
+  48 003a 70E0E000 		e_lis %r7,status@ha
+  49 003e 54C70000 		e_stw %r6,status@l(%r7)
+  50              		.loc 1 50 0
+  51 0042 70E0E000 		e_lis %r7,status@ha
+  52 0046 50E70000 		e_lwz %r7,status@l(%r7)
+  53              		.loc 1 51 0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 2
+
+
+  54 004a 0173     		se_mr %r3,%r7
+  55 004c C501     		se_lwz %r0,20(%r1)
+  56 004e 0090     		se_mtlr %r0
+  57 0050 20F1     		se_addi %r1,16
+  58              	.LCFI1:
+  59              		.cfi_def_cfa_offset 0
+  60 0052 0004     		se_blr
+  61              		.cfi_endproc
+  62              	.LFE2:
+  63              		.size	VL53L1X_WrByte, .-VL53L1X_WrByte
+  64              		.section	.text.VL53L1X_WrWord,"axv",@progbits
+  65              		.align 1
+  66              		.p2align 4,,15
+  67              		.globl VL53L1X_WrWord
+  68              		.type	VL53L1X_WrWord, @function
+  69              	VL53L1X_WrWord:
+  70              	.LFB3:
+  71              		.loc 1 64 0
+  72              		.cfi_startproc
+  73 0000 182106E0 		e_stwu %r1,-32(%r1)
+  74              	.LCFI2:
+  75              		.cfi_def_cfa_offset 32
+  76 0004 0080     		se_mflr %r0
+  77 0006 D901     		se_stw %r0,36(%r1)
+  78              		.cfi_offset 65, 4
+  79 0008 0146     		se_mr %r6,%r4
+  80 000a 0157     		se_mr %r7,%r5
+  81 000c 34610018 		e_stb %r3,24(%r1)
+  82 0010 BD61     		se_sth %r6,26(%r1)
+  83 0012 BE71     		se_sth %r7,28(%r1)
+  84              		.loc 1 67 0
+  85 0014 AE71     		se_lhz %r7,28(%r1)
+  86 0016 00E7     		se_extzh %r7
+  87 0018 6887     		se_srwi %r7,8
+  88 001a 00E7     		se_extzh %r7
+  89 001c 00C7     		se_extzb %r7
+  90 001e 9871     		se_stb %r7,8(%r1)
+  91              		.loc 1 68 0
+  92 0020 AE71     		se_lhz %r7,28(%r1)
+  93 0022 00C7     		se_extzb %r7
+  94 0024 9971     		se_stb %r7,9(%r1)
+  95              		.loc 1 70 0
+  96 0026 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@ha
+  97 002a 50A70000 		e_lwz %r5,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@l(%r7)
+  98 002e 30E10018 		e_lbz %r7,24(%r1)
+  99 0032 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 100 0036 AD71     		se_lhz %r7,26(%r1)
+ 101 0038 00E7     		se_extzh %r7
+ 102 003a 0153     		se_mr %r3,%r5
+ 103 003c 0164     		se_mr %r4,%r6
+ 104 003e 0175     		se_mr %r5,%r7
+ 105 0040 18E18008 		e_addi %r7,%r1,8
+ 106 0044 0176     		se_mr %r6,%r7
+ 107 0046 4827     		se_li %r7,2
+ 108 0048 78000001 		e_bl i2c_lld_write16
+ 109 004c 0136     		se_mr %r6,%r3
+ 110 004e 70E0E000 		e_lis %r7,status@ha
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 3
+
+
+ 111 0052 54C70000 		e_stw %r6,status@l(%r7)
+ 112              		.loc 1 72 0
+ 113 0056 70E0E000 		e_lis %r7,status@ha
+ 114 005a 50E70000 		e_lwz %r7,status@l(%r7)
+ 115              		.loc 1 73 0
+ 116 005e 0173     		se_mr %r3,%r7
+ 117 0060 C901     		se_lwz %r0,36(%r1)
+ 118 0062 0090     		se_mtlr %r0
+ 119 0064 21F1     		se_addi %r1,32
+ 120              	.LCFI3:
+ 121              		.cfi_def_cfa_offset 0
+ 122 0066 0004     		se_blr
+ 123              		.cfi_endproc
+ 124              	.LFE3:
+ 125              		.size	VL53L1X_WrWord, .-VL53L1X_WrWord
+ 126              		.section	.text.VL53L1X_WrDWord,"axv",@progbits
+ 127              		.align 1
+ 128              		.p2align 4,,15
+ 129              		.globl VL53L1X_WrDWord
+ 130              		.type	VL53L1X_WrDWord, @function
+ 131              	VL53L1X_WrDWord:
+ 132              	.LFB4:
+ 133              		.loc 1 86 0
+ 134              		.cfi_startproc
+ 135 0000 182106E0 		e_stwu %r1,-32(%r1)
+ 136              	.LCFI4:
+ 137              		.cfi_def_cfa_offset 32
+ 138 0004 0080     		se_mflr %r0
+ 139 0006 D901     		se_stw %r0,36(%r1)
+ 140              		.cfi_offset 65, 4
+ 141 0008 0136     		se_mr %r6,%r3
+ 142 000a 0147     		se_mr %r7,%r4
+ 143 000c D751     		se_stw %r5,28(%r1)
+ 144 000e 34C10018 		e_stb %r6,24(%r1)
+ 145 0012 BD71     		se_sth %r7,26(%r1)
+ 146              		.loc 1 89 0
+ 147 0014 C771     		se_lwz %r7,28(%r1)
+ 148 0016 6987     		se_srwi %r7,24
+ 149 0018 00C7     		se_extzb %r7
+ 150 001a 9871     		se_stb %r7,8(%r1)
+ 151              		.loc 1 90 0
+ 152 001c C771     		se_lwz %r7,28(%r1)
+ 153 001e 6907     		se_srwi %r7,16
+ 154 0020 00C7     		se_extzb %r7
+ 155 0022 9971     		se_stb %r7,9(%r1)
+ 156              		.loc 1 91 0
+ 157 0024 C771     		se_lwz %r7,28(%r1)
+ 158 0026 6887     		se_srwi %r7,8
+ 159 0028 00C7     		se_extzb %r7
+ 160 002a 9A71     		se_stb %r7,10(%r1)
+ 161              		.loc 1 92 0
+ 162 002c C771     		se_lwz %r7,28(%r1)
+ 163 002e 00C7     		se_extzb %r7
+ 164 0030 9B71     		se_stb %r7,11(%r1)
+ 165              		.loc 1 94 0
+ 166 0032 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@ha
+ 167 0036 50A70000 		e_lwz %r5,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@l(%r7)
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 4
+
+
+ 168 003a 30E10018 		e_lbz %r7,24(%r1)
+ 169 003e 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 170 0042 AD71     		se_lhz %r7,26(%r1)
+ 171 0044 00E7     		se_extzh %r7
+ 172 0046 0153     		se_mr %r3,%r5
+ 173 0048 0164     		se_mr %r4,%r6
+ 174 004a 0175     		se_mr %r5,%r7
+ 175 004c 18E18008 		e_addi %r7,%r1,8
+ 176 0050 0176     		se_mr %r6,%r7
+ 177 0052 4847     		se_li %r7,4
+ 178 0054 78000001 		e_bl i2c_lld_write16
+ 179 0058 0136     		se_mr %r6,%r3
+ 180 005a 70E0E000 		e_lis %r7,status@ha
+ 181 005e 54C70000 		e_stw %r6,status@l(%r7)
+ 182              		.loc 1 96 0
+ 183 0062 70E0E000 		e_lis %r7,status@ha
+ 184 0066 50E70000 		e_lwz %r7,status@l(%r7)
+ 185              		.loc 1 97 0
+ 186 006a 0173     		se_mr %r3,%r7
+ 187 006c C901     		se_lwz %r0,36(%r1)
+ 188 006e 0090     		se_mtlr %r0
+ 189 0070 21F1     		se_addi %r1,32
+ 190              	.LCFI5:
+ 191              		.cfi_def_cfa_offset 0
+ 192 0072 0004     		se_blr
+ 193              		.cfi_endproc
+ 194              	.LFE4:
+ 195              		.size	VL53L1X_WrDWord, .-VL53L1X_WrDWord
+ 196              		.section	.text.VL53L1X_UpdateByte,"axv",@progbits
+ 197              		.align 1
+ 198              		.p2align 4,,15
+ 199              		.globl VL53L1X_UpdateByte
+ 200              		.type	VL53L1X_UpdateByte, @function
+ 201              	VL53L1X_UpdateByte:
+ 202              	.LFB5:
+ 203              		.loc 1 112 0
+ 204              		.cfi_startproc
+ 205 0000 182106E0 		e_stwu %r1,-32(%r1)
+ 206              	.LCFI6:
+ 207              		.cfi_def_cfa_offset 32
+ 208 0004 0080     		se_mflr %r0
+ 209 0006 D901     		se_stw %r0,36(%r1)
+ 210              		.cfi_offset 65, 4
+ 211 0008 0167     		se_mr %r7,%r6
+ 212 000a 34610018 		e_stb %r3,24(%r1)
+ 213 000e BD41     		se_sth %r4,26(%r1)
+ 214 0010 34A10019 		e_stb %r5,25(%r1)
+ 215 0014 34E1001C 		e_stb %r7,28(%r1)
+ 216              		.loc 1 115 0
+ 217 0018 30E10018 		e_lbz %r7,24(%r1)
+ 218 001c 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 219 0020 AD71     		se_lhz %r7,26(%r1)
+ 220 0022 00E7     		se_extzh %r7
+ 221 0024 0163     		se_mr %r3,%r6
+ 222 0026 0174     		se_mr %r4,%r7
+ 223 0028 18E18008 		e_addi %r7,%r1,8
+ 224 002c 0175     		se_mr %r5,%r7
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 5
+
+
+ 225 002e 78000001 		e_bl VL53L1X_RdByte
+ 226 0032 0136     		se_mr %r6,%r3
+ 227 0034 70E0E000 		e_lis %r7,status@ha
+ 228 0038 54C70000 		e_stw %r6,status@l(%r7)
+ 229              		.loc 1 116 0
+ 230 003c 70E0E000 		e_lis %r7,status@ha
+ 231 0040 50E70000 		e_lwz %r7,status@l(%r7)
+ 232 0044 2A07     		se_cmpi %r7,0
+ 233 0046 7F800020 		e_mcrf %cr7,%cr0
+ 234 004a 7CE00026 		mfcr %r7
+ 235 004e 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 236 0052 7CE80120 		mtcrf 128,%r7
+ 237 0056 7A120008 		e_beq %cr0,.L8
+ 238              		.loc 1 118 0
+ 239 005a 78000042 		e_b .L9
+ 240              	.L8:
+ 241              		.loc 1 120 0
+ 242 005e 8871     		se_lbz %r7,8(%r1)
+ 243 0060 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 244 0064 30E10019 		e_lbz %r7,25(%r1)
+ 245 0068 4667     		se_and %r7,%r6
+ 246 006a 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 247 006e 30E1001C 		e_lbz %r7,28(%r1)
+ 248 0072 4467     		se_or %r7,%r6
+ 249 0074 00C7     		se_extzb %r7
+ 250 0076 9871     		se_stb %r7,8(%r1)
+ 251              		.loc 1 121 0
+ 252 0078 8871     		se_lbz %r7,8(%r1)
+ 253 007a 00C7     		se_extzb %r7
+ 254 007c 30C10018 		e_lbz %r6,24(%r1)
+ 255 0080 74C5063F 		e_rlwinm %r5,%r6,0,0xff
+ 256 0084 AD61     		se_lhz %r6,26(%r1)
+ 257 0086 00E6     		se_extzh %r6
+ 258 0088 0153     		se_mr %r3,%r5
+ 259 008a 0164     		se_mr %r4,%r6
+ 260 008c 0175     		se_mr %r5,%r7
+ 261 008e 78000001 		e_bl VL53L1X_WrByte
+ 262 0092 0136     		se_mr %r6,%r3
+ 263 0094 70E0E000 		e_lis %r7,status@ha
+ 264 0098 54C70000 		e_stw %r6,status@l(%r7)
+ 265              	.L9:
+ 266              		.loc 1 124 0
+ 267 009c 70E0E000 		e_lis %r7,status@ha
+ 268 00a0 50E70000 		e_lwz %r7,status@l(%r7)
+ 269              		.loc 1 125 0
+ 270 00a4 0173     		se_mr %r3,%r7
+ 271 00a6 C901     		se_lwz %r0,36(%r1)
+ 272 00a8 0090     		se_mtlr %r0
+ 273 00aa 21F1     		se_addi %r1,32
+ 274              	.LCFI7:
+ 275              		.cfi_def_cfa_offset 0
+ 276 00ac 0004     		se_blr
+ 277              		.cfi_endproc
+ 278              	.LFE5:
+ 279              		.size	VL53L1X_UpdateByte, .-VL53L1X_UpdateByte
+ 280              		.section	.text.VL53L1X_RdByte,"axv",@progbits
+ 281              		.align 1
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 6
+
+
+ 282              		.p2align 4,,15
+ 283              		.globl VL53L1X_RdByte
+ 284              		.type	VL53L1X_RdByte, @function
+ 285              	VL53L1X_RdByte:
+ 286              	.LFB6:
+ 287              		.loc 1 138 0
+ 288              		.cfi_startproc
+ 289 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 290              	.LCFI8:
+ 291              		.cfi_def_cfa_offset 16
+ 292 0004 0080     		se_mflr %r0
+ 293 0006 D501     		se_stw %r0,20(%r1)
+ 294              		.cfi_offset 65, 4
+ 295 0008 0136     		se_mr %r6,%r3
+ 296 000a 0147     		se_mr %r7,%r4
+ 297 000c D351     		se_stw %r5,12(%r1)
+ 298 000e 9861     		se_stb %r6,8(%r1)
+ 299 0010 B571     		se_sth %r7,10(%r1)
+ 300              		.loc 1 139 0
+ 301 0012 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@ha
+ 302 0016 50A70000 		e_lwz %r5,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@l(%r7)
+ 303 001a 8871     		se_lbz %r7,8(%r1)
+ 304 001c 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 305 0020 A571     		se_lhz %r7,10(%r1)
+ 306 0022 00E7     		se_extzh %r7
+ 307 0024 0153     		se_mr %r3,%r5
+ 308 0026 0164     		se_mr %r4,%r6
+ 309 0028 0175     		se_mr %r5,%r7
+ 310 002a C361     		se_lwz %r6,12(%r1)
+ 311 002c 4817     		se_li %r7,1
+ 312 002e 78000001 		e_bl i2c_lld_read16
+ 313 0032 0136     		se_mr %r6,%r3
+ 314 0034 70E0E000 		e_lis %r7,status@ha
+ 315 0038 54C70000 		e_stw %r6,status@l(%r7)
+ 316              		.loc 1 141 0
+ 317 003c 70E0E000 		e_lis %r7,status@ha
+ 318 0040 50E70000 		e_lwz %r7,status@l(%r7)
+ 319 0044 2A07     		se_cmpi %r7,0
+ 320 0046 7F800020 		e_mcrf %cr7,%cr0
+ 321 004a 7CE00026 		mfcr %r7
+ 322 004e 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 323 0052 7CE80120 		mtcrf 128,%r7
+ 324 0056 7A120006 		e_beq %cr0,.L12
+ 325              		.loc 1 143 0
+ 326 005a 4400     		se_nop
+ 327              	.L12:
+ 328              		.loc 1 146 0
+ 329 005c 70E0E000 		e_lis %r7,status@ha
+ 330 0060 50E70000 		e_lwz %r7,status@l(%r7)
+ 331              		.loc 1 147 0
+ 332 0064 0173     		se_mr %r3,%r7
+ 333 0066 C501     		se_lwz %r0,20(%r1)
+ 334 0068 0090     		se_mtlr %r0
+ 335 006a 20F1     		se_addi %r1,16
+ 336              	.LCFI9:
+ 337              		.cfi_def_cfa_offset 0
+ 338 006c 0004     		se_blr
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 7
+
+
+ 339              		.cfi_endproc
+ 340              	.LFE6:
+ 341              		.size	VL53L1X_RdByte, .-VL53L1X_RdByte
+ 342              		.section	.text.VL53L1X_RdWord,"axv",@progbits
+ 343              		.align 1
+ 344              		.p2align 4,,15
+ 345              		.globl VL53L1X_RdWord
+ 346              		.type	VL53L1X_RdWord, @function
+ 347              	VL53L1X_RdWord:
+ 348              	.LFB7:
+ 349              		.loc 1 160 0
+ 350              		.cfi_startproc
+ 351 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 352              	.LCFI10:
+ 353              		.cfi_def_cfa_offset 16
+ 354 0004 0080     		se_mflr %r0
+ 355 0006 D501     		se_stw %r0,20(%r1)
+ 356              		.cfi_offset 65, 4
+ 357 0008 0136     		se_mr %r6,%r3
+ 358 000a 0147     		se_mr %r7,%r4
+ 359 000c D351     		se_stw %r5,12(%r1)
+ 360 000e 9861     		se_stb %r6,8(%r1)
+ 361 0010 B571     		se_sth %r7,10(%r1)
+ 362              		.loc 1 161 0
+ 363 0012 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@ha
+ 364 0016 50A70000 		e_lwz %r5,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@l(%r7)
+ 365 001a 8871     		se_lbz %r7,8(%r1)
+ 366 001c 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 367 0020 A571     		se_lhz %r7,10(%r1)
+ 368 0022 00E7     		se_extzh %r7
+ 369 0024 0153     		se_mr %r3,%r5
+ 370 0026 0164     		se_mr %r4,%r6
+ 371 0028 0175     		se_mr %r5,%r7
+ 372 002a 70E0E000 		e_lis %r7,ULD_I2CBuffer@ha
+ 373 002e 1CC70000 		e_la %r6,ULD_I2CBuffer@l(%r7)
+ 374 0032 4827     		se_li %r7,2
+ 375 0034 78000001 		e_bl i2c_lld_read16
+ 376 0038 0136     		se_mr %r6,%r3
+ 377 003a 70E0E000 		e_lis %r7,status@ha
+ 378 003e 54C70000 		e_stw %r6,status@l(%r7)
+ 379              		.loc 1 162 0
+ 380 0042 70E0E000 		e_lis %r7,status@ha
+ 381 0046 50E70000 		e_lwz %r7,status@l(%r7)
+ 382 004a 2A07     		se_cmpi %r7,0
+ 383 004c 7F800020 		e_mcrf %cr7,%cr0
+ 384 0050 7CE00026 		mfcr %r7
+ 385 0054 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 386 0058 7CE80120 		mtcrf 128,%r7
+ 387 005c 7A120008 		e_beq %cr0,.L15
+ 388              		.loc 1 164 0
+ 389 0060 78000032 		e_b .L16
+ 390              	.L15:
+ 391              		.loc 1 167 0
+ 392 0064 70E0E000 		e_lis %r7,ULD_I2CBuffer@ha
+ 393 0068 1CE70000 		e_la %r7,ULD_I2CBuffer@l(%r7)
+ 394 006c 8077     		se_lbz %r7,0(%r7)
+ 395 006e 00C7     		se_extzb %r7
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 8
+
+
+ 396 0070 00E7     		se_extzh %r7
+ 397 0072 6C87     		se_slwi %r7, 8
+ 398 0074 74E6043F 		e_rlwinm %r6,%r7,0,0xffff
+ 399 0078 70E0E000 		e_lis %r7,ULD_I2CBuffer@ha
+ 400 007c 1CE70000 		e_la %r7,ULD_I2CBuffer@l(%r7)
+ 401 0080 8177     		se_lbz %r7,1(%r7)
+ 402 0082 00C7     		se_extzb %r7
+ 403 0084 00E7     		se_extzh %r7
+ 404 0086 7CE63A14 		add %r7,%r6,%r7
+ 405 008a 74E6043F 		e_rlwinm %r6,%r7,0,0xffff
+ 406 008e C371     		se_lwz %r7,12(%r1)
+ 407 0090 B067     		se_sth %r6,0(%r7)
+ 408              	.L16:
+ 409              		.loc 1 170 0
+ 410 0092 70E0E000 		e_lis %r7,status@ha
+ 411 0096 50E70000 		e_lwz %r7,status@l(%r7)
+ 412              		.loc 1 171 0
+ 413 009a 0173     		se_mr %r3,%r7
+ 414 009c C501     		se_lwz %r0,20(%r1)
+ 415 009e 0090     		se_mtlr %r0
+ 416 00a0 20F1     		se_addi %r1,16
+ 417              	.LCFI11:
+ 418              		.cfi_def_cfa_offset 0
+ 419 00a2 0004     		se_blr
+ 420              		.cfi_endproc
+ 421              	.LFE7:
+ 422              		.size	VL53L1X_RdWord, .-VL53L1X_RdWord
+ 423              		.section	.text.VL53L1X_RdDWord,"axv",@progbits
+ 424              		.align 1
+ 425              		.p2align 4,,15
+ 426              		.globl VL53L1X_RdDWord
+ 427              		.type	VL53L1X_RdDWord, @function
+ 428              	VL53L1X_RdDWord:
+ 429              	.LFB8:
+ 430              		.loc 1 184 0
+ 431              		.cfi_startproc
+ 432 0000 182106F0 		e_stwu %r1,-16(%r1)
+ 433              	.LCFI12:
+ 434              		.cfi_def_cfa_offset 16
+ 435 0004 0080     		se_mflr %r0
+ 436 0006 D501     		se_stw %r0,20(%r1)
+ 437              		.cfi_offset 65, 4
+ 438 0008 0136     		se_mr %r6,%r3
+ 439 000a 0147     		se_mr %r7,%r4
+ 440 000c D351     		se_stw %r5,12(%r1)
+ 441 000e 9861     		se_stb %r6,8(%r1)
+ 442 0010 B571     		se_sth %r7,10(%r1)
+ 443              		.loc 1 186 0
+ 444 0012 70E0E000 		e_lis %r7,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@ha
+ 445 0016 50A70000 		e_lwz %r5,AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER@l(%r7)
+ 446 001a 8871     		se_lbz %r7,8(%r1)
+ 447 001c 74E6063F 		e_rlwinm %r6,%r7,0,0xff
+ 448 0020 A571     		se_lhz %r7,10(%r1)
+ 449 0022 00E7     		se_extzh %r7
+ 450 0024 0153     		se_mr %r3,%r5
+ 451 0026 0164     		se_mr %r4,%r6
+ 452 0028 0175     		se_mr %r5,%r7
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 9
+
+
+ 453 002a 70E0E000 		e_lis %r7,ULD_I2CBuffer@ha
+ 454 002e 1CC70000 		e_la %r6,ULD_I2CBuffer@l(%r7)
+ 455 0032 4847     		se_li %r7,4
+ 456 0034 78000001 		e_bl i2c_lld_read16
+ 457 0038 0136     		se_mr %r6,%r3
+ 458 003a 70E0E000 		e_lis %r7,status@ha
+ 459 003e 54C70000 		e_stw %r6,status@l(%r7)
+ 460              		.loc 1 187 0
+ 461 0042 70E0E000 		e_lis %r7,status@ha
+ 462 0046 50E70000 		e_lwz %r7,status@l(%r7)
+ 463 004a 2A07     		se_cmpi %r7,0
+ 464 004c 7F800020 		e_mcrf %cr7,%cr0
+ 465 0050 7CE00026 		mfcr %r7
+ 466 0054 74E7E007 		e_rlwinm %r7,%r7,28,0xf0000000
+ 467 0058 7CE80120 		mtcrf 128,%r7
+ 468 005c 7A120008 		e_beq %cr0,.L19
+ 469              		.loc 1 189 0
+ 470 0060 7800004A 		e_b .L20
+ 471              	.L19:
+ 472              		.loc 1 192 0
+ 473 0064 70E0E000 		e_lis %r7,ULD_I2CBuffer@ha
+ 474 0068 1CE70000 		e_la %r7,ULD_I2CBuffer@l(%r7)
+ 475 006c 8077     		se_lbz %r7,0(%r7)
+ 476 006e 00C7     		se_extzb %r7
+ 477 0070 7CE6C070 		e_slwi %r6,%r7,24
+ 478 0074 70E0E000 		e_lis %r7,ULD_I2CBuffer@ha
+ 479 0078 1CE70000 		e_la %r7,ULD_I2CBuffer@l(%r7)
+ 480 007c 8177     		se_lbz %r7,1(%r7)
+ 481 007e 00C7     		se_extzb %r7
+ 482 0080 6D07     		se_slwi %r7, 16
+ 483 0082 0476     		se_add %r6,%r7
+ 484 0084 70E0E000 		e_lis %r7,ULD_I2CBuffer@ha
+ 485 0088 1CE70000 		e_la %r7,ULD_I2CBuffer@l(%r7)
+ 486 008c 8277     		se_lbz %r7,2(%r7)
+ 487 008e 00C7     		se_extzb %r7
+ 488 0090 6C87     		se_slwi %r7, 8
+ 489 0092 7CE63A14 		add %r7,%r6,%r7
+ 490 0096 70C0E000 		e_lis %r6,ULD_I2CBuffer@ha
+ 491 009a 1CC60000 		e_la %r6,ULD_I2CBuffer@l(%r6)
+ 492 009e 8366     		se_lbz %r6,3(%r6)
+ 493 00a0 00C6     		se_extzb %r6
+ 494 00a2 7CC73214 		add %r6,%r7,%r6
+ 495 00a6 C371     		se_lwz %r7,12(%r1)
+ 496 00a8 D067     		se_stw %r6,0(%r7)
+ 497              	.L20:
+ 498              		.loc 1 195 0
+ 499 00aa 70E0E000 		e_lis %r7,status@ha
+ 500 00ae 50E70000 		e_lwz %r7,status@l(%r7)
+ 501              		.loc 1 196 0
+ 502 00b2 0173     		se_mr %r3,%r7
+ 503 00b4 C501     		se_lwz %r0,20(%r1)
+ 504 00b6 0090     		se_mtlr %r0
+ 505 00b8 20F1     		se_addi %r1,16
+ 506              	.LCFI13:
+ 507              		.cfi_def_cfa_offset 0
+ 508 00ba 0004     		se_blr
+ 509              		.cfi_endproc
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 10
+
+
+ 510              	.LFE8:
+ 511              		.size	VL53L1X_RdDWord, .-VL53L1X_RdDWord
+ 512              		.section	".text","axv"
+ 513              	.Letext0:
+ 514              		.file 2 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 515              		.file 3 "c:\\autodevkitstudio-2.1\\eclipse\\plugins\\com.st.tools.spc5.tools.gnu.gcc.ppcvle.win32_
+ 516              		.file 4 "./components/spc582bxx_low_level_drivers_component_rla/lib/include/i2c_lld.h"
+ 517              		.section	.debug_info,"",@progbits
+ 518              	.Ldebug_info0:
+ 519 0000 00000413 		.4byte	0x413
+ 520 0004 0002     		.2byte	0x2
+ 521 0006 00000000 		.4byte	.Ldebug_abbrev0
+ 522 000a 04       		.byte	0x4
+ 523 000b 01       		.uleb128 0x1
+ 524 000c 00000000 		.4byte	.LASF47
+ 525 0010 01       		.byte	0x1
+ 526 0011 00000000 		.4byte	.LASF48
+ 527 0015 00000000 		.4byte	.LASF49
+ 528 0019 00000000 		.4byte	.Ldebug_ranges0+0
+ 529 001d 00000000 		.4byte	0
+ 530 0021 00000000 		.4byte	0
+ 531 0025 00000000 		.4byte	.Ldebug_line0
+ 532 0029 02       		.uleb128 0x2
+ 533 002a 04       		.byte	0x4
+ 534 002b 05       		.byte	0x5
+ 535 002c 696E7400 		.string	"int"
+ 536 0030 03       		.uleb128 0x3
+ 537 0031 04       		.byte	0x4
+ 538 0032 07       		.byte	0x7
+ 539 0033 00000000 		.4byte	.LASF0
+ 540 0037 03       		.uleb128 0x3
+ 541 0038 04       		.byte	0x4
+ 542 0039 05       		.byte	0x5
+ 543 003a 00000000 		.4byte	.LASF1
+ 544 003e 03       		.uleb128 0x3
+ 545 003f 01       		.byte	0x1
+ 546 0040 06       		.byte	0x6
+ 547 0041 00000000 		.4byte	.LASF2
+ 548 0045 04       		.uleb128 0x4
+ 549 0046 00000000 		.4byte	.LASF5
+ 550 004a 02       		.byte	0x2
+ 551 004b 1D       		.byte	0x1d
+ 552 004c 00000050 		.4byte	0x50
+ 553 0050 03       		.uleb128 0x3
+ 554 0051 01       		.byte	0x1
+ 555 0052 08       		.byte	0x8
+ 556 0053 00000000 		.4byte	.LASF3
+ 557 0057 03       		.uleb128 0x3
+ 558 0058 02       		.byte	0x2
+ 559 0059 05       		.byte	0x5
+ 560 005a 00000000 		.4byte	.LASF4
+ 561 005e 04       		.uleb128 0x4
+ 562 005f 00000000 		.4byte	.LASF6
+ 563 0063 02       		.byte	0x2
+ 564 0064 2B       		.byte	0x2b
+ 565 0065 00000069 		.4byte	0x69
+ 566 0069 03       		.uleb128 0x3
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 11
+
+
+ 567 006a 02       		.byte	0x2
+ 568 006b 07       		.byte	0x7
+ 569 006c 00000000 		.4byte	.LASF7
+ 570 0070 04       		.uleb128 0x4
+ 571 0071 00000000 		.4byte	.LASF8
+ 572 0075 02       		.byte	0x2
+ 573 0076 41       		.byte	0x41
+ 574 0077 0000007B 		.4byte	0x7b
+ 575 007b 03       		.uleb128 0x3
+ 576 007c 04       		.byte	0x4
+ 577 007d 07       		.byte	0x7
+ 578 007e 00000000 		.4byte	.LASF9
+ 579 0082 03       		.uleb128 0x3
+ 580 0083 08       		.byte	0x8
+ 581 0084 05       		.byte	0x5
+ 582 0085 00000000 		.4byte	.LASF10
+ 583 0089 03       		.uleb128 0x3
+ 584 008a 08       		.byte	0x8
+ 585 008b 07       		.byte	0x7
+ 586 008c 00000000 		.4byte	.LASF11
+ 587 0090 03       		.uleb128 0x3
+ 588 0091 04       		.byte	0x4
+ 589 0092 07       		.byte	0x7
+ 590 0093 00000000 		.4byte	.LASF12
+ 591 0097 03       		.uleb128 0x3
+ 592 0098 01       		.byte	0x1
+ 593 0099 08       		.byte	0x8
+ 594 009a 00000000 		.4byte	.LASF13
+ 595 009e 03       		.uleb128 0x3
+ 596 009f 08       		.byte	0x8
+ 597 00a0 04       		.byte	0x4
+ 598 00a1 00000000 		.4byte	.LASF14
+ 599 00a5 03       		.uleb128 0x3
+ 600 00a6 04       		.byte	0x4
+ 601 00a7 04       		.byte	0x4
+ 602 00a8 00000000 		.4byte	.LASF15
+ 603 00ac 03       		.uleb128 0x3
+ 604 00ad 08       		.byte	0x8
+ 605 00ae 04       		.byte	0x4
+ 606 00af 00000000 		.4byte	.LASF16
+ 607 00b3 04       		.uleb128 0x4
+ 608 00b4 00000000 		.4byte	.LASF17
+ 609 00b8 03       		.byte	0x3
+ 610 00b9 15       		.byte	0x15
+ 611 00ba 00000045 		.4byte	0x45
+ 612 00be 04       		.uleb128 0x4
+ 613 00bf 00000000 		.4byte	.LASF18
+ 614 00c3 03       		.byte	0x3
+ 615 00c4 21       		.byte	0x21
+ 616 00c5 0000005E 		.4byte	0x5e
+ 617 00c9 04       		.uleb128 0x4
+ 618 00ca 00000000 		.4byte	.LASF19
+ 619 00ce 03       		.byte	0x3
+ 620 00cf 2D       		.byte	0x2d
+ 621 00d0 00000070 		.4byte	0x70
+ 622 00d4 05       		.uleb128 0x5
+ 623 00d5 04       		.byte	0x4
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 12
+
+
+ 624 00d6 000000B3 		.4byte	0xb3
+ 625 00da 05       		.uleb128 0x5
+ 626 00db 04       		.byte	0x4
+ 627 00dc 000000BE 		.4byte	0xbe
+ 628 00e0 05       		.uleb128 0x5
+ 629 00e1 04       		.byte	0x4
+ 630 00e2 000000C9 		.4byte	0xc9
+ 631 00e6 04       		.uleb128 0x4
+ 632 00e7 00000000 		.4byte	.LASF20
+ 633 00eb 04       		.byte	0x4
+ 634 00ec 2D       		.byte	0x2d
+ 635 00ed 000000F1 		.4byte	0xf1
+ 636 00f1 06       		.uleb128 0x6
+ 637 00f2 00000000 		.4byte	.LASF20
+ 638 00f6 01       		.byte	0x1
+ 639 00f7 07       		.uleb128 0x7
+ 640 00f8 04       		.byte	0x4
+ 641 00f9 04       		.byte	0x4
+ 642 00fa 5A       		.byte	0x5a
+ 643 00fb 00000136 		.4byte	0x136
+ 644 00ff 08       		.uleb128 0x8
+ 645 0100 00000000 		.4byte	.LASF21
+ 646 0104 00       		.sleb128 0
+ 647 0105 08       		.uleb128 0x8
+ 648 0106 00000000 		.4byte	.LASF22
+ 649 010a 7F       		.sleb128 -1
+ 650 010b 08       		.uleb128 0x8
+ 651 010c 00000000 		.4byte	.LASF23
+ 652 0110 7E       		.sleb128 -2
+ 653 0111 08       		.uleb128 0x8
+ 654 0112 00000000 		.4byte	.LASF24
+ 655 0116 7D       		.sleb128 -3
+ 656 0117 08       		.uleb128 0x8
+ 657 0118 00000000 		.4byte	.LASF25
+ 658 011c 7C       		.sleb128 -4
+ 659 011d 08       		.uleb128 0x8
+ 660 011e 00000000 		.4byte	.LASF26
+ 661 0122 7B       		.sleb128 -5
+ 662 0123 08       		.uleb128 0x8
+ 663 0124 00000000 		.4byte	.LASF27
+ 664 0128 7A       		.sleb128 -6
+ 665 0129 08       		.uleb128 0x8
+ 666 012a 00000000 		.4byte	.LASF28
+ 667 012e 79       		.sleb128 -7
+ 668 012f 08       		.uleb128 0x8
+ 669 0130 00000000 		.4byte	.LASF29
+ 670 0134 78       		.sleb128 -8
+ 671 0135 00       		.byte	0
+ 672 0136 04       		.uleb128 0x4
+ 673 0137 00000000 		.4byte	.LASF30
+ 674 013b 04       		.byte	0x4
+ 675 013c 64       		.byte	0x64
+ 676 013d 000000F7 		.4byte	0xf7
+ 677 0141 09       		.uleb128 0x9
+ 678 0142 01       		.byte	0x1
+ 679 0143 00000000 		.4byte	.LASF33
+ 680 0147 01       		.byte	0x1
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 13
+
+
+ 681 0148 2E       		.byte	0x2e
+ 682 0149 01       		.byte	0x1
+ 683 014a 00000136 		.4byte	0x136
+ 684 014e 00000000 		.4byte	.LFB2
+ 685 0152 00000000 		.4byte	.LFE2
+ 686 0156 00000000 		.4byte	.LLST0
+ 687 015a 01       		.byte	0x1
+ 688 015b 0000018A 		.4byte	0x18a
+ 689 015f 0A       		.uleb128 0xa
+ 690 0160 64657600 		.string	"dev"
+ 691 0164 01       		.byte	0x1
+ 692 0165 2E       		.byte	0x2e
+ 693 0166 000000B3 		.4byte	0xb3
+ 694 016a 02       		.byte	0x2
+ 695 016b 91       		.byte	0x91
+ 696 016c 78       		.sleb128 -8
+ 697 016d 0B       		.uleb128 0xb
+ 698 016e 00000000 		.4byte	.LASF31
+ 699 0172 01       		.byte	0x1
+ 700 0173 2E       		.byte	0x2e
+ 701 0174 000000BE 		.4byte	0xbe
+ 702 0178 02       		.byte	0x2
+ 703 0179 91       		.byte	0x91
+ 704 017a 7A       		.sleb128 -6
+ 705 017b 0B       		.uleb128 0xb
+ 706 017c 00000000 		.4byte	.LASF32
+ 707 0180 01       		.byte	0x1
+ 708 0181 2E       		.byte	0x2e
+ 709 0182 000000B3 		.4byte	0xb3
+ 710 0186 02       		.byte	0x2
+ 711 0187 91       		.byte	0x91
+ 712 0188 79       		.sleb128 -7
+ 713 0189 00       		.byte	0
+ 714 018a 09       		.uleb128 0x9
+ 715 018b 01       		.byte	0x1
+ 716 018c 00000000 		.4byte	.LASF34
+ 717 0190 01       		.byte	0x1
+ 718 0191 3F       		.byte	0x3f
+ 719 0192 01       		.byte	0x1
+ 720 0193 00000136 		.4byte	0x136
+ 721 0197 00000000 		.4byte	.LFB3
+ 722 019b 00000000 		.4byte	.LFE3
+ 723 019f 00000000 		.4byte	.LLST1
+ 724 01a3 01       		.byte	0x1
+ 725 01a4 000001E1 		.4byte	0x1e1
+ 726 01a8 0A       		.uleb128 0xa
+ 727 01a9 64657600 		.string	"dev"
+ 728 01ad 01       		.byte	0x1
+ 729 01ae 3F       		.byte	0x3f
+ 730 01af 000000B3 		.4byte	0xb3
+ 731 01b3 02       		.byte	0x2
+ 732 01b4 91       		.byte	0x91
+ 733 01b5 78       		.sleb128 -8
+ 734 01b6 0B       		.uleb128 0xb
+ 735 01b7 00000000 		.4byte	.LASF31
+ 736 01bb 01       		.byte	0x1
+ 737 01bc 3F       		.byte	0x3f
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 14
+
+
+ 738 01bd 000000BE 		.4byte	0xbe
+ 739 01c1 02       		.byte	0x2
+ 740 01c2 91       		.byte	0x91
+ 741 01c3 7A       		.sleb128 -6
+ 742 01c4 0B       		.uleb128 0xb
+ 743 01c5 00000000 		.4byte	.LASF32
+ 744 01c9 01       		.byte	0x1
+ 745 01ca 3F       		.byte	0x3f
+ 746 01cb 000000BE 		.4byte	0xbe
+ 747 01cf 02       		.byte	0x2
+ 748 01d0 91       		.byte	0x91
+ 749 01d1 7C       		.sleb128 -4
+ 750 01d2 0C       		.uleb128 0xc
+ 751 01d3 00000000 		.4byte	.LASF36
+ 752 01d7 01       		.byte	0x1
+ 753 01d8 41       		.byte	0x41
+ 754 01d9 000001E1 		.4byte	0x1e1
+ 755 01dd 02       		.byte	0x2
+ 756 01de 91       		.byte	0x91
+ 757 01df 68       		.sleb128 -24
+ 758 01e0 00       		.byte	0
+ 759 01e1 0D       		.uleb128 0xd
+ 760 01e2 000000B3 		.4byte	0xb3
+ 761 01e6 000001F1 		.4byte	0x1f1
+ 762 01ea 0E       		.uleb128 0xe
+ 763 01eb 00000090 		.4byte	0x90
+ 764 01ef 01       		.byte	0x1
+ 765 01f0 00       		.byte	0
+ 766 01f1 09       		.uleb128 0x9
+ 767 01f2 01       		.byte	0x1
+ 768 01f3 00000000 		.4byte	.LASF35
+ 769 01f7 01       		.byte	0x1
+ 770 01f8 55       		.byte	0x55
+ 771 01f9 01       		.byte	0x1
+ 772 01fa 00000136 		.4byte	0x136
+ 773 01fe 00000000 		.4byte	.LFB4
+ 774 0202 00000000 		.4byte	.LFE4
+ 775 0206 00000000 		.4byte	.LLST2
+ 776 020a 01       		.byte	0x1
+ 777 020b 00000248 		.4byte	0x248
+ 778 020f 0A       		.uleb128 0xa
+ 779 0210 64657600 		.string	"dev"
+ 780 0214 01       		.byte	0x1
+ 781 0215 55       		.byte	0x55
+ 782 0216 000000B3 		.4byte	0xb3
+ 783 021a 02       		.byte	0x2
+ 784 021b 91       		.byte	0x91
+ 785 021c 78       		.sleb128 -8
+ 786 021d 0B       		.uleb128 0xb
+ 787 021e 00000000 		.4byte	.LASF31
+ 788 0222 01       		.byte	0x1
+ 789 0223 55       		.byte	0x55
+ 790 0224 000000BE 		.4byte	0xbe
+ 791 0228 02       		.byte	0x2
+ 792 0229 91       		.byte	0x91
+ 793 022a 7A       		.sleb128 -6
+ 794 022b 0B       		.uleb128 0xb
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 15
+
+
+ 795 022c 00000000 		.4byte	.LASF32
+ 796 0230 01       		.byte	0x1
+ 797 0231 55       		.byte	0x55
+ 798 0232 000000C9 		.4byte	0xc9
+ 799 0236 02       		.byte	0x2
+ 800 0237 91       		.byte	0x91
+ 801 0238 7C       		.sleb128 -4
+ 802 0239 0C       		.uleb128 0xc
+ 803 023a 00000000 		.4byte	.LASF36
+ 804 023e 01       		.byte	0x1
+ 805 023f 57       		.byte	0x57
+ 806 0240 00000248 		.4byte	0x248
+ 807 0244 02       		.byte	0x2
+ 808 0245 91       		.byte	0x91
+ 809 0246 68       		.sleb128 -24
+ 810 0247 00       		.byte	0
+ 811 0248 0D       		.uleb128 0xd
+ 812 0249 000000B3 		.4byte	0xb3
+ 813 024d 00000258 		.4byte	0x258
+ 814 0251 0E       		.uleb128 0xe
+ 815 0252 00000090 		.4byte	0x90
+ 816 0256 03       		.byte	0x3
+ 817 0257 00       		.byte	0
+ 818 0258 09       		.uleb128 0x9
+ 819 0259 01       		.byte	0x1
+ 820 025a 00000000 		.4byte	.LASF37
+ 821 025e 01       		.byte	0x1
+ 822 025f 6F       		.byte	0x6f
+ 823 0260 01       		.byte	0x1
+ 824 0261 00000136 		.4byte	0x136
+ 825 0265 00000000 		.4byte	.LFB5
+ 826 0269 00000000 		.4byte	.LFE5
+ 827 026d 00000000 		.4byte	.LLST3
+ 828 0271 01       		.byte	0x1
+ 829 0272 000002C8 		.4byte	0x2c8
+ 830 0276 0A       		.uleb128 0xa
+ 831 0277 64657600 		.string	"dev"
+ 832 027b 01       		.byte	0x1
+ 833 027c 6F       		.byte	0x6f
+ 834 027d 000000B3 		.4byte	0xb3
+ 835 0281 02       		.byte	0x2
+ 836 0282 91       		.byte	0x91
+ 837 0283 78       		.sleb128 -8
+ 838 0284 0B       		.uleb128 0xb
+ 839 0285 00000000 		.4byte	.LASF31
+ 840 0289 01       		.byte	0x1
+ 841 028a 6F       		.byte	0x6f
+ 842 028b 000000BE 		.4byte	0xbe
+ 843 028f 02       		.byte	0x2
+ 844 0290 91       		.byte	0x91
+ 845 0291 7A       		.sleb128 -6
+ 846 0292 0B       		.uleb128 0xb
+ 847 0293 00000000 		.4byte	.LASF38
+ 848 0297 01       		.byte	0x1
+ 849 0298 6F       		.byte	0x6f
+ 850 0299 000000B3 		.4byte	0xb3
+ 851 029d 02       		.byte	0x2
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 16
+
+
+ 852 029e 91       		.byte	0x91
+ 853 029f 79       		.sleb128 -7
+ 854 02a0 0B       		.uleb128 0xb
+ 855 02a1 00000000 		.4byte	.LASF39
+ 856 02a5 01       		.byte	0x1
+ 857 02a6 6F       		.byte	0x6f
+ 858 02a7 000000B3 		.4byte	0xb3
+ 859 02ab 02       		.byte	0x2
+ 860 02ac 91       		.byte	0x91
+ 861 02ad 7C       		.sleb128 -4
+ 862 02ae 0C       		.uleb128 0xc
+ 863 02af 00000000 		.4byte	.LASF32
+ 864 02b3 01       		.byte	0x1
+ 865 02b4 71       		.byte	0x71
+ 866 02b5 000000B3 		.4byte	0xb3
+ 867 02b9 02       		.byte	0x2
+ 868 02ba 91       		.byte	0x91
+ 869 02bb 68       		.sleb128 -24
+ 870 02bc 0F       		.uleb128 0xf
+ 871 02bd 00000000 		.4byte	.LASF41
+ 872 02c1 01       		.byte	0x1
+ 873 02c2 7B       		.byte	0x7b
+ 874 02c3 00000000 		.4byte	.L9
+ 875 02c7 00       		.byte	0
+ 876 02c8 09       		.uleb128 0x9
+ 877 02c9 01       		.byte	0x1
+ 878 02ca 00000000 		.4byte	.LASF40
+ 879 02ce 01       		.byte	0x1
+ 880 02cf 89       		.byte	0x89
+ 881 02d0 01       		.byte	0x1
+ 882 02d1 00000136 		.4byte	0x136
+ 883 02d5 00000000 		.4byte	.LFB6
+ 884 02d9 00000000 		.4byte	.LFE6
+ 885 02dd 00000000 		.4byte	.LLST4
+ 886 02e1 01       		.byte	0x1
+ 887 02e2 0000031C 		.4byte	0x31c
+ 888 02e6 0A       		.uleb128 0xa
+ 889 02e7 64657600 		.string	"dev"
+ 890 02eb 01       		.byte	0x1
+ 891 02ec 89       		.byte	0x89
+ 892 02ed 000000B3 		.4byte	0xb3
+ 893 02f1 02       		.byte	0x2
+ 894 02f2 91       		.byte	0x91
+ 895 02f3 78       		.sleb128 -8
+ 896 02f4 0B       		.uleb128 0xb
+ 897 02f5 00000000 		.4byte	.LASF31
+ 898 02f9 01       		.byte	0x1
+ 899 02fa 89       		.byte	0x89
+ 900 02fb 000000BE 		.4byte	0xbe
+ 901 02ff 02       		.byte	0x2
+ 902 0300 91       		.byte	0x91
+ 903 0301 7A       		.sleb128 -6
+ 904 0302 0B       		.uleb128 0xb
+ 905 0303 00000000 		.4byte	.LASF32
+ 906 0307 01       		.byte	0x1
+ 907 0308 89       		.byte	0x89
+ 908 0309 000000D4 		.4byte	0xd4
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 17
+
+
+ 909 030d 02       		.byte	0x2
+ 910 030e 91       		.byte	0x91
+ 911 030f 7C       		.sleb128 -4
+ 912 0310 0F       		.uleb128 0xf
+ 913 0311 00000000 		.4byte	.LASF41
+ 914 0315 01       		.byte	0x1
+ 915 0316 91       		.byte	0x91
+ 916 0317 00000000 		.4byte	.L12
+ 917 031b 00       		.byte	0
+ 918 031c 09       		.uleb128 0x9
+ 919 031d 01       		.byte	0x1
+ 920 031e 00000000 		.4byte	.LASF42
+ 921 0322 01       		.byte	0x1
+ 922 0323 9F       		.byte	0x9f
+ 923 0324 01       		.byte	0x1
+ 924 0325 00000136 		.4byte	0x136
+ 925 0329 00000000 		.4byte	.LFB7
+ 926 032d 00000000 		.4byte	.LFE7
+ 927 0331 00000000 		.4byte	.LLST5
+ 928 0335 01       		.byte	0x1
+ 929 0336 00000370 		.4byte	0x370
+ 930 033a 0A       		.uleb128 0xa
+ 931 033b 64657600 		.string	"dev"
+ 932 033f 01       		.byte	0x1
+ 933 0340 9F       		.byte	0x9f
+ 934 0341 000000B3 		.4byte	0xb3
+ 935 0345 02       		.byte	0x2
+ 936 0346 91       		.byte	0x91
+ 937 0347 78       		.sleb128 -8
+ 938 0348 0B       		.uleb128 0xb
+ 939 0349 00000000 		.4byte	.LASF31
+ 940 034d 01       		.byte	0x1
+ 941 034e 9F       		.byte	0x9f
+ 942 034f 000000BE 		.4byte	0xbe
+ 943 0353 02       		.byte	0x2
+ 944 0354 91       		.byte	0x91
+ 945 0355 7A       		.sleb128 -6
+ 946 0356 0B       		.uleb128 0xb
+ 947 0357 00000000 		.4byte	.LASF32
+ 948 035b 01       		.byte	0x1
+ 949 035c 9F       		.byte	0x9f
+ 950 035d 000000DA 		.4byte	0xda
+ 951 0361 02       		.byte	0x2
+ 952 0362 91       		.byte	0x91
+ 953 0363 7C       		.sleb128 -4
+ 954 0364 0F       		.uleb128 0xf
+ 955 0365 00000000 		.4byte	.LASF41
+ 956 0369 01       		.byte	0x1
+ 957 036a A9       		.byte	0xa9
+ 958 036b 00000000 		.4byte	.L16
+ 959 036f 00       		.byte	0
+ 960 0370 09       		.uleb128 0x9
+ 961 0371 01       		.byte	0x1
+ 962 0372 00000000 		.4byte	.LASF43
+ 963 0376 01       		.byte	0x1
+ 964 0377 B7       		.byte	0xb7
+ 965 0378 01       		.byte	0x1
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 18
+
+
+ 966 0379 00000136 		.4byte	0x136
+ 967 037d 00000000 		.4byte	.LFB8
+ 968 0381 00000000 		.4byte	.LFE8
+ 969 0385 00000000 		.4byte	.LLST6
+ 970 0389 01       		.byte	0x1
+ 971 038a 000003C4 		.4byte	0x3c4
+ 972 038e 0A       		.uleb128 0xa
+ 973 038f 64657600 		.string	"dev"
+ 974 0393 01       		.byte	0x1
+ 975 0394 B7       		.byte	0xb7
+ 976 0395 000000B3 		.4byte	0xb3
+ 977 0399 02       		.byte	0x2
+ 978 039a 91       		.byte	0x91
+ 979 039b 78       		.sleb128 -8
+ 980 039c 0B       		.uleb128 0xb
+ 981 039d 00000000 		.4byte	.LASF31
+ 982 03a1 01       		.byte	0x1
+ 983 03a2 B7       		.byte	0xb7
+ 984 03a3 000000BE 		.4byte	0xbe
+ 985 03a7 02       		.byte	0x2
+ 986 03a8 91       		.byte	0x91
+ 987 03a9 7A       		.sleb128 -6
+ 988 03aa 0B       		.uleb128 0xb
+ 989 03ab 00000000 		.4byte	.LASF32
+ 990 03af 01       		.byte	0x1
+ 991 03b0 B7       		.byte	0xb7
+ 992 03b1 000000E0 		.4byte	0xe0
+ 993 03b5 02       		.byte	0x2
+ 994 03b6 91       		.byte	0x91
+ 995 03b7 7C       		.sleb128 -4
+ 996 03b8 0F       		.uleb128 0xf
+ 997 03b9 00000000 		.4byte	.LASF41
+ 998 03bd 01       		.byte	0x1
+ 999 03be C2       		.byte	0xc2
+ 1000 03bf 00000000 		.4byte	.L20
+ 1001 03c3 00       		.byte	0
+ 1002 03c4 10       		.uleb128 0x10
+ 1003 03c5 00000000 		.4byte	.LASF44
+ 1004 03c9 01       		.byte	0x1
+ 1005 03ca 20       		.byte	0x20
+ 1006 03cb 00000136 		.4byte	0x136
+ 1007 03cf 01       		.byte	0x1
+ 1008 03d0 01       		.byte	0x1
+ 1009 03d1 0D       		.uleb128 0xd
+ 1010 03d2 000000B3 		.4byte	0xb3
+ 1011 03d6 000003E1 		.4byte	0x3e1
+ 1012 03da 0E       		.uleb128 0xe
+ 1013 03db 00000090 		.4byte	0x90
+ 1014 03df FF       		.byte	0xff
+ 1015 03e0 00       		.byte	0
+ 1016 03e1 11       		.uleb128 0x11
+ 1017 03e2 00000000 		.4byte	.LASF45
+ 1018 03e6 01       		.byte	0x1
+ 1019 03e7 21       		.byte	0x21
+ 1020 03e8 000003D1 		.4byte	0x3d1
+ 1021 03ec 01       		.byte	0x1
+ 1022 03ed 05       		.byte	0x5
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 19
+
+
+ 1023 03ee 03       		.byte	0x3
+ 1024 03ef 00000000 		.4byte	ULD_I2CBuffer
+ 1025 03f3 0D       		.uleb128 0xd
+ 1026 03f4 00000403 		.4byte	0x403
+ 1027 03f8 00000403 		.4byte	0x403
+ 1028 03fc 0E       		.uleb128 0xe
+ 1029 03fd 00000090 		.4byte	0x90
+ 1030 0401 00       		.byte	0
+ 1031 0402 00       		.byte	0
+ 1032 0403 05       		.uleb128 0x5
+ 1033 0404 04       		.byte	0x4
+ 1034 0405 000000E6 		.4byte	0xe6
+ 1035 0409 10       		.uleb128 0x10
+ 1036 040a 00000000 		.4byte	.LASF46
+ 1037 040e 01       		.byte	0x1
+ 1038 040f 22       		.byte	0x22
+ 1039 0410 000003F3 		.4byte	0x3f3
+ 1040 0414 01       		.byte	0x1
+ 1041 0415 01       		.byte	0x1
+ 1042 0416 00       		.byte	0
+ 1043              		.section	.debug_abbrev,"",@progbits
+ 1044              	.Ldebug_abbrev0:
+ 1045 0000 01       		.uleb128 0x1
+ 1046 0001 11       		.uleb128 0x11
+ 1047 0002 01       		.byte	0x1
+ 1048 0003 25       		.uleb128 0x25
+ 1049 0004 0E       		.uleb128 0xe
+ 1050 0005 13       		.uleb128 0x13
+ 1051 0006 0B       		.uleb128 0xb
+ 1052 0007 03       		.uleb128 0x3
+ 1053 0008 0E       		.uleb128 0xe
+ 1054 0009 1B       		.uleb128 0x1b
+ 1055 000a 0E       		.uleb128 0xe
+ 1056 000b 55       		.uleb128 0x55
+ 1057 000c 06       		.uleb128 0x6
+ 1058 000d 11       		.uleb128 0x11
+ 1059 000e 01       		.uleb128 0x1
+ 1060 000f 52       		.uleb128 0x52
+ 1061 0010 01       		.uleb128 0x1
+ 1062 0011 10       		.uleb128 0x10
+ 1063 0012 06       		.uleb128 0x6
+ 1064 0013 00       		.byte	0
+ 1065 0014 00       		.byte	0
+ 1066 0015 02       		.uleb128 0x2
+ 1067 0016 24       		.uleb128 0x24
+ 1068 0017 00       		.byte	0
+ 1069 0018 0B       		.uleb128 0xb
+ 1070 0019 0B       		.uleb128 0xb
+ 1071 001a 3E       		.uleb128 0x3e
+ 1072 001b 0B       		.uleb128 0xb
+ 1073 001c 03       		.uleb128 0x3
+ 1074 001d 08       		.uleb128 0x8
+ 1075 001e 00       		.byte	0
+ 1076 001f 00       		.byte	0
+ 1077 0020 03       		.uleb128 0x3
+ 1078 0021 24       		.uleb128 0x24
+ 1079 0022 00       		.byte	0
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 20
+
+
+ 1080 0023 0B       		.uleb128 0xb
+ 1081 0024 0B       		.uleb128 0xb
+ 1082 0025 3E       		.uleb128 0x3e
+ 1083 0026 0B       		.uleb128 0xb
+ 1084 0027 03       		.uleb128 0x3
+ 1085 0028 0E       		.uleb128 0xe
+ 1086 0029 00       		.byte	0
+ 1087 002a 00       		.byte	0
+ 1088 002b 04       		.uleb128 0x4
+ 1089 002c 16       		.uleb128 0x16
+ 1090 002d 00       		.byte	0
+ 1091 002e 03       		.uleb128 0x3
+ 1092 002f 0E       		.uleb128 0xe
+ 1093 0030 3A       		.uleb128 0x3a
+ 1094 0031 0B       		.uleb128 0xb
+ 1095 0032 3B       		.uleb128 0x3b
+ 1096 0033 0B       		.uleb128 0xb
+ 1097 0034 49       		.uleb128 0x49
+ 1098 0035 13       		.uleb128 0x13
+ 1099 0036 00       		.byte	0
+ 1100 0037 00       		.byte	0
+ 1101 0038 05       		.uleb128 0x5
+ 1102 0039 0F       		.uleb128 0xf
+ 1103 003a 00       		.byte	0
+ 1104 003b 0B       		.uleb128 0xb
+ 1105 003c 0B       		.uleb128 0xb
+ 1106 003d 49       		.uleb128 0x49
+ 1107 003e 13       		.uleb128 0x13
+ 1108 003f 00       		.byte	0
+ 1109 0040 00       		.byte	0
+ 1110 0041 06       		.uleb128 0x6
+ 1111 0042 13       		.uleb128 0x13
+ 1112 0043 00       		.byte	0
+ 1113 0044 03       		.uleb128 0x3
+ 1114 0045 0E       		.uleb128 0xe
+ 1115 0046 3C       		.uleb128 0x3c
+ 1116 0047 0C       		.uleb128 0xc
+ 1117 0048 00       		.byte	0
+ 1118 0049 00       		.byte	0
+ 1119 004a 07       		.uleb128 0x7
+ 1120 004b 04       		.uleb128 0x4
+ 1121 004c 01       		.byte	0x1
+ 1122 004d 0B       		.uleb128 0xb
+ 1123 004e 0B       		.uleb128 0xb
+ 1124 004f 3A       		.uleb128 0x3a
+ 1125 0050 0B       		.uleb128 0xb
+ 1126 0051 3B       		.uleb128 0x3b
+ 1127 0052 0B       		.uleb128 0xb
+ 1128 0053 01       		.uleb128 0x1
+ 1129 0054 13       		.uleb128 0x13
+ 1130 0055 00       		.byte	0
+ 1131 0056 00       		.byte	0
+ 1132 0057 08       		.uleb128 0x8
+ 1133 0058 28       		.uleb128 0x28
+ 1134 0059 00       		.byte	0
+ 1135 005a 03       		.uleb128 0x3
+ 1136 005b 0E       		.uleb128 0xe
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 21
+
+
+ 1137 005c 1C       		.uleb128 0x1c
+ 1138 005d 0D       		.uleb128 0xd
+ 1139 005e 00       		.byte	0
+ 1140 005f 00       		.byte	0
+ 1141 0060 09       		.uleb128 0x9
+ 1142 0061 2E       		.uleb128 0x2e
+ 1143 0062 01       		.byte	0x1
+ 1144 0063 3F       		.uleb128 0x3f
+ 1145 0064 0C       		.uleb128 0xc
+ 1146 0065 03       		.uleb128 0x3
+ 1147 0066 0E       		.uleb128 0xe
+ 1148 0067 3A       		.uleb128 0x3a
+ 1149 0068 0B       		.uleb128 0xb
+ 1150 0069 3B       		.uleb128 0x3b
+ 1151 006a 0B       		.uleb128 0xb
+ 1152 006b 27       		.uleb128 0x27
+ 1153 006c 0C       		.uleb128 0xc
+ 1154 006d 49       		.uleb128 0x49
+ 1155 006e 13       		.uleb128 0x13
+ 1156 006f 11       		.uleb128 0x11
+ 1157 0070 01       		.uleb128 0x1
+ 1158 0071 12       		.uleb128 0x12
+ 1159 0072 01       		.uleb128 0x1
+ 1160 0073 40       		.uleb128 0x40
+ 1161 0074 06       		.uleb128 0x6
+ 1162 0075 9642     		.uleb128 0x2116
+ 1163 0077 0C       		.uleb128 0xc
+ 1164 0078 01       		.uleb128 0x1
+ 1165 0079 13       		.uleb128 0x13
+ 1166 007a 00       		.byte	0
+ 1167 007b 00       		.byte	0
+ 1168 007c 0A       		.uleb128 0xa
+ 1169 007d 05       		.uleb128 0x5
+ 1170 007e 00       		.byte	0
+ 1171 007f 03       		.uleb128 0x3
+ 1172 0080 08       		.uleb128 0x8
+ 1173 0081 3A       		.uleb128 0x3a
+ 1174 0082 0B       		.uleb128 0xb
+ 1175 0083 3B       		.uleb128 0x3b
+ 1176 0084 0B       		.uleb128 0xb
+ 1177 0085 49       		.uleb128 0x49
+ 1178 0086 13       		.uleb128 0x13
+ 1179 0087 02       		.uleb128 0x2
+ 1180 0088 0A       		.uleb128 0xa
+ 1181 0089 00       		.byte	0
+ 1182 008a 00       		.byte	0
+ 1183 008b 0B       		.uleb128 0xb
+ 1184 008c 05       		.uleb128 0x5
+ 1185 008d 00       		.byte	0
+ 1186 008e 03       		.uleb128 0x3
+ 1187 008f 0E       		.uleb128 0xe
+ 1188 0090 3A       		.uleb128 0x3a
+ 1189 0091 0B       		.uleb128 0xb
+ 1190 0092 3B       		.uleb128 0x3b
+ 1191 0093 0B       		.uleb128 0xb
+ 1192 0094 49       		.uleb128 0x49
+ 1193 0095 13       		.uleb128 0x13
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 22
+
+
+ 1194 0096 02       		.uleb128 0x2
+ 1195 0097 0A       		.uleb128 0xa
+ 1196 0098 00       		.byte	0
+ 1197 0099 00       		.byte	0
+ 1198 009a 0C       		.uleb128 0xc
+ 1199 009b 34       		.uleb128 0x34
+ 1200 009c 00       		.byte	0
+ 1201 009d 03       		.uleb128 0x3
+ 1202 009e 0E       		.uleb128 0xe
+ 1203 009f 3A       		.uleb128 0x3a
+ 1204 00a0 0B       		.uleb128 0xb
+ 1205 00a1 3B       		.uleb128 0x3b
+ 1206 00a2 0B       		.uleb128 0xb
+ 1207 00a3 49       		.uleb128 0x49
+ 1208 00a4 13       		.uleb128 0x13
+ 1209 00a5 02       		.uleb128 0x2
+ 1210 00a6 0A       		.uleb128 0xa
+ 1211 00a7 00       		.byte	0
+ 1212 00a8 00       		.byte	0
+ 1213 00a9 0D       		.uleb128 0xd
+ 1214 00aa 01       		.uleb128 0x1
+ 1215 00ab 01       		.byte	0x1
+ 1216 00ac 49       		.uleb128 0x49
+ 1217 00ad 13       		.uleb128 0x13
+ 1218 00ae 01       		.uleb128 0x1
+ 1219 00af 13       		.uleb128 0x13
+ 1220 00b0 00       		.byte	0
+ 1221 00b1 00       		.byte	0
+ 1222 00b2 0E       		.uleb128 0xe
+ 1223 00b3 21       		.uleb128 0x21
+ 1224 00b4 00       		.byte	0
+ 1225 00b5 49       		.uleb128 0x49
+ 1226 00b6 13       		.uleb128 0x13
+ 1227 00b7 2F       		.uleb128 0x2f
+ 1228 00b8 0B       		.uleb128 0xb
+ 1229 00b9 00       		.byte	0
+ 1230 00ba 00       		.byte	0
+ 1231 00bb 0F       		.uleb128 0xf
+ 1232 00bc 0A       		.uleb128 0xa
+ 1233 00bd 00       		.byte	0
+ 1234 00be 03       		.uleb128 0x3
+ 1235 00bf 0E       		.uleb128 0xe
+ 1236 00c0 3A       		.uleb128 0x3a
+ 1237 00c1 0B       		.uleb128 0xb
+ 1238 00c2 3B       		.uleb128 0x3b
+ 1239 00c3 0B       		.uleb128 0xb
+ 1240 00c4 11       		.uleb128 0x11
+ 1241 00c5 01       		.uleb128 0x1
+ 1242 00c6 00       		.byte	0
+ 1243 00c7 00       		.byte	0
+ 1244 00c8 10       		.uleb128 0x10
+ 1245 00c9 34       		.uleb128 0x34
+ 1246 00ca 00       		.byte	0
+ 1247 00cb 03       		.uleb128 0x3
+ 1248 00cc 0E       		.uleb128 0xe
+ 1249 00cd 3A       		.uleb128 0x3a
+ 1250 00ce 0B       		.uleb128 0xb
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 23
+
+
+ 1251 00cf 3B       		.uleb128 0x3b
+ 1252 00d0 0B       		.uleb128 0xb
+ 1253 00d1 49       		.uleb128 0x49
+ 1254 00d2 13       		.uleb128 0x13
+ 1255 00d3 3F       		.uleb128 0x3f
+ 1256 00d4 0C       		.uleb128 0xc
+ 1257 00d5 3C       		.uleb128 0x3c
+ 1258 00d6 0C       		.uleb128 0xc
+ 1259 00d7 00       		.byte	0
+ 1260 00d8 00       		.byte	0
+ 1261 00d9 11       		.uleb128 0x11
+ 1262 00da 34       		.uleb128 0x34
+ 1263 00db 00       		.byte	0
+ 1264 00dc 03       		.uleb128 0x3
+ 1265 00dd 0E       		.uleb128 0xe
+ 1266 00de 3A       		.uleb128 0x3a
+ 1267 00df 0B       		.uleb128 0xb
+ 1268 00e0 3B       		.uleb128 0x3b
+ 1269 00e1 0B       		.uleb128 0xb
+ 1270 00e2 49       		.uleb128 0x49
+ 1271 00e3 13       		.uleb128 0x13
+ 1272 00e4 3F       		.uleb128 0x3f
+ 1273 00e5 0C       		.uleb128 0xc
+ 1274 00e6 02       		.uleb128 0x2
+ 1275 00e7 0A       		.uleb128 0xa
+ 1276 00e8 00       		.byte	0
+ 1277 00e9 00       		.byte	0
+ 1278 00ea 00       		.byte	0
+ 1279              		.section	.debug_loc,"",@progbits
+ 1280              	.Ldebug_loc0:
+ 1281              	.LLST0:
+ 1282 0000 00000000 		.4byte	.LFB2
+ 1283 0004 00000000 		.4byte	.LCFI0
+ 1284 0008 0002     		.2byte	0x2
+ 1285 000a 71       		.byte	0x71
+ 1286 000b 00       		.sleb128 0
+ 1287 000c 00000000 		.4byte	.LCFI0
+ 1288 0010 00000000 		.4byte	.LCFI1
+ 1289 0014 0002     		.2byte	0x2
+ 1290 0016 71       		.byte	0x71
+ 1291 0017 10       		.sleb128 16
+ 1292 0018 00000000 		.4byte	.LCFI1
+ 1293 001c 00000000 		.4byte	.LFE2
+ 1294 0020 0002     		.2byte	0x2
+ 1295 0022 71       		.byte	0x71
+ 1296 0023 00       		.sleb128 0
+ 1297 0024 00000000 		.4byte	0
+ 1298 0028 00000000 		.4byte	0
+ 1299              	.LLST1:
+ 1300 002c 00000000 		.4byte	.LFB3
+ 1301 0030 00000000 		.4byte	.LCFI2
+ 1302 0034 0002     		.2byte	0x2
+ 1303 0036 71       		.byte	0x71
+ 1304 0037 00       		.sleb128 0
+ 1305 0038 00000000 		.4byte	.LCFI2
+ 1306 003c 00000000 		.4byte	.LCFI3
+ 1307 0040 0002     		.2byte	0x2
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 24
+
+
+ 1308 0042 71       		.byte	0x71
+ 1309 0043 20       		.sleb128 32
+ 1310 0044 00000000 		.4byte	.LCFI3
+ 1311 0048 00000000 		.4byte	.LFE3
+ 1312 004c 0002     		.2byte	0x2
+ 1313 004e 71       		.byte	0x71
+ 1314 004f 00       		.sleb128 0
+ 1315 0050 00000000 		.4byte	0
+ 1316 0054 00000000 		.4byte	0
+ 1317              	.LLST2:
+ 1318 0058 00000000 		.4byte	.LFB4
+ 1319 005c 00000000 		.4byte	.LCFI4
+ 1320 0060 0002     		.2byte	0x2
+ 1321 0062 71       		.byte	0x71
+ 1322 0063 00       		.sleb128 0
+ 1323 0064 00000000 		.4byte	.LCFI4
+ 1324 0068 00000000 		.4byte	.LCFI5
+ 1325 006c 0002     		.2byte	0x2
+ 1326 006e 71       		.byte	0x71
+ 1327 006f 20       		.sleb128 32
+ 1328 0070 00000000 		.4byte	.LCFI5
+ 1329 0074 00000000 		.4byte	.LFE4
+ 1330 0078 0002     		.2byte	0x2
+ 1331 007a 71       		.byte	0x71
+ 1332 007b 00       		.sleb128 0
+ 1333 007c 00000000 		.4byte	0
+ 1334 0080 00000000 		.4byte	0
+ 1335              	.LLST3:
+ 1336 0084 00000000 		.4byte	.LFB5
+ 1337 0088 00000000 		.4byte	.LCFI6
+ 1338 008c 0002     		.2byte	0x2
+ 1339 008e 71       		.byte	0x71
+ 1340 008f 00       		.sleb128 0
+ 1341 0090 00000000 		.4byte	.LCFI6
+ 1342 0094 00000000 		.4byte	.LCFI7
+ 1343 0098 0002     		.2byte	0x2
+ 1344 009a 71       		.byte	0x71
+ 1345 009b 20       		.sleb128 32
+ 1346 009c 00000000 		.4byte	.LCFI7
+ 1347 00a0 00000000 		.4byte	.LFE5
+ 1348 00a4 0002     		.2byte	0x2
+ 1349 00a6 71       		.byte	0x71
+ 1350 00a7 00       		.sleb128 0
+ 1351 00a8 00000000 		.4byte	0
+ 1352 00ac 00000000 		.4byte	0
+ 1353              	.LLST4:
+ 1354 00b0 00000000 		.4byte	.LFB6
+ 1355 00b4 00000000 		.4byte	.LCFI8
+ 1356 00b8 0002     		.2byte	0x2
+ 1357 00ba 71       		.byte	0x71
+ 1358 00bb 00       		.sleb128 0
+ 1359 00bc 00000000 		.4byte	.LCFI8
+ 1360 00c0 00000000 		.4byte	.LCFI9
+ 1361 00c4 0002     		.2byte	0x2
+ 1362 00c6 71       		.byte	0x71
+ 1363 00c7 10       		.sleb128 16
+ 1364 00c8 00000000 		.4byte	.LCFI9
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 25
+
+
+ 1365 00cc 00000000 		.4byte	.LFE6
+ 1366 00d0 0002     		.2byte	0x2
+ 1367 00d2 71       		.byte	0x71
+ 1368 00d3 00       		.sleb128 0
+ 1369 00d4 00000000 		.4byte	0
+ 1370 00d8 00000000 		.4byte	0
+ 1371              	.LLST5:
+ 1372 00dc 00000000 		.4byte	.LFB7
+ 1373 00e0 00000000 		.4byte	.LCFI10
+ 1374 00e4 0002     		.2byte	0x2
+ 1375 00e6 71       		.byte	0x71
+ 1376 00e7 00       		.sleb128 0
+ 1377 00e8 00000000 		.4byte	.LCFI10
+ 1378 00ec 00000000 		.4byte	.LCFI11
+ 1379 00f0 0002     		.2byte	0x2
+ 1380 00f2 71       		.byte	0x71
+ 1381 00f3 10       		.sleb128 16
+ 1382 00f4 00000000 		.4byte	.LCFI11
+ 1383 00f8 00000000 		.4byte	.LFE7
+ 1384 00fc 0002     		.2byte	0x2
+ 1385 00fe 71       		.byte	0x71
+ 1386 00ff 00       		.sleb128 0
+ 1387 0100 00000000 		.4byte	0
+ 1388 0104 00000000 		.4byte	0
+ 1389              	.LLST6:
+ 1390 0108 00000000 		.4byte	.LFB8
+ 1391 010c 00000000 		.4byte	.LCFI12
+ 1392 0110 0002     		.2byte	0x2
+ 1393 0112 71       		.byte	0x71
+ 1394 0113 00       		.sleb128 0
+ 1395 0114 00000000 		.4byte	.LCFI12
+ 1396 0118 00000000 		.4byte	.LCFI13
+ 1397 011c 0002     		.2byte	0x2
+ 1398 011e 71       		.byte	0x71
+ 1399 011f 10       		.sleb128 16
+ 1400 0120 00000000 		.4byte	.LCFI13
+ 1401 0124 00000000 		.4byte	.LFE8
+ 1402 0128 0002     		.2byte	0x2
+ 1403 012a 71       		.byte	0x71
+ 1404 012b 00       		.sleb128 0
+ 1405 012c 00000000 		.4byte	0
+ 1406 0130 00000000 		.4byte	0
+ 1407              		.section	.debug_aranges,"",@progbits
+ 1408 0000 0000004C 		.4byte	0x4c
+ 1409 0004 0002     		.2byte	0x2
+ 1410 0006 00000000 		.4byte	.Ldebug_info0
+ 1411 000a 04       		.byte	0x4
+ 1412 000b 00       		.byte	0
+ 1413 000c 0000     		.2byte	0
+ 1414 000e 0000     		.2byte	0
+ 1415 0010 00000000 		.4byte	.LFB2
+ 1416 0014 00000054 		.4byte	.LFE2-.LFB2
+ 1417 0018 00000000 		.4byte	.LFB3
+ 1418 001c 00000068 		.4byte	.LFE3-.LFB3
+ 1419 0020 00000000 		.4byte	.LFB4
+ 1420 0024 00000074 		.4byte	.LFE4-.LFB4
+ 1421 0028 00000000 		.4byte	.LFB5
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 26
+
+
+ 1422 002c 000000AE 		.4byte	.LFE5-.LFB5
+ 1423 0030 00000000 		.4byte	.LFB6
+ 1424 0034 0000006E 		.4byte	.LFE6-.LFB6
+ 1425 0038 00000000 		.4byte	.LFB7
+ 1426 003c 000000A4 		.4byte	.LFE7-.LFB7
+ 1427 0040 00000000 		.4byte	.LFB8
+ 1428 0044 000000BC 		.4byte	.LFE8-.LFB8
+ 1429 0048 00000000 		.4byte	0
+ 1430 004c 00000000 		.4byte	0
+ 1431              		.section	.debug_ranges,"",@progbits
+ 1432              	.Ldebug_ranges0:
+ 1433 0000 00000000 		.4byte	.LFB2
+ 1434 0004 00000000 		.4byte	.LFE2
+ 1435 0008 00000000 		.4byte	.LFB3
+ 1436 000c 00000000 		.4byte	.LFE3
+ 1437 0010 00000000 		.4byte	.LFB4
+ 1438 0014 00000000 		.4byte	.LFE4
+ 1439 0018 00000000 		.4byte	.LFB5
+ 1440 001c 00000000 		.4byte	.LFE5
+ 1441 0020 00000000 		.4byte	.LFB6
+ 1442 0024 00000000 		.4byte	.LFE6
+ 1443 0028 00000000 		.4byte	.LFB7
+ 1444 002c 00000000 		.4byte	.LFE7
+ 1445 0030 00000000 		.4byte	.LFB8
+ 1446 0034 00000000 		.4byte	.LFE8
+ 1447 0038 00000000 		.4byte	0
+ 1448 003c 00000000 		.4byte	0
+ 1449              		.section	.debug_line,"",@progbits
+ 1450              	.Ldebug_line0:
+ 1451 0000 0000029A 		.section	.debug_str,"MS",@progbits,1
+ 1451      00020000 
+ 1451      01F40201 
+ 1451      FB0E0D00 
+ 1451      01010101 
+ 1452              	.LASF39:
+ 1453 0000 6F724461 		.string	"orData"
+ 1453      746100
+ 1454              	.LASF46:
+ 1455 0007 41454B5F 		.string	"AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER"
+ 1455      534E535F 
+ 1455      564C3533 
+ 1455      4C31585F 
+ 1455      4932435F 
+ 1456              	.LASF5:
+ 1457 0028 5F5F7569 		.string	"__uint8_t"
+ 1457      6E74385F 
+ 1457      7400
+ 1458              	.LASF28:
+ 1459 0032 4932435F 		.string	"I2C_ERROR_TIMEOUT"
+ 1459      4552524F 
+ 1459      525F5449 
+ 1459      4D454F55 
+ 1459      5400
+ 1460              	.LASF49:
+ 1461 0044 433A5C55 		.string	"C:\\Users\\cerru\\Desktop\\ferrari_st\\AutoDevKitCarV1UnictTestMotori"
+ 1461      73657273 
+ 1461      5C636572 
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 27
+
+
+ 1461      72755C44 
+ 1461      65736B74 
+ 1462              	.LASF22:
+ 1463 0085 4932435F 		.string	"I2C_ERROR_TRANSFER_IN_PROGRESS"
+ 1463      4552524F 
+ 1463      525F5452 
+ 1463      414E5346 
+ 1463      45525F49 
+ 1464              	.LASF35:
+ 1465 00a4 564C3533 		.string	"VL53L1X_WrDWord"
+ 1465      4C31585F 
+ 1465      57724457 
+ 1465      6F726400 
+ 1466              	.LASF25:
+ 1467 00b4 4932435F 		.string	"I2C_ERROR_ARBITRATION_LOST"
+ 1467      4552524F 
+ 1467      525F4152 
+ 1467      42495452 
+ 1467      4154494F 
+ 1468              	.LASF1:
+ 1469 00cf 6C6F6E67 		.string	"long int"
+ 1469      20696E74 
+ 1469      00
+ 1470              	.LASF32:
+ 1471 00d8 64617461 		.string	"data"
+ 1471      00
+ 1472              	.LASF44:
+ 1473 00dd 73746174 		.string	"status"
+ 1473      757300
+ 1474              	.LASF47:
+ 1475 00e4 474E5520 		.ascii	"GNU C 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         b"
+ 1475      4320342E 
+ 1475      392E3420 
+ 1475      32303136 
+ 1475      30373236 
+ 1476 0120 75696C64 		.ascii	"uild.sh"
+ 1476      2E7368
+ 1477 0127 20726576 		.string	" rev=gd8b6c20 s=F494 ELe200 -V release_gd8b6c20_build_Fed_ELe200_ML0) -mcall-sysv -mcpu=e
+ 1477      3D676438 
+ 1477      62366332 
+ 1477      3020733D 
+ 1477      46343934 
+ 1478              	.LASF33:
+ 1479 0228 564C3533 		.string	"VL53L1X_WrByte"
+ 1479      4C31585F 
+ 1479      57724279 
+ 1479      746500
+ 1480              	.LASF45:
+ 1481 0237 554C445F 		.string	"ULD_I2CBuffer"
+ 1481      49324342 
+ 1481      75666665 
+ 1481      7200
+ 1482              	.LASF15:
+ 1483 0245 666C6F61 		.string	"float"
+ 1483      7400
+ 1484              	.LASF43:
+ 1485 024b 564C3533 		.string	"VL53L1X_RdDWord"
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 28
+
+
+ 1485      4C31585F 
+ 1485      52644457 
+ 1485      6F726400 
+ 1486              	.LASF11:
+ 1487 025b 6C6F6E67 		.string	"long long unsigned int"
+ 1487      206C6F6E 
+ 1487      6720756E 
+ 1487      7369676E 
+ 1487      65642069 
+ 1488              	.LASF20:
+ 1489 0272 49324344 		.string	"I2CDriver"
+ 1489      72697665 
+ 1489      7200
+ 1490              	.LASF3:
+ 1491 027c 756E7369 		.string	"unsigned char"
+ 1491      676E6564 
+ 1491      20636861 
+ 1491      7200
+ 1492              	.LASF24:
+ 1493 028a 4932435F 		.string	"I2C_ERROR_BUS_BUSY"
+ 1493      4552524F 
+ 1493      525F4255 
+ 1493      535F4255 
+ 1493      535900
+ 1494              	.LASF9:
+ 1495 029d 6C6F6E67 		.string	"long unsigned int"
+ 1495      20756E73 
+ 1495      69676E65 
+ 1495      6420696E 
+ 1495      7400
+ 1496              	.LASF7:
+ 1497 02af 73686F72 		.string	"short unsigned int"
+ 1497      7420756E 
+ 1497      7369676E 
+ 1497      65642069 
+ 1497      6E7400
+ 1498              	.LASF6:
+ 1499 02c2 5F5F7569 		.string	"__uint16_t"
+ 1499      6E743136 
+ 1499      5F7400
+ 1500              	.LASF14:
+ 1501 02cd 646F7562 		.string	"double"
+ 1501      6C6500
+ 1502              	.LASF8:
+ 1503 02d4 5F5F7569 		.string	"__uint32_t"
+ 1503      6E743332 
+ 1503      5F7400
+ 1504              	.LASF37:
+ 1505 02df 564C3533 		.string	"VL53L1X_UpdateByte"
+ 1505      4C31585F 
+ 1505      55706461 
+ 1505      74654279 
+ 1505      746500
+ 1506              	.LASF31:
+ 1507 02f2 7265675F 		.string	"reg_addr"
+ 1507      61646472 
+ 1507      00
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 29
+
+
+ 1508              	.LASF0:
+ 1509 02fb 756E7369 		.string	"unsigned int"
+ 1509      676E6564 
+ 1509      20696E74 
+ 1509      00
+ 1510              	.LASF13:
+ 1511 0308 63686172 		.string	"char"
+ 1511      00
+ 1512              	.LASF17:
+ 1513 030d 75696E74 		.string	"uint8_t"
+ 1513      385F7400 
+ 1514              	.LASF48:
+ 1515 0315 2E2F636F 		.string	"./components/aek_sns_vl53l1x1_component_rla/lib/src/uld_src/VL53L1X_support.c"
+ 1515      6D706F6E 
+ 1515      656E7473 
+ 1515      2F61656B 
+ 1515      5F736E73 
+ 1516              	.LASF29:
+ 1517 0363 4932435F 		.string	"I2C_ERROR_BUFFER_OVERFLOW"
+ 1517      4552524F 
+ 1517      525F4255 
+ 1517      46464552 
+ 1517      5F4F5645 
+ 1518              	.LASF38:
+ 1519 037d 616E6444 		.string	"andData"
+ 1519      61746100 
+ 1520              	.LASF34:
+ 1521 0385 564C3533 		.string	"VL53L1X_WrWord"
+ 1521      4C31585F 
+ 1521      5772576F 
+ 1521      726400
+ 1522              	.LASF12:
+ 1523 0394 73697A65 		.string	"sizetype"
+ 1523      74797065 
+ 1523      00
+ 1524              	.LASF30:
+ 1525 039d 6932635F 		.string	"i2c_result_t"
+ 1525      72657375 
+ 1525      6C745F74 
+ 1525      00
+ 1526              	.LASF10:
+ 1527 03aa 6C6F6E67 		.string	"long long int"
+ 1527      206C6F6E 
+ 1527      6720696E 
+ 1527      7400
+ 1528              	.LASF42:
+ 1529 03b8 564C3533 		.string	"VL53L1X_RdWord"
+ 1529      4C31585F 
+ 1529      5264576F 
+ 1529      726400
+ 1530              	.LASF23:
+ 1531 03c7 4932435F 		.string	"I2C_ERROR_NO_ACK"
+ 1531      4552524F 
+ 1531      525F4E4F 
+ 1531      5F41434B 
+ 1531      00
+ 1532              	.LASF40:
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 30
+
+
+ 1533 03d8 564C3533 		.string	"VL53L1X_RdByte"
+ 1533      4C31585F 
+ 1533      52644279 
+ 1533      746500
+ 1534              	.LASF4:
+ 1535 03e7 73686F72 		.string	"short int"
+ 1535      7420696E 
+ 1535      7400
+ 1536              	.LASF36:
+ 1537 03f1 5F693263 		.string	"_i2cBuffer"
+ 1537      42756666 
+ 1537      657200
+ 1538              	.LASF18:
+ 1539 03fc 75696E74 		.string	"uint16_t"
+ 1539      31365F74 
+ 1539      00
+ 1540              	.LASF21:
+ 1541 0405 4932435F 		.string	"I2C_NO_ERROR"
+ 1541      4E4F5F45 
+ 1541      52524F52 
+ 1541      00
+ 1542              	.LASF19:
+ 1543 0412 75696E74 		.string	"uint32_t"
+ 1543      33325F74 
+ 1543      00
+ 1544              	.LASF27:
+ 1545 041b 4932435F 		.string	"I2C_ERROR_INVALID_ARGUMENT"
+ 1545      4552524F 
+ 1545      525F494E 
+ 1545      56414C49 
+ 1545      445F4152 
+ 1546              	.LASF16:
+ 1547 0436 6C6F6E67 		.string	"long double"
+ 1547      20646F75 
+ 1547      626C6500 
+ 1548              	.LASF26:
+ 1549 0442 4932435F 		.string	"I2C_ERROR_INVALID_ADDRESS"
+ 1549      4552524F 
+ 1549      525F494E 
+ 1549      56414C49 
+ 1549      445F4144 
+ 1550              	.LASF2:
+ 1551 045c 7369676E 		.string	"signed char"
+ 1551      65642063 
+ 1551      68617200 
+ 1552              	.LASF41:
+ 1553 0468 646F6E65 		.string	"done"
+ 1553      00
+ 1554              		.ident	"GCC: (GNU) 4.9.4 20160726 (Sat May 27 11:09:55 CDT 2017         build.sh rev=gd8b6c20 s=F4
+GAS LISTING C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s 			page 31
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 VL53L1X_support.c
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:10     .bss.ULD_I2CBuffer:00000000 ULD_I2CBuffer
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:17     .text.VL53L1X_WrByte:00000000 VL53L1X_WrByte
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:69     .text.VL53L1X_WrWord:00000000 VL53L1X_WrWord
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:131    .text.VL53L1X_WrDWord:00000000 VL53L1X_WrDWord
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:201    .text.VL53L1X_UpdateByte:00000000 VL53L1X_UpdateByte
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:285    .text.VL53L1X_RdByte:00000000 VL53L1X_RdByte
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:347    .text.VL53L1X_RdWord:00000000 VL53L1X_RdWord
+C:\Users\cerru\AppData\Local\Temp\ccXxmKur.s:428    .text.VL53L1X_RdDWord:00000000 VL53L1X_RdDWord
+
+UNDEFINED SYMBOLS
+AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER
+i2c_lld_write16
+status
+i2c_lld_read16

@@ -1,0 +1,1757 @@
+
+build/out.elf:     file format elf32-powerpc
+build/out.elf
+architecture: powerpc:vle, flags 0x00000112:
+EXEC_P, HAS_SYMS, D_PAGED
+start address 0x00fc0008
+
+Program Header:
+    LOAD off    0x00004000 vaddr 0x00fc0000 paddr 0x00fc0000 align 2**14
+         filesz 0x000164ec memsz 0x000164ec flags r-x 10000000
+    LOAD off    0x0001d000 vaddr 0x400a9000 paddr 0x00fd64f0 align 2**14
+         filesz 0x00000af4 memsz 0x00001928 flags rw-
+    LOAD off    0x00020000 vaddr 0x400a8000 paddr 0x400a8000 align 2**14
+         filesz 0x00000000 memsz 0x00001000 flags rw-
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .boot0        00000202  00fc0000  00fc0000  00004000  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE, VLE
+  1 .boot1        00001df2  00fc0210  00fc0210  00004210  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE, VLE
+  2 .text         00013b64  00fc2010  00fc2010  00006010  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE, VLE
+  3 .rodata       0000096c  00fd5b80  00fd5b80  00019b80  2**4
+                  CONTENTS, ALLOC, LOAD, READONLY, DATA
+  4 .stacks       00001000  400a8000  400a8000  00020000  2**4
+                  ALLOC
+  5 .data         00000ae0  400a9000  00fd64f0  0001d000  2**3
+                  CONTENTS, ALLOC, LOAD, DATA
+  6 .sdata        00000014  400a9ae0  00fd6fd0  0001dae0  2**2
+                  CONTENTS, ALLOC, LOAD, DATA
+  7 .sbss         0000000c  400a9af4  00fd6fe4  0001daf4  2**2
+                  ALLOC
+  8 .bss          00000e28  400a9b00  00fd6ff0  0001daf4  2**3
+                  ALLOC
+  9 .PPC.EMB.apuinfo 0000001c  00000000  00000000  0001daf4  2**0
+                  CONTENTS, READONLY
+ 10 .comment      0000008e  00000000  00000000  0001db10  2**0
+                  CONTENTS, READONLY
+ 11 .gnu.attributes 00000010  00000000  00000000  0001db9e  2**0
+                  CONTENTS, READONLY
+ 12 .debug_info   00026ffe  00000000  00000000  0001dbae  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_abbrev 00003402  00000000  00000000  00044bac  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .debug_loc    00003cc9  00000000  00000000  00047fae  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 15 .debug_aranges 00000ee8  00000000  00000000  0004bc77  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 16 .debug_ranges 00000c90  00000000  00000000  0004cb5f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 17 .debug_line   00007e9b  00000000  00000000  0004d7ef  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 18 .debug_str    00007883  00000000  00000000  0005568a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 19 .debug_frame  00003b58  00000000  00000000  0005cf10  2**2
+                  CONTENTS, READONLY, DEBUGGING
+SYMBOL TABLE:
+00fc0000 l    d  .boot0	00000000 .boot0
+00fc0210 l    d  .boot1	00000000 .boot1
+00fc2010 l    d  .text	00000000 .text
+00fd5b80 l    d  .rodata	00000000 .rodata
+400a8000 l    d  .stacks	00000000 .stacks
+400a9000 l    d  .data	00000000 .data
+400a9ae0 l    d  .sdata	00000000 .sdata
+400a9af4 l    d  .sbss	00000000 .sbss
+400a9b00 l    d  .bss	00000000 .bss
+00000000 l    d  .PPC.EMB.apuinfo	00000000 .PPC.EMB.apuinfo
+00000000 l    d  .comment	00000000 .comment
+00000000 l    d  .gnu.attributes	00000000 .gnu.attributes
+00000000 l    d  .debug_info	00000000 .debug_info
+00000000 l    d  .debug_abbrev	00000000 .debug_abbrev
+00000000 l    d  .debug_loc	00000000 .debug_loc
+00000000 l    d  .debug_aranges	00000000 .debug_aranges
+00000000 l    d  .debug_ranges	00000000 .debug_ranges
+00000000 l    d  .debug_line	00000000 .debug_line
+00000000 l    d  .debug_str	00000000 .debug_str
+00000000 l    d  .debug_frame	00000000 .debug_frame
+00000000 l    df *ABS*	00000000 build/obj/boot.o
+00fc001e l       .boot0	00000000 _disablewatchdog
+00fc0044 l       .boot0	00000000 _coreinit
+00fc00f0 l       .boot0	00000000 _ivinit
+00fc00d4 l       .boot0	00000000 .cleareccloop
+00fc00e4 l       .boot0	00000000 .cleareccend
+00fc0300 l       .boot1	00000000 IVOR0
+00fc0310 l       .boot1	00000000 IVOR1
+00fc0320 l       .boot1	00000000 IVOR2
+00fc0330 l       .boot1	00000000 IVOR3
+00fc0340 l       .boot1	00000000 IVOR4
+00fc0350 l       .boot1	00000000 IVOR5
+00fc0360 l       .boot1	00000000 IVOR6
+00fc0370 l       .boot1	00000000 IVOR7
+00fc0380 l       .boot1	00000000 IVOR8
+00fc0390 l       .boot1	00000000 IVOR9
+00fc03a0 l       .boot1	00000000 IVOR10
+00fc03b0 l       .boot1	00000000 IVOR11
+00fc03c0 l       .boot1	00000000 IVOR12
+00fc03d0 l       .boot1	00000000 IVOR13
+00fc03e0 l       .boot1	00000000 IVOR14
+00fc03f0 l       .boot1	00000000 IVOR15
+00fc0110 l       .boot0	00000000 .unhandled_exception
+00000000 l    df *ABS*	00000000 build/obj/crt0.o
+00fc01b8 l       .boot0	00000000 .bssloop
+00fc01c4 l       .boot0	00000000 .bssend
+00fc01dc l       .boot0	00000000 .dataloop
+00fc01ec l       .boot0	00000000 .dataend
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 libgcc2.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00fc26e0 l     F .text	000001a4 _fpadd_parts
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00fc2d10 l     F .text	000002b6 _fpadd_parts
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 spc5_lld.c
+00000000 l    df *ABS*	00000000 spc5_edma.c
+400a9000 l     O .data	00000010 dma1_g0
+400a9b00 l     O .bss	00000040 channels
+00000000 l    df *ABS*	00000000 serial_lld.c
+00fc4750 l     F .text	00000016 irqGetMsr
+00fc4770 l     F .text	0000001e irqGetExtIntEnable
+400a9010 l     O .data	00000020 default_config
+00fc4790 l     F .text	0000006c spc5_linflex_init
+00fc4800 l     F .text	000001bc spc5xx_serve_rxi_interrupt
+00fc49c0 l     F .text	000000e0 spc5xx_serve_txi_interrupt
+00fc4aa0 l     F .text	00000018 spc5xx_serve_err_interrupt
+00fc4c30 l     F .text	00000082 sd_tx
+00fc4cc0 l     F .text	000000f6 sd_tx_no_irq
+00000000 l    df *ABS*	00000000 spi_lld.c
+00fc4e80 l     F .text	00000012 spi_lld_obj_init
+00fc4ea0 l     F .text	00000020 spi_dspi_start
+00fc4ec0 l     F .text	0000006c spi_dspi_stop
+00fc4f30 l     F .text	00000170 spi_dspi_prefill_txfifo_idle
+00fc50a0 l     F .text	00000122 spi_dspi_prefill_txfifo8
+00fc51d0 l     F .text	00000122 spi_dspi_prefill_txfifo16
+00fc5300 l     F .text	0000017c spi_dspi_prefill_txfifo32
+00fc5480 l     F .text	00000028 spi_start_rx8
+00fc54b0 l     F .text	00000028 spi_start_rx16
+00fc54e0 l     F .text	00000028 spi_start_rx32
+00fc5510 l     F .text	0000008c spi_start_tx8
+00fc55a0 l     F .text	0000008c spi_start_tx16
+00fc5630 l     F .text	00000088 spi_start_tx32
+00fc56c0 l     F .text	00000164 spi_serve_dspi_eoqf
+00fc5830 l     F .text	000001c6 spi_serve_dspi_rfdf
+00fc5a00 l     F .text	0000010e spi_serve_dspi_tfff
+00000000 l    df *ABS*	00000000 i2c_lld.c
+00000000 l    df *ABS*	00000000 i2c_hw.c
+400a9ba8 l     O .bss	00000034 i2c_hw
+00fc60c0 l     F .text	00000060 i2c_lld_wait_for_idle
+00fc6120 l     F .text	00000254 i2c_lld_irq_master
+00fc6380 l     F .text	000002f0 i2c_lld_irq_slave
+400a9bdc l     O .bss	00000001 data_off.13294
+400a9bdd l     O .bss	00000001 reg_addr.13293
+00fc6670 l     F .text	0000004e i2c_lld_irq_handler
+00fc66c0 l     F .text	0000011a wait_for_transfer_completion
+00fc67e0 l     F .text	0000013a i2c_hw_start
+00fc6920 l     F .text	00000042 i2c_hw_stop
+00fc6970 l     F .text	0000018c i2c_hw_write
+00fc6b00 l     F .text	00000172 i2c_hw_read
+00000000 l    df *ABS*	00000000 spc5_linflex.c
+400a9bde l     O .bss	00000001 linflex_initialization
+00000000 l    df *ABS*	00000000 spc5_emios.c
+00fc6e90 l     F .text	00000012 emios_get_gfr
+00000000 l    df *ABS*	00000000 pwm_lld.c
+00fc7720 l     F .text	0000040e pwm_lld_start_channel_group
+00fc7c40 l     F .text	00000394 pwm_lld_enable_group_channel
+00000000 l    df *ABS*	00000000 EV_VNHx7xxx.c
+00000000 l    df *ABS*	00000000 AEK_SNS_VL53L1X1.c
+00000000 l    df *ABS*	00000000 uld_api.c
+00000000 l    df *ABS*	00000000 VL53L1X_api.c
+00fd5ec0 l     O .rodata	00000018 status_rtn
+00000000 l    df *ABS*	00000000 VL53L1X_calibration.c
+00000000 l    df *ABS*	00000000 VL53L1X_support.c
+00000000 l    df *ABS*	00000000 AEK_MOT_SM81M1.c
+00000000 l    df *ABS*	00000000 pal.c
+00000000 l    df *ABS*	00000000 clock.c
+00fcc080 l     F .text	00000128 spc_clear_fccu_rgm
+00fcc1b0 l     F .text	00000102 SPCSetPFlashController
+00000000 l    df *ABS*	00000000 irq.c
+00000000 l    df *ABS*	00000000 eirq.c
+00000000 l    df *ABS*	00000000 osal.c
+00fcccb0 l     F .text	00000016 irqGetMsr
+00fcccd0 l     F .text	0000001e irqGetExtIntEnable
+400a9df8 l     O .bss	00000030 osalTimeOps
+400a9e28 l     O .bss	00000004 osal_ticks_per_sec
+400a9e2c l     O .bss	00000004 osalsystime
+400a9e30 l     O .bss	00000004 osalIsrCnt
+400a9e34 l     O .bss	00000004 osalIsExtIntEnable
+00fccd40 l     F .text	0000004a osalSysTime_MS2ST
+00fccd90 l     F .text	00000022 osalSysTime_ST2MS
+00fccdc0 l     F .text	00000022 osalSysTimeInit
+00fccdf0 l     F .text	00000038 osalSysTimeDelayTicks
+00fcce30 l     F .text	0000000c osalSysTimeGetTicks
+00fcce40 l     F .text	00000072 osalIsrDisable
+00fccec0 l     F .text	00000056 osalIsrEnable
+00000000 l    df *ABS*	00000000 systimer.c
+00000000 l    df *ABS*	00000000 AEK_SNS_VL53L1X1_cfg.c
+00000000 l    df *ABS*	00000000 board.c
+400a9118 l     O .data	000000f0 spc_mscr_io_init
+400a9208 l     O .data	00000028 spc_mscr_mux_init
+400a9230 l     O .data	00000008 pal_default_config
+00000000 l    df *ABS*	00000000 irq_cfg.c
+00000000 l    df *ABS*	00000000 main.c
+400a9280 l     O .data	00000004 p.17808
+400aa8f8 l     O .bss	00000004 newp.17809
+00000000 l    df *ABS*	00000000 components.c
+00000000 l    df *ABS*	00000000 s_atan.c
+00fd5f90 l     O .rodata	00000020 atanlo
+00fd5fb0 l     O .rodata	00000020 atanhi
+00000000 l    df *ABS*	00000000 s_ceil.c
+00000000 l    df *ABS*	00000000 s_cos.c
+00000000 l    df *ABS*	00000000 s_fabs.c
+00000000 l    df *ABS*	00000000 s_sin.c
+00000000 l    df *ABS*	00000000 w_acos.c
+00000000 l    df *ABS*	00000000 e_acos.c
+00000000 l    df *ABS*	00000000 e_rem_pio2.c
+00fd5fe0 l     O .rodata	00000080 npio2_hw
+00fd6060 l     O .rodata	00000108 two_over_pi
+00000000 l    df *ABS*	00000000 e_sqrt.c
+00000000 l    df *ABS*	00000000 k_cos.c
+00000000 l    df *ABS*	00000000 k_rem_pio2.c
+00fd6180 l     O .rodata	00000010 init_jk
+00fd6190 l     O .rodata	00000040 PIo2
+00000000 l    df *ABS*	00000000 k_sin.c
+00000000 l    df *ABS*	00000000 s_floor.c
+00000000 l    df *ABS*	00000000 s_fpclassify.c
+00000000 l    df *ABS*	00000000 s_matherr.c
+00000000 l    df *ABS*	00000000 s_nan.c
+00000000 l    df *ABS*	00000000 s_scalbn.c
+00000000 l    df *ABS*	00000000 s_copysign.c
+00000000 l    df *ABS*	00000000 errno.c
+00000000 l    df *ABS*	00000000 memset.c
+00000000 l    df *ABS*	00000000 vsnprintf.c
+00000000 l    df *ABS*	00000000 vfprintf.c
+00fd6350 l     O .rodata	00000010 zeroes.4272
+00fd63a0 l     O .rodata	00000010 blanks.4271
+00000000 l    df *ABS*	00000000 dtoa.c
+00fd3730 l     F .text	00000166 quorem
+00000000 l    df *ABS*	00000000 locale.c
+400a96a0 l     O .data	00000038 lconv
+00000000 l    df *ABS*	00000000 mallocr.c
+00000000 l    df *ABS*	00000000 memchr.c
+00000000 l    df *ABS*	00000000 memcpy.c
+00000000 l    df *ABS*	00000000 mlock.c
+00000000 l    df *ABS*	00000000 mprec.c
+00fd64e0 l     O .rodata	0000000c p05.2669
+00000000 l    df *ABS*	00000000 sbrkr.c
+00000000 l    df *ABS*	00000000 strlen.c
+00000000 l    df *ABS*	00000000 vfprintf.c
+00000000 l    df *ABS*	00000000 mallocr.c
+00000000 l    df *ABS*	00000000 mallocr.c
+00000000 l    df *ABS*	00000000 memmove.c
+00000000 l    df *ABS*	00000000 mallocr.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 fp-bit.c
+00000000 l    df *ABS*	00000000 EV_VNHx7xxx_cfg.c
+00000000 l    df *ABS*	00000000 AEK_MOT_SM81M1_cfg.c
+00000000 l    df *ABS*	00000000 impure.c
+400a9288 l     O .data	00000418 impure_data
+00000000 l    df *ABS*	00000000 serial_lld_cfg.c
+00000000 l    df *ABS*	00000000 spi_lld_cfg.c
+00000000 l    df *ABS*	00000000 pwm_lld_cfg.c
+400a9e38 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14_ch0
+400a9e40 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14_ch1
+400a9e48 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14_ch2
+400a9e50 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14_ch3
+400a9e58 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14_ch4
+400a906c l     O .data	00000008 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14_ch5
+400a9e60 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14_ch6
+400a9e68 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28_ch0
+400a9e70 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28_ch1
+400a9e78 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28_ch2
+400a9074 l     O .data	00000008 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28_ch3
+400a9e80 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28_ch4
+400a9e88 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28_ch5
+400a9e90 l     O .bss	00000008 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28_ch6
+00000000 l    df *ABS*	00000000 i2c_lld_cfg.c
+00000000 l    df *ABS*	00000000 eirq_cfg.c
+00000000 l    df *ABS*	00000000 s_lib_ver.c
+00000000 l    df *ABS*	00000000 i2c_sw.c
+00000000 l    df *ABS*	00000000 swirq.c
+00000000 l    df *ABS*	00000000 swirq_cfg.c
+00000000 l    df *ABS*	00000000 strcmp.c
+00000000 l    df *ABS*	00000000 reent.c
+00fc2000  w      .boot1	00000000 vector723
+00fc2000  w      .boot1	00000000 vector767
+00fc2000  w      .boot1	00000000 vector612
+00fc2000  w      .boot1	00000000 vector242
+00fc2000  w      .boot1	00000000 vector119
+00fc2000  w      .boot1	00000000 vector829
+00fc2000  w      .boot1	00000000 vector87
+00fc2000  w      .boot1	00000000 vector86
+00fc2000  w      .boot1	00000000 vector720
+00fc2000  w      .boot1	00000000 vector626
+00fc2000  w      .boot1	00000000 vector256
+00fc2000  w      .boot1	00000000 vector621
+00fc2000  w      .boot1	00000000 vector251
+00fc2000  w      .boot1	00000000 vector429
+00fccf80 g     F .text	0000002a osalThreadGetMilliseconds
+00fc2000  w    F .boot1	00000000 _unhandled_irq
+00fc2000  w      .boot1	00000000 vector584
+00fc2000  w      .boot1	00000000 vector345
+00fc2000  w      .boot1	00000000 vector718
+00fc2000  w      .boot1	00000000 vector762
+00fc2000  w      .boot1	00000000 vector795
+00fc2000  w      .boot1	00000000 vector91
+00fc2000  w      .boot1	00000000 vector33
+00fd0440 g     F .text	0000000c fabs
+00fc2000  w      .boot1	00000000 vector512
+00fc2000  w      .boot1	00000000 vector162
+00fc2000  w      .boot1	00000000 vector419
+00fc2000  w      .boot1	00000000 vector666
+00fc2000  w      .boot1	00000000 vector296
+00fc2000  w      .boot1	00000000 vector715
+00fc2000  w      .boot1	00000000 vector213
+00fc2000  w      .boot1	00000000 vector985
+00fc2000  w      .boot1	00000000 vector108
+00fc2000  w      .boot1	00000000 vector947
+00fc2000  w      .boot1	00000000 vector493
+00fc2000  w      .boot1	00000000 vector43
+00fc2000  w      .boot1	00000000 vector682
+00fc2000  w      .boot1	00000000 vector451
+400aa840 g     O .bss	00000020 first_obstacle
+00fc2000  w      .boot1	00000000 vector900
+00fc3480 g     F .text	00000064 .hidden __eqdf2
+400a9268 g     O .data	00000018 angular
+00fc2000  w      .boot1	00000000 vector750
+00fc2000  w      .boot1	00000000 vector435
+00fc2000  w      .boot1	00000000 vector496
+00fc95f0 g     F .text	0000014c ULD_CreateSensor
+00fc2000  w      .boot1	00000000 vector515
+00fc2000  w      .boot1	00000000 vector165
+00fc2000  w      .boot1	00000000 vector571
+00fc2000  w      .boot1	00000000 vector535
+00fc2000  w      .boot1	00000000 vector185
+00fc2000  w      .boot1	00000000 vector760
+00fcd030 g     F .text	0000006c osalInit
+00fcd8e0 g     F .text	00000056 read_approximated_tof
+00fc2000  w      .boot1	00000000 vector942
+00fc8c60 g     F .text	00000050 ULD_GetSensorId
+00fc2000  w      .boot1	00000000 vector748
+400a9000 g       .data	00000000 __data_start__
+00fc2000  w      .boot1	00000000 vector580
+00fc3954 g     F .text	0000000e .hidden _restgpr_31_x
+00fc2000  w      .boot1	00000000 vector333
+00fc2000  w      .boot1	00000000 vector817
+00fc2000  w      .boot1	00000000 vector115
+00fc2000  w      .boot1	00000000 vector578
+00fc2000  w      .boot1	00000000 vector122
+00fc2000  w      .boot1	00000000 vector376
+00fc38f4 g     F .text	00000016 .hidden _savegpr_27
+00fc2000  w      .boot1	00000000 vector412
+00fc2000  w      .boot1	00000000 vector676
+00fc8160 g     F .text	00000108 EV_VNHx7xxx_IN
+00fc2000  w      .boot1	00000000 vector709
+00fc2000  w      .boot1	00000000 vector398
+00fc2000  w      .boot1	00000000 vector430
+00fc2000  w      .boot1	00000000 vector506
+00fc2000  w      .boot1	00000000 vector156
+00fc3934 g     F .text	0000002e .hidden _restgpr_23_x
+00fc7470 g     F .text	000001ae pwm_lld_serve_group_channel_interrupt
+00fc2000  w      .boot1	00000000 vector975
+00fc2000  w      .boot1	00000000 vector615
+00fcca30 g     F .text	0000007a vector245
+00fc2000  w      .boot1	00000000 vector816
+00fc8cb0 g     F .text	00000050 ULD_GetDistance
+400b1ae0 g       .sdata	00000000 __sdata_start__
+00fc2000  w      .boot1	00000000 vector306
+00fc2000  w      .boot1	00000000 vector1014
+00fc2000  w      .boot1	00000000 vector539
+00fc2000  w      .boot1	00000000 vector475
+00fc2000  w      .boot1	00000000 vector189
+00fca830 g     F .text	00000050 VL53L1X_GetSensorId
+00fc2000  w      .boot1	00000000 vector7
+00fc2000  w      .boot1	00000000 vector802
+00fc2000  w      .boot1	00000000 vector431
+00fd4b00 g     F .text	00000002 __malloc_unlock
+00fc6d90 g     F .text	0000002a vector380
+00fc2000  w      .boot1	00000000 vector862
+00fc43a0 g     F .text	00000060 vector61
+00fc2000  w      .boot1	00000000 vector24
+00fc2000  w      .boot1	00000000 vector111
+00fc2000  w      .boot1	00000000 vector711
+00fc2000  w      .boot1	00000000 vector930
+00fc2000  w      .boot1	00000000 vector200
+00fc2000  w      .boot1	00000000 vector655
+00fc2000  w      .boot1	00000000 vector285
+00fc2000  w      .boot1	00000000 vector414
+00fc2000  w      .boot1	00000000 vector476
+00fc2ab0 g     F .text	000000fc .hidden __divsf3
+00fc2000  w      .boot1	00000000 vector736
+00fcbce0 g     F .text	00000042 updateParityBitMotor
+00fc2000  w      .boot1	00000000 vector928
+00fc45e0 g     F .text	00000060 vector67
+00fcabf0 g     F .text	000000f0 VL53L1X_GetResult
+00fce7e0 g     F .text	0000075e rileva_ostacoli
+00fc99b0 g     F .text	0000013e VL53L1X_SensorInit
+00fcb320 g     F .text	00000038 VL53L1X_SetSignalThreshold
+00fc8b70 g     F .text	00000050 ULD_SetInterMeasurementInMs
+00fc2000  w      .boot1	00000000 vector974
+00fcace0 g     F .text	00000062 VL53L1X_SetOffset
+00fc2000  w      .boot1	00000000 vector562
+00fcbc50 g     F .text	0000002e intToArrayMotor
+00fc2000  w      .boot1	00000000 vector773
+00fc2000  w      .boot1	00000000 vector138
+00fc2000  w      .boot1	00000000 vector864
+00fc2000  w      .boot1	00000000 vector74
+00fc2000  w      .boot1	00000000 vector627
+00fc2000  w      .boot1	00000000 vector257
+00fcef40 g     F .text	000001f2 memorizza_ostacoli
+00fd5750 g     F .text	00000048 memmove
+00fc4220 g     F .text	00000060 vector57
+00fc2000  w      .boot1	00000000 vector999
+00fc3914 g     F .text	0000004e .hidden _restgpr_15_x
+00fc0110  w      .boot0	00000000 _IVOR1
+00fd4b10 g     F .text	00000078 _Balloc
+00fce1c0 g     F .text	000004c6 evaluate_car_position
+00fc1000 g       .boot1	00000000 _vectors
+00fc2000  w      .boot1	00000000 vector819
+00fc2000  w      .boot1	00000000 vector783
+00fc2c80 g     F .text	00000088 .hidden __fixsfsi
+00fc2000  w      .boot1	00000000 vector214
+00fc2000  w      .boot1	00000000 vector870
+00fc2000  w      .boot1	00000000 vector99
+00fcb470 g     F .text	00000110 VL53L1X_StartTemperatureUpdate
+00fc2000  w      .boot1	00000000 vector770
+00fc2000  w      .boot1	00000000 vector954
+00fc2000  w      .boot1	00000000 vector404
+00fc2000  w      .boot1	00000000 vector348
+00fc9960 g     F .text	00000044 VL53L1X_SetI2CAddress
+00fc2000  w      .boot1	00000000 vector141
+00fcb420 g     F .text	0000004e VL53L1X_GetSigmaThreshold
+00fc2000  w      .boot1	00000000 vector812
+00fc2000  w      .boot1	00000000 vector859
+00fc2000  w      .boot1	00000000 vector961
+00fcf720 g     F .text	00000110 punto_rispetto_al_centro
+00fc2000  w      .boot1	00000000 vector740
+00fc3560 g     F .text	00000064 .hidden __gtdf2
+00fc2000  w      .boot1	00000000 vector919
+00fc2000  w      .boot1	00000000 vector522
+00fc2000  w      .boot1	00000000 vector172
+00fde4f0 g       .rodata	00000000 __sdata2_start__
+00fd2060 g     F .text	0000000a __errno
+00fc0008 g     F .boot0	00000000 _reset_address
+00fc2000  w      .boot1	00000000 vector877
+00fc2000  w      .boot1	00000000 vector461
+00fc2000  w      .boot1	00000000 vector611
+00fc2000  w      .boot1	00000000 vector241
+00fc2000  w      .boot1	00000000 vector876
+00fc2000  w      .boot1	00000000 vector623
+00fc2000  w      .boot1	00000000 vector253
+400aa8f0 g     O .bss	00000004 num_v_c
+00fc2000  w      .boot1	00000000 vector3
+00fc38c0 g     F .text	0000004a .hidden _savegpr_14
+00fce6d0 g     F .text	00000076 trace
+00fc2000  w      .boot1	00000000 vector2
+00fc2000  w      .boot1	00000000 vector359
+00fc7b30 g     F .text	00000108 pwm_lld_start
+00fc2000  w      .boot1	00000000 vector833
+00fc2000  w      .boot1	00000000 vector565
+00fc8380 g     F .text	000002a8 fillMethodsStructULD
+00fc2000  w      .boot1	00000000 vector568
+00fc0110  w      .boot0	00000000 _IVOR12
+00fc2000  w      .boot1	00000000 vector639
+00fc2000  w      .boot1	00000000 vector269
+00fc2000  w      .boot1	00000000 vector332
+00fc2000  w      .boot1	00000000 vector227
+00fc2000  w      .boot1	00000000 vector834
+00fd0250 g     F .text	00000144 ceil
+400a9b8c g     O .bss	0000001c I2CD1
+400aa928 g       .bss	00000000 __heap_base__
+00fc2000  w      .boot1	00000000 vector363
+00fc2000  w      .boot1	00000000 vector983
+00fc2000  w      .boot1	00000000 vector210
+00fc2000  w      .boot1	00000000 vector671
+00fc2000  w      .boot1	00000000 vector316
+00fc6f20 g     F .text	00000072 vector905
+00fc2000  w      .boot1	00000000 vector375
+00fc2000  w      .boot1	00000000 vector1022
+00fc93e0 g     F .text	00000050 ULD_GetSignalThreshold
+00fc2000  w      .boot1	00000000 vector335
+400aa924 g     O .bss	00000004 errno
+00fc2000  w      .boot1	00000000 vector307
+00fd1d60 g     F .text	00000148 floor
+00fc2000  w      .boot1	00000000 vector1011
+00fc2000  w      .boot1	00000000 vector224
+00fc2000  w      .boot1	00000000 vector790
+00fc6dc0 g     F .text	0000002a vector381
+00fc2000  w      .boot1	00000000 vector346
+00fc2000  w      .boot1	00000000 vector940
+00fc2000  w      .boot1	00000000 vector738
+00fc2000  w      .boot1	00000000 vector378
+00fc2000  w      .boot1	00000000 vector41
+00fc8970 g     F .text	0000004c ULD_StopRanging
+00fc2000  w      .boot1	00000000 vector872
+400a9108 g     O .data	00000004 AEK_SNS_VL53L1X_I2C_ARRAY_DRIVER
+00fce690 g     F .text	0000003e reset_car_position
+00fc28d0 g     F .text	00000052 .hidden __subsf3
+00fc2000  w      .boot1	00000000 vector432
+00fc2000  w      .boot1	00000000 vector1018
+00fc2000  w      .boot1	00000000 vector728
+00fc2000  w      .boot1	00000000 vector21
+00fc2000  w      .boot1	00000000 vector803
+400aa8a0 g     O .bss	00000050 passaggi
+400a9c25 g     O .bss	00000001 INB
+00fc2000  w      .boot1	00000000 vector527
+00fc2000  w      .boot1	00000000 vector177
+00fc2000  w      .boot1	00000000 vector425
+00fc2000  w      .boot1	00000000 vector118
+00fc2000  w      .boot1	00000000 vector328
+00fc89c0 g     F .text	00000050 ULD_CheckForDataReady
+00fc2000  w      .boot1	00000000 vector918
+00fc2000  w      .boot1	00000000 vector70
+00fc2000  w      .boot1	00000000 vector477
+00fc2000  w      .boot1	00000000 vector579
+00fc2000  w      .boot1	00000000 vector647
+00fc2000  w      .boot1	00000000 vector277
+00fc2000  w      .boot1	00000000 vector69
+00fc2000  w      .boot1	00000000 vector607
+00fc2000  w      .boot1	00000000 vector237
+00fc44c0 g     F .text	00000060 vector64
+00fc2000  w      .boot1	00000000 vector27
+00fc2000  w      .boot1	00000000 vector468
+00fc3924 g     F .text	0000003e .hidden _restgpr_19_x
+00fc2000  w      .boot1	00000000 vector701
+00fc2000  w      .boot1	00000000 vector312
+00fc2000  w      .boot1	00000000 vector132
+00fc2000  w      .boot1	00000000 vector372
+00fc2000  w      .boot1	00000000 vector583
+00fc2000  w      .boot1	00000000 vector807
+00fc2000  w      .boot1	00000000 vector390
+00fc2000  w      .boot1	00000000 vector536
+00fc2000  w      .boot1	00000000 vector186
+00fc2000  w      .boot1	00000000 vector1013
+00fc5fd0 g     F .text	000000e2 i2c_lld_read16
+00fc2000  w      .boot1	00000000 vector217
+00fc2000  w      .boot1	00000000 vector355
+00fd0b70 g     F .text	00000462 __ieee754_rem_pio2
+00fcf140 g     F .text	000005de corridoio_tra_due_punti
+00fd64f0 g       .rodata	00000000 __romdata_start__
+00fc2000  w      .boot1	00000000 vector661
+00fc2000  w      .boot1	00000000 vector291
+00fc2000  w      .boot1	00000000 vector970
+00fc9160 g     F .text	00000050 ULD_GetDistanceThresholdLow
+00fc8d00 g     F .text	00000050 ULD_GetSignalPerSpad
+00fc2000  w      .boot1	00000000 vector998
+00fc2000  w      .boot1	00000000 vector436
+00fd4ad0 g     F .text	0000001a memcpy
+00fc2000  w      .boot1	00000000 vector650
+00fc2000  w      .boot1	00000000 vector280
+00fc2000  w      .boot1	00000000 vector980
+00fc2000  w      .boot1	00000000 vector1
+400a9250 g     O .data	00000018 frontal
+00fc2000  w      .boot1	00000000 vector528
+00fc2000  w      .boot1	00000000 vector178
+00fc2000  w      .boot1	00000000 vector38
+00fc2000  w      .boot1	00000000 vector695
+00fc2000  w      .boot1	00000000 vector953
+00fc2000  w      .boot1	00000000 vector652
+00fc2000  w      .boot1	00000000 vector282
+00fc7330 g     F .text	0000013c pwm_lld_serve_group_period_interrupt
+00fd2140 g     F .text	000015ec _svfprintf_r
+00fc3720 g     F .text	00000080 .hidden __floatsidf
+00fc2000  w      .boot1	00000000 vector608
+00fc2000  w      .boot1	00000000 vector238
+00fca700 g     F .text	000000de VL53L1X_GetInterMeasurementInMs
+00fc2000  w      .boot1	00000000 vector557
+00fc3640 g     F .text	00000064 .hidden __ltdf2
+00fc9bd0 g     F .text	00000068 VL53L1X_GetInterruptPolarity
+00fc2000  w      .boot1	00000000 vector697
+00fc2000  w      .boot1	00000000 vector311
+00fc8270 g     F .text	00000020 initMotor
+00fcb980 g     F .text	00000068 VL53L1X_WrWord
+00fc2000  w      .boot1	00000000 vector133
+00fc2000  w      .boot1	00000000 vector73
+00fc2000  w      .boot1	00000000 vector144
+00fc38c4 g     F .text	00000046 .hidden _savegpr_15
+00fc2000  w      .boot1	00000000 vector644
+00fc2000  w      .boot1	00000000 vector274
+00fc3950 g     F .text	00000012 .hidden _restgpr_30_x
+400a9b40 g     O .bss	00000030 SD2
+00fc2000  w      .boot1	00000000 vector737
+00fc391c g     F .text	00000046 .hidden _restgpr_17_x
+00fc2000  w      .boot1	00000000 vector967
+00fc2000  w      .boot1	00000000 vector687
+00fc2000  w      .boot1	00000000 vector929
+00fc2000  w      .boot1	00000000 vector349
+00fc2000  w      .boot1	00000000 vector354
+00fc8e90 g     F .text	00000050 ULD_GetRangeStatus
+00fc2000  w      .boot1	00000000 vector624
+00fc2000  w      .boot1	00000000 vector254
+400a9000 g       .stacks	00000000 __main_thread_stack_end__
+00fc2000  w      .boot1	00000000 vector763
+00fc2000  w      .boot1	00000000 vector1001
+00fd1eb0 g     F .text	00000050 __fpclassifyd
+00fcd310 g     F .text	00000048 rad_to_deg
+00fc2000  w      .boot1	00000000 vector300
+00fc2000  w      .boot1	00000000 vector798
+00fc2000  w      .boot1	00000000 vector362
+00fc2000  w      .boot1	00000000 vector101
+00fc2000  w      .boot1	00000000 vector211
+00fc2000  w      .boot1	00000000 vector418
+00fc8ac0 g     F .text	00000058 ULD_SetDistanceMode
+00fc2000  w      .boot1	00000000 vector889
+00fc2000  w      .boot1	00000000 vector450
+00fc2000  w      .boot1	00000000 vector524
+00fc2000  w      .boot1	00000000 vector174
+00fc2000  w      .boot1	00000000 vector924
+00fc2000  w      .boot1	00000000 vector993
+00fc2000  w      .boot1	00000000 vector613
+00fcc930 g     F .text	0000007a vector243
+00fc394c g     F .text	00000016 .hidden _restgpr_29_x
+00fc9200 g     F .text	00000064 ULD_SetROI
+00fcbc80 g     F .text	0000005e checkParityMotor
+400a9c28 g     O .bss	000000cc AEK_TOF_METHODS
+00fc0110  w      .boot0	00000000 _IVOR8
+00fc2000  w      .boot1	00000000 vector492
+00fc2000  w      .boot1	00000000 vector495
+00fc2000  w      .boot1	00000000 vector128
+00fd63e0 g     O .rodata	000000c8 __mprec_tens
+00fc8700 g     F .text	0000002c ULD_GetSWVersion
+00fc2000  w      .boot1	00000000 vector753
+00fc2000  w      .boot1	00000000 vector844
+00fc2000  w      .boot1	00000000 vector81
+00fc8920 g     F .text	0000004c ULD_StartRanging
+00fc2000  w      .boot1	00000000 vector552
+00fc2000  w      .boot1	00000000 vector765
+00fc2000  w      .boot1	00000000 vector1008
+00fc2000  w      .boot1	00000000 vector677
+00fc8a10 g     F .text	00000058 ULD_SetTimingBudgetInMs
+00fd1190 g     F .text	000001f6 __kernel_cos
+00fc2000  w      .boot1	00000000 vector13
+00fc2000  w      .boot1	00000000 vector460
+00fd2120 g     F .text	0000001a vsnprintf
+00fc2000  w      .boot1	00000000 vector51
+00fc2000  w      .boot1	00000000 vector16
+00fc2000  w      .boot1	00000000 vector960
+00fc2000  w      .boot1	00000000 vector714
+00fc2060 g     F .text	00000056 .hidden __fixunsdfsi
+00fc2000  w      .boot1	00000000 vector595
+00fc2000  w      .boot1	00000000 vector946
+00fc98c0 g     F .text	0000002a ULD_SetIRQSensorState
+400a9af8 g     O .sbss	00000004 __malloc_top_pad
+00fc9530 g     F .text	0000005c ULD_CalibrateOffset
+00fc2000  w      .boot1	00000000 vector839
+00fccb30 g     F .text	0000017a eirqInit
+00fc2000  w      .boot1	00000000 vector989
+00fc2000  w      .boot1	00000000 vector610
+00fc2000  w      .boot1	00000000 vector240
+00fc2000  w      .boot1	00000000 vector791
+00fc4100 g     F .text	00000060 vector54
+00fc2000  w      .boot1	00000000 vector19
+400c0000 g       *ABS*	00000000 __heap_end__
+400a9af4 g       .sbss	00000000 __bss_start__
+00fc0110  w      .boot0	00000000 _IVOR3
+00fc2000  w      .boot1	00000000 vector453
+400a9ec8 g     O .bss	00000960 vicoli_cechi
+00fc2000  w      .boot1	00000000 vector846
+00fc2000  w      .boot1	00000000 vector305
+00fc2000  w      .boot1	00000000 vector92
+00fd45c0 g     F .text	0000000a _localeconv_r
+00fc2000  w      .boot1	00000000 vector733
+00fc2000  w      .boot1	00000000 vector778
+00fc2000  w      .boot1	00000000 vector614
+00fcc9b0 g     F .text	0000007a vector244
+00fd4d30 g     F .text	00000020 __i2b
+00fc2000  w      .boot1	00000000 vector1006
+00fc2000  w      .boot1	00000000 vector140
+00fc2000  w      .boot1	00000000 vector498
+00fc38f8 g     F .text	00000012 .hidden _savegpr_28
+00fd52a0 g     F .text	0000003a _sbrk_r
+00fc2000  w      .boot1	00000000 vector806
+00fc2000  w      .boot1	00000000 vector797
+00fcc2c0 g     F .text	00000032 clockInit
+00fc2000  w      .boot1	00000000 vector45
+00fc2000  w      .boot1	00000000 vector79
+00fc2000  w      .boot1	00000000 vector229
+00fc2000  w      .boot1	00000000 vector508
+00fc2000  w      .boot1	00000000 vector158
+00fc38f0 g     F .text	0000001a .hidden _savegpr_26
+00fc2000  w      .boot1	00000000 vector752
+00fc2000  w      .boot1	00000000 vector673
+00fca180 g     F .text	0000022a VL53L1X_GetTimingBudgetInMs
+00fc2000  w      .boot1	00000000 vector428
+00fc2000  w      .boot1	00000000 vector39
+00fc2000  w      .boot1	00000000 vector518
+00fc2000  w      .boot1	00000000 vector168
+00fc6e20 g     F .text	00000064 linflex_lld_init
+00fc2000  w      .boot1	00000000 vector592
+00fc2000  w      .boot1	00000000 vector871
+00fcb3b0 g     F .text	00000062 VL53L1X_SetSigmaThreshold
+00fc2000  w      .boot1	00000000 vector35
+00fc2000  w      .boot1	00000000 vector113
+00fc2000  w      .boot1	00000000 vector885
+00fc9040 g     F .text	00000050 ULD_GetXtalk
+00fc3dc0 g     F .text	000000b0 .hidden __unpack_d
+00fc2000  w      .boot1	00000000 vector125
+00fc2000  w      .boot1	00000000 vector1016
+00fc2000  w      .boot1	00000000 vector645
+00fc2000  w      .boot1	00000000 vector275
+400a9af4 g     O .sbss	00000004 __malloc_max_sbrked_mem
+00fca660 g     F .text	00000098 VL53L1X_SetInterMeasurementInMs
+00fcb6e0 g     F .text	00000236 VL53L1X_CalibrateXtalk
+00fc2000  w      .boot1	00000000 vector793
+00fc0110  w      .boot0	00000000 _IVOR6
+00fc2000  w      .boot1	00000000 vector440
+00fc2000  w      .boot1	00000000 vector840
+00fc2000  w      .boot1	00000000 vector409
+00fd1bb0 g     F .text	000001ac __kernel_sin
+00fc2000  w      .boot1	00000000 vector688
+00fc2000  w      .boot1	00000000 vector313
+00fc2fc8 g     F .text	0000005a .hidden __adddf3
+00fc2000  w      .boot1	00000000 vector895
+00fc2000  w      .boot1	00000000 vector483
+00fc2000  w      .boot1	00000000 vector813
+00fc2000  w      .boot1	00000000 vector702
+00fccfd0 g     F .text	0000001e osalExitCritical
+00fc5b70 g     F .text	00000056 spi_lld_init
+00fc2000  w      .boot1	00000000 vector391
+00fc8c10 g     F .text	00000050 ULD_BootState
+00fc2000  w      .boot1	00000000 vector324
+00fcda40 g     F .text	00000024 motor_control
+00fc2000  w      .boot1	00000000 vector981
+00fc23f0 g     F .text	000002f0 .hidden __umoddi3
+00fc2000  w      .boot1	00000000 vector356
+00fc2000  w      .boot1	00000000 vector216
+00fc4460 g     F .text	00000060 vector63
+00fc2000  w      .boot1	00000000 vector26
+00fc2000  w      .boot1	00000000 vector875
+00fc2000  w      .boot1	00000000 vector543
+00fc2000  w      .boot1	00000000 vector193
+00fc9090 g     F .text	00000072 ULD_SetDistanceThreshold
+400a9ae8 g     O .sdata	00000004 __fdlib_version
+00fc2000  w      .boot1	00000000 vector546
+00fc2000  w      .boot1	00000000 vector196
+00fc2000  w      .boot1	00000000 vector588
+400a90fc g     O .data	00000008 EV_VNH_ARRAY_PWM_CONFIGURATION
+00fc2000  w      .boot1	00000000 vector660
+00fc2000  w      .boot1	00000000 vector290
+00fc2000  w      .boot1	00000000 vector629
+00fc2000  w      .boot1	00000000 vector259
+00fc2000  w      .boot1	00000000 vector209
+00fc2000  w      .boot1	00000000 vector369
+400a9ae0 g     O .sdata	00000004 _global_impure_ptr
+00fc2000  w      .boot1	00000000 vector433
+00fc9380 g     F .text	00000058 ULD_SetSignalThreshold
+00fc2000  w      .boot1	00000000 vector917
+00fc2000  w      .boot1	00000000 vector852
+00fc2000  w      .boot1	00000000 vector478
+00fc2000  w      .boot1	00000000 vector965
+00fc2000  w      .boot1	00000000 vector691
+00fd57a0 g     F .text	000003d4 _realloc_r
+00fc2000  w      .boot1	00000000 vector4
+00fc2000  w      .boot1	00000000 vector706
+00fc2000  w      .boot1	00000000 vector399
+00fc2000  w      .boot1	00000000 vector1004
+00fc2000  w      .boot1	00000000 vector832
+00fc2000  w      .boot1	00000000 vector395
+00fc2000  w      .boot1	00000000 vector520
+00fc2000  w      .boot1	00000000 vector170
+00fc2000  w      .boot1	00000000 vector136
+00fc2000  w      .boot1	00000000 vector10
+00fc2000  w      .boot1	00000000 vector694
+00fc20c0 g     F .text	00000328 .hidden __udivdi3
+00fc2000  w      .boot1	00000000 vector808
+00fc2000  w      .boot1	00000000 vector206
+00fc2000  w      .boot1	00000000 vector560
+00fc2000  w      .boot1	00000000 vector922
+00fd64b0 g     O .rodata	00000028 __mprec_bigtens
+00fc2000  w      .boot1	00000000 vector625
+00fc2000  w      .boot1	00000000 vector255
+00fcc810 g     F .text	0000003c irqInit
+00fc3850 g     F .text	00000070 .hidden __floatunsidf
+00fc2000  w      .boot1	00000000 vector400
+00fc2000  w      .boot1	00000000 vector317
+00fc2000  w      .boot1	00000000 vector371
+00fc2000  w      .boot1	00000000 vector531
+00fc2000  w      .boot1	00000000 vector181
+00fc2000  w      .boot1	00000000 vector890
+00fd5060 g     F .text	00000042 __mcmp
+00fca8d0 g     F .text	000000c8 VL53L1X_GetSignalPerSpad
+00fc2000  w      .boot1	00000000 vector801
+00fc42e0 g     F .text	00000060 vector59
+00fc2000  w      .boot1	00000000 vector85
+00fc2000  w      .boot1	00000000 vector84
+00fc2000  w      .boot1	00000000 vector558
+00fc2000  w      .boot1	00000000 vector574
+00fc8a70 g     F .text	00000050 ULD_GetTimingBudgetInMs
+00fc92d0 g     F .text	00000058 ULD_SetROICenter
+00fc2000  w      .boot1	00000000 vector825
+00fc2000  w      .boot1	00000000 vector533
+00fc2000  w      .boot1	00000000 vector183
+00fc2000  w      .boot1	00000000 vector509
+00fc2000  w      .boot1	00000000 vector159
+00fc2000  w      .boot1	00000000 vector212
+00fc2000  w      .boot1	00000000 vector856
+00fc88d0 g     F .text	00000050 ULD_GetInterruptPolarity
+00fc2000  w      .boot1	00000000 vector672
+00fc2000  w      .boot1	00000000 vector576
+00fc2000  w      .boot1	00000000 vector899
+00fc2000  w      .boot1	00000000 vector47
+00fc2000  w      .boot1	00000000 vector948
+00fc2000  w      .boot1	00000000 vector228
+00fc2000  w      .boot1	00000000 vector42
+00fc9330 g     F .text	00000050 ULD_GetROICenter
+00fc2000  w      .boot1	00000000 vector334
+00fc94e0 g     F .text	0000004c ULD_StartTemperatureUpdate
+00fc2000  w      .boot1	00000000 vector114
+00fc2000  w      .boot1	00000000 vector901
+00fc9c80 g     F .text	00000038 VL53L1X_StopRanging
+00fcd190 g     F .text	0000007c get_approximated_angle
+00fc2000  w      .boot1	00000000 vector674
+00fc2000  w      .boot1	00000000 vector525
+00fc2000  w      .boot1	00000000 vector175
+00fc2000  w      .boot1	00000000 vector143
+00fc0110  w      .boot0	00000000 _IVOR5
+00fc7110 g     F .text	00000072 vector913
+00fc2000  w      .boot1	00000000 vector958
+00fc2000  w      .boot1	00000000 vector377
+00fd1390 g     F .text	00000814 __kernel_rem_pio2
+00fc2000  w      .boot1	00000000 vector130
+00fc2000  w      .boot1	00000000 vector788
+00fc2000  w      .boot1	00000000 vector616
+00fccab0 g     F .text	0000007a vector246
+00fc2000  w      .boot1	00000000 vector858
+00fc2000  w      .boot1	00000000 vector705
+00fc2000  w      .boot1	00000000 vector331
+00fc2000  w      .boot1	00000000 vector9
+00fc2000  w      .boot1	00000000 vector860
+00fc2000  w      .boot1	00000000 vector142
+00fc2000  w      .boot1	00000000 vector458
+00fcb2b0 g     F .text	0000006c VL53L1X_GetROI_XY
+00fc2000  w      .boot1	00000000 vector394
+00fc2000  w      .boot1	00000000 vector100
+00fc9840 g     F .text	0000003e ULD_TurnOnAllSensors
+00fc2000  w      .boot1	00000000 vector811
+00fc3a90 g     F .text	00000080 .hidden __unpack_f
+00fc2000  w      .boot1	00000000 vector962
+00fc9110 g     F .text	00000050 ULD_GetDistanceThresholdWindow
+00fc2000  w      .boot1	00000000 vector903
+00fc2000  w      .boot1	00000000 vector554
+00fc2000  w      .boot1	00000000 vector327
+00fc2000  w      .boot1	00000000 vector374
+00fc2000  w      .boot1	00000000 vector201
+00fcd870 g     F .text	00000068 opposite
+00fc2000  w      .boot1	00000000 vector745
+00fcd490 g     F .text	000000c4 read_tof_micro_part
+00fc2000  w      .boot1	00000000 vector935
+00fd4c50 g     F .text	00000052 __hi0bits
+00fc2000  w      .boot1	00000000 vector792
+00fc2000  w      .boot1	00000000 vector597
+00fc2000  w      .boot1	00000000 vector361
+00fc37a0 g     F .text	000000a4 .hidden __fixdfsi
+00fc9b30 g     F .text	0000009a VL53L1X_SetInterruptPolarity
+00fc2000  w      .boot1	00000000 vector845
+00fc4ac0 g     F .text	00000092 sd_lld_init
+400a90ec g     O .data	00000008 EV_VNH_ARRAY_IN_TOT_GPIO_PORT_NUMBER
+00fc2000  w      .boot1	00000000 vector631
+00fc5b50 g     F .text	0000001c vector261
+00fc2000  w      .boot1	00000000 vector445
+00fc2000  w      .boot1	00000000 vector678
+00fc2000  w      .boot1	00000000 vector470
+00fc2000  w      .boot1	00000000 vector758
+00fc2000  w      .boot1	00000000 vector977
+00fc2000  w      .boot1	00000000 vector473
+00fc4340 g     F .text	00000060 vector60
+00fc2000  w      .boot1	00000000 vector23
+400a90a4 g     O .data	00000028 pwm_config_AEK_EV_VNHx7xxxBoard1_J2_PWM_28
+00fc2000  w      .boot1	00000000 vector779
+00fc2000  w      .boot1	00000000 vector488
+00fc2000  w      .boot1	00000000 vector932
+00fc2000  w      .boot1	00000000 vector329
+00fc2000  w      .boot1	00000000 vector747
+00fc2000  w      .boot1	00000000 vector606
+00fc2000  w      .boot1	00000000 vector236
+00fc2000  w      .boot1	00000000 vector1020
+00fc2000  w      .boot1	00000000 vector648
+00fc2000  w      .boot1	00000000 vector278
+00fc2000  w      .boot1	00000000 vector384
+00fc2000  w      .boot1	00000000 vector734
+00fc2000  w      .boot1	00000000 vector601
+00fc2000  w      .boot1	00000000 vector231
+00fc2000  w      .boot1	00000000 vector968
+00fcd0a0 g     F .text	00000076 sysTimeSetup
+00fc4580 g     F .text	00000060 vector66
+00fc2000  w      .boot1	00000000 vector29
+00fc2000  w      .boot1	00000000 vector135
+00100000 g       *ABS*	00000000 __flash_size__
+00fc2000  w      .boot1	00000000 vector796
+00fcda90 g     F .text	0000040e calibrate_velocity
+00fc2000  w      .boot1	00000000 vector420
+00fc36b0 g     F .text	00000064 .hidden __ledf2
+00fcab10 g     F .text	00000050 VL53L1X_GetAmbientRate
+00fc2000  w      .boot1	00000000 vector314
+00fc2000  w      .boot1	00000000 vector771
+00fc5bd0 g     F .text	000000fa spi_lld_start
+00fc2000  w      .boot1	00000000 vector357
+00fc2000  w      .boot1	00000000 vector925
+00fc2000  w      .boot1	00000000 vector77
+00fc2000  w      .boot1	00000000 vector408
+00fc2000  w      .boot1	00000000 vector530
+00fc2000  w      .boot1	00000000 vector463
+00fc2000  w      .boot1	00000000 vector180
+400aa828 g     O .bss	00000018 precedent_position
+00fc2000  w      .boot1	00000000 vector632
+00fc2000  w      .boot1	00000000 vector262
+00fc46a0 g     F .text	000000a8 edmaInit
+00fc2000  w      .boot1	00000000 vector996
+00fcd010 g     F .text	0000001e osalExitCriticalFromISR
+00fc2000  w      .boot1	00000000 vector751
+00fc2000  w      .boot1	00000000 vector208
+00fc2000  w      .boot1	00000000 vector482
+00fd4ec0 g     F .text	000000aa __pow5mult
+00fc2000  w      .boot1	00000000 vector438
+400a9e98 g     O .bss	0000000c uld_VL53L1X
+00fc3f30 g     F .text	00000024 spc5LLDInit
+00fc2000  w      .boot1	00000000 vector573
+00fc2000  w      .boot1	00000000 vector707
+00fc9880 g     F .text	0000003e ULD_TurnOffAllSensors
+00fc2000  w      .boot1	00000000 vector784
+00fc2000  w      .boot1	00000000 vector402
+400a90e4 g     O .data	00000008 EV_VNH_ARRAY_IN_TOT_GPIO_PORT
+00fc2000  w      .boot1	00000000 vector98
+00fc2000  w      .boot1	00000000 vector97
+00fc2000  w      .boot1	00000000 vector396
+00fc2000  w      .boot1	00000000 vector526
+00fc2000  w      .boot1	00000000 vector176
+00fc2000  w      .boot1	00000000 vector857
+00fc2000  w      .boot1	00000000 vector544
+00fc2000  w      .boot1	00000000 vector194
+00fc2000  w      .boot1	00000000 vector32
+00fc8fe0 g     F .text	00000058 ULD_SetXtalk
+00fc2000  w      .boot1	00000000 vector693
+00fcccf0 g     F .text	0000002c osalSysTimeSetup
+00fc2000  w      .boot1	00000000 vector951
+00fc2000  w      .boot1	00000000 vector810
+00fc4dc0 g     F .text	000000b8 sd_lld_write
+00fcd440 g     F .text	0000004a initialization_sequence
+00fc2000  w      .boot1	00000000 vector549
+00fc2000  w      .boot1	00000000 vector199
+00fc2000  w      .boot1	00000000 vector741
+00fc3970 g     F .text	00000118 .hidden __pack_f
+400a9c26 g     O .bss	00000001 methods_available
+00fc6c80 g     F .text	0000001c vector448
+00fcc7a0 g     F .text	00000062 SPCSetPeripheralClockMode
+00fc2000  w      .boot1	00000000 vector589
+00fc3930 g     F .text	00000032 .hidden _restgpr_22_x
+00fc2000  w      .boot1	00000000 vector131
+00fc2000  w      .boot1	00000000 vector775
+00fc2000  w      .boot1	00000000 vector622
+00fc2000  w      .boot1	00000000 vector252
+400a9af4 g       .sdata	00000000 __data_end__
+00fc2000  w      .boot1	00000000 vector0
+00fc2000  w      .boot1	00000000 vector828
+00fc2000  w      .boot1	00000000 vector667
+00fc2000  w      .boot1	00000000 vector297
+00fc2000  w      .boot1	00000000 vector730
+00fc2000  w      .boot1	00000000 vector896
+00fc0110  w      .boot0	00000000 _IVOR13
+00fc3940 g     F .text	00000022 .hidden _restgpr_26_x
+00fc2000  w      .boot1	00000000 vector651
+00fc2000  w      .boot1	00000000 vector281
+400a9050 g     O .data	0000001c spi_config_AEK_MOT_SM81M1Board0_SPITP_CS_CS0_0
+400a9b70 g     O .bss	0000001c SPID1
+00fcdea0 g     F .text	0000031e move
+00fc2000  w      .boot1	00000000 vector805
+00fc8da0 g     F .text	00000050 ULD_GetSignalRate
+00fcc850  w    F .text	00000008 irqSysHalt
+00fc2000  w      .boot1	00000000 vector1021
+00fc2000  w      .boot1	00000000 vector570
+00fce750 g     F .text	0000008a movement_control
+00fd03a0 g     F .text	0000009c cos
+00fc2000  w      .boot1	00000000 vector422
+00fc3948 g     F .text	0000001a .hidden _restgpr_28_x
+00fc38ec g     F .text	0000001e .hidden _savegpr_25
+00fc2000  w      .boot1	00000000 vector853
+00fc2000  w      .boot1	00000000 vector696
+00fc2000  w      .boot1	00000000 vector443
+00fd4ab0 g     F .text	0000001c memchr
+400a9248 g     O .data	00000002 Offset
+00fc2000  w      .boot1	00000000 vector145
+00fc2000  w      .boot1	00000000 vector777
+00fc2000  w      .boot1	00000000 vector964
+400aa928 g       .bss	00000000 __bss_end__
+400a9238 g     O .data	00000010 eirqconf
+00fc393c g     F .text	00000026 .hidden _restgpr_25_x
+00fc2000  w      .boot1	00000000 vector107
+00fd5560 g     F .text	000001e8 _free_r
+00fc2000  w      .boot1	00000000 vector40
+00fc2000  w      .boot1	00000000 vector732
+00fc2000  w      .boot1	00000000 vector486
+00fc2000  w      .boot1	00000000 vector465
+00fc2000  w      .boot1	00000000 vector898
+00fc2000  w      .boot1	00000000 vector789
+00fc2000  w      .boot1	00000000 vector301
+00fc2000  w      .boot1	00000000 vector102
+00fc3938 g     F .text	0000002a .hidden _restgpr_24_x
+00fc2000  w      .boot1	00000000 vector700
+00fc2000  w      .boot1	00000000 vector921
+00fc2000  w      .boot1	00000000 vector1010
+00fc38dc g     F .text	0000002e .hidden _savegpr_21
+00fc2000  w      .boot1	00000000 vector724
+00fc2000  w      .boot1	00000000 vector746
+400aa860 g     O .bss	00000020 precedent_obstacle
+00fc2000  w      .boot1	00000000 vector855
+400a9af0 g     O .sdata	00000004 __malloc_sbrk_base
+00fc41c0 g     F .text	00000060 vector56
+00fc9490 g     F .text	00000050 ULD_GetSigmaThreshold
+00fc2000  w      .boot1	00000000 vector963
+00fc7620 g     F .text	000000f6 pwm_lld_init
+00fc2000  w      .boot1	00000000 vector649
+00fc2000  w      .boot1	00000000 vector279
+00fc4640 g     F .text	00000060 vector68
+00fc2000  w      .boot1	00000000 vector6
+00fc2000  w      .boot1	00000000 vector893
+00fd0450 g     F .text	0000009e sin
+00fc2000  w      .boot1	00000000 vector553
+00fc2000  w      .boot1	00000000 vector129
+00000000 g       *ABS*	00000000 __irq_stack_size__
+00fc2000  w      .boot1	00000000 vector455
+00fd4f70 g     F .text	000000ea __lshift
+00fcb580 g     F .text	00000160 VL53L1X_CalibrateOffset
+010c0000 g       .boot0	00000000 __flash_end__
+00fcba70 g     F .text	0000006e VL53L1X_RdByte
+00fc2000  w      .boot1	00000000 vector920
+00fc2000  w      .boot1	00000000 vector547
+00fc2000  w      .boot1	00000000 vector197
+00fc2000  w      .boot1	00000000 vector596
+00fc2000  w      .boot1	00000000 vector555
+00fc2000  w      .boot1	00000000 vector681
+00fc2c10 g     F .text	0000006a .hidden __floatsisf
+00fc9590 g     F .text	0000005c ULD_CalibrateXtalk
+00fc6eb0 g     F .text	00000070 vector904
+00fc2000  w      .boot1	00000000 vector850
+00fd5300 g     F .text	00000114 __ssprint_r
+00fca7e0 g     F .text	00000050 VL53L1X_BootState
+00fc2000  w      .boot1	00000000 vector502
+00fc2000  w      .boot1	00000000 vector152
+00fc2000  w      .boot1	00000000 vector838
+00fc2000  w      .boot1	00000000 vector972
+00fc2000  w      .boot1	00000000 vector598
+00fc2000  w      .boot1	00000000 vector600
+00fc2000  w      .boot1	00000000 vector230
+00fc2000  w      .boot1	00000000 vector761
+00fc2000  w      .boot1	00000000 vector415
+00fc2000  w      .boot1	00000000 vector339
+00fc2000  w      .boot1	00000000 vector459
+00fc2000  w      .boot1	00000000 vector823
+00fc2000  w      .boot1	00000000 vector868
+00fc2000  w      .boot1	00000000 vector37
+00fc2000  w      .boot1	00000000 vector690
+00fc2000  w      .boot1	00000000 vector364
+00fc2000  w      .boot1	00000000 vector205
+00fc2000  w      .boot1	00000000 vector908
+00fc2000  w      .boot1	00000000 vector511
+00fc2000  w      .boot1	00000000 vector161
+400a9cf8 g     O .bss	00000100 ULD_I2CBuffer
+00fc2000  w      .boot1	00000000 vector472
+00fd4d50 g     F .text	0000016a __multiply
+00fc2000  w      .boot1	00000000 vector628
+00fc2000  w      .boot1	00000000 vector258
+00018000 g       *ABS*	00000000 __ram_size__
+00fcad50 g     F .text	00000060 VL53L1X_GetOffset
+00fc2000  w      .boot1	00000000 vector927
+00fcb010 g     F .text	00000050 VL53L1X_GetDistanceThresholdWindow
+00fc2000  w      .boot1	00000000 vector887
+00fc2000  w      .boot1	00000000 vector634
+00fc2000  w      .boot1	00000000 vector264
+400aa8fc g     O .bss	00000028 __malloc_current_mallinfo
+00fc2000  w      .boot1	00000000 vector916
+00fd51c0 g     F .text	000000d4 __d2b
+00fc2000  w      .boot1	00000000 vector71
+00fc2000  w      .boot1	00000000 vector842
+00fc2000  w      .boot1	00000000 vector510
+00fc2000  w      .boot1	00000000 vector160
+00fc01fe  w    F .boot0	00000000 __late_init
+00fcc860 g     F .text	000000c8 manage_eirq_interrupt
+00fc2000  w      .boot1	00000000 vector344
+00fc2000  w      .boot1	00000000 vector559
+00fca5e0 g     F .text	00000080 VL53L1X_GetDistanceMode
+00fc2000  w      .boot1	00000000 vector215
+00fc5cd0 g     F .text	0000006e spi_lld_stop
+00fc2000  w      .boot1	00000000 vector352
+00fc2000  w      .boot1	00000000 vector347
+00fc2000  w      .boot1	00000000 vector389
+00fc2000  w      .boot1	00000000 vector507
+00fc2000  w      .boot1	00000000 vector157
+00fc2000  w      .boot1	00000000 vector416
+00fd4ad0  w    F .text	0000001a largememcpy
+00fc2000  w      .boot1	00000000 vector490
+00fc2000  w      .boot1	00000000 vector112
+00fc87d0 g     F .text	0000004c ULD_SensorInit
+00fc3e70 g     F .text	000000ba .hidden __fpcmp_parts_d
+00fc2000  w      .boot1	00000000 vector727
+00fc2000  w      .boot1	00000000 vector423
+00fcc710 g     F .text	00000086 SPCSetRunMode
+00fc3920 g     F .text	00000042 .hidden _restgpr_18_x
+00fcb140 g     F .text	0000004a VL53L1X_GetROICenter
+00fc2000  w      .boot1	00000000 vector995
+00fc2000  w      .boot1	00000000 vector826
+00fc2000  w      .boot1	00000000 vector532
+00fc2000  w      .boot1	00000000 vector182
+00fc2000  w      .boot1	00000000 vector466
+00fc2000  w      .boot1	00000000 vector950
+00fc2000  w      .boot1	00000000 vector1000
+00fc2000  w      .boot1	00000000 vector12
+00fc2000  w      .boot1	00000000 vector1007
+00fc2000  w      .boot1	00000000 vector719
+00fc2000  w      .boot1	00000000 vector309
+00fc2000  w      .boot1	00000000 vector712
+00fc2000  w      .boot1	00000000 vector321
+00fc2000  w      .boot1	00000000 vector575
+00fc2000  w      .boot1	00000000 vector1002
+00fc2000  w      .boot1	00000000 vector109
+00fc2000  w      .boot1	00000000 vector383
+00fc2000  w      .boot1	00000000 vector20
+400a9c24 g     O .bss	00000001 INA
+00fc2000  w      .boot1	00000000 vector986
+00fc2000  w      .boot1	00000000 vector863
+00fc2000  w      .boot1	00000000 vector319
+00fc8290 g     F .text	00000036 brakeMotor
+00fc7020 g     F .text	00000072 vector907
+00fc2000  w      .boot1	00000000 vector873
+400a90cc g     O .data	00000018 i2c_hw_config_AEK_SNS_VL53L1X1Board0
+00fc2000  w      .boot1	00000000 vector656
+00fc2000  w      .boot1	00000000 vector303
+00fc2000  w      .boot1	00000000 vector286
+00fd5f40 g     O .rodata	00000004 AEK_MOT_SM81M1_ARRAY_GPIO_PORT_NUMBER
+00fc2000  w      .boot1	00000000 vector417
+00fc40a0 g     F .text	00000060 vector53
+00fc2000  w      .boot1	00000000 vector18
+00fc2000  w      .boot1	00000000 vector366
+00fc2000  w      .boot1	00000000 vector776
+00fc3300 g     F .text	0000017e .hidden __divdf3
+00fc2000  w      .boot1	00000000 vector491
+00fc2000  w      .boot1	00000000 vector456
+00fc2000  w      .boot1	00000000 vector572
+00fc2000  w      .boot1	00000000 vector818
+00fc2000  w      .boot1	00000000 vector943
+00fc2000  w      .boot1	00000000 vector95
+00fccf50 g     F .text	0000002e osalThreadDelayMilliseconds
+00fc2000  w      .boot1	00000000 vector731
+00fc2000  w      .boot1	00000000 vector830
+400a96d8 g     O .data	00000408 __malloc_av_
+00fc2000  w      .boot1	00000000 vector991
+00fd2090 g     F .text	00000082 _vsnprintf_r
+00fccf20 g     F .text	00000030 vector226
+00fc7280 g     F .text	000000ac emios_enable_clock
+00fc3090 g     F .text	00000264 .hidden __muldf3
+00fc5d40 g     F .text	000000ca spi_lld_exchange
+00fc2000  w      .boot1	00000000 vector670
+00fc8870 g     F .text	00000058 ULD_SetInterruptPolarity
+00fd5e10 g     O .rodata	00000010 .hidden __thenan_sf
+00fc2000  w      .boot1	00000000 vector49
+00fc2000  w      .boot1	00000000 vector44
+00fc38d8 g     F .text	00000032 .hidden _savegpr_20
+00fc2000  w      .boot1	00000000 vector78
+00fc2000  w      .boot1	00000000 vector643
+00fc2000  w      .boot1	00000000 vector469
+00fc2000  w      .boot1	00000000 vector273
+00fc2000  w      .boot1	00000000 vector523
+00fc2000  w      .boot1	00000000 vector173
+00fc2000  w      .boot1	00000000 vector637
+00fc2000  w      .boot1	00000000 vector267
+00fc98f0 g     F .text	00000032 ULD_GetIRQSensorState
+00fc2000  w      .boot1	00000000 vector117
+00fc2000  w      .boot1	00000000 vector566
+00fcae40 g     F .text	00000054 VL53L1X_GetXtalk
+00fc2000  w      .boot1	00000000 vector956
+00fd4af0 g     F .text	00000002 __malloc_lock
+00fcd770 g     F .text	00000062 sbrk
+00fc2000  w      .boot1	00000000 vector442
+00fc8b20 g     F .text	00000050 ULD_GetDistanceMode
+00fc2000  w      .boot1	00000000 vector911
+00fc2000  w      .boot1	00000000 vector336
+00fc2000  w      .boot1	00000000 vector686
+00fc2000  w      .boot1	00000000 vector82
+00fc2000  w      .boot1	00000000 vector379
+00fc2000  w      .boot1	00000000 vector426
+00fd5420 g     F .text	0000007c _calloc_r
+00fc2000  w      .boot1	00000000 vector485
+00fc2000  w      .boot1	00000000 vector675
+00fc2000  w      .boot1	00000000 vector704
+00fc2000  w      .boot1	00000000 vector222
+00fc2000  w      .boot1	00000000 vector978
+00fc2000  w      .boot1	00000000 vector582
+00fc2000  w      .boot1	00000000 vector8
+00fc2000  w      .boot1	00000000 vector393
+00fc2000  w      .boot1	00000000 vector757
+00fc2000  w      .boot1	00000000 vector772
+00fc2000  w      .boot1	00000000 vector729
+00fc2000  w      .boot1	00000000 vector342
+00fc2000  w      .boot1	00000000 vector149
+00fcbf30 g     F .text	0000014c pal_init
+00fc2000  w      .boot1	00000000 vector407
+00fca9a0 g     F .text	000000c8 VL53L1X_GetAmbientPerSpad
+00fc2000  w      .boot1	00000000 vector878
+00fc38d0 g     F .text	0000003a .hidden _savegpr_18
+00fc8d50 g     F .text	00000050 ULD_GetAmbientPerSpad
+00fd2070 g     F .text	00000016 memset
+00fc2000  w      .boot1	00000000 vector387
+00fc0110  w      .boot0	00000000 _IVOR7
+00fc2000  w      .boot1	00000000 vector933
+00fc0110  w      .boot0	00000000 _IVOR2
+00fc2000  w      .boot1	00000000 vector602
+00fc2000  w      .boot1	00000000 vector232
+00fcd7e0 g     F .text	0000001a main
+00fc2000  w      .boot1	00000000 vector635
+00fc2000  w      .boot1	00000000 vector265
+00fc2000  w      .boot1	00000000 vector880
+00fc2000  w      .boot1	00000000 vector106
+00fc2000  w      .boot1	00000000 vector401
+00fc2000  w      .boot1	00000000 vector351
+400a9afc g     O .sbss	00000004 __malloc_max_total_mem
+00fc2000  w      .boot1	00000000 vector481
+00fc2000  w      .boot1	00000000 vector220
+00fc2000  w      .boot1	00000000 vector835
+00fc2000  w      .boot1	00000000 vector421
+00fc2000  w      .boot1	00000000 vector90
+00fc2000  w      .boot1	00000000 vector513
+00fc2000  w      .boot1	00000000 vector163
+00fc2000  w      .boot1	00000000 vector1003
+00fc2000  w      .boot1	00000000 vector759
+00fc2000  w      .boot1	00000000 vector982
+00fc2000  w      .boot1	00000000 vector774
+00fc2000  w      .boot1	00000000 vector604
+00fc2000  w      .boot1	00000000 vector234
+00fc2000  w      .boot1	00000000 vector689
+00fc4400 g     F .text	00000060 vector62
+00fc2000  w      .boot1	00000000 vector25
+00fc2000  w      .boot1	00000000 vector710
+00fcbe60 g     F .text	000000c6 init_AEK_MOT_SM81M1
+00fc2000  w      .boot1	00000000 vector548
+00fc2000  w      .boot1	00000000 vector464
+00fc2000  w      .boot1	00000000 vector198
+00fc2000  w      .boot1	00000000 vector971
+00fc2000  w      .boot1	00000000 vector120
+00fd1f00 g     F .text	00000004 matherr
+00fccfb0 g     F .text	0000001e osalEnterCritical
+00fc0180 g     F .boot0	00000000 _boot_address
+00fc2000  w      .boot1	00000000 vector646
+00fc2000  w      .boot1	00000000 vector276
+400a90f4 g     O .data	00000008 EV_VNH_ARRAY_PWM
+00fc2000  w      .boot1	00000000 vector827
+00fc2000  w      .boot1	00000000 vector403
+00fcd210 g     F .text	000000a6 format_angle
+00fd38a0 g     F .text	00000d18 _dtoa_r
+00fd45d0 g     F .text	000004dc _malloc_r
+00fc7fe0 g     F .text	0000008e pwm_lld_enable_channel
+00fc2000  w      .boot1	00000000 vector444
+00fc2000  w      .boot1	00000000 vector837
+00fc82d0 g     F .text	000000ac setSpeedMotor
+00fcf830 g     F .text	00000632 controlla_passaggio
+00fc2000  w      .boot1	00000000 vector937
+00fc2000  w      .boot1	00000000 vector50
+00fc2000  w      .boot1	00000000 vector15
+00fd5ef0 g     O .rodata	00000008 EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT
+00fc9930 g     F .text	0000002c VL53L1X_GetSWVersion
+00fc2000  w      .boot1	00000000 vector848
+00fcd940 g     F .text	00000018 read_tof
+00fc2000  w      .boot1	00000000 vector1017
+00fd5f30 g     O .rodata	00000004 AEK_MOT_SM81M1_ARRAY_GPIO_PORT
+00fca880 g     F .text	0000004c VL53L1X_GetDistance
+00fc2000  w      .boot1	00000000 vector501
+00fc2000  w      .boot1	00000000 vector151
+00fc2000  w      .boot1	00000000 vector487
+00fc2000  w      .boot1	00000000 vector725
+00fc38cc g     F .text	0000003e .hidden _savegpr_17
+00fc9cc0 g     F .text	000000aa VL53L1X_CheckForDataReady
+00fc2000  w      .boot1	00000000 vector83
+00fc8bc0 g     F .text	00000050 ULD_GetInterMeasurementInMs
+00fc2000  w      .boot1	00000000 vector89
+00fc2000  w      .boot1	00000000 vector88
+00fc0300 g       .boot1	00000000 __ivpr_base__
+00fc2000  w      .boot1	00000000 vector722
+00fc2000  w      .boot1	00000000 vector769
+00fcd180 g     F .text	00000002 irq_cfg_init
+00fc2000  w      .boot1	00000000 vector569
+00fcd2c0 g     F .text	00000048 deg_to_rad
+00fc2000  w      .boot1	00000000 vector664
+00fc2000  w      .boot1	00000000 vector294
+00fd5e20 g     O .rodata	00000018 .hidden __thenan_df
+00fc9d70 g     F .text	00000406 VL53L1X_SetTimingBudgetInMs
+00fd54a0 g     F .text	000000be _malloc_trim_r
+00fc2000  w      .boot1	00000000 vector529
+00fc2000  w      .boot1	00000000 vector179
+00fc2000  w      .boot1	00000000 vector764
+00fc2000  w      .boot1	00000000 vector990
+00fcd960 g     F .text	000000da selectionSort
+00fc2930 g     F .text	0000017e .hidden __mulsf3
+00fc2000  w      .boot1	00000000 vector786
+400a9bf8 g     O .bss	00000014 PWMD9
+00fc2000  w      .boot1	00000000 vector794
+00fc2000  w      .boot1	00000000 vector638
+00fc2000  w      .boot1	00000000 vector268
+00fc2000  w      .boot1	00000000 vector34
+400a9030 g     O .data	00000020 serial_config_configuration_name
+00fc2000  w      .boot1	00000000 vector46
+00fc2000  w      .boot1	00000000 vector988
+00fc2000  w      .boot1	00000000 vector743
+00fc2000  w      .boot1	00000000 vector437
+00fc2000  w      .boot1	00000000 vector1023
+00fc2000  w      .boot1	00000000 vector134
+400a8000 g       .boot0	00000000 __ram_start__
+00fc2000  w      .boot1	00000000 vector223
+00fc2000  w      .boot1	00000000 vector881
+00fc2000  w      .boot1	00000000 vector945
+00fcd150 g     F .text	0000000e TOF_Callback0
+00fc2000  w      .boot1	00000000 vector892
+00fd2040 g     F .text	0000001e copysign
+00fc0110  w      .boot0	00000000 _IVOR11
+00fc34f0 g     F .text	00000064 .hidden __nedf2
+00fc8df0 g     F .text	00000050 ULD_GetSpadNb
+00fc2000  w      .boot1	00000000 vector410
+00fc3904 g     F .text	00000006 .hidden _savegpr_31
+00fc38e4 g     F .text	00000026 .hidden _savegpr_23
+00fc2000  w      .boot1	00000000 vector322
+00fc2000  w      .boot1	00000000 vector888
+00fc2000  w      .boot1	00000000 vector713
+00fc2000  w      .boot1	00000000 vector341
+00fc2000  w      .boot1	00000000 vector218
+00fc2000  w      .boot1	00000000 vector994
+00fc2000  w      .boot1	00000000 vector662
+00fc2000  w      .boot1	00000000 vector292
+00fcfea0 g     F .text	000003ac atan
+00fc2000  w      .boot1	00000000 vector325
+00fcd630 g     F .text	000000c8 initializeTOF
+00fc2000  w      .boot1	00000000 vector367
+00fc2000  w      .boot1	00000000 vector386
+00fc2000  w      .boot1	00000000 vector556
+00fc2000  w      .boot1	00000000 vector494
+00fc2000  w      .boot1	00000000 vector599
+00fc5e10 g     F .text	00000034 i2c_lld_init
+00fc2000  w      .boot1	00000000 vector424
+400a8000 g       .stacks	00000000 __process_stack_base__
+00fc2000  w      .boot1	00000000 vector843
+00fc2000  w      .boot1	00000000 vector467
+00fcaea0 g     F .text	00000168 VL53L1X_SetDistanceThreshold
+00fc2000  w      .boot1	00000000 vector680
+00fc97c0 g     F .text	00000080 ULD_TurnOffSensor
+00fc0110  w      .boot0	00000000 _IVOR15
+00fc2bb0 g     F .text	0000005a .hidden __gesf2
+400a9ea4 g     O .bss	0000000a result
+400a9c0c g     O .bss	00000014 PWMD11
+00fcab60 g     F .text	00000086 VL53L1X_GetRangeStatus
+00fc2000  w      .boot1	00000000 vector225
+00fc2000  w      .boot1	00000000 vector886
+00fc2000  w      .boot1	00000000 vector909
+00fc2000  w      .boot1	00000000 vector308
+00fc2000  w      .boot1	00000000 vector537
+00fc2000  w      .boot1	00000000 vector187
+00fc2000  w      .boot1	00000000 vector1015
+00fc2000  w      .boot1	00000000 vector804
+00fc2000  w      .boot1	00000000 vector370
+00fc2000  w      .boot1	00000000 vector337
+00fc38fc g     F .text	0000000e .hidden _savegpr_29
+00fc2000  w      .boot1	00000000 vector739
+00fc2000  w      .boot1	00000000 vector302
+00fd5e60 g     O .rodata	0000005b VL51L1X_DEFAULT_CONFIGURATION
+00fd5f20 g     O .rodata	00000008 PWMCHANNELS
+400aa880 g     O .bss	00000020 last_obstacle
+00fc2000  w      .boot1	00000000 vector30
+00fc2000  w      .boot1	00000000 vector841
+00fc6df0 g     F .text	0000002a vector382
+00fc2000  w      .boot1	00000000 vector883
+00fc0120 g     F .boot0	00000000 _IVOR4
+00fc8e40 g     F .text	00000050 ULD_GetAmbientRate
+400a9ae4 g     O .sdata	00000004 _impure_ptr
+00fc2000  w      .boot1	00000000 vector127
+00fd1f20 g     F .text	00000118 scalbn
+00fc2000  w      .boot1	00000000 vector551
+00fc2000  w      .boot1	00000000 vector1009
+00fc2000  w      .boot1	00000000 vector814
+00fc2000  w      .boot1	00000000 vector542
+00fc2000  w      .boot1	00000000 vector192
+00fc9c40 g     F .text	00000038 VL53L1X_StartRanging
+00fc2000  w      .boot1	00000000 vector516
+00fc2000  w      .boot1	00000000 vector166
+00fc2000  w      .boot1	00000000 vector434
+00fc9740 g     F .text	00000080 ULD_TurnOnSensor
+00fc2000  w      .boot1	00000000 vector594
+00fc2000  w      .boot1	00000000 vector590
+00fc2000  w      .boot1	00000000 vector76
+00fc2000  w      .boot1	00000000 vector75
+00fc2000  w      .boot1	00000000 vector545
+00fc2000  w      .boot1	00000000 vector195
+00fc2000  w      .boot1	00000000 vector587
+00fc2000  w      .boot1	00000000 vector500
+00fc2000  w      .boot1	00000000 vector150
+00fc2000  w      .boot1	00000000 vector304
+00fc4280 g     F .text	00000060 vector58
+00fc2000  w      .boot1	00000000 vector618
+00fc2000  w      .boot1	00000000 vector248
+00fc8f30 g     F .text	00000058 ULD_SetOffset
+00fc2000  w      .boot1	00000000 vector479
+00fc2000  w      .boot1	00000000 vector343
+00fc0110  w      .boot0	00000000 _IVOR0
+00fcaac0 g     F .text	00000050 VL53L1X_GetSpadNb
+00fc2000  w      .boot1	00000000 vector123
+00fc2000  w      .boot1	00000000 vector865
+00fc2000  w      .boot1	00000000 vector96
+00fc2000  w      .boot1	00000000 vector665
+00fc2000  w      .boot1	00000000 vector295
+00fc2000  w      .boot1	00000000 vector427
+00fc2000  w      .boot1	00000000 vector891
+00fc2000  w      .boot1	00000000 vector641
+00fc2000  w      .boot1	00000000 vector271
+00fc2000  w      .boot1	00000000 vector820
+00fc2000  w      .boot1	00000000 vector939
+00fc2000  w      .boot1	00000000 vector31
+00fc2000  w      .boot1	00000000 vector388
+00fc2000  w      .boot1	00000000 vector799
+00fc2000  w      .boot1	00000000 vector203
+00fc91b0 g     F .text	00000050 ULD_GetDistanceThresholdHigh
+00fc2000  w      .boot1	00000000 vector959
+400a9114 g     O .data	00000004 AEK_MOT_SM81M1_ARRAY_CONFIGURATION
+400a9eb0 g     O .bss	00000018 actual
+00fc2000  w      .boot1	00000000 vector684
+00fcb0b0 g     F .text	0000004a VL53L1X_GetDistanceThresholdHigh
+00fc2000  w      .boot1	00000000 vector987
+00fc2000  w      .boot1	00000000 vector139
+00fcc300 g     F .text	000003f0 spc_clock_init
+00fc2000  w      .boot1	00000000 vector503
+00fc2000  w      .boot1	00000000 vector153
+00fc2000  w      .boot1	00000000 vector514
+00fc2000  w      .boot1	00000000 vector164
+00fc2000  w      .boot1	00000000 vector973
+00fc2000  w      .boot1	00000000 vector1012
+00fc2000  w      .boot1	00000000 vector879
+00fc7190 g     F .text	00000072 vector914
+00fc2000  w      .boot1	00000000 vector563
+00fc2000  w      .boot1	00000000 vector902
+00fc2000  w      .boot1	00000000 vector949
+00fd5ee0 g     O .rodata	00000008 EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT
+00fc2000  w      .boot1	00000000 vector121
+00fc2000  w      .boot1	00000000 vector867
+00fcd740 g     F .text	0000002e sendMessage
+00fc2000  w      .boot1	00000000 vector754
+00fc2000  w      .boot1	00000000 vector5
+00fc2000  w      .boot1	00000000 vector320
+00fc2000  w      .boot1	00000000 vector517
+00fc2000  w      .boot1	00000000 vector167
+00fc8ee0 g     F .text	00000050 ULD_GetResult
+00fc2000  w      .boot1	00000000 vector944
+00fc2000  w      .boot1	00000000 vector505
+00fc2000  w      .boot1	00000000 vector155
+00fd1f10 g     F .text	00000008 nan
+00fc2000  w      .boot1	00000000 vector822
+00fc2000  w      .boot1	00000000 vector619
+00fc2000  w      .boot1	00000000 vector249
+400a9104 g     O .data	00000002 XshutMatrix
+00fc2000  w      .boot1	00000000 vector938
+00fc2000  w      .boot1	00000000 vector836
+00fc2000  w      .boot1	00000000 vector318
+00fc2000  w      .boot1	00000000 vector365
+00fc2000  w      .boot1	00000000 vector620
+00fc2000  w      .boot1	00000000 vector250
+00fc2000  w      .boot1	00000000 vector591
+00fcadb0 g     F .text	00000084 VL53L1X_SetXtalk
+00fc2000  w      .boot1	00000000 vector124
+00fd0fe0 g     F .text	000001ae __ieee754_sqrt
+00fc2000  w      .boot1	00000000 vector110
+00fc2000  w      .boot1	00000000 vector653
+00fc2000  w      .boot1	00000000 vector283
+00fc2000  w      .boot1	00000000 vector726
+00fc2000  w      .boot1	00000000 vector204
+00fc2000  w      .boot1	00000000 vector698
+00fc2000  w      .boot1	00000000 vector441
+400a8000 g       .stacks	00000000 __irq_stack_end__
+400a9c20 g     O .bss	00000004 PrevpwmStart
+00fc38e8 g     F .text	00000022 .hidden _savegpr_24
+00fc2000  w      .boot1	00000000 vector756
+00fc2000  w      .boot1	00000000 vector787
+00fcda70 g     F .text	00000014 stop_motor
+00fc2000  w      .boot1	00000000 vector749
+00fc2000  w      .boot1	00000000 vector966
+00fc2000  w      .boot1	00000000 vector484
+00fc2000  w      .boot1	00000000 vector630
+00fc5b30 g     F .text	0000001c vector260
+00fc2000  w      .boot1	00000000 vector137
+00fc0110  w      .boot0	00000000 _IVOR14
+00fc2000  w      .boot1	00000000 vector979
+00fc9270 g     F .text	00000054 ULD_GetROI_XY
+00fc2000  w      .boot1	00000000 vector330
+400c0000 g       .boot0	00000000 __ram_end__
+00fc2000  w      .boot1	00000000 vector561
+00fc2000  w      .boot1	00000000 vector923
+00fc2000  w      .boot1	00000000 vector617
+00fc2000  w      .boot1	00000000 vector247
+00fcd360 g     F .text	000000d2 ang_from_x_y
+00fc2000  w      .boot1	00000000 vector668
+00fc2000  w      .boot1	00000000 vector298
+00fc2000  w      .boot1	00000000 vector657
+00fc2000  w      .boot1	00000000 vector287
+00fc2000  w      .boot1	00000000 vector22
+00fc2000  w      .boot1	00000000 vector1019
+00fc8f90 g     F .text	00000050 ULD_GetOffset
+00fc0200  w    F .boot0	00000000 __eabi
+00fc5e50 g     F .text	00000092 i2c_lld_start
+00fc2000  w      .boot1	00000000 vector373
+00fc2000  w      .boot1	00000000 vector202
+00fc2000  w      .boot1	00000000 vector323
+00fc2000  w      .boot1	00000000 vector744
+00fc2000  w      .boot1	00000000 vector955
+00fc2000  w      .boot1	00000000 vector368
+00fc2000  w      .boot1	00000000 vector72
+00fc4160 g     F .text	00000060 vector55
+00fc2000  w      .boot1	00000000 vector934
+00fcbb90 g     F .text	000000bc VL53L1X_RdDWord
+00fc8820 g     F .text	0000004c ULD_ClearInterrupt
+00fc2000  w      .boot1	00000000 vector126
+00fc2000  w      .boot1	00000000 vector910
+00fc2000  w      .boot1	00000000 vector785
+00fc2000  w      .boot1	00000000 vector471
+00fc4520 g     F .text	00000060 vector65
+00fc2000  w      .boot1	00000000 vector28
+00fc0110  w      .boot0	00000000 _unhandled_exception
+00fc2000  w      .boot1	00000000 vector703
+00fc2000  w      .boot1	00000000 vector550
+00fc2000  w      .boot1	00000000 vector519
+00fc2000  w      .boot1	00000000 vector169
+00fcb360 g     F .text	0000004e VL53L1X_GetSignalThreshold
+00fc2000  w      .boot1	00000000 vector809
+00fc2000  w      .boot1	00000000 vector392
+00fc2000  w      .boot1	00000000 vector474
+00fc2000  w      .boot1	00000000 vector603
+00fc2000  w      .boot1	00000000 vector233
+00fc2000  w      .boot1	00000000 vector593
+00fc2000  w      .boot1	00000000 vector742
+00fc2000  w      .boot1	00000000 vector780
+00fca3b0 g     F .text	00000228 VL53L1X_SetDistanceMode
+00fc38d4 g     F .text	00000036 .hidden _savegpr_19
+00fcd120 g     F .text	0000002e sysTimeReset
+00fcb9f0 g     F .text	00000074 VL53L1X_WrDWord
+00fc2000  w      .boot1	00000000 vector413
+400a9aec g     O .sdata	00000004 __malloc_trim_threshold
+00fc0110  w      .boot0	00000000 _IVOR9
+00fc2000  w      .boot1	00000000 vector866
+00fccd20 g     F .text	00000014 osalSysTimeReset
+00fc8730 g     F .text	00000098 ULD_SetI2CAddress
+400a8000 g       .stacks	00000000 __irq_stack_base__
+400a8000 g       .stacks	00000000 __main_thread_stack_base__
+00fc2000  w      .boot1	00000000 vector821
+00fc0110  w      .boot0	00000000 _IVOR10
+00fcbae0 g     F .text	000000a4 VL53L1X_RdWord
+00fc9430 g     F .text	00000058 ULD_SetSigmaThreshold
+00fd50b0 g     F .text	00000106 __mdiff
+00fc8070 g     F .text	000000f0 EV_VNHx7xxx_PWMSetting
+00fc2000  w      .boot1	00000000 vector457
+00fc3910 g     F .text	00000052 .hidden _restgpr_14_x
+00fc0000 g       .boot0	00000000 __flash_start__
+00fc2000  w      .boot1	00000000 vector147
+00fd5f00 g     O .rodata	00000008 EV_VNH_ARRAY_BOARD_0IN_GPIO_PORT_NUMBER
+400aa8f4 g     O .bss	00000004 rotazione_inversa
+00fc2000  w      .boot1	00000000 vector642
+00fc2000  w      .boot1	00000000 vector272
+00fc2000  w      .boot1	00000000 vector874
+00fc2000  w      .boot1	00000000 vector766
+00fc2000  w      .boot1	00000000 vector633
+00fc5b10 g     F .text	0000001c vector263
+00fc2000  w      .boot1	00000000 vector581
+400a9be0 g     O .bss	00000010 LinflexD2
+00fc2000  w      .boot1	00000000 vector882
+00fcaa70 g     F .text	00000050 VL53L1X_GetSignalRate
+00fc38c8 g     F .text	00000042 .hidden _savegpr_16
+00fc2000  w      .boot1	00000000 vector685
+00fc2000  w      .boot1	00000000 vector104
+00fc2000  w      .boot1	00000000 vector831
+00fc2000  w      .boot1	00000000 vector1005
+00fc2000  w      .boot1	00000000 vector116
+400a907c g     O .data	00000028 pwm_config_AEK_EV_VNHx7xxxBoard0_J2_PWM_14
+00fc2000  w      .boot1	00000000 vector654
+00fc2000  w      .boot1	00000000 vector284
+00fc2000  w      .boot1	00000000 vector452
+00fc2000  w      .boot1	00000000 vector782
+00fc6ca0 g     F .text	000000e2 i2c_hw_init
+00fc2000  w      .boot1	00000000 vector768
+00fc2000  w      .boot1	00000000 vector869
+00fc2010 g     F .text	00000044 .hidden __fixunssfsi
+00fc2000  w      .boot1	00000000 vector992
+00fc2000  w      .boot1	00000000 vector699
+00fc2000  w      .boot1	00000000 vector439
+00fc3b10 g     F .text	000000a2 .hidden __fpcmp_parts_f
+00fc2000  w      .boot1	00000000 vector721
+00fc2000  w      .boot1	00000000 vector497
+00fc2000  w      .boot1	00000000 vector824
+00fc2000  w      .boot1	00000000 vector735
+00fc2000  w      .boot1	00000000 vector755
+400a910c g     O .data	00000004 AEK_SNS_VL53L1X_I2C_ARRAY_CONFIGURATION
+00fc2000  w      .boot1	00000000 vector315
+00fc2000  w      .boot1	00000000 vector976
+00fd5f60 g     O .rodata	00000014 m
+00fc2000  w      .boot1	00000000 vector640
+00fc2000  w      .boot1	00000000 vector270
+00fc2000  w      .boot1	00000000 vector717
+00fcb060 g     F .text	0000004a VL53L1X_GetDistanceThresholdLow
+00fc5ef0 g     F .text	000000e0 i2c_lld_write16
+00fc3f60 g     F .text	0000013e vector52
+00fc2000  w      .boot1	00000000 vector17
+00fc3900 g     F .text	0000000a .hidden _savegpr_30
+00fc2000  w      .boot1	00000000 vector360
+00fc2000  w      .boot1	00000000 vector534
+00fc2000  w      .boot1	00000000 vector184
+400a9110 g     O .data	00000004 AEK_MOT_SM81M1_ARRAY_DRIVER
+00fc2000  w      .boot1	00000000 vector577
+00fc392c g     F .text	00000036 .hidden _restgpr_21_x
+00fd52e0 g     F .text	00000014 strlen
+00fc2000  w      .boot1	00000000 vector683
+00fc2000  w      .boot1	00000000 vector358
+00fc2000  w      .boot1	00000000 vector446
+00fc6fa0 g     F .text	00000072 vector906
+00fc2000  w      .boot1	00000000 vector861
+00fc2000  w      .boot1	00000000 vector489
+00fc2000  w      .boot1	00000000 vector931
+00fc2000  w      .boot1	00000000 vector658
+00fc2000  w      .boot1	00000000 vector288
+00fc35d0 g     F .text	00000064 .hidden __gedf2
+00fc2000  w      .boot1	00000000 vector564
+00fc2000  w      .boot1	00000000 vector326
+00fc2000  w      .boot1	00000000 vector207
+00fc7210 g     F .text	0000006e vector915
+00fc2000  w      .boot1	00000000 vector540
+00fc2000  w      .boot1	00000000 vector190
+00fc3918 g     F .text	0000004a .hidden _restgpr_16_x
+00fc2000  w      .boot1	00000000 vector609
+00fc2000  w      .boot1	00000000 vector239
+00fc2000  w      .boot1	00000000 vector94
+00fc2000  w      .boot1	00000000 vector93
+00fcbd30 g     F .text	0000012e AEK_MOT_SM81M1drv_WriteSPIRegister
+400a9bf0 g     O .bss	00000008 EMIOS0D
+00fc2000  w      .boot1	00000000 vector567
+00fc2000  w      .boot1	00000000 vector538
+00fc2000  w      .boot1	00000000 vector188
+00fc2000  w      .boot1	00000000 vector585
+00fc2000  w      .boot1	00000000 vector636
+00fc2000  w      .boot1	00000000 vector266
+00fc2000  w      .boot1	00000000 vector411
+00fc2000  w      .boot1	00000000 vector692
+00fc2000  w      .boot1	00000000 vector847
+00fcfe70 g     F .text	00000028 componentsInit
+00fc2000  w      .boot1	00000000 vector48
+00fcd160 g     F .text	0000001c boardInit
+00fc3944 g     F .text	0000001e .hidden _restgpr_27_x
+00fcb100 g     F .text	00000040 VL53L1X_SetROICenter
+00fc4b60 g     F .text	000000cc sd_lld_start
+00fc38e0 g     F .text	0000002a .hidden _savegpr_22
+00fc2000  w      .boot1	00000000 vector659
+00fc2000  w      .boot1	00000000 vector289
+00fc2000  w      .boot1	00000000 vector663
+00fc2000  w      .boot1	00000000 vector293
+00fc2000  w      .boot1	00000000 vector957
+00fc2000  w      .boot1	00000000 vector310
+00fc2000  w      .boot1	00000000 vector219
+00fc2000  w      .boot1	00000000 vector936
+00fc2000  w      .boot1	00000000 vector148
+00fc2000  w      .boot1	00000000 vector221
+00fd04f0 g     F .text	000000ba acos
+00fc70a0 g     F .text	00000070 vector912
+00fc01f8  w    F .boot0	00000000 _main_exit_handler
+00fcd800 g     F .text	00000062 complete_calibrate
+00fc2000  w      .boot1	00000000 vector80
+00fc2000  w      .boot1	00000000 vector353
+00fc2000  w      .boot1	00000000 vector521
+00fc2000  w      .boot1	00000000 vector171
+00fc2000  w      .boot1	00000000 vector504
+00fc2000  w      .boot1	00000000 vector154
+00fc2000  w      .boot1	00000000 vector36
+00fc3024 g     F .text	00000062 .hidden __subdf3
+00fc2000  w      .boot1	00000000 vector894
+00fc2000  w      .boot1	00000000 vector605
+00fc2000  w      .boot1	00000000 vector235
+00fc2000  w      .boot1	00000000 vector105
+00fc2000  w      .boot1	00000000 vector849
+400a9000 g       .stacks	00000000 __process_stack_end__
+00fc9af0 g     F .text	00000038 VL53L1X_ClearInterrupt
+00fc2000  w      .boot1	00000000 vector716
+00fc2000  w      .boot1	00000000 vector340
+00fcd610 g     F .text	0000001c stop_motor_micro_part
+00fc2000  w      .boot1	00000000 vector851
+00fc2000  w      .boot1	00000000 vector449
+00fc2000  w      .boot1	00000000 vector405
+00fd4cb0 g     F .text	00000080 __lo0bits
+00fc2000  w      .boot1	00000000 vector800
+00fcd700 g     F .text	0000003e stringLen
+00fc2000  w      .boot1	00000000 vector385
+00fd5f10 g     O .rodata	00000008 EV_VNH_ARRAY_BOARD_1IN_GPIO_PORT_NUMBER
+00fcc6f0 g     F .text	00000014 __early_init
+400a9cf4 g     O .bss	00000004 status
+00fc2000  w      .boot1	00000000 vector338
+00fc2000  w      .boot1	00000000 vector969
+00fc2000  w      .boot1	00000000 vector146
+00fc8630 g     F .text	000000ce AEK_TOF_CONFIG
+00fc2000  w      .boot1	00000000 vector897
+00fc2000  w      .boot1	00000000 vector815
+00fc2000  w      .boot1	00000000 vector541
+00fc2000  w      .boot1	00000000 vector191
+00fc2884 g     F .text	0000004a .hidden __addsf3
+00fc2000  w      .boot1	00000000 vector103
+00fc0300 g       .boot1	00000000 IVORS
+00fcd560 g     F .text	000000ac motor_control_micro_part
+00fc2000  w      .boot1	00000000 vector669
+00fc2000  w      .boot1	00000000 vector299
+00001000 g       *ABS*	00000000 __process_stack_size__
+00fc2000  w      .boot1	00000000 vector926
+00fc2000  w      .boot1	00000000 vector781
+00fc3928 g     F .text	0000003a .hidden _restgpr_20_x
+00fc2000  w      .boot1	00000000 vector984
+00fc2000  w      .boot1	00000000 vector462
+00fc2000  w      .boot1	00000000 vector586
+00fc3bc0 g     F .text	000001fc .hidden __pack_d
+00fc2000  w      .boot1	00000000 vector350
+00fc2000  w      .boot1	00000000 vector997
+00fc2000  w      .boot1	00000000 vector854
+00fcb920 g     F .text	00000054 VL53L1X_WrByte
+00fccff0 g     F .text	0000001e osalEnterCriticalFromISR
+00fc2000  w      .boot1	00000000 vector941
+00fc2000  w      .boot1	00000000 vector454
+400a9eae g     O .bss	00000001 irq_state
+00fc2000  w      .boot1	00000000 vector708
+00fc2000  w      .boot1	00000000 vector679
+00fc2000  w      .boot1	00000000 vector406
+00fc2000  w      .boot1	00000000 vector397
+00fd05b0 g     F .text	000005b4 __ieee754_acos
+00fcb190 g     F .text	00000114 VL53L1X_SetROI
+00fd4bb0 g     F .text	0000009c __multadd
+00fc2000  w      .boot1	00000000 vector480
+00fc2000  w      .boot1	00000000 vector447
+00fd4b90 g     F .text	0000001a _Bfree
+00fc2000  w      .boot1	00000000 vector11
+00fc2000  w      .boot1	00000000 vector14
+00fc2000  w      .boot1	00000000 vector952
+00fc2000  w      .boot1	00000000 vector499
+00fc2000  w      .boot1	00000000 vector884
+
+
